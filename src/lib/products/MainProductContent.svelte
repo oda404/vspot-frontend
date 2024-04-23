@@ -36,9 +36,11 @@
                 {$l(`product.${product_title}.description`)}
             </h1>
         </div>
-        <div class="mt-auto hidden lg:block">
-            <PageList {pages} {current_page} />
-        </div>
+        {#if pages > 1}
+            <div class="mt-auto hidden lg:block">
+                <PageList {pages} {current_page} />
+            </div>
+        {/if}
     </div>
     <div class="h-[4px] rounded-full my-2 w-full" />
     <div class="flex flex-col lg:flex-row lg:space-x-4">
