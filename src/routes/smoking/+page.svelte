@@ -5,11 +5,19 @@
 
     export let data;
 
+    $: set_filters = data.set_filters;
+
     $: filters = data.filters.map((f) => {
         return {
             title: f.title,
             options: f.options.map((o) => {
-                return { name: o.name, matches: o.matches, selected: false };
+                return {
+                    name: o.name,
+                    matches: o.matches,
+                    selected: !!set_filters
+                        .find((sf) => sf.name === f.title)
+                        ?.values.find((val) => val === o.name),
+                };
             }),
         };
     });
@@ -19,6 +27,7 @@
     });
 
     $: products = data.products;
+
     $: pages = data.pages;
     $: current_page = data.current_page;
 </script>

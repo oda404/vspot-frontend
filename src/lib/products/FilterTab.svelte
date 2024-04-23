@@ -2,48 +2,12 @@
     import { l } from "$lib/langs";
     import FilterOption from "./FilterOption.svelte";
     import { goto } from "$app/navigation";
-    import { page } from "$app/stores";
+    import type { ProductSetFilter } from "./filters";
+    import { browser } from "$app/environment";
 
     export let filters: FilterTabOption[];
 
-    let url_filters = structuredClone(filters);
-    /* may god have mercy. This code sets filters based on the URL search query */
-    $: $page.url.searchParams.forEach((v, k) => {
-        let values = v.split("+");
-        values.forEach((val) => {
-            for (let i = 0; i < url_filters.length; ++i) {
-                if (url_filters[i].title === k) {
-                    for (let k = 0; k < url_filters[i].options.length; ++k) {
-                        if (url_filters[i].options[k].name === val)
-                            url_filters[i].options[k].selected = true;
-                    }
-                }
-            }
-        });
-        filters = url_filters;
-    });
-
-    let initial_filters = structuredClone(filters);
-
     let can_apply = false;
-
-    $: {
-        let changed = false;
-
-        for (let i = 0; i < filters.length; ++i) {
-            let filt1 = filters[i];
-            let filt2 = initial_filters[i];
-
-            for (let k = 0; k < filt1.options.length; ++k) {
-                if (filt1.options[k].selected !== filt2.options[k].selected)
-                    changed = true;
-            }
-
-            if (changed) break;
-        }
-
-        can_apply = changed;
-    }
 
     const apply_filters = () => {
         let url_params = new URLSearchParams(window.location.search);
@@ -77,7 +41,8 @@
                 }
             }
         }
-        initial_filters = structuredClone(filters);
+
+        can_apply = false;
         goto(`?${url_params.toString()}`);
     };
 </script>
@@ -94,6 +59,8 @@
                     );
                     filter.options[idx].selected =
                         !filter.options[idx].selected;
+
+                    can_apply = true;
                 }}
             />
         {/each}

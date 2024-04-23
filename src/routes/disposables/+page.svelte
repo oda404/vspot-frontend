@@ -1,19 +1,23 @@
 <script lang="ts">
     import { l } from "$lib/langs";
-    import PageList from "$lib/nav/PageList.svelte";
-    import FilterTab from "$lib/products/FilterTab.svelte";
     import MainProductContent from "$lib/products/MainProductContent.svelte";
-    import ProductsTab from "$lib/products/ProductsTab.svelte";
-    import SortTab from "$lib/products/SortTab.svelte";
     import { pagetitle_make } from "$lib/title";
 
     export let data;
+
+    $: set_filters = data.set_filters;
 
     $: filters = data.filters.map((f) => {
         return {
             title: f.title,
             options: f.options.map((o) => {
-                return { name: o.name, matches: o.matches, selected: false };
+                return {
+                    name: o.name,
+                    matches: o.matches,
+                    selected: !!set_filters
+                        .find((sf) => sf.name === f.title)
+                        ?.values.find((val) => val === o.name),
+                };
             }),
         };
     });

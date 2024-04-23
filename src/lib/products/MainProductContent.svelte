@@ -5,6 +5,7 @@
     import ProductsTab from "$lib/products/ProductsTab.svelte";
     import SortTab from "$lib/products/SortTab.svelte";
     import { pagetitle_make } from "$lib/title";
+    import type { ProductSetFilter } from "./filters";
     import {
         type Product,
         type ProductFilter,
