@@ -64,6 +64,8 @@ var translations = {
         "product.disposables.description": "Kituri preumplute de unica folosinta sau reincarcabile",
         "product.pouches.description": "Pliculete cu nicotina aplicate in partea de sus a buzei",
         "product.smoking.description": "Produse destinate fumatorilor de tutun",
+        "product.liquids.description": "Lichide, baze si nicotina pentru vapat",
+        "product.kits.description": "Kituri de vapat pentru incepatori si impatimiti",
 
         "nav.home": "Acasa",
         "nav.products": "Produse",
@@ -92,6 +94,7 @@ var translations = {
         "filteropt.100": "100 buc.",
         "filteropt.150": "150 buc.",
         "filteropt.true": "Da",
+        "filteropt.nicshot": "Shot nicotina",
 
         "sort.title": "Sorteaza",
         "sort.new": "Nou",
@@ -199,6 +202,8 @@ var translations = {
         "product.disposables.description": "One-time use kits",
         "product.pouches.description": "Nicotine pouches",
         "product.smoking.description": "Products geared towards tobacco smokers",
+        "product.liquids.description": "Liquids, bases and nicotine for vaping",
+        "product.kits.description": "Entry and advanced kits for vaping",
 
         "nav.home": "Home",
         "nav.products": "Products",
@@ -227,6 +232,7 @@ var translations = {
         "filteropt.100": "100 pcs.",
         "filteropt.150": "150 pcs.",
         "filteropt.true": "Yes",
+        "filteropt.nicshot": "Nicshot",
 
         "sort.title": "Sort by",
         "sort.new": "New",
@@ -283,6 +289,7 @@ var translations = {
         "age.description": "This site contains products geared towards people over {{n}}.",
     },
     "common": {
+        "filter.vgpg": "VG/PG",
         "filteropt.vozol": "Vozol",
         "filteropt.elfbar": "Elf bar",
         "filteropt.600": "600",
@@ -308,6 +315,15 @@ var translations = {
         "filteropt.6": "6mm",
         "filteropt.plastic": "Plastic",
         "filteropt.metal": "Metal",
+        "filteropt.40ml": "40ml",
+        "filteropt.20mg": "20mg",
+        "filteropt.50/50": "50/50",
+        "filteropt.puffbar": "Puff Bar",
+        "filteropt.guerrilla_flavors": "Guerrilla Flavors",
+        "filteropt.nicoboom": "Nico Boom",
+        "filteropt.aspire": "Aspire",
+        "filteropt.gotek": "Gotek",
+        "filteropt.gotekx2": "Gotek X2"
     }
 }
 
