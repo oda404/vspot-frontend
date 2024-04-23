@@ -28,7 +28,7 @@
             class="bg-vspot-primary-bg p-4 rounded-lg overflow-hidden max-w-[300px] relative"
         >
             <img
-                src="/images/vspot.png"
+                src="/images/vspot.webp"
                 alt="VSpot logo"
                 class="w-[80px] absolute z-0 right-[-6%] top-[-6%] rotate-[15deg] opacity-15"
             />

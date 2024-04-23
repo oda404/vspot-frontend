@@ -10,7 +10,7 @@
 <div class="flex space-x-4 lg:h-[160px]">
     <a href="/" class="mr-5 lg:mr-8">
         <img
-            src="/images/vspot.png"
+            src="/images/vspot.webp"
             class="h-[60px] lg:h-[100%] max-w-[200%] transform lg:rotate-[-15deg] transition-transform"
             alt="V Spot Logo"
         />

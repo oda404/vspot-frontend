@@ -7,7 +7,7 @@
         >
             <div class="flex flex-col items-center col-span-2 lg:col-span-1">
                 <img
-                    src="/images/vspot.png"
+                    src="/images/vspot.webp"
                     alt="V Spot Logo"
                     class="w-[150px]"
                 />
