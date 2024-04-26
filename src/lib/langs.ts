@@ -324,6 +324,9 @@ var translations = {
         "filteropt.aspire": "Aspire",
         "filteropt.gotek": "Gotek",
         "filteropt.gotekx2": "Gotek X2"
+    },
+    "fallback": {
+        "missing_translation": "Nu s-a gasit localizare"
     }
 }
 
@@ -336,8 +339,10 @@ export const l = derived(current_language, ($lang) => (title: string, props?: an
     let val = (translation as any)[title];
     if (!val) {
         val = (translations["common"] as any)[title];
-        if (!val)
-            throw new Error(`Key '${title}' has not been declared for language '${$lang}' nor for common!`);
+        if (!val) {
+            val = (translations.fallback as any)["missing_translation"];
+            // throw new Error(`Key '${title}' has not been declared for language '${$lang}' nor for common!`);
+        }
     }
 
     if (props) {
