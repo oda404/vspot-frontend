@@ -27,6 +27,8 @@
             global_disable_scroll = $scroll_lock.length > 0;
         }),
     );
+
+    export let user: UserDisplayInfo | undefined;
 </script>
 
 <svelte:window
@@ -50,7 +52,7 @@
     <AgeConfirmationOverlay />
     <BackendShatpantsOverlay />
     <div class="p-4 space-y-16 w-full lg:w-[1100px] z-10">
-        <TopNavBar />
+        <TopNavBar {user} />
         <main>
             <slot />
         </main>

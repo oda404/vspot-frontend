@@ -5,6 +5,10 @@
     import { faUser } from "@fortawesome/free-solid-svg-icons";
     import { l } from "./langs";
     import CartNav from "./cart/CartNav.svelte";
+    import type { UserDisplayInfo } from "./user/user";
+    import Fa from "svelte-fa";
+
+    export let user: UserDisplayInfo | undefined;
 </script>
 
 <div class="flex space-x-4 lg:h-[160px]">
@@ -30,13 +34,14 @@
     </nav>
 
     <div class="space-x-2 h-[45px] flex items-center text-vspot-primary-bg">
-        <NavItem
-            icon={faUser}
-            icon_size="lg"
-            text={$l("nav.login")}
-            only_show_on_lg
-            url="/login"
-        />
+        {#if user}
+            <div class="flex flex-col">
+                <Fa icon={faUser} size="lg" />
+                <div>{user.firstname}</div>
+            </div>
+        {:else}
+            <NavItem icon={faUser} icon_size="lg" url="/login" />
+        {/if}
     </div>
     <div class="h-[45px] flex items-center text-vspot-primary-bg">
         <CartNav />

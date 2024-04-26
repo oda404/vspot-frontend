@@ -8,8 +8,9 @@
         faCreditCard,
         faMoneyBill,
         faArrowLeft,
-        faVanShuttle,
     } from "@fortawesome/free-solid-svg-icons";
+
+    export let data;
 </script>
 
 <svelte:head>

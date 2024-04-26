@@ -21,6 +21,8 @@
     import { romanian_counties } from "$lib/input/romanian_counties";
     import { onDestroy } from "svelte";
 
+    export let data;
+
     let orderinfo: OrderInfo | undefined;
     onDestroy(
         ORDERINFO_STORE.subscribe(($orderinfo) => {
@@ -46,13 +48,17 @@
     $: if (payment_options.find((o) => o.selected))
         payment_option_error = false;
 
-    let firstname_data = new InputFieldContext(orderinfo?.info?.firstname);
+    let firstname_data = new InputFieldContext(
+        orderinfo?.info?.firstname || data.user?.firstname,
+    );
     firstname_data.validate = (value: string) => {
         if (value.length === 0) return "Ai uitat numele!";
         if (value.length > 256) return "Numele este prea lung!";
     };
 
-    let lastname_data = new InputFieldContext(orderinfo?.info?.lastname);
+    let lastname_data = new InputFieldContext(
+        orderinfo?.info?.lastname || data.user?.lastname,
+    );
     lastname_data.validate = (value: string) => {
         if (value.length === 0) return "Ai uitat numele!";
         if (value.length > 256) return "Numele este prea lung!";
@@ -240,15 +246,17 @@
                     </div>
                 {/if}
             </label>
-            <div class="flex justify-between">
-                <LinkButton
-                    bg="bg-vspot-primary-bg"
-                    href="/signup?from=order-info"
-                >
-                    <div>{$l("orderinfo.newaccount")}</div>
-                </LinkButton>
+            <div class="flex {data.user ? 'justify-end' : 'justify-between'}">
+                {#if !data.user}
+                    <LinkButton
+                        bg="bg-vspot-primary-bg"
+                        href="/signup?from=order-info"
+                    >
+                        <div>{$l("orderinfo.newaccount")}</div>
+                    </LinkButton>
+                {/if}
                 <button
-                    class="bg-vspot-green px-4 rounded-full"
+                    class="bg-vspot-green px-4 py-2 rounded-full"
                     on:click={() => validate_data_and_redirect()}
                 >
                     <div class="text-vspot-primary-bg">
