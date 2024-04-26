@@ -11,7 +11,9 @@ export default {
         'vspot-text-pimary': '#eeeeee',
         'vspot-text-hovered': '#dddddd',
         'vspot-text-error': '#ff0000',
-        'vspot-green': '#00ff01'
+        'vspot-green': '#00ff01',
+        'vspot-link': '#0055EE',
+        'vspot-link-hover': '#0000EE'
       },
       'animation': {
         'gradient': 'gradient 5s ease infinite',

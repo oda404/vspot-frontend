@@ -88,7 +88,7 @@
             description="Daca nu esti multumit de un produs iti trimitem altul sau banii inapoi"
         >
             <a
-                class="text-sm text-[#0055EE] hover:text-[#0000EE]"
+                class="text-sm text-vspot-link hover:text-vspot-link-hover"
                 href="/return-policy">*Vezi politica de retur</a
             >
         </SiteFeatureBox>
