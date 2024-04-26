@@ -140,6 +140,7 @@ var translations = {
         "description.badorder": "nu a putut fi gasita...",
         "easter.badorder": "Daca ai ajuns pe pagina asta ori a facut caca baza noastra de date pe ea, ori ai umblat la url paramter... sa dormi cu un ochi deschis la noapte",
 
+        "description.here": "aici",
         "description.ordernumber": "Comanda #",
         "description.orderplacedextrainfo": "Pentru mai multe detalii vezi rubrica Comenzi a profilului tau. Pentru oricare alte probleme ne poti contacta direct pe noi",
         "description.orderregistered": "a fost inregistrata! Vei primi cat de curand un email de confirmare",
@@ -283,6 +284,8 @@ var translations = {
         "description.ordercompleted": "has reached it's destination, that being you :3!",
 
         "description.badorder": "could not be found...",
+        "description.here": "here",
+
         "easter.badorder": "If you got here either our db shit the bed or you had a poke at the url paramter... sleep with one eye open",
 
         "age.confirmation": "Are you over {{n}}?",
