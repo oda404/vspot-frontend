@@ -40,7 +40,7 @@
         </div>
     </div>
     <div
-        class="justify-center mx-auto mt-2 border-vspot-secondary-bg pt-2 lg:w-[1100px]"
+        class="justify-center mx-auto mt-2 border-vspot-secondary-bg pt-2 lg:max-w-[1100px]"
     >
         <span
             >The V Spot este magazinul online pentru toate nevoiile tale ce au
