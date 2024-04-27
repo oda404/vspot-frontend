@@ -246,7 +246,7 @@ var translations = {
         "product.pouches": "Pouches",
         "product.cigs": "Cigarettes",
         "product.smoking": "Smoking",
-        "product.liquids": "Liquid",
+        "product.liquids": "Liquids",
 
         "product.disposables.description": "One-time use kits",
         "product.pouches.description": "Nicotine pouches",
@@ -420,7 +420,7 @@ var translations = {
         "filteropt.gotekx2": "Gotek X2"
     },
     "fallback": {
-        "missing_translation": "Nu s-a gasit localizare"
+        "missing_translation": "Missing localization"
     }
 }
 
@@ -434,7 +434,7 @@ export const l = derived(current_language, ($lang) => (title: string, props?: an
     if (!val) {
         val = (translations["common"] as any)[title];
         if (!val) {
-            val = (translations.fallback as any)["missing_translation"];
+            val = `${(translations.fallback as any)["missing_translation"]} for ${title}`;
             // throw new Error(`Key '${title}' has not been declared for language '${$lang}' nor for common!`);
         }
     }
