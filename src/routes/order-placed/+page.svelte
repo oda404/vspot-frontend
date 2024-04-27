@@ -19,17 +19,19 @@
 </script>
 
 {#if data.order}
-    <div class="mb-14 flex items-center space-x-8">
+    <div class="mb-4 flex lg:flex-row space-x-8 items-center">
         <div class="text-6xl font-semibold opacity-80">
             {$l("description.orderthankyou")}
         </div>
-        <Fa size="lg" scale="2.5" color="#00ff01" icon={faCircleCheck} />
+        <div class="hidden lg:block">
+            <Fa size="lg" scale="2.5" color="#00ff01" icon={faCircleCheck} />
+        </div>
     </div>
-    <div class="flex space-x-1">
-        <div class="text-2xl">
+    <div class="flex flex-col lg:flex-row space-x-1">
+        <div class="text-2xl whitespace-nowrap">
             {$l("description.ordernumber")}
         </div>
-        <div class="text-2xl text-vspot-green">
+        <div class="text-xl lg:text-2xl text-vspot-green whitespace-nowrap">
             {data.order.id}
         </div>
     </div>

@@ -134,12 +134,8 @@ var translations = {
         "description.pcs": "BUC.",
         "description.shippingtbd": "Vezi pe pagina urmatoare",
         "description.orderthankyou": "Multumim pentru comanda!",
-
         "description.details": "Detalii",
-
         "description.badorder": "nu a putut fi gasita...",
-        "easter.badorder": "Daca ai ajuns pe pagina asta ori a facut caca baza noastra de date pe ea, ori ai umblat la url paramter... sa dormi cu un ochi deschis la noapte",
-
         "description.here": "aici",
         "description.ordernumber": "Comanda #",
         "description.orderplacedextrainfo": "Pentru mai multe detalii vezi rubrica Comenzi a profilului tau. Pentru oricare alte probleme ne poti contacta direct pe noi",
@@ -147,6 +143,8 @@ var translations = {
         "description.orderconfirmed": "a fost confirmata, si in momentul asta o pregatim pentru livrare",
         "description.ordershipped": "se afla in drum spre tine!",
         "description.ordercompleted": "a ajung la destinatia ei, adica la tine! Pup dulce :3",
+
+        "easter.badorder": "Daca ai ajuns pe pagina asta ori a facut caca baza noastra de date pe ea, ori ai umblat la url paramter... sa dormi cu un ochi deschis la noapte",
 
         "age.confirmation": "Aveti peste {{n}} ani?",
         "age.description": "Acest site este destinat persoanelor cu varta peste {{n}} ani.",
