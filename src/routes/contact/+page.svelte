@@ -1,7 +1,12 @@
 <script>
     import { CONTACT_EMAIL, CONTACT_PHONE } from "$lib/contact/info";
     import { l } from "$lib/langs";
+    import { pagetitle_make } from "$lib/title";
 </script>
+
+<svelte:head>
+    <title>{pagetitle_make($l("page.contact"))}</title>
+</svelte:head>
 
 <section>
     <h1 class="text-6xl lg:text-8xl font-semibold opacity-80">Contact</h1>
