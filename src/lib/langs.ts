@@ -17,6 +17,10 @@ var translations = {
         "home.explore": "Exploreaza catalogul nostru",
         "home.explore.btn": "Vezi",
 
+        "page.login": "Intra in cont",
+        "page.signup": "Creeaza un cont",
+        "page.contact": "Contact",
+
         "orderinfo.personaldata": "Date de contact",
         "orderinfo.shippingaddress": "Adresa livrare",
         "orderinfo.billingaddress": "Adresa facturare",
@@ -112,6 +116,10 @@ var translations = {
         "action.change": "Schimba",
         "action.yes": "Da",
         "action.no": "Nu",
+        "action.login": "Intra in cont",
+        "action.loginshort": "Intra in cont",
+        "action.signup": "Creeza un cont",
+        "action.signup_short": "Creeaza cont",
 
         "description.outofstock": "Acest produs nu este in stoc :(",
         "description.addedtocart": "Adaugat in cos",
@@ -148,6 +156,29 @@ var translations = {
 
         "age.confirmation": "Aveti peste {{n}} ani?",
         "age.description": "Acest site este destinat persoanelor cu varta peste {{n}} ani.",
+
+        "user.firstname": "Numele",
+        "user.lastname": "Prenumele",
+        "user.email": "Email",
+        "user.password": "Parola",
+        "user.password_confirm": "Confirma parola",
+        "user.createaccount": "Creeaza un cont nou",
+        "user.forgorpassword": "Am uitat parola :(",
+        "user.password_requirements": "Parola trebuie sa fie compusa din minim 8 caractere",
+
+        "signup.tos_consent": "Accept termenii si conditiile serviciului",
+        "signup.tos_consent_missing": "Termenii si conditiile serviciului sunt obligatorii",
+        "signup.goto_login": "Am deja un cont",
+
+        "error.email_taken": "Acesta adresa de email a fost inregistrata deja",
+        "error.encountered_error": "Am intampinat o problema :(",
+        "error.encountered_error_description": "Incercati sa reincarcati pagina, daca problema persista contactati-ne",
+        "error.page404": "Pagina nu exista :(",
+        "error.page404_description": "Aceasta pagina ori a fost stearsa ori nu a existat de la inceput :3",
+        "error.password_forgot": "Ai uitat parola",
+        "error.password_e2big": "Parola este prea lunga",
+        "error.email": "Adresa de email este invalida",
+        "error.email_or_password_invalid": "Ai gresit adresa de email sau parola",
 
         "contact.description": "Pentru orice intrebari sau sesizari va stam la dispozitie prin urmatoarele canale de comunicare:",
         "contact.schedule": "Program contact: Luni - Vineri 10:30-18:30",
@@ -256,6 +287,8 @@ var translations = {
         "action.change": "Change",
         "action.yes": "Yes",
         "action.no": "No",
+        "action.login": "Login",
+        "action.signup": "Sign up",
 
         "description.outofstock": "This item is out of stock :(",
         "description.addedtocart": "Added to cart",
@@ -287,7 +320,6 @@ var translations = {
         "description.orderconfirmed": "has been confirmed, and we're getting it ready for shipping",
         "description.ordershipped": "is currently on it's way to you!",
         "description.ordercompleted": "has reached it's destination, that being you :3!",
-
         "description.badorder": "could not be found...",
         "description.here": "here",
 
@@ -295,6 +327,29 @@ var translations = {
 
         "age.confirmation": "Are you over {{n}}?",
         "age.description": "This site contains products geared towards people over {{n}}.",
+
+        "user.firstname": "Firstname",
+        "user.lastname": "Lastname",
+        "user.email": "Email",
+        "user.password": "Password",
+        "user.password_confirm": "Confirm password",
+        "user.createaccount": "Create a new account",
+        "user.forgorpassword": "I forgot my password :(",
+        "user.password_requirements": "The password must be at least 8 characters in length",
+
+        "signup.tos_consent": "I accept the terms of service",
+        "signup.tos_consent_missing": "The terms of service are mandatory",
+        "signup.goto_login": "I already have an account",
+
+        "error.email_taken": "This is email has already been registered",
+        "error.encountered_error": "We encountered a problem :(",
+        "error.encountered_error_description": "If this error persists you can contact us",
+        "error.page404": "This page does not exist :(",
+        "error.page404_description": "This page was either delete or it never existed :3",
+        "error.password_forgot": "You forgot the password",
+        "error.password_e2big": "The password is too long",
+        "error.email": "The email is invalid",
+        "error.email_or_password_invalid": "The email or the password in incorrect",
 
         "contact.description": "For any questions or feedback you can reach out to us through any of the following methods:",
         "contact.schedule": "Contact schedule: Monday - Friday 10:30-18:30",
