@@ -42,14 +42,17 @@
         {$l("cart.title")}
     </h1>
     <div class="h-[4px] rounded-full my-2 w-full" />
-    <div class="flex w-full space-x-4">
-        <div class="w-[70%] p-4 rounded-lg drop-shadow space-y-8">
+    <div class="flex flex-col lg:flex-row w-full lg:space-x-4">
+        <div class="lg:w-[70%] p-4 rounded-lg drop-shadow space-y-8">
             {#if cart_item_count}
                 {#each cart_items as item}
                     <div
                         class="flex space-x-4 pb-2 border-b border-vspot-secondary-bg"
                     >
-                        <a href="/product/{item.id}" class="w-[80px]">
+                        <a
+                            href="/product/{item.id}"
+                            class="w-[180px] lg:w-[80px]"
+                        >
                             <img
                                 src={item.preview_image_url}
                                 alt={`${item.name} preview`}
@@ -65,7 +68,9 @@
                                 {item.currency}
                             </div>
                         </div>
-                        <div class="flex items-center space-x-8 !ml-auto">
+                        <div
+                            class="flex items-center space-x-8 !ml-auto mt-auto"
+                        >
                             <button
                                 class="flex items-center space-x-2"
                                 on:click={() => {
@@ -138,7 +143,7 @@
         </div>
         {#if cart_item_count}
             <div
-                class="w-[30%] h-fit bg-vspot-primary-bg border border-vspot-secondary-bg p-4 rounded-lg drop-shadow space-y-4"
+                class="lg:w-[30%] h-fit bg-vspot-primary-bg border border-vspot-secondary-bg p-4 rounded-lg drop-shadow space-y-4"
             >
                 <div>
                     <div class="text-vspot-text-hovered text-xl">
