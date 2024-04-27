@@ -29,7 +29,7 @@
     <div
         class="flex w-full h-max items-center bg-vspot-primary-bg rounded-xl py-2 px-4 space-x-4"
     >
-        <h1 class=" text-lg text-vspot-text-hovered whitespace-nowrap">
+        <h1 class=" text-xl text-vspot-text-hovered whitespace-nowrap">
             {$l("sort.title")}
         </h1>
         <div>

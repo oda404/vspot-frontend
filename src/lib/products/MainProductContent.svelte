@@ -5,7 +5,6 @@
     import ProductsTab from "$lib/products/ProductsTab.svelte";
     import SortTab from "$lib/products/SortTab.svelte";
     import { pagetitle_make } from "$lib/title";
-    import type { ProductSetFilter } from "./filters";
     import {
         type Product,
         type ProductFilter,
@@ -30,11 +29,12 @@
             <h1 class="text-6xl lg:text-8xl font-semibold opacity-80">
                 {$l(`product.${product_title}`)}
             </h1>
-            <h1
+            <div class="my-4" />
+            <span
                 class="text-2xl font-semibold opacity-90 p-2 text-vspot-text-hovered"
             >
                 {$l(`product.${product_title}.description`)}
-            </h1>
+            </span>
         </div>
         {#if pages > 1}
             <div class="mt-auto hidden lg:block">
@@ -44,7 +44,9 @@
     </div>
     <div class="h-[4px] rounded-full my-2 w-full" />
     <div class="flex flex-col lg:flex-row lg:space-x-4">
-        <div class="w-fit lg:min-w-[23%] space-y-2 mb-2">
+        <div
+            class="w-fit lg:min-w-[23%] space-y-2 mb-2 divide-y divide-vspot-secondary-bg"
+        >
             <SortTab options={sort_options} />
             <FilterTab {filters} />
         </div>
