@@ -185,7 +185,19 @@ var translations = {
         "contact.phone": "Telefonic la:",
         "contact.fees": "*Tarifele standard se aplica",
         "contact.hq": "Sediu social: {{address}}",
-        "contact.capital": "Capital social: {{n}}"
+        "contact.capital": "Capital social: {{n}}",
+
+        "tos.title": "Termenii serviciului",
+        "privacy_policy.title": "Politica confidentialitate",
+        "cookie_policy.title": "Politica cookies",
+        "return_policy.title": "Politica retururi",
+
+        "footer.products": "Produse",
+        "footer.locations": "Locatii",
+        "footer.legal": "Prostii legale",
+        "footer.contact": "Contact",
+        "footer.seedetails": "Vezi detalii",
+        "footer.seo": "The V Spot este magazinul online pentru toate nevoiile tale ce au de a face cu nicotina. Tigari, vapeuri, kituri pentru vapat, lichide, baze, pouchuri, accesorii si nu numai! Toate acestea exclusiv de la cele mai bune branduri!"
     },
     "en": {
         "home.title": "Your one-stop for all your Vape needs",
@@ -356,7 +368,19 @@ var translations = {
         "contact.phone": "Telephone:",
         "contact.fees": "*Standard fees apply",
         "contact.hq": "Headquarters: {{address}}",
-        "contact.capital": "Equity capital: {{n}}"
+        "contact.capital": "Equity capital: {{n}}",
+
+        "tos.title": "Terms of service",
+        "privacy_policy.title": "Privacy policy",
+        "cookie_policy.title": "Cookie policy",
+        "return_policy.title": "Return policy",
+
+        "footer.products": "Products",
+        "footer.locations": "Locations",
+        "footer.legal": "Legal stuff",
+        "footer.contact": "Contact",
+        "footer.seedetails": "See details",
+        "footer.seo": "The V Spot is the online shop for all of your nicotine needs. Cigarettes, vapes, vaping kits, liquids, vaping bases, nicotine pouches, accessories and much more. Each and every one of them exclusively from top brands."
     },
     "common": {
         "filter.vgpg": "VG/PG",

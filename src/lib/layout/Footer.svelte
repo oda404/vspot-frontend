@@ -1,5 +1,6 @@
 <script>
     import { CONTACT_EMAIL, CONTACT_PHONE } from "$lib/contact/info";
+    import { l } from "$lib/langs";
 </script>
 
 <footer
@@ -18,44 +19,47 @@
                 <div class="font-bold">&copy; 2024 Terrible Fortune SRL</div>
             </div>
             <div>
-                <span class="font-bold">Produse</span>
-                <a class="block" href="/disposables">Disposables</a>
-                <a class="block" href="/pouches">Pouches</a>
-                <a class="block" href="/smoking">Articole tutungerie</a>
+                <span class="font-bold">{$l("footer.products")}</span>
+                <a class="block" href="/disposables"
+                    >{$l("product.disposables")}</a
+                >
+                <a class="block" href="/pouches">{$l("product.pouches")}</a>
+                <a class="block" href="/smoking">{$l("product.smoking")}</a>
+                <a class="block" href="/liquids">{$l("product.liquids")}</a>
+                <a class="block" href="/kits">{$l("product.kits")}</a>
             </div>
             <div>
-                <span class="font-bold">Locatii</span>
+                <span class="font-bold">{$l("footer.locations")}</span>
                 <address>RO Suceava, Falticeni, Ana Iapatescu 14</address>
             </div>
             <div>
-                <span class="font-bold">Prostii legale</span>
-                <a class="block" href="/tos">Termenii serviciului</a>
+                <span class="font-bold">{$l("footer.legal")}</span>
+                <a class="block" href="/tos">{$l("tos.title")}</a>
                 <a class="block" href="/privacy-policy"
-                    >Politica confidentialitate</a
+                    >{$l("privacy_policy.title")}</a
                 >
-                <a class="block" href="/cookies-policy">Politica cookies</a>
-                <a class="block" href="/return-policy">Politica retururi</a>
+                <a class="block" href="/cookies-policy"
+                    >{$l("cookie_policy.title")}</a
+                >
+                <a class="block" href="/return-policy"
+                    >{$l("return_policy.title")}</a
+                >
             </div>
             <div>
-                <span class="font-bold">Contact</span>
+                <span class="font-bold">{$l("footer.contact")}</span>
                 {#each CONTACT_EMAIL as email}
                     <address>{email}</address>
                 {/each}
                 {#each CONTACT_PHONE as phone}
                     <address>{phone}</address>
                 {/each}
-                <a href="/contact">Vezi detalii</a>
+                <a href="/contact">{$l("footer.seedetails")}</a>
             </div>
         </div>
     </div>
     <div
         class="justify-center mx-auto mt-2 border-vspot-secondary-bg pt-2 lg:max-w-[1100px]"
     >
-        <span
-            >The V Spot este magazinul online pentru toate nevoiile tale ce au
-            de a face cu nicotina. Tigari, vapeuri, kituri pentru vapat,
-            lichide, baze, pouchuri, accesorii si nu numai! Toate acestea
-            exclusiv de la cele mai bune branduri!
-        </span>
+        <span>{$l("footer.seo")}</span>
     </div>
 </footer>
