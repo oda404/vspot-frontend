@@ -29,7 +29,8 @@
         bind:value={data.value}
         spellcheck={false}
         {...{ type }}
-        class="bg-vspot-primary-bg p-2 px-4 w-full rounded-md border {data.error
+        class="bg-vspot-primary-bg p-2 px-4 w-full rounded-md border {typeof data.error !==
+        'undefined'
             ? 'border-vspot-text-error'
             : 'border-vspot-secondary-bg'} focus:border-vspot-green focus:outline-none"
     />
