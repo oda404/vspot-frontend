@@ -1,3 +1,7 @@
+<script>
+    import { CONTACT_EMAIL, CONTACT_PHONE } from "$lib/contact/info";
+</script>
+
 <footer
     class="bg-vspot-primary-bg border-t border-vspot-green w-full p-10 lg:p-20 flex flex-col justify-center z-[200]"
 >
@@ -34,8 +38,13 @@
             </div>
             <div>
                 <span class="font-bold">Contact</span>
-                <address>thevspot@gmail.com</address>
-                <address>+407xxxxxxxx</address>
+                {#each CONTACT_EMAIL as email}
+                    <address>{email}</address>
+                {/each}
+                {#each CONTACT_PHONE as phone}
+                    <address>{phone}</address>
+                {/each}
+                <a href="/contact">Vezi detalii</a>
             </div>
         </div>
     </div>

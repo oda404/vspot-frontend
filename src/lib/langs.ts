@@ -150,6 +150,13 @@ var translations = {
 
         "age.confirmation": "Aveti peste {{n}} ani?",
         "age.description": "Acest site este destinat persoanelor cu varta peste {{n}} ani.",
+
+        "contact.description": "Pentru orice intrebari sau sesizari va stam la dispozitie prin urmatoarele canale de comunicare:",
+        "contact.schedule": "Program contact: Luni - Vineri 10:30-18:30",
+        "contact.phone": "Telefonic la:",
+        "contact.fees": "*Tarifele standard se aplica",
+        "contact.hq": "Sediu social: {{address}}",
+        "contact.capital": "Capital social: {{n}}"
     },
     "en": {
         "home.title": "Your one-stop for all your Vape needs",
@@ -290,6 +297,13 @@ var translations = {
 
         "age.confirmation": "Are you over {{n}}?",
         "age.description": "This site contains products geared towards people over {{n}}.",
+
+        "contact.description": "For any questions or feedback you can reach out to us through any of the following methods:",
+        "contact.schedule": "Contact schedule: Monday - Friday 10:30-18:30",
+        "contact.phone": "Telephone:",
+        "contact.fees": "*Standard fees apply",
+        "contact.hq": "Headquarters: {{address}}",
+        "contact.capital": "Equity capital: {{n}}"
     },
     "common": {
         "filter.vgpg": "VG/PG",
