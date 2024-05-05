@@ -9,6 +9,7 @@
     import LayoutBgFoldSmall from "./LayoutBgFoldSmall.svelte";
     import BackendShatpantsOverlay from "$lib/backend_shatpants/BackendShatpantsOverlay.svelte";
     import type { UserDisplayInfo } from "$lib/user/user";
+    import CookieNotice from "$lib/cookies/CookieNotice.svelte";
 
     let bg_component: any = null;
     let rotate = false;
@@ -61,6 +62,7 @@
     {/if} -->
     <AgeConfirmationOverlay />
     <BackendShatpantsOverlay />
+    <CookieNotice />
     <div class="p-4 space-y-16 w-full lg:w-[1100px] z-10">
         <TopNavBar {user} />
         <main>
