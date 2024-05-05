@@ -27,13 +27,13 @@
 </script>
 
 <button
-    class="fixed left-0 top-0 w-full h-full bg-[rgba(0,0,0,0.5)] z-10 cursor-default"
+    class="fixed left-0 top-0 w-full h-full bg-[rgba(0,0,0,0.5)] z-[100] cursor-default"
     on:click={() => {
         on_close_cb();
     }}
 />
 <div
-    class="absolute bg-vspot-primary-bg w-[350px] right-[-14px] top-12 p-4 px-4 rounded-lg drop-shadow z-10 border-vspot-green"
+    class="absolute bg-vspot-primary-bg w-[350px] right-[-14px] top-12 p-4 px-4 rounded-lg drop-shadow z-[100] border-vspot-green"
 >
     <div class="flex items-center mb-2 justify-between">
         <div class="whitespace-nowrap text-vspot-green text-lg">
@@ -114,7 +114,7 @@
                     })}
                 </div>
                 <a
-                    class="rounded-full bg-vspot-green text-vspot-secondary-bg px-4 p-1 text-left hover:text-vspot-primary-bg"
+                    class="rounded-lg bg-vspot-green text-vspot-secondary-bg px-4 p-1 text-left hover:text-vspot-primary-bg"
                     href="/cart"
                 >
                     {$l("description.cartcheckout")}

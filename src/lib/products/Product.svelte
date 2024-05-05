@@ -31,7 +31,7 @@
         </a>
         {#if product.stock > 0}
             <div class="!mt-0">
-                <div class="text-xl text-vspot-text-hovered leading-tight">
+                <div class="text-2xl leading-tight">
                     {product.price}
                     {product.currency}
                 </div>

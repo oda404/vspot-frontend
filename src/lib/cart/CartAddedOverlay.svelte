@@ -16,7 +16,7 @@
 
 {#if show}
     <div
-        class="fixed top-0 left-0 w-full h-full bg-[rgba(0,0,0,0.5)] z-10 overflow-y-hidden"
+        class="fixed top-0 left-0 w-full h-full bg-[rgba(0,0,0,0.5)] z-[100] overflow-y-hidden"
     >
         <div class="h-full flex justify-center items-center drop-shadow-lg">
             <div
