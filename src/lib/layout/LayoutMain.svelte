@@ -8,6 +8,7 @@
     import LayoutBgFoldBig from "./LayoutBgFoldBig.svelte";
     import LayoutBgFoldSmall from "./LayoutBgFoldSmall.svelte";
     import BackendShatpantsOverlay from "$lib/backend_shatpants/BackendShatpantsOverlay.svelte";
+    import type { UserDisplayInfo } from "$lib/user/user";
 
     let bg_component: any = null;
     let rotate = false;

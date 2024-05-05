@@ -64,6 +64,7 @@ var translations = {
         "product.cigs": "Tigari",
         "product.smoking": "Tutungerie",
         "product.liquids": "Lichide",
+        "product.new": "Produse noi!",
 
         "product.disposables.description": "Kituri preumplute de unica folosinta sau reincarcabile",
         "product.pouches.description": "Pliculete cu nicotina aplicate in partea de sus a buzei",
@@ -120,6 +121,7 @@ var translations = {
         "action.loginshort": "Intra in cont",
         "action.signup": "Creeza un cont",
         "action.signup_short": "Creeaza cont",
+        "action.see_all": "Vezi toate",
 
         "description.outofstock": "Acest produs nu este in stoc :(",
         "description.addedtocart": "Adaugat in cos",
@@ -247,6 +249,7 @@ var translations = {
         "product.cigs": "Cigarettes",
         "product.smoking": "Smoking",
         "product.liquids": "Liquids",
+        "product.new": "Just in!",
 
         "product.disposables.description": "One-time use kits",
         "product.pouches.description": "Nicotine pouches",
@@ -301,6 +304,7 @@ var translations = {
         "action.no": "No",
         "action.login": "Login",
         "action.signup": "Sign up",
+        "action.see_all": "See all",
 
         "description.outofstock": "This item is out of stock :(",
         "description.addedtocart": "Added to cart",

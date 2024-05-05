@@ -41,3 +41,38 @@ export async function backendv1_get_products_all(
 
     return { status: res.status, body: await res.json() };
 }
+
+export async function backendv1_get_product_fullinfo(
+    id: string,
+    fetch: any
+): Promise<ServerResponse<V1ServerProductFullinfo>> {
+    const res = await fetch(
+        `${backendv1_endpoint()}/product/fullinfo?product_id=${id}`,
+        {
+            method: "GET",
+            headers: {
+                ...BACKENDV1_BASE_GET_HEADERS
+            }
+        }
+    );
+
+    return { status: res.status, body: await res.json() };
+}
+
+export async function backendv1_get_products_get_newest(
+    n: number,
+    fetch: any
+): Promise<ServerResponse<V1ServerProductDisplayData[]>> {
+
+    const res = await fetch(
+        `${backendv1_endpoint()}/product/newest?n=${n}`,
+        {
+            method: "GET",
+            headers: {
+                ...BACKENDV1_BASE_GET_HEADERS
+            }
+        }
+    );
+
+    return { status: res.status, body: await res.json() };
+}
