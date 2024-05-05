@@ -8,7 +8,7 @@
     export let description: string;
 </script>
 
-<div class="bg-vspot-primary-bg flex flex-col p-8 space-y-1">
+<div class=" flex flex-col p-8 space-y-1">
     {#if icon}
         <Fa size="lg" {icon} />
     {:else if icons}

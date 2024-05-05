@@ -7,17 +7,22 @@
     import Footer from "./Footer.svelte";
     import LayoutBgFoldBig from "./LayoutBgFoldBig.svelte";
     import LayoutBgFoldSmall from "./LayoutBgFoldSmall.svelte";
-    import LayoutBgFoldStraight from "./LayoutBgFoldStraight.svelte";
     import BackendShatpantsOverlay from "$lib/backend_shatpants/BackendShatpantsOverlay.svelte";
 
     let bg_component: any = null;
+    let rotate = false;
+
     $: {
-        if (["/", "/cart"].includes($page.url.pathname)) {
-            bg_component = [LayoutBgFoldSmall, LayoutBgFoldBig];
-        } else if ($page.url.pathname.startsWith("/order-")) {
-            bg_component = LayoutBgFoldStraight;
-        } else {
-            bg_component = LayoutBgFoldBig;
+        switch ($page.url.pathname) {
+            case "/":
+                bg_component = LayoutBgFoldSmall;
+                rotate = true;
+                break;
+
+            default:
+                bg_component = null;
+                rotate = false;
+                break;
         }
     }
 
@@ -41,14 +46,18 @@
     class="min-h-screen h-max w-[100%] flex justify-center bg-vspot-primary-bg relative overflow-x-hidden"
 >
     {#if bg_component}
+        <!-- <svelte:component this={bg_component} /> -->
+    {/if}
+    <LayoutBgFoldBig {rotate} />
+    <!-- {#if bg_component}
         {#if Array.isArray(bg_component)}
             {#each bg_component as comp}
-                <svelte:component this={comp} />
+                <svelte:component this={comp} {...prosp} />
             {/each}
         {:else}
             <svelte:component this={bg_component} />
         {/if}
-    {/if}
+    {/if} -->
     <AgeConfirmationOverlay />
     <BackendShatpantsOverlay />
     <div class="p-4 space-y-16 w-full lg:w-[1100px] z-10">

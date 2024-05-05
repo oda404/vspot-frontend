@@ -29,7 +29,7 @@
             <h1 class="text-6xl lg:text-8xl font-semibold opacity-80">
                 {$l(`product.${product_title}`)}
             </h1>
-            <div class="my-4" />
+            <div class="my-8" />
             <span
                 class="text-2xl font-semibold opacity-90 p-2 text-vspot-text-hovered"
             >

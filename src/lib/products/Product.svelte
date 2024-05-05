@@ -21,7 +21,9 @@
             class="rounded-t-xl"
         />
     </a>
-    <div class="p-2 h-full space-y-1 flex flex-col justify-between text-lg">
+    <div
+        class=" bg-vspot-secondary-bg p-2 h-full space-y-1 flex flex-col justify-between text-lg rounded-b-lg"
+    >
         <a href="/product/{product.internal_id}">
             <div class="leading-tight text-lg">
                 {product.name}

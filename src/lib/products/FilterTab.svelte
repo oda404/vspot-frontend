@@ -47,7 +47,7 @@
     };
 </script>
 
-<div class="w-full h-max bg-vspot-primary-bg py-2 px-4 space-y-1">
+<div class="w-full h-max rounded-lg bg-vspot-primary-bg py-2 px-4 space-y-1">
     <h1 class="text-xl text-vspot-text-hovered">{$l("filters.title")}</h1>
     <div class="space-y-1">
         {#each filters as filter}
