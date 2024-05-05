@@ -78,11 +78,20 @@
     </div>
     <div class="space-y-24 pb-24">
         <ProductShowcase name={$l("product.new")} {products} />
-        <ProductShowcase name={$l("product.pouches")} {products}>
-            <div>
-                <Pouch h={32} />
-            </div>
-        </ProductShowcase>
+        <div class="relative">
+            <div
+                class="
+                absolute inset-0 my-auto
+                h-[110%] w-[200%] lg:translate-y-[0%] translate-x-[-25%]
+                bg-vspot-secondary-bg opacity-40 -z-10 drop-shadow-lg
+            "
+            />
+            <ProductShowcase name={$l("product.pouches")} {products}>
+                <div>
+                    <Pouch h={32} />
+                </div>
+            </ProductShowcase>
+        </div>
         <ProductShowcase name={$l("product.kits")} {products}>
             <div>
                 <Kit h={32} />
@@ -93,7 +102,7 @@
                 class="
                     absolute inset-0 my-auto
                     h-[120%] lg:h-[180%] w-[200%] lg:translate-y-[10%] translate-x-[-25%] skew-y-3
-                    bg-vspot-secondary-bg -z-10 drop-shadow-lg
+                    bg-vspot-secondary-bg opacity-80 -z-10 drop-shadow-lg
                 "
             />
             <span class="text-2xl block"> Cele mai bune branduri </span>
