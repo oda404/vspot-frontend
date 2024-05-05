@@ -19,7 +19,7 @@
     on:mouseleave={() => (hovered = false)}
     class="flex items-center {!simple
         ? `p-2 px-4 ${!bg ? 'bg-vspot-purple' : bg} rounded-full`
-        : ''} space-x-2"
+        : ''} {hovered ? 'space-x-2' : 'space-x-3'}"
 >
     <slot />
     {#if hovered}
