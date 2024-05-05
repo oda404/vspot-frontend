@@ -33,7 +33,7 @@
 
     onDestroy(cart_store_unsubscribe);
 
-    $: if (!cart_items || cart_items.length === 0) goto("/cart");
+    $: if (!cart_items || cart_items.length === 0) goto("/");
 
     let orderinfo: OrderInfo | undefined;
     const orderinfo_store_unsubscribe = ORDERINFO_STORE.subscribe(
