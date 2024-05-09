@@ -241,7 +241,7 @@
                     </div>
                 </div>
                 <button
-                    class="bg-vspot-green w-full p-2 px-4 rounded-full text-vspot-primary-bg flex justify-center"
+                    class="bg-vspot-green w-full p-2 px-4 rounded-lg text-vspot-primary-bg flex justify-center"
                     disabled={order_submitting ||
                         typeof order_submit_error !== "undefined"}
                     on:click={() => order_submit()}

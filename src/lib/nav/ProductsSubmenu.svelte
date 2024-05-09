@@ -45,7 +45,16 @@
         </span>
     </ProductSubmenuItem>
 
-    <ProductSubmenuItem simple href="/pouches" bind:current_hover>
+    <ProductSubmenuItem
+        simple
+        href="/pouches"
+        bind:current_hover
+        suboptions={[
+            { name: "Slabe", href: "/pouches/weak" },
+            { name: "Moderate", href: "/pouches/mid" },
+            { name: "Sa te apere Dumnezeu", href: "/pouches/strong" },
+        ]}
+    >
         <span>
             {$l("product.pouches")}
         </span>
@@ -54,7 +63,7 @@
     <ProductSubmenuItem
         simple
         href="/liquids"
-        suboptions={[{ name: "Nicotina", href: "/liquid/nicotine" }]}
+        suboptions={[{ name: "Nicotina", href: "/liquids/nic" }]}
         bind:current_hover
     >
         <span>
@@ -65,7 +74,10 @@
     <ProductSubmenuItem
         simple
         href="/kits"
-        suboptions={[{ name: "Rezistente", href: "/kit/resistor" }]}
+        suboptions={[
+            { name: "Kituri incepatori", href: "/kits/entry" },
+            { name: "Rezistente", href: "/kits/resistor" },
+        ]}
         bind:current_hover
     >
         <span>

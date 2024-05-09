@@ -47,30 +47,32 @@
     };
 </script>
 
-<div class="w-full h-max rounded-lg bg-vspot-primary-bg py-2 px-4 space-y-1">
-    <h1 class="text-xl text-white">{$l("filters.title")}</h1>
-    <div class="space-y-1">
-        {#each filters as filter}
-            <FilterOption
-                {filter}
-                cb={(name) => {
-                    const idx = filter.options.findIndex(
-                        (s) => s.name === name,
-                    );
-                    filter.options[idx].selected =
-                        !filter.options[idx].selected;
+{#if filters.length > 0}
+    <div class="w-full h-max rounded-lg bg-vspot-primary-bg py-2 space-y-1">
+        <h1 class="text-lg text-white">{$l("filters.title")}</h1>
+        <div class="space-y-1">
+            {#each filters as filter}
+                <FilterOption
+                    {filter}
+                    cb={(name) => {
+                        const idx = filter.options.findIndex(
+                            (s) => s.name === name,
+                        );
+                        filter.options[idx].selected =
+                            !filter.options[idx].selected;
 
-                    can_apply = true;
-                }}
-            />
-        {/each}
+                        can_apply = true;
+                    }}
+                />
+            {/each}
+        </div>
+        {#if can_apply}
+            <button
+                class="flex items-center justify-center w-full !mt-2 bg-vspot-purple rounded-lg text-vspot-primary-bg hover:text-vspot-secondary-bg p-1"
+                on:click={apply_filters}
+            >
+                {$l("action.apply")}</button
+            >
+        {/if}
     </div>
-    {#if can_apply}
-        <button
-            class="flex items-center justify-center w-full !mt-2 bg-vspot-purple rounded-lg text-vspot-primary-bg hover:text-vspot-secondary-bg p-1"
-            on:click={apply_filters}
-        >
-            {$l("action.apply")}</button
-        >
-    {/if}
-</div>
+{/if}

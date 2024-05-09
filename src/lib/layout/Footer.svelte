@@ -44,6 +44,21 @@
                 <a class="block" href="/return-policy"
                     >{$l("return_policy.title")}</a
                 >
+                <a class="block mt-2" href="https://anpc.ro/ce-este-sal/">
+                    <img
+                        src="/images/legalstuff/sal.png"
+                        alt="Soluționarea Alternativă a Litigiilor"
+                    />
+                </a>
+                <a
+                    class="block"
+                    href="https://ec.europa.eu/consumers/odr/main/index.cfm?event=main.home2.show&lng=RO"
+                >
+                    <img
+                        src="/images/legalstuff/sol.webp"
+                        alt="Soluționarea Alternativă a Litigiilor"
+                    />
+                </a>
             </div>
             <div>
                 <span class="font-bold">{$l("footer.contact")}</span>
@@ -53,7 +68,9 @@
                 {#each CONTACT_PHONE as phone}
                     <address>{phone}</address>
                 {/each}
-                <a href="/contact">{$l("footer.seedetails")}</a>
+                <a class="text-vspot-link" href="/contact"
+                    >{$l("footer.seedetails")}</a
+                >
             </div>
         </div>
     </div>

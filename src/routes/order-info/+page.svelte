@@ -256,7 +256,7 @@
                     </LinkButton>
                 {/if}
                 <button
-                    class="bg-vspot-green px-4 py-2 rounded-full"
+                    class="bg-vspot-green px-4 py-2 rounded-lg"
                     on:click={() => validate_data_and_redirect()}
                 >
                     <div class="text-vspot-primary-bg">

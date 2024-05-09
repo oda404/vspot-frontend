@@ -41,12 +41,12 @@
             </span>
             <div class="flex space-x-4">
                 <a
-                    class="w-full bg-vspot-text-error p-2 rounded-full text-vspot-text-pimary mt-4 text-center"
+                    class="w-full bg-vspot-text-error p-2 rounded-lg text-vspot-text-pimary mt-4 text-center"
                     href="https://ro.wikipedia.org/wiki/Penitenciarul_Slobozia"
                     >{$l("action.no")}</a
                 >
                 <button
-                    class="w-full bg-vspot-green p-2 rounded-full text-vspot-primary-bg mt-4"
+                    class="w-full bg-vspot-green p-2 rounded-lg text-vspot-primary-bg mt-4"
                     on:click={() =>
                         ageconfirmation_store_set(ageconfirmation_minimum_age)}
                     >{$l("action.yes")}</button

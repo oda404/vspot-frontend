@@ -26,6 +26,24 @@ export type V1ServerProductListByCategory = {
     pages: number;
 }
 
+export type V1ServerProductListLandingPage = {
+    newest: V1ServerProductDisplayData[];
+    pouches: V1ServerProductDisplayData[];
+    kits: V1ServerProductDisplayData[];
+}
+
+export type V1ServerProductFullinfo = {
+    name: string;
+    image_url: string;
+    tags: { name: string; options: string[] }[];
+
+    /* These are handed by us */
+    price: number;
+    price_decimals: number;
+    currency: string;
+    stock: number;
+};
+
 export async function backendv1_get_products_all(
     category: string,
     search_params: string,
@@ -34,6 +52,7 @@ export async function backendv1_get_products_all(
 
     const res = await fetch(`${backendv1_endpoint()}/product/${category}/all?${search_params}`, {
         method: "GET",
+
         headers: {
             ...BACKENDV1_BASE_GET_HEADERS
         },
@@ -59,13 +78,12 @@ export async function backendv1_get_product_fullinfo(
     return { status: res.status, body: await res.json() };
 }
 
-export async function backendv1_get_products_get_newest(
-    n: number,
+export async function backendv1_get_products_landingpage(
     fetch: any
-): Promise<ServerResponse<V1ServerProductDisplayData[]>> {
+): Promise<ServerResponse<V1ServerProductListLandingPage>> {
 
     const res = await fetch(
-        `${backendv1_endpoint()}/product/newest?n=${n}`,
+        `${backendv1_endpoint()}/product/landingpage`,
         {
             method: "GET",
             headers: {
@@ -76,3 +94,4 @@ export async function backendv1_get_products_get_newest(
 
     return { status: res.status, body: await res.json() };
 }
+

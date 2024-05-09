@@ -5,7 +5,7 @@ import { error } from '@sveltejs/kit';
 
 export async function load({ fetch, url }) {
 
-    let res = await backendv1_get_products_all("pouches", url.searchParams.toString(), fetch);
+    let res = await backendv1_get_products_all("pouch", url.searchParams.toString(), fetch);
     if (res.status >= 500)
         error(res.status, { message: res.body.msg });
 

@@ -22,7 +22,7 @@
     {href}
     on:mouseenter={() => (current_hover = href)}
     class="relative flex items-center {!simple
-        ? `p-2 px-4 ${!bg ? 'bg-vspot-purple' : bg} rounded-full`
+        ? `p-2 px-4 ${!bg ? 'bg-vspot-purple' : bg} rounded-lg`
         : ''} {hovered ? 'space-x-2' : 'space-x-3'}"
 >
     <slot />

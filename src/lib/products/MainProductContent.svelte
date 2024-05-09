@@ -26,12 +26,14 @@
 <div>
     <div class="flex justify-between">
         <div>
-            <h1 class="text-6xl lg:text-8xl font-semibold opacity-80">
+            <h1
+                class="text-6xl lg:text-9xl font-[Blowhole] font-semibold opacity-80"
+            >
                 {$l(`product.${product_title}`)}
             </h1>
-            <div class="my-8" />
+            <div class="lg:my-4" />
             <span
-                class="text-2xl font-semibold opacity-90 p-2 text-vspot-text-hovered"
+                class="text-2xl font-semibold opacity-90 text-vspot-text-hovered"
             >
                 {$l(`product.${product_title}.description`)}
             </span>
@@ -42,7 +44,7 @@
             </div>
         {/if}
     </div>
-    <div class="h-[4px] rounded-full my-2 w-full" />
+    <div class="h-[4px] rounded-lg my-2 w-full" />
     <div class="flex flex-col lg:flex-row lg:space-x-4">
         <div
             class="w-fit lg:min-w-[23%] space-y-2 mb-2 divide-y divide-vspot-secondary-bg"
@@ -52,7 +54,7 @@
         </div>
         <div class="flex flex-col items-center space-y-4">
             <ProductsTab {products} />
-            <div class="rounded-full bg-vspot-secondary-bg size-2" />
+            <div class="rounded-lg bg-vspot-secondary-bg size-2" />
             <div class="p-4">
                 <PageList {pages} {current_page} />
             </div>

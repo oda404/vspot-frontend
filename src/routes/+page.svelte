@@ -19,7 +19,9 @@
 
     export let data;
 
-    const products = data.products;
+    const newest = data.products.newest;
+    const pouches = data.products.pouches;
+    const kits = data.products.kits;
 </script>
 
 <svelte:head>
@@ -27,13 +29,24 @@
 </svelte:head>
 
 <div class="space-y-4">
-    <div class="space-y-8 lg:w-[60%]">
-        <span class="text-7xl lg:text-8xl font-semibold opacity-80">
+    <div class="space-y-4 lg:w-[100%]">
+        <span
+            class="text-7xl font-[Blowhole] lg:text-9xl font-semibold opacity-80 block max-w-[80%]"
+        >
             {$l("home.title")}
         </span>
+        <span class="block text-lg opacity-80">
+            <span class="font-[Blowhole] font-bold text-3xl !opacity-100">
+                The V-Spot
+            </span>
+            are ca obiectiv sa-ti puna la dispozitie doar cele mai bune produse ce
+            au de a face cu nicotina! Vapes, kituri, pouchuri sau tigari clasice,
+            le gasesti la noi exclusiv de la cele mai bune branduri!
+        </span>
     </div>
+
     <div
-        class="w-full h-fit p-4 drop-shadow flex flex-col space-y-4 lg:space-y-0 lg:flex-row lg:justify-between"
+        class="w-full h-fit p-4 drop-shadow flex flex-col space-y-4 lg:space-y-0 lg:flex-row lg:justify-between !my-16 border-t border-vspot-secondary-bg"
     >
         <div class="flex space-x-4 items-center">
             <div class="rotate-[24deg]">
@@ -77,7 +90,11 @@
         </div>
     </div>
     <div class="space-y-24 pb-24">
-        <ProductShowcase name={$l("product.new")} {products} />
+        <ProductShowcase
+            href="/new"
+            name={$l("product.new")}
+            products={newest}
+        />
         <div class="relative">
             <div
                 class="
@@ -86,13 +103,17 @@
                 bg-vspot-secondary-bg opacity-40 -z-10 drop-shadow-lg
             "
             />
-            <ProductShowcase name={$l("product.pouches")} {products}>
+            <ProductShowcase
+                href="/pouches"
+                name={$l("product.pouches")}
+                products={pouches}
+            >
                 <div>
                     <Pouch h={32} />
                 </div>
             </ProductShowcase>
         </div>
-        <ProductShowcase name={$l("product.kits")} {products}>
+        <ProductShowcase href="/kits" name={$l("product.kits")} products={kits}>
             <div>
                 <Kit h={32} />
             </div>

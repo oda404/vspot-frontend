@@ -20,7 +20,7 @@
     >
         <div class="h-full flex justify-center items-center drop-shadow-lg">
             <div
-                class="bg-vspot-primary-bg p-4 max-w-[400px] rounded-lg space-y-4"
+                class="bg-vspot-primary-bg p-4 max-w-[400px] rounded-lg space-y-2"
             >
                 {#if !stock_error}
                     <div class="flex items-center">
@@ -31,31 +31,36 @@
                             <Fa size="lg" color="#dddddd" icon={faXmark} />
                         </button>
                     </div>
-                    <div class="flex space-x-4 items-center">
+                    <div class="flex space-x-4">
                         <img
                             src={item.preview_image_url}
                             alt={`${item.name} preview`}
-                            class="w-[40px] drop-shadow border border-vspot-secondary-bg rounded"
+                            class="h-[60px] drop-shadow border border-vspot-secondary-bg rounded"
                         />
-                        <div class="text-lg">
-                            {item.name}
-                        </div>
-                        <div class="mx-4" />
-                        <div class="text-xl !ml-auto whitespace-nowrap">
-                            <div class="ml-auto">
+                        <div>
+                            <div>
+                                {item.name}
+                            </div>
+                            <div class="text-lg leading-tight">
                                 {item.price}
                                 {item.currency}
                             </div>
                         </div>
                     </div>
-                    <div class="flex space-x-4">
-                        <button on:click={on_close_cb} class="text-vspot-green">
+                    <div class="flex space-x-16">
+                        <button
+                            on:click={on_close_cb}
+                            class="text-vspot-green mt-auto"
+                        >
                             {$l("action.continueshopping")}
                         </button>
                         <div class="!ml-auto" />
-                        <LinkButton href="/cart"
-                            ><div>{$l("action.seecart")}</div></LinkButton
+                        <a
+                            class="px-4 bg-vspot-green rounded-lg text-vspot-primary-bg p-1"
+                            href="/cart"
                         >
+                            {$l("action.seecart")}
+                        </a>
                     </div>
                 {:else}
                     <div class="flex items-center">
@@ -67,7 +72,7 @@
                         </button>
                     </div>
                     <div class="flex items-center">
-                        <div class="text-lg">
+                        <div>
                             {$l("description.cartlimithit")}
                         </div>
                     </div>

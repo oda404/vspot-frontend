@@ -4,6 +4,11 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face{
+    font-family: 'Blowhole';
+    src: url('/fonts/BlowholeBb-O2Kd.ttf');
+}
+
 * {
     font-family: "Work Sans", sans-serif;
     font-weight: 500;
@@ -12,7 +17,11 @@
 }
 
 a:hover {
-    @apply text-vspot-text-hovered;
+    filter: brightness(95%);
+}
+
+button:hover {
+    filter: brightness(95%);
 }
 
 ::-webkit-scrollbar {

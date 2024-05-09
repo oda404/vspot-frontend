@@ -14,7 +14,7 @@
     {href}
     on:mouseenter={() => (hovered = true)}
     on:mouseleave={() => (hovered = false)}
-    class="flex items-center p-1 px-4 bg-vspot-purple rounded-full space-x-2"
+    class="flex items-center p-1 px-4 bg-vspot-purple rounded-lg space-x-2"
 >
     <slot />
     {#if hovered}

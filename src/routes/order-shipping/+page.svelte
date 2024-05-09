@@ -205,7 +205,7 @@
             {/if}
         </div>
         <button
-            class="p-2 px-4 rounded-full bg-vspot-green text-vspot-primary-bg"
+            class="p-2 px-4 rounded-lg bg-vspot-green text-vspot-primary-bg"
             on:click={() => validate_shipping_and_redirect()}
             >{$l("ordership.next")}</button
         >

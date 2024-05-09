@@ -1,19 +1,16 @@
 
 
-import { PUBLIC_VSPOT_BACKEND_GLOBAL_URL, PUBLIC_VSPOT_BACKEND_LOCAL_URL } from '$env/static/public';
-import { browser } from '$app/environment';
+import { backendv1_get_product_fullinfo } from '$lib/backendv1/product.js';
+import { error } from '@sveltejs/kit';
 
-export async function load({ params, data, fetch, url }) {
+export async function load({ fetch, params }) {
 
-    const backend_url = browser ? PUBLIC_VSPOT_BACKEND_GLOBAL_URL : PUBLIC_VSPOT_BACKEND_LOCAL_URL;
-
-    const all_res = await fetch(`${backend_url}/v1/product/smoking/all?${url.searchParams.toString()}`);
-    const all_res_json = await all_res.json();
+    let res = await backendv1_get_product_fullinfo(params.id, fetch);
+    if (res.status >= 500)
+        error(res.status, { message: res.body.msg });
 
     return {
-        products: all_res_json["products"],
-        filters: all_res_json["filters"],
-        sort_options: ["new", "priceup", "pricedown"]
-    };
+        product: res.body.data!
+    }
 }
 

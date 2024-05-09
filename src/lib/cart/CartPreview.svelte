@@ -51,23 +51,20 @@
         {#if cart_items.length}
             {#each cart_items as item}
                 <div class="border-b border-vspot-secondary-bg p-2">
-                    <div class="flex space-x-2">
-                        <!-- <div class="min-w-[50px] min-h-[50px]">
-                            <img
-                                src={item.preview_image_url}
-
-                                alt={`${item.name} preview`}
-                                class="rounded"
-                            />
-                        </div> -->
+                    <div class="flex space-x-2 items-center">
+                        <img
+                            src={item.preview_image_url}
+                            alt={`${item.name} preview`}
+                            class="rounded max-w-[50px] max-h-[50px]"
+                        />
                         <div class="w-full">
-                            <div class="whitespace-nowrap overflow-hidden">
+                            <div class="overflow-hidden">
                                 {item.name}
                             </div>
                             <div
                                 class="w-full flex text-vspot-text-hovered justify-between space-y-1 items-center"
                             >
-                                <div class="text-lg whitespace-nowrap">
+                                <div class="text whitespace-nowrap">
                                     {item.price * item.qty}
                                     {item.currency}
                                 </div>

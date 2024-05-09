@@ -40,7 +40,7 @@
     </a>
 
     <nav
-        class="bg-vspot-primary-bg z-20 opacity-90 rounded-full space-x-8 px-8 w-full h-[45px] flex items-center drop-shadow-lg"
+        class="bg-vspot-primary-bg border-2 border-vspot-purple border-opacity-80 z-20 opacity-90 rounded-full space-x-8 px-8 w-full h-[45px] flex items-center drop-shadow-lg"
     >
         <div class="relative z-20">
             <button

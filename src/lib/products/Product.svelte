@@ -13,7 +13,7 @@
     let adding_load = false;
 </script>
 
-<div class="w-full bg-vspot-primary-bg rounded-xl drop-shadow flex flex-col">
+<div class="w-full rounded-xl drop-shadow flex flex-col">
     <a href="/product/{product.internal_id}">
         <img
             src={product.image_url}
@@ -22,25 +22,25 @@
         />
     </a>
     <div
-        class=" bg-vspot-secondary-bg p-2 h-full space-y-1 flex flex-col justify-between text-lg rounded-b-lg"
+        class="p-2 h-full space-y-1 flex flex-col justify-between text-lg rounded-b-lg"
     >
         <a href="/product/{product.internal_id}">
-            <div class="leading-tight text-lg">
+            <div class="leading-tight text-md">
                 {product.name}
             </div>
         </a>
         {#if product.stock > 0}
             <div class="!mt-0">
-                <div class="text-2xl leading-tight">
+                <div class="text-xl leading-tight">
                     {product.price}
                     {product.currency}
                 </div>
                 <div class="text-sm text-vspot-green leading-tight">
-                    {$l("description.stock", { n: product.stock })}
+                    {$l("description.instock")}
                 </div>
             </div>
             <button
-                class="bg-vspot-green text-vspot-primary-bg p-2 rounded-md ml-auto flex items-center space-x-2 w-full"
+                class="bg-vspot-green text-vspot-primary-bg px-2 p-1 rounded ml-auto flex items-center space-x-2 w-full"
                 disabled={adding_load}
                 on:click={() => {
                     adding_load = true;
@@ -52,16 +52,19 @@
                 <Fa
                     color="#181a1b"
                     class={adding_load ? "animate-spin" : ""}
+                    size="xs"
                     icon={adding_load ? faSpinner : faCartArrowDown}
                 />
-                {#if !adding_load}
-                    <div class="text-vspot-primary-bg">
+                <div class="text-vspot-primary-bg">
+                    {#if !adding_load}
                         {$l("action.addtocart")}
-                    </div>
-                {/if}
+                    {:else}
+                        ...
+                    {/if}
+                </div>
             </button>
         {:else}
-            <div class="py-1 text-vspot-text-hovered">
+            <div class="py-1 text-vspot-text-hovered text-sm">
                 {$l("description.outofstock")}
             </div>
         {/if}

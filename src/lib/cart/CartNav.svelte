@@ -49,22 +49,18 @@
             show_overlay = false;
         }}
     />
-    <button
-        on:click={() => {
-            cart_opened = !cart_opened;
-        }}
-    >
-        <Fa icon={faCartShopping} size="lg" />
-    </button>
-    {#if item_count > 0}
-        <div
-            class="absolute flex items-center justify-center left-[3px] top-[20px] w-[18px] h-[18px] bg-vspot-secondary-bg rounded-full drop-shadow-lg"
+    <div class="flex flex-col items-center">
+        <button
+            on:click={() => {
+                cart_opened = !cart_opened;
+            }}
         >
-            <div class="text-sm">
-                {item_count > 9 ? "9+" : item_count}
-            </div>
-        </div>
-    {/if}
+            <Fa icon={faCartShopping} size="lg" />
+        </button>
+        {#if item_count > 0}
+            <div>{item_count}</div>
+        {/if}
+    </div>
     {#if cart_opened}
         <CartPreview
             {cart}

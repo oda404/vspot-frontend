@@ -38,10 +38,10 @@
 </script>
 
 <div>
-    <h1 class="text-6xl lg:text-8xl font-semibold opacity-80">
+    <h1 class="text-6xl lg:text-9xl font-[Blowhole] font-semibold opacity-80">
         {$l("cart.title")}
     </h1>
-    <div class="h-[4px] rounded-full my-2 w-full" />
+    <div class="h-[4px] rounded-lg my-2 w-full" />
     <div class="flex flex-col lg:flex-row w-full lg:space-x-4">
         <div class="lg:w-[70%] p-4 rounded-lg drop-shadow space-y-8">
             {#if cart_item_count}
@@ -125,9 +125,7 @@
                     {#if flash_add_in_progress}
                         <Spinner />
                     {:else}
-                        <div
-                            class="bg-vspot-secondary-bg rounded-full w-2 h-2"
-                        />
+                        <!-- <div class="bg-vspot-secondary-bg rounded-lg w-2 h-2" /> -->
                     {/if}
                 </div>
             {:else}

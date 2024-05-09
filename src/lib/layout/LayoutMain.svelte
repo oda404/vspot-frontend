@@ -50,7 +50,7 @@
     {#if bg_component}
         <!-- <svelte:component this={bg_component} /> -->
     {/if}
-    <LayoutBgFoldBig {rotate} />
+    <!-- <LayoutBgFoldBig {rotate} /> -->
     <!-- {#if bg_component}
         {#if Array.isArray(bg_component)}
             {#each bg_component as comp}

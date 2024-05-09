@@ -9,7 +9,9 @@
 </svelte:head>
 
 <section>
-    <h1 class="text-6xl lg:text-8xl font-semibold opacity-80">Contact</h1>
+    <h1 class="text-6xl lg:text-9xl font-[Blowhole] font-semibold opacity-80">
+        Contact
+    </h1>
     <div class="my-4" />
     <span class="text-lg font-semibold opacity-90 text-vspot-text-hovered">
         {$l("contact.description")}
