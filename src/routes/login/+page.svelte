@@ -21,6 +21,8 @@
         if (value.length > 256) return "Parola este prea lunga";
     };
 
+    let remember_me: boolean = false;
+
     let login_in_progress = false;
     let login_error_msg = "";
 
@@ -37,7 +39,7 @@
 
         login_in_progress = true;
 
-        backendv1_post_user_login(email.value, password.value)
+        backendv1_post_user_login(email.value, password.value, remember_me)
             .then((res) => {
                 login_in_progress = false;
                 if (res.status !== 200) {
@@ -97,9 +99,15 @@
                 label={$l("user.password")}
                 bind:data={password}
             />
-            <a href="/forgor-password" class="block">
-                {$l("user.forgorpassword")}
-            </a>
+            <div class="flex justify-between">
+                <a href="/forgor-password" class="block">
+                    {$l("user.forgorpassword")}
+                </a>
+                <label>
+                    <input type="checkbox" bind:value={remember_me} />
+                    {$l("action.remember_me")}
+                </label>
+            </div>
             {#if login_error_msg}
                 <span class="text-vspot-text-error block !mt-2"
                     >{$l(login_error_msg)}</span

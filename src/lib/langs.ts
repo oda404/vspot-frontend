@@ -146,6 +146,7 @@ var translations = {
         "action.signup": "Creeza un cont",
         "action.signup_short": "Creeaza cont",
         "action.see_all": "Vezi toate",
+        "action.remember_me": "Tine-ma minte",
 
         "description.outofstock": "Acest produs nu este in stoc :(",
         "description.instock": "In stoc",
@@ -360,6 +361,7 @@ var translations = {
         "action.login": "Login",
         "action.signup": "Sign up",
         "action.see_all": "See all",
+        "action.remember_me": "Remember me",
 
         "description.outofstock": "This item is out of stock :(",
         "description.instock": "In stock",

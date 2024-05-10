@@ -43,7 +43,7 @@ export async function backendv1_get_user_display_info(fetch: any): Promise<Serve
     return { status: res.status, body: await res.json() };
 }
 
-export async function backendv1_post_user_login(email: string, password: string): Promise<ServerResponse<string>> {
+export async function backendv1_post_user_login(email: string, password: string, remember_me: boolean): Promise<ServerResponse<string>> {
 
     const res = await fetch(`${backendv1_endpoint()}/user/login`, {
         method: "POST",
@@ -51,8 +51,18 @@ export async function backendv1_post_user_login(email: string, password: string)
             ...BACKENDV1_BASE_POST_HEADERS
         },
         credentials: 'include',
-        body: JSON.stringify({ user_info: { email, password } })
+        body: JSON.stringify({ user_info: { email, password, remember_me } })
     });
 
     return { status: res.status, body: await res.json() };
+}
+
+export async function backendv1_post_user_logout(): Promise<void> {
+    await fetch(`${backendv1_endpoint()}/user/logout`, {
+        method: "POST",
+        headers: {
+            ...BACKENDV1_BASE_POST_HEADERS
+        },
+        credentials: 'include',
+    });
 }
