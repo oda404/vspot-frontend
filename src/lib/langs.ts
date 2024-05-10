@@ -231,6 +231,11 @@ var translations = {
         "home.explore": "Check out our catalogue",
         "home.explore.btn": "Let's go",
 
+        "page.login": "Login",
+        "page.signup": "Sign up",
+        "page.contact": "Contact",
+        "page.cookie_policy": "Cookie policy",
+
         "orderinfo.personaldata": "Contact",
         "orderinfo.shippingaddress": "Shipping address",
         "orderinfo.billingaddress": "Billing address",
