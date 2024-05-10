@@ -5,5 +5,5 @@ export function shipping_get_methods(weight_grams = 100) {
 }
 
 export function shipping_methods_get_img_url(value: string) {
-    return `/images/shipping/${value}.png`;
+    return `/images/shipping/${value}.webp`;
 }

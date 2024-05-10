@@ -65,7 +65,7 @@
                 return {
                     value: method.name,
                     display: method.display,
-                    image_url: `/images/shipping/${method.name}.png`,
+                    image_url: `/images/shipping/${method.name}.webp`,
                     cost_value: { cost: method.cost.price, currency: "RON" },
                     delivery_time_value: delivery_time,
                     selected: orderinfo!.shipping_method?.value === method.name,

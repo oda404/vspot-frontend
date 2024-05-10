@@ -43,7 +43,7 @@
                 >
                 <a class="block mt-2" href="https://anpc.ro/ce-este-sal/">
                     <img
-                        src="/images/legalstuff/sal.png"
+                        src="/images/legalstuff/sal.webp"
                         alt="Soluționarea Alternativă a Litigiilor"
                     />
                 </a>

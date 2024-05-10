@@ -135,12 +135,12 @@
                 class="grid lg:flex lg:justify-between grid-cols-1 gap-y-24 mt-8"
             >
                 <img
-                    src="/images/vozol/vozol.png"
+                    src="/images/vozol/vozol.webp"
                     alt="Vozol"
                     class="h-[60px]"
                 />
                 <img
-                    src="/images/elfv2/elfbar.png"
+                    src="/images/elfv2/elfbar.webp"
                     alt="Elf Bar"
                     class="h-[60px]"
                 />
@@ -182,7 +182,7 @@
                     </a>
                 </SiteFeatureBox>
                 <SiteFeatureBox
-                    img_url={"/images/ahh.png"}
+                    img_url={"/images/ahh.webp"}
                     title="Satisfactie totala"
                     description="Atat am avut de spus"
                 />
