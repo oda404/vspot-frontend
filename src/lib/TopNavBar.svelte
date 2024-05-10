@@ -9,6 +9,7 @@
     import Fa from "svelte-fa";
     import ProductsSubmenu from "./nav/ProductsSubmenu.svelte";
     import { beforeNavigate } from "$app/navigation";
+    import UserNav from "./user/UserNav.svelte";
 
     export let user: UserDisplayInfo | undefined;
 
@@ -60,15 +61,8 @@
         <LanguageSwitch />
     </nav>
 
-    <div class="space-x-2 h-[45px] flex items-center text-vspot-primary-bg">
-        {#if user}
-            <div class="flex flex-col">
-                <Fa icon={faUser} size="lg" />
-                <div>{user.firstname}</div>
-            </div>
-        {:else}
-            <NavItem icon={faUser} icon_size="lg" url="/login" />
-        {/if}
+    <div class="h-[45px] flex items-center text-vspot-primary-bg">
+        <UserNav {user} />
     </div>
     <div class="h-[45px] flex items-center text-vspot-primary-bg">
         <CartNav />
