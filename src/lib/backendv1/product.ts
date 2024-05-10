@@ -52,7 +52,6 @@ export async function backendv1_get_products_all(
 
     const res = await fetch(`${backendv1_endpoint()}/product/${category}/all?${search_params}`, {
         method: "GET",
-
         headers: {
             ...BACKENDV1_BASE_GET_HEADERS
         },

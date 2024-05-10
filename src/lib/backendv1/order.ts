@@ -62,6 +62,7 @@ export async function backendv1_post_order_submit(orderinfo: V1ClientOrderInfo):
     const BASE_ENDPOINT = backendv1_endpoint();
     const res = await fetch(`${BASE_ENDPOINT}/order/register`, {
         method: "POST",
+        credentials: "include",
         headers: {
             ...BACKENDV1_BASE_POST_HEADERS
         },
