@@ -13,13 +13,14 @@ export function current_language_set(lang: string) {
 
 var translations = {
     "ro": {
-        "home.title": "Noul tau magazin Vape & Tobacco!",
+        "home.title": "Noul tau magazin Vapes & Tobacco!",
         "home.explore": "Exploreaza catalogul nostru",
         "home.explore.btn": "Vezi",
 
         "page.login": "Intra in cont",
         "page.signup": "Creeaza un cont",
         "page.contact": "Contact",
+        "page.cookie_policy": "Politica cookies",
 
         "orderinfo.personaldata": "Date de contact",
         "orderinfo.shippingaddress": "Adresa livrare",

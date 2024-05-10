@@ -35,10 +35,7 @@
             <div>
                 <span class="font-bold">{$l("footer.legal")}</span>
                 <a class="block" href="/tos">{$l("tos.title")}</a>
-                <a class="block" href="/privacy-policy"
-                    >{$l("privacy_policy.title")}</a
-                >
-                <a class="block" href="/cookies-policy"
+                <a class="block" href="/cookie-policy"
                     >{$l("cookie_policy.title")}</a
                 >
                 <a class="block" href="/return-policy"
