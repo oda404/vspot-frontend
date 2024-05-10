@@ -175,9 +175,7 @@
                     title="Retur gratuit"
                     description="Daca nu esti multumit de un produs iti trimitem altul sau banii inapoi"
                 >
-                    <a
-                        class="text-sm text-vspot-link hover:text-vspot-link-hover"
-                        href="/return-policy"
+                    <a class="text-sm text-vspot-link" href="/return-policy"
                         >*Vezi politica de retur
                     </a>
                 </SiteFeatureBox>

@@ -36,7 +36,7 @@
     class="absolute bg-vspot-primary-bg w-[350px] right-[-14px] top-12 p-4 px-4 rounded-lg drop-shadow z-[100] border-vspot-green"
 >
     <div class="flex items-center mb-2 justify-between">
-        <div class="whitespace-nowrap text-vspot-green text-lg">
+        <div class="whitespace-nowrap text-vspot-green text-md">
             {$l("description.yourcart")}
         </div>
         <button

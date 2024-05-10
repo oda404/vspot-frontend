@@ -195,7 +195,7 @@
                     <img
                         src={data.product.image_url}
                         alt={`${data.product.name} preview`}
-                        class="rounded border border-vspot-secondary-bg"
+                        class="rounded"
                     />
                 </a>
                 <div class="flex flex-col justify-between">

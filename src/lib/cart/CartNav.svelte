@@ -54,12 +54,13 @@
             on:click={() => {
                 cart_opened = !cart_opened;
             }}
+            aria-label="Cart"
         >
             <Fa icon={faCartShopping} size="lg" />
+            {#if item_count > 0}
+                <span class="text-sm">{item_count}</span>
+            {/if}
         </button>
-        {#if item_count > 0}
-            <div>{item_count}</div>
-        {/if}
     </div>
     {#if cart_opened}
         <CartPreview
