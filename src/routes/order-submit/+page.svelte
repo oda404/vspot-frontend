@@ -18,6 +18,8 @@
     } from "$lib/backendv1/order";
     import { backend_shatpants_store } from "$lib/backend_shatpants/backend_shatpants";
     import Spinner from "$lib/Spinner.svelte";
+    import Turnstile from "$lib/turnstile/Turnstile.svelte";
+    import { PUBLIC_VSPOT_TURNSTILE_SITE_KEY } from "$env/static/public";
 
     let cart_items: CartProduct[];
     let currency: string;
@@ -55,6 +57,10 @@
     let order_submitting = false;
     let order_submit_error: string | undefined;
 
+    let turnstile_response: string | undefined;
+    let turnstile_error = false;
+    let turnstile_mounted = false;
+
     const order_submit = () => {
         order_submitting = true;
         const info: V1ClientOrderInfo = {
@@ -82,10 +88,13 @@
             shipping_method: orderinfo!.shipping_method!.value,
         };
 
-        backendv1_post_order_submit(info)
+        backendv1_post_order_submit(info, turnstile_response!)
             .then((res) => {
                 order_submitting = false;
                 if (res.status !== 200) {
+                    turnstile_mounted = false;
+                    turnstile_response = undefined;
+
                     order_submit_error = "description.failedordersubmit";
                     return;
                 }
@@ -193,69 +202,95 @@
                     {/each}
                 </div>
             </div>
-            <div
-                class="w-full bg-vspot-primary-bg h-fit rounded-lg space-y-4 p-4 border border-vspot-secondary-bg"
-            >
-                <div class="text-lg text-vspot-text-hovered">
-                    {$l("order.sendorder")}
-                </div>
-                <div class="flex justify-between">
-                    <div class="text-vspot-text-hovered">
-                        {$l("payment.payment")}:&nbsp;{$l(
-                            `payment.${orderinfo?.payment_option}`,
-                        )}
-                    </div>
-                    <a class="text-vspot-text-hovered" href="/order-info"
-                        >{$l("action.change")}</a
-                    >
-                </div>
-                <div>
-                    <div class="space-y-3">
-                        <div
-                            class="flex justify-between border-b pb-2 border-vspot-secondary-bg"
-                        >
-                            <div>{$l("description.producttotal")}</div>
-                            <div>
-                                {cart_total}
-                                {currency}
-                            </div>
-                        </div>
-                        <div
-                            class="flex justify-between border-b pb-2 border-vspot-secondary-bg"
-                        >
-                            <div>{$l("description.shipping")}</div>
-                            <div>
-                                {shipping_method.cost_for_order.cost}
-                                {shipping_method.cost_for_order.currency}
-                            </div>
-                        </div>
-                        <div
-                            class="flex justify-between border-vspot-secondary-bg !mt-6"
-                        >
-                            <div>{$l("description.simpletotal")}</div>
-                            <div>
-                                {cart_total +
-                                    shipping_method.cost_for_order.cost} RON
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <button
-                    class="bg-vspot-green w-full p-2 px-4 rounded-lg text-vspot-primary-bg flex justify-center"
-                    disabled={order_submitting ||
-                        typeof order_submit_error !== "undefined"}
-                    on:click={() => order_submit()}
+            <div class="w-full">
+                <div
+                    class="w-full bg-vspot-primary-bg h-fit rounded-lg space-y-4 p-4 border border-vspot-secondary-bg"
                 >
-                    {#if order_submitting}
-                        <Spinner fg="#000000" />
-                    {:else}
-                        {orderinfo?.payment_option === "card"
-                            ? $l("order.payandsend")
-                            : $l("order.send")}
+                    <div class="text-lg text-vspot-text-hovered">
+                        {$l("order.sendorder")}
+                    </div>
+                    <div class="flex justify-between">
+                        <div class="text-vspot-text-hovered">
+                            {$l("payment.payment")}:&nbsp;{$l(
+                                `payment.${orderinfo?.payment_option}`,
+                            )}
+                        </div>
+                        <a class="text-vspot-text-hovered" href="/order-info"
+                            >{$l("action.change")}</a
+                        >
+                    </div>
+                    <div>
+                        <div class="space-y-3">
+                            <div
+                                class="flex justify-between border-b pb-2 border-vspot-secondary-bg"
+                            >
+                                <div>{$l("description.producttotal")}</div>
+                                <div>
+                                    {cart_total}
+                                    {currency}
+                                </div>
+                            </div>
+                            <div
+                                class="flex justify-between border-b pb-2 border-vspot-secondary-bg"
+                            >
+                                <div>{$l("description.shipping")}</div>
+                                <div>
+                                    {shipping_method.cost_for_order.cost}
+                                    {shipping_method.cost_for_order.currency}
+                                </div>
+                            </div>
+                            <div
+                                class="flex justify-between border-vspot-secondary-bg !mt-6"
+                            >
+                                <div>{$l("description.simpletotal")}</div>
+                                <div>
+                                    {cart_total +
+                                        shipping_method.cost_for_order.cost} RON
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button
+                        class="bg-vspot-green w-full p-2 px-4 rounded-lg text-vspot-primary-bg flex justify-center"
+                        disabled={order_submitting ||
+                            typeof order_submit_error !== "undefined"}
+                        on:submit={() => {
+                            return false;
+                        }}
+                        on:click={() => {
+                            if (turnstile_response) order_submit();
+                            else turnstile_mounted = true;
+                        }}
+                    >
+                        {#if order_submitting}
+                            <Spinner fg="#000000" />
+                        {:else}
+                            {orderinfo?.payment_option === "card"
+                                ? $l("order.payandsend")
+                                : $l("order.send")}
+                        {/if}
+                    </button>
+                    {#if order_submit_error}
+                        <div>{$l(order_submit_error)}</div>
                     {/if}
-                </button>
-                {#if order_submit_error}
-                    <div>{$l(order_submit_error)}</div>
+                </div>
+                {#if turnstile_mounted}
+                    <Turnstile
+                        siteKey={PUBLIC_VSPOT_TURNSTILE_SITE_KEY}
+                        on:turnstile-error={() => {
+                            turnstile_error = true;
+                        }}
+                        on:turnstile-callback={({ detail: { token } }) => {
+                            turnstile_error = false;
+                            turnstile_response = token;
+                            order_submit();
+                        }}
+                    />
+                    {#if turnstile_error}
+                        <span class="text-vspot-text-error mt-2">
+                            {$l("error.turnstile_failed")}
+                        </span>
+                    {/if}
                 {/if}
             </div>
         </div>

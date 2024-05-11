@@ -1,5 +1,5 @@
 
-export type ServerResponse<T> = {
+export type ServerResponse<T = null> = {
     status: number;
     body: {
         msg: string;

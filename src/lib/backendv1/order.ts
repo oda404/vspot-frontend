@@ -57,7 +57,7 @@ export type V1ServerOrderDisplayInfo = {
     status: V1ServerOrderStatus;
 };
 
-export async function backendv1_post_order_submit(orderinfo: V1ClientOrderInfo): Promise<ServerResponse<string>> {
+export async function backendv1_post_order_submit(order_info: V1ClientOrderInfo, turnstile_token: string): Promise<ServerResponse<string>> {
 
     const BASE_ENDPOINT = backendv1_endpoint();
     const res = await fetch(`${BASE_ENDPOINT}/order/register`, {
@@ -66,7 +66,7 @@ export async function backendv1_post_order_submit(orderinfo: V1ClientOrderInfo):
         headers: {
             ...BACKENDV1_BASE_POST_HEADERS
         },
-        body: JSON.stringify({ order_info: orderinfo })
+        body: JSON.stringify({ turnstile_token, order_info })
     });
 
     return { status: res.status, body: await res.json() };

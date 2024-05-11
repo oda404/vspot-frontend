@@ -10,8 +10,12 @@
     import { backend_shatpants_store } from "$lib/backend_shatpants/backend_shatpants";
     import Spinner from "$lib/Spinner.svelte";
     import { pagetitle_make } from "$lib/title.js";
+    import Turnstile from "$lib/turnstile/Turnstile.svelte";
+    import { PUBLIC_VSPOT_TURNSTILE_SITE_KEY } from "$env/static/public";
 
     export let data;
+
+    /* No business being here if already logged in */
     if (data.user) goto("/");
 
     let firstname_data = new InputFieldContext();
@@ -41,7 +45,7 @@
 
     let password_confirm = new InputFieldContext();
     password_confirm.validate = (value: string) => {
-        if (value !== password.value) return "Parolele introduse difera";
+        if (value !== password.value) return "error.passwords_dont_match";
     };
 
     let consent_tos = false;
@@ -50,6 +54,10 @@
 
     let register_in_progress = false;
     let register_error_msg = "";
+
+    let turnstile_response: string | undefined;
+    let turnstile_error = false;
+    let turnstile_mounted = false;
 
     const validate_and_register = () => {
         let has_error = false;
@@ -85,13 +93,20 @@
             password: password.value,
         };
 
-        backendv1_post_user_register(userinfo)
+        backendv1_post_user_register(userinfo, turnstile_response!)
             .then((res) => {
                 register_in_progress = false;
                 if (res.status !== 200) {
+                    turnstile_response = undefined;
+                    turnstile_mounted = false;
+
                     switch (res.body.field) {
                         case "email":
                             email.error = $l(res.body.msg);
+                            break;
+
+                        case "turnstile_token":
+                            turnstile_error = true;
                             break;
 
                         default:
@@ -121,8 +136,8 @@
     <title>{pagetitle_make($l("page.signup"))}</title>
 </svelte:head>
 
-<div class="space-y-8">
-    <span class="text-6xl lg:text-8xl font-semibold opacity-80">
+<div class="space-y-4">
+    <span class="text-6xl lg:text-9xl font-[Blowhole] font-semibold opacity-80">
         {$l("action.signup")}
     </span>
     <form class="space-y-4 w-full lg:w-[50%]">
@@ -172,8 +187,14 @@
             </div>
         {/if}
         <button
-            class="bg-vspot-green px-4 p-2 rounded-lg text-vspot-primary-bg w-full"
-            on:click={() => validate_and_register()}
+            class="bg-vspot-green flex justify-center px-4 p-2 rounded-lg text-vspot-primary-bg w-full"
+            on:submit={() => {
+                return false;
+            }}
+            on:click={() => {
+                if (turnstile_response) validate_and_register();
+                else turnstile_mounted = true;
+            }}
             type="submit"
             disabled={register_in_progress}
         >
@@ -188,4 +209,22 @@
         {/if}
     </form>
     <a href="/login" class="block !mt-4">{$l("signup.goto_login")}</a>
+    {#if turnstile_mounted}
+        <Turnstile
+            siteKey={PUBLIC_VSPOT_TURNSTILE_SITE_KEY}
+            on:turnstile-error={() => {
+                turnstile_error = true;
+            }}
+            on:turnstile-callback={({ detail: { token } }) => {
+                turnstile_error = false;
+                turnstile_response = token;
+                validate_and_register();
+            }}
+        />
+    {/if}
+    {#if turnstile_error}
+        <span class="text-vspot-text-error text-lg mt-2">
+            {$l("error.turnstile_failed")}
+        </span>
+    {/if}
 </div>

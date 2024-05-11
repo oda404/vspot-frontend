@@ -9,6 +9,12 @@ export type V1ClientUserRegisterInfo = {
     password: string;
 };
 
+export type V1ClientUserLoginInfo = {
+    email: string;
+    password: string;
+    remember_me: boolean;
+};
+
 export type V1ServerUserDisplayInfo = {
     firstname: string;
     lastname: string;
@@ -16,7 +22,13 @@ export type V1ServerUserDisplayInfo = {
     email_verified: boolean;
 };
 
-export async function backendv1_post_user_register(userinfo: V1ClientUserRegisterInfo): Promise<ServerResponse<string>> {
+export type V1ClientUserUpdateInfo = {
+    firstname: string;
+    lastname: string;
+    email: string;
+};
+
+export async function backendv1_post_user_register(user_info: V1ClientUserRegisterInfo, turnstile_token: string): Promise<ServerResponse<string>> {
 
     const res = await fetch(`${backendv1_endpoint()}/user/register`, {
         method: "POST",
@@ -24,7 +36,7 @@ export async function backendv1_post_user_register(userinfo: V1ClientUserRegiste
             ...BACKENDV1_BASE_POST_HEADERS
         },
         credentials: 'include',
-        body: JSON.stringify({ user_info: userinfo })
+        body: JSON.stringify({ turnstile_token, user_info })
     });
 
     return { status: res.status, body: await res.json() };
@@ -43,7 +55,7 @@ export async function backendv1_get_user_display_info(fetch: any): Promise<Serve
     return { status: res.status, body: await res.json() };
 }
 
-export async function backendv1_post_user_login(email: string, password: string, remember_me: boolean): Promise<ServerResponse<string>> {
+export async function backendv1_post_user_login(user_info: V1ClientUserLoginInfo, turnstile_token: string): Promise<ServerResponse<string>> {
 
     const res = await fetch(`${backendv1_endpoint()}/user/login`, {
         method: "POST",
@@ -51,7 +63,7 @@ export async function backendv1_post_user_login(email: string, password: string,
             ...BACKENDV1_BASE_POST_HEADERS
         },
         credentials: 'include',
-        body: JSON.stringify({ user_info: { email, password, remember_me } })
+        body: JSON.stringify({ turnstile_token, user_info })
     });
 
     return { status: res.status, body: await res.json() };

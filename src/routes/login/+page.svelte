@@ -4,9 +4,14 @@
     import { l } from "$lib/langs";
     import { pagetitle_make } from "$lib/title";
     import Spinner from "$lib/Spinner.svelte";
-    import { backendv1_post_user_login } from "$lib/backendv1/user";
+    import {
+        backendv1_post_user_login,
+        type V1ClientUserLoginInfo,
+    } from "$lib/backendv1/user";
     import { goto, invalidate } from "$app/navigation";
     import { backend_shatpants_store } from "$lib/backend_shatpants/backend_shatpants";
+    import Turnstile from "$lib/turnstile/Turnstile.svelte";
+    import { PUBLIC_VSPOT_TURNSTILE_SITE_KEY } from "$env/static/public";
 
     let email = new InputFieldContext();
     email.validate = (value: string) => {
@@ -26,6 +31,10 @@
     let login_in_progress = false;
     let login_error_msg = "";
 
+    let turnstile_response: string | undefined;
+    let turnstile_error = false;
+    let turnstile_mounted = false;
+
     const validate_and_login = () => {
         let has_error = false;
 
@@ -38,11 +47,21 @@
         if (has_error) return;
 
         login_in_progress = true;
+        email.error = undefined;
+        password.error = undefined;
 
-        backendv1_post_user_login(email.value, password.value, remember_me)
+        const user_info: V1ClientUserLoginInfo = {
+            email: email.value,
+            password: password.value,
+            remember_me: remember_me,
+        };
+
+        backendv1_post_user_login(user_info, turnstile_response!)
             .then((res) => {
                 login_in_progress = false;
                 if (res.status !== 200) {
+                    turnstile_response = undefined;
+                    turnstile_mounted = false;
                     switch (res.body.field) {
                         case "email":
                             email.error = $l(res.body.msg);
@@ -52,10 +71,20 @@
                             password.error = $l(res.body.msg);
                             break;
 
+                        case "turnstile_token":
+                            turnstile_error = true;
+                            break;
+
                         default:
+                            if (
+                                res.body.msg ===
+                                "error.email_or_password_invalid"
+                            ) {
+                                email.error = "";
+                                password.error = "";
+                            }
+
                             login_error_msg = res.body.msg;
-                            email.error = "";
-                            password.error = "";
                             break;
                     }
                     return;
@@ -81,8 +110,8 @@
     <title>{pagetitle_make($l("page.login"))}</title>
 </svelte:head>
 
-<div class="space-y-8">
-    <span class="text-6xl lg:text-8xl font-semibold opacity-80">
+<div class="space-y-4">
+    <span class="text-6xl lg:text-9xl font-[Blowhole] font-semibold opacity-80">
         {$l("action.login")}
     </span>
     <div class="space-y-8 w-full lg:w-[45%]">
@@ -99,6 +128,11 @@
                 label={$l("user.password")}
                 bind:data={password}
             />
+            {#if login_error_msg}
+                <span class="text-vspot-text-error block !mt-2"
+                    >{$l(login_error_msg)}</span
+                >
+            {/if}
             <div class="flex justify-between">
                 <a href="/forgor-password" class="block">
                     {$l("user.forgorpassword")}
@@ -108,19 +142,18 @@
                     {$l("action.remember_me")}
                 </label>
             </div>
-            {#if login_error_msg}
-                <span class="text-vspot-text-error block !mt-2"
-                    >{$l(login_error_msg)}</span
-                >
-            {/if}
             <div class="flex justify-between">
                 <a class="mt-auto" href="/signup">{$l("user.createaccount")}</a>
                 <button
-                    class="bg-vspot-green p-2 px-4 rounded-lg text-vspot-primary-bg"
+                    class="bg-vspot-green flex justify-center items-center min-w-32 min-h-10 p-2 px-4 rounded-lg text-vspot-primary-bg"
                     disabled={login_in_progress}
                     type="submit"
+                    on:submit={() => {
+                        return false;
+                    }}
                     on:click={() => {
-                        validate_and_login();
+                        if (turnstile_response) validate_and_login();
+                        else turnstile_mounted = true;
                     }}
                 >
                     {#if login_in_progress}
@@ -131,5 +164,23 @@
                 </button>
             </div>
         </form>
+        {#if turnstile_mounted}
+            <Turnstile
+                siteKey={PUBLIC_VSPOT_TURNSTILE_SITE_KEY}
+                on:turnstile-error={() => {
+                    turnstile_error = true;
+                }}
+                on:turnstile-callback={({ detail: { token } }) => {
+                    turnstile_error = false;
+                    turnstile_response = token;
+                    validate_and_login();
+                }}
+            />
+        {/if}
+        {#if turnstile_error}
+            <span class="text-vspot-text-error text-lg mt-2">
+                {$l("error.turnstile_failed")}
+            </span>
+        {/if}
     </div>
 </div>
