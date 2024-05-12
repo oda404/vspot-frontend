@@ -5,6 +5,7 @@
     import { onDestroy, onMount } from "svelte";
     import { scroll_add_lock, scroll_remove_lock } from "$lib/scroll";
     import { user_logout, type UserDisplayInfo } from "./user";
+    import { beforeNavigate } from "$app/navigation";
 
     export let user: UserDisplayInfo;
     export let on_close_cb: () => void;
@@ -15,6 +16,10 @@
     onDestroy(() => {
         scroll_remove_lock("cart_preview");
     });
+
+    beforeNavigate(() => {
+        on_close_cb();
+    });
 </script>
 
 <button
@@ -24,9 +29,9 @@
     }}
 />
 <div
-    class="absolute bg-vspot-primary-bg right-[-14px] space-y-2 divide-y divide-vspot-secondary-bg top-12 p-4 rounded-lg drop-shadow z-[100] border-vspot-green"
+    class="absolute bg-vspot-primary-bg right-[-14px] divide-vspot-secondary-bg top-12 p-4 rounded-lg drop-shadow z-[100] border-vspot-green"
 >
-    <div class="flex items-center space-x-24 justify-between pb-2">
+    <div class="flex items-center space-x-20 justify-between pb-2">
         <span class="whitespace-nowrap text-md">
             {$l("description.welcomeback", { name: user.firstname })}
         </span>
@@ -39,10 +44,16 @@
             <Fa size="sm" icon={faX} />
         </button>
     </div>
-    <a class="pt-2 block" href="/account">Contul meu</a>
-    <a class="pt-2 block" href="/orders">Comenzile mele</a>
+    <a
+        class="p-2 px-4 block rounded-lg hover:bg-vspot-secondary-bg"
+        href="/account?tab=user_info">Contul meu</a
+    >
+    <a
+        class="p-2 px-4 block rounded-lg hover:bg-vspot-secondary-bg"
+        href="/account?tab=user_orders">Comenzile mele</a
+    >
     <button
-        class="pt-2 block text-vspot-purple"
+        class="p-2 px-4 w-full text-left block rounded-lg text-vspot-purple hover:bg-vspot-secondary-bg"
         on:click={async () => {
             await user_logout();
             window.location.reload();

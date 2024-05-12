@@ -28,6 +28,11 @@ export type V1ClientUserUpdateInfo = {
     email: string;
 };
 
+export type V1ClientUserUpdatePasswordInfo = {
+    password_old: string;
+    password_new: string;
+};
+
 export async function backendv1_post_user_register(user_info: V1ClientUserRegisterInfo, turnstile_token: string): Promise<ServerResponse<string>> {
 
     const res = await fetch(`${backendv1_endpoint()}/user/register`, {
@@ -78,3 +83,43 @@ export async function backendv1_post_user_logout(): Promise<void> {
         credentials: 'include',
     });
 }
+
+export async function backendv1_post_user_update_info(user_info: V1ClientUserUpdateInfo): Promise<ServerResponse> {
+    const res = await fetch(`${backendv1_endpoint()}/user/update-info`, {
+        method: "POST",
+        headers: {
+            ...BACKENDV1_BASE_POST_HEADERS
+        },
+        credentials: 'include',
+        body: JSON.stringify({ user_info })
+    });
+
+    return { status: res.status, body: await res.json() };
+}
+
+export async function backendv1_post_user_update_password(password_info: V1ClientUserUpdatePasswordInfo): Promise<ServerResponse> {
+    const res = await fetch(`${backendv1_endpoint()}/user/update-password`, {
+        method: "POST",
+        headers: {
+            ...BACKENDV1_BASE_POST_HEADERS
+        },
+        credentials: 'include',
+        body: JSON.stringify({ password_info })
+    });
+
+    return { status: res.status, body: await res.json() };
+}
+
+export async function backendv1_post_user_delete(password: string): Promise<ServerResponse> {
+    const res = await fetch(`${backendv1_endpoint()}/user/delete`, {
+        method: "POST",
+        headers: {
+            ...BACKENDV1_BASE_POST_HEADERS
+        },
+        credentials: 'include',
+        body: JSON.stringify({ password })
+    });
+
+    return { status: res.status, body: await res.json() };
+}
+

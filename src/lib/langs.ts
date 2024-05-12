@@ -47,6 +47,13 @@ var translations = {
         "order.send": "Trimite",
         "order.sendorder": "Trimite comanda",
         "order.payandsend": "Plateste & trimite",
+        "order.status": "Status: {{status}}",
+        "order.registered": "Am primit comanda ta",
+        "order.confirmed": "Iti pregatim comanda",
+        "order.shipped": "In transport",
+        "order.completed": "A ajuns la tine",
+        "order.orderon": "Comanda pe {{date}}",
+        "order.no_orders": "Nu ai plasat nicio comanda inca...",
 
         "payment.card": "Card",
         "payment.cash": "Ramburs la livrare",
@@ -55,6 +62,7 @@ var translations = {
 
         "shipping.missingerror": "Ai uitat sa alegi o metda de livrare.",
         "shipping.methoddescription": "{{cost}} | Livrare in {{delivery_time}} zile",
+        "shipping.shipping_through": "Livrare prin:",
 
         "cart.title": "Finalizeaza comanda",
 
@@ -180,6 +188,9 @@ var translations = {
         "description.ordershipped": "se afla in drum spre tine!",
         "description.ordercompleted": "a ajung la destinatia ei, adica la tine! Pup dulce :3",
         "description.welcomeback": "Salut {{name}}!",
+        "description.user_info": "Contul meu",
+        "description.user_orders": "Comenzile mele",
+        "description.user_delete": "Inchide contul",
 
         "easter.badorder": "Daca ai ajuns pe pagina asta ori a facut caca baza noastra de date pe ea, ori ai umblat la url paramter... sa dormi cu un ochi deschis la noapte",
 
@@ -196,7 +207,10 @@ var translations = {
         "user.password_confirm": "Confirma parola",
         "user.createaccount": "Creeaza un cont nou",
         "user.forgorpassword": "Am uitat parola :(",
+        "user.delete_title": "Ne pare rau sa auzim...",
+        "user.delete_data_notice": "Datele tale de contact, adresele de facturare si adresele livrare vor si sterse de pe serverele noastre instant.",
         "user.password_requirements": "Parola trebuie sa fie compusa din minim 8 caractere",
+        "user.delete": "Inchide contul",
 
         "signup.tos_consent": "Accept termenii si conditiile serviciului",
         "signup.tos_consent_missing": "Termenii si conditiile serviciului sunt obligatorii",
@@ -216,6 +230,7 @@ var translations = {
         "error.turnstile_failed": "Verificare a esuat, incercati sa reincarcati pagina",
         "error.turnstile_invalid": "Am intampinat o problema, te rog reincarca pagina si incearca din nou",
         "error.passwords_dont_match": "Parolele introduse difera",
+        "error.password_incorrect": "Parola nu este corecta",
 
         "contact.description": "Pentru orice intrebari sau sesizari va stam la dispozitie prin urmatoarele canale de comunicare:",
         "contact.schedule": "Program contact: Luni - Vineri 10:30-18:30",
@@ -271,6 +286,13 @@ var translations = {
         "order.send": "Send",
         "order.sendorder": "Submit order",
         "order.payandsend": "Pay n' send",
+        "order.status": "Status: {{status}}",
+        "order.registered": "Registered",
+        "order.confirmed": "Confirmed",
+        "order.shipped": "Shipped",
+        "order.completed": "Completed",
+        "order.orderon": "Order on {{date}}",
+        "order.no_orders": "You haven't placed any orders yet...",
 
         "payment.card": "Card",
         "payment.cash": "Cash on delivery",
@@ -279,6 +301,7 @@ var translations = {
 
         "shipping.missingerror": "Please select a shipping method.",
         "shipping.methoddescription": "{{cost}} | Delivery in {{delivery_time}} days",
+        "shipping.shipping_through": "Shipping through:",
 
         "cart.title": "Checkout",
 
@@ -363,13 +386,14 @@ var translations = {
         "action.backtomainpage": "Back to the main page",
         "action.delete": "Remove",
         "action.shipping": "Looks good!",
-        "action.change": "Change",
+        "action.change": "Modify",
         "action.yes": "Yes",
         "action.no": "No",
         "action.login": "Login",
         "action.signup": "Sign up",
         "action.see_all": "See all",
         "action.remember_me": "Remember me",
+        "action.update": "Update",
 
         "description.outofstock": "This item is out of stock :(",
         "description.instock": "In stock",
@@ -388,12 +412,15 @@ var translations = {
         "description.simpletotal": "Total",
         "description.productcount": { text: "{{n}} $", formatter: (n: number) => { return n === 1 ? "product" : "products" } },
         "description.productreminder": "Wait! Are you stocked up on everything?",
-        "description.productreminder_noitems": "Maybe you're looking for a...",
+        "description.productreminder_noitems": "Maybe you're looking for...",
         "description.yourproducts": "Your products",
         "description.pcs": "PCS.",
         "description.shippingtbd": "See on the next page",
         "description.orderthankyou": "Thank you for your order!",
         "description.welcomeback": "Hi {{name}}!",
+        "description.user_info": "My account",
+        "description.user_orders": "My orders",
+        "description.user_delete": "Close account",
 
         "description.details": "Details",
 
@@ -422,6 +449,11 @@ var translations = {
         "user.createaccount": "Create a new account",
         "user.forgorpassword": "I forgot my password :(",
         "user.password_requirements": "The password must be at least 8 characters in length",
+        "user.passwords_dont_match": "The password don't match",
+        "user.delete_title": "Sorry to see you go...",
+        "user.delete_data_notice": "Your contact, shipping and billing information will be deleted from our servers instantly.",
+        "error.password_incorrect": "The password is incorrect",
+        "user.delete": "Close my account",
 
         "signup.tos_consent": "I accept the terms of service",
         "signup.tos_consent_missing": "The terms of service are mandatory",

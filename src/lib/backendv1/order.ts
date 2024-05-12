@@ -50,6 +50,37 @@ export type V1ServerPurchasedProduct = {
 
 export type V1ServerOrderStatus = "registered" | "confirmed" | "shipped" | "completed";
 
+export type V1ServerOrderUser = {
+    id: string;
+
+    date: Date,
+
+    firstname: string;
+    lastname: string;
+    phone: string;
+
+    payment_method: "cash" | "card";
+
+    billing_county: string;
+    billing_city: string;
+    billing_address: string;
+    billing_postalcode: string;
+
+    shipping_county: string;
+    shipping_city: string;
+    shipping_address: string;
+    shipping_postalcode: string;
+
+    shipping_method: string;
+    shipping_tracking_number: string | undefined;
+    shipping_price: number;
+    shipping_price_decimals: number;
+
+    products: V1ServerPurchasedProduct[];
+
+    status: V1ServerOrderStatus;
+};
+
 /* server -> client. This stuff is publicly accessible by anyone, so let's not include any personal info */
 export type V1ServerOrderDisplayInfo = {
     id: string;
@@ -76,6 +107,19 @@ export async function backendv1_get_order_get(order_id: string, fetch: any): Pro
 
     const res = await fetch(`${backendv1_endpoint()}/order/get?order_id=${order_id}`, {
         method: "GET",
+        headers: {
+            ...BACKENDV1_BASE_GET_HEADERS
+        },
+    });
+
+    return { status: res.status, body: await res.json() };
+}
+
+export async function backendv1_get_order_get_user(fetch: any): Promise<ServerResponse<V1ServerOrderUser[]>> {
+
+    const res = await fetch(`${backendv1_endpoint()}/order/get-user`, {
+        method: "GET",
+        credentials: "include",
         headers: {
             ...BACKENDV1_BASE_GET_HEADERS
         },

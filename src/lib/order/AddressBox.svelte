@@ -5,33 +5,35 @@
     export let address: Address;
     export let info: ContactInfo;
     export let title: string;
-    export let change_url: string;
+    export let change_url: string | undefined = undefined;
 </script>
 
 <div
     class="p-4 rounded-lg w-full bg-vspot-primary-bg border border-vspot-secondary-bg"
 >
     <div class="flex justify-between">
-        <div class="text-lg text-vspot-text-hovered">
+        <span class="text-lg text-vspot-text-hovered">
             {title}
-        </div>
-        <a class="text-vspot-text-hovered" href={change_url}
-            >{$l("action.change")}</a
-        >
+        </span>
+        {#if change_url}
+            <a class="text-vspot-text-hovered" href={change_url}
+                >{$l("action.change")}</a
+            >
+        {/if}
     </div>
     <div>
-        <div>
+        <span class="block">
             {info.lastname}
             {info.firstname} |
             {info.phone}
-        </div>
-        <div>
+        </span>
+        <span class="block">
             {address.county},
             {address.city}
-        </div>
-        <div>
+        </span>
+        <span class="block">
             {address.address},
             {address.postalcode}
-        </div>
+        </span>
     </div>
 </div>
