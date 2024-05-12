@@ -45,7 +45,7 @@
 
     let password_confirm = new InputFieldContext();
     password_confirm.validate = (value: string) => {
-        if (value !== password.value) return "error.passwords_dont_match";
+        if (value !== password.value) return $l("error.passwords_dont_match");
     };
 
     let consent_tos = false;

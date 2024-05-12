@@ -543,7 +543,11 @@ var translations = {
         "filteropt.nicoboom": "Nico Boom",
         "filteropt.aspire": "Aspire",
         "filteropt.gotek": "Gotek",
-        "filteropt.gotekx2": "Gotek X2"
+        "filteropt.gotekx2": "Gotek X2",
+        "filteropt.cuba_ninja": "CUBA Ninja",
+
+        "shipping.fancourier": "Fan Courier",
+        "shipping.sameday": "Sameday"
     },
     "fallback": {
         "missing_translation": "Missing localization"
