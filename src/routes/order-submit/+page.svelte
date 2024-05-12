@@ -20,6 +20,7 @@
     import Spinner from "$lib/Spinner.svelte";
     import Turnstile from "$lib/turnstile/Turnstile.svelte";
     import { PUBLIC_VSPOT_TURNSTILE_SITE_KEY } from "$env/static/public";
+    import { pagetitle_make } from "$lib/title";
 
     let cart_items: CartProduct[];
     let currency: string;
@@ -112,6 +113,10 @@
             });
     };
 </script>
+
+<svelte:head>
+    <title>{pagetitle_make($l("page.order_submit"))}</title>
+</svelte:head>
 
 <div class="lg:px-24 space-y-12">
     <OrderStage stage={3} />

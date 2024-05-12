@@ -20,6 +20,7 @@
     import { error as peniserror } from "@sveltejs/kit";
 
     import Spinner from "$lib/Spinner.svelte";
+    import { pagetitle_make } from "$lib/title";
 
     let orderinfo: OrderInfo | undefined;
     onDestroy(
@@ -137,6 +138,10 @@
         goto("/order-submit");
     };
 </script>
+
+<svelte:head>
+    <title>{pagetitle_make($l("page.order_shipping"))}</title>
+</svelte:head>
 
 <div class="lg:px-24 space-y-12">
     <OrderStage stage={2} />

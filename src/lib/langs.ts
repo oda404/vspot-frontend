@@ -21,6 +21,12 @@ var translations = {
         "page.signup": "Creeaza un cont",
         "page.contact": "Contact",
         "page.cookie_policy": "Politica cookies",
+        "page.account": "Contul meu",
+        "page.my_orders": "Comenzile mele",
+        "page.cart": "Cosul de cumparaturi",
+        "page.order_info": "Informatii comanda",
+        "page.order_shipping": "Livrare comanda",
+        "page.order_submit": "Trimite comanda",
 
         "orderinfo.personaldata": "Date de contact",
         "orderinfo.shippingaddress": "Adresa livrare",
@@ -155,6 +161,7 @@ var translations = {
         "action.signup_short": "Creeaza cont",
         "action.see_all": "Vezi toate",
         "action.remember_me": "Tine-ma minte",
+        "action.update": "Actualizeaza",
 
         "description.outofstock": "Acest produs nu este in stoc :(",
         "description.instock": "In stoc",
@@ -260,6 +267,12 @@ var translations = {
         "page.signup": "Sign up",
         "page.contact": "Contact",
         "page.cookie_policy": "Cookie policy",
+        "page.account": "My account",
+        "page.my_orders": "My orders",
+        "page.cart": "Checkout",
+        "page.order_info": "Order information",
+        "page.order_shipping": "Order shipping",
+        "page.order_submit": "Send order",
 
         "orderinfo.personaldata": "Contact",
         "orderinfo.shippingaddress": "Shipping address",

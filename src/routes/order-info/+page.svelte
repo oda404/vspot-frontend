@@ -20,6 +20,7 @@
     import OrderStage from "$lib/order/OrderStage.svelte";
     import { romanian_counties } from "$lib/input/romanian_counties";
     import { onDestroy } from "svelte";
+    import { pagetitle_make } from "$lib/title.js";
 
     export let data;
 
@@ -155,6 +156,10 @@
         goto("/order-shipping");
     };
 </script>
+
+<svelte:head>
+    <title>{pagetitle_make($l("page.order_info"))}</title>
+</svelte:head>
 
 <div class="lg:px-24 space-y-12">
     <OrderStage stage={1} />

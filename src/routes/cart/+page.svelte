@@ -12,6 +12,7 @@
     import { cart_add_item, cart_remove_one_item } from "$lib/cart/cart";
     import { onDestroy } from "svelte";
     import Spinner from "$lib/Spinner.svelte";
+    import { pagetitle_make } from "$lib/title.js";
 
     export let data;
 
@@ -36,6 +37,10 @@
 
     onDestroy(cart_store.subscribe(($cart) => update_cart($cart)));
 </script>
+
+<svelte:head>
+    <title>{pagetitle_make($l("page.cart"))}</title>
+</svelte:head>
 
 <div>
     <h1 class="text-6xl lg:text-9xl font-[Blowhole] font-semibold opacity-80">
@@ -123,7 +128,7 @@
                 {/each}
                 <div class="!mt-2 w-full flex justify-center">
                     {#if flash_add_in_progress}
-                        <Spinner />
+                        <Spinner fg="#000000" />
                     {:else}
                         <!-- <div class="bg-vspot-secondary-bg rounded-lg w-2 h-2" /> -->
                     {/if}
