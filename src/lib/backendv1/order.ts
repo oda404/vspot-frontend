@@ -50,7 +50,7 @@ export type V1ServerPurchasedProduct = {
 
 export type V1ServerOrderStatus = "registered" | "confirmed" | "shipped" | "completed";
 
-export type V1ServerOrderUser = {
+export type V1ServerOrder = {
     id: string;
 
     date: Date,
@@ -88,6 +88,11 @@ export type V1ServerOrderDisplayInfo = {
     status: V1ServerOrderStatus;
 };
 
+export type V1ServerOrders = {
+    orders: V1ServerOrder[];
+    pages: number;
+}
+
 export async function backendv1_post_order_submit(order_info: V1ClientOrderInfo, turnstile_token: string): Promise<ServerResponse<string>> {
 
     const BASE_ENDPOINT = backendv1_endpoint();
@@ -115,7 +120,7 @@ export async function backendv1_get_order_get(order_id: string, fetch: any): Pro
     return { status: res.status, body: await res.json() };
 }
 
-export async function backendv1_get_order_get_user(fetch: any): Promise<ServerResponse<V1ServerOrderUser[]>> {
+export async function backendv1_get_order_get_user(fetch: any): Promise<ServerResponse<V1ServerOrder[]>> {
 
     const res = await fetch(`${backendv1_endpoint()}/order/get-user`, {
         method: "GET",
