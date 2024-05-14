@@ -123,3 +123,27 @@ export async function backendv1_post_user_delete(password: string): Promise<Serv
     return { status: res.status, body: await res.json() };
 }
 
+export async function backendv1_post_user_confirm_email(token: string, fetch: any): Promise<ServerResponse> {
+    const res = await fetch(`${backendv1_endpoint()}/user/confirm-email`, {
+        method: "POST",
+        headers: {
+            ...BACKENDV1_BASE_POST_HEADERS
+        },
+        credentials: 'include',
+        body: JSON.stringify({ token })
+    });
+
+    return { status: res.status, body: await res.json() };
+}
+
+export async function backendv1_post_user_send_confirm_email(fetch: any): Promise<ServerResponse> {
+    const res = await fetch(`${backendv1_endpoint()}/user/send-confirm-email`, {
+        method: "POST",
+        headers: {
+            ...BACKENDV1_BASE_POST_HEADERS
+        },
+        credentials: 'include',
+    });
+
+    return { status: res.status, body: await res.json() };
+}
