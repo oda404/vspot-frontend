@@ -5,6 +5,7 @@
     import { InputFieldContext } from "$lib/input/InputField";
     import InputField from "$lib/input/InputField.svelte";
     import { l } from "$lib/langs";
+    import { orderinfo_clear } from "$lib/orderinfo/orderinfo";
     import type { UserDisplayInfo } from "./user";
 
     export let user: UserDisplayInfo;
@@ -45,6 +46,7 @@
                     return;
                 }
 
+                orderinfo_clear();
                 invalidate("user:session_cookie");
                 goto(`/`);
             })

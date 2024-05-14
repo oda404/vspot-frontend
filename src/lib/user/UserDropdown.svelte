@@ -6,6 +6,7 @@
     import { scroll_add_lock, scroll_remove_lock } from "$lib/scroll";
     import { user_logout, type UserDisplayInfo } from "./user";
     import { beforeNavigate } from "$app/navigation";
+    import { orderinfo_clear } from "$lib/orderinfo/orderinfo";
 
     export let user: UserDisplayInfo;
     export let on_close_cb: () => void;
@@ -56,6 +57,7 @@
         class="p-2 px-4 w-full text-left block rounded-lg text-vspot-purple hover:bg-vspot-secondary-bg"
         on:click={async () => {
             await user_logout();
+            orderinfo_clear();
             window.location.reload();
         }}
     >

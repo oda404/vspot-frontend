@@ -47,7 +47,7 @@ export const ORDERINFO_FIRSTNAME_LEN = 64;
 export const ORDERINFO_LASTNAME_LEN = 64;
 export const ORDERINFO_PHONE_LEN = 12;
 
-export const ORDERINFO_STORE = writable<OrderInfo>(
+export const ORDERINFO_STORE = writable<OrderInfo | undefined>(
     typeof window !== "undefined" &&
     (localStorage.orderinfo && JSON.parse(localStorage.orderinfo)) || undefined
 );
@@ -114,4 +114,9 @@ export function orderinfo_shipping_address_is_billing(orderinfo: OrderInfo) {
         orderinfo.shipping.city === orderinfo.billing.city &&
         orderinfo.shipping.address === orderinfo.billing.address &&
         orderinfo.shipping.postalcode === orderinfo.billing.postalcode;
+}
+
+export function orderinfo_clear() {
+    ORDERINFO_STORE.set(undefined);
+    typeof window !== "undefined" && delete localStorage.orderinfo;
 }

@@ -8,6 +8,7 @@
         ORDERINFO_STORE,
         type OrderInfo,
         orderinfo_is_second_stage_valid,
+        orderinfo_clear,
     } from "$lib/orderinfo/orderinfo";
     import { onDestroy } from "svelte";
     import type { CartProduct } from "$lib/types";
@@ -104,6 +105,7 @@
                 /* let's leave the orderinfo as is? */
                 cart_store_unsubscribe();
                 cart_do_empty();
+                orderinfo_clear();
                 goto(`/order-placed?order_id=${res.body.data}`);
             })
             .catch((error) => {
