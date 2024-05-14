@@ -32,12 +32,12 @@
     );
 
     let payment_options = [
-        {
-            value: "card" as PaymentMethod,
-            display: "payment.card",
-            icon: faCreditCard,
-            selected: orderinfo?.payment_option === "card",
-        },
+        // {
+        //     value: "card" as PaymentMethod,
+        //     display: "payment.card",
+        //     icon: faCreditCard,
+        //     selected: orderinfo?.payment_option === "card",
+        // },
         {
             value: "cash" as PaymentMethod,
             display: "payment.cash",
