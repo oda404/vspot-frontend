@@ -55,7 +55,7 @@
                 <ProductsSubmenu />
             {/if}
         </div>
-        <SearchBar />
+        <!-- <SearchBar /> -->
         <div class="!ml-auto" />
         <NavItem text={$l("nav.contact")} only_show_on_lg url="/contact" />
         <LanguageSwitch />

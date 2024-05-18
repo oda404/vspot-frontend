@@ -26,6 +26,14 @@
 
 <svelte:head>
     <title>{pagetitle_make($l("home.title"))}</title>
+    <meta
+        name="description"
+        content="Noul tau vape shop. La The V-Spot gasesti toate produsele ce au de a face cu nicotina: vapes, pouchuri, kituri, lichide, nicotina si accesorii!"
+    />
+    <meta
+        name="keywords"
+        content="Vape Shop, Tutungerie, Vape, Vapes, Pouchuri, Tigari, Vapat, Kituri, Lichide, Nicotina, Accesorii"
+    />
 </svelte:head>
 
 <div class="space-y-4">
@@ -52,7 +60,7 @@
             <div class="rotate-[24deg]">
                 <Disposable h={52} />
             </div>
-            <LinkButton simple href="/disposables">
+            <LinkButton simple href="/disposable">
                 <div class="text-2xl">{$l("product.disposables")}</div>
             </LinkButton>
         </div>
@@ -68,7 +76,7 @@
             <div>
                 <Pouch h={35} />
             </div>
-            <LinkButton simple href="/pouches">
+            <LinkButton simple href="/pouch">
                 <div class="text-2xl">{$l("product.pouches")}</div>
             </LinkButton>
         </div>
@@ -76,7 +84,7 @@
             <div class="rotate-[24deg]">
                 <Liquid h={52} />
             </div>
-            <LinkButton simple href="/liquids">
+            <LinkButton simple href="/liquid">
                 <div class="text-2xl">{$l("product.liquids")}</div>
             </LinkButton>
         </div>
@@ -84,17 +92,13 @@
             <div>
                 <Kit h={46} />
             </div>
-            <LinkButton simple href="/kits">
+            <LinkButton simple href="/kit">
                 <div class="text-2xl">{$l("product.kits")}</div>
             </LinkButton>
         </div>
     </div>
     <div class="space-y-24 pb-24">
-        <ProductShowcase
-            href="/new"
-            name={$l("product.new")}
-            products={newest}
-        />
+        <ProductShowcase name={$l("product.new")} products={newest} />
         <div class="relative">
             <div
                 class="
@@ -104,7 +108,7 @@
             "
             />
             <ProductShowcase
-                href="/pouches"
+                href="/pouch"
                 name={$l("product.pouches")}
                 products={pouches}
             >
@@ -113,7 +117,7 @@
                 </div>
             </ProductShowcase>
         </div>
-        <ProductShowcase href="/kits" name={$l("product.kits")} products={kits}>
+        <ProductShowcase href="/kit" name={$l("product.kits")} products={kits}>
             <div>
                 <Kit h={32} />
             </div>

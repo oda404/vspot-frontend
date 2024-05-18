@@ -140,7 +140,7 @@
     <span class="text-6xl lg:text-9xl font-[Blowhole] font-semibold opacity-80">
         {$l("action.signup")}
     </span>
-    <form class="space-y-4 w-full lg:w-[50%]">
+    <form class="space-y-4 w-full lg:w-[45%]">
         <div class="flex space-x-4">
             <InputField
                 id="lastname"

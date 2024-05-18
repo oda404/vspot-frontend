@@ -21,6 +21,8 @@
     import { romanian_counties } from "$lib/input/romanian_counties";
     import { onDestroy } from "svelte";
     import { pagetitle_make } from "$lib/title.js";
+    import { cart_store } from "$lib/cart/cart.js";
+    import { get } from "svelte/store";
 
     export let data;
 
@@ -30,6 +32,8 @@
             orderinfo = $orderinfo;
         }),
     );
+
+    if (!data.user || !get(cart_store)?.items?.length) goto("/");
 
     let payment_options = [
         // {
@@ -265,7 +269,7 @@
                     on:click={() => validate_data_and_redirect()}
                 >
                     <div class="text-vspot-primary-bg">
-                        {$l("orderinfo.noaccount")}
+                        {$l("orderinfo.continue")}
                     </div>
                 </button>
             </div>

@@ -112,6 +112,7 @@ export async function backendv1_get_order_get(order_id: string, fetch: any): Pro
 
     const res = await fetch(`${backendv1_endpoint()}/order/get?order_id=${order_id}`, {
         method: "GET",
+        credentials: "include",
         headers: {
             ...BACKENDV1_BASE_GET_HEADERS
         },

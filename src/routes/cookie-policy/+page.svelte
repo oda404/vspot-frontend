@@ -14,7 +14,8 @@
     <h1
         class="!text-6xl lg:!text-9xl font-[Blowhole] font-semibold opacity-80 flex items-center"
     >
-        Politica cookies <Fa class="ml-4" size="sm" icon={faCookieBite} />
+        {$l("page.cookie_policy")}
+        <Fa class="ml-4" size="sm" icon={faCookieBite} />
     </h1>
     <div class="my-4" />
 
@@ -73,19 +74,19 @@
                 servicii adaptate nevoilor și interesului fiecărui utilizator în
                 parte și anume pentru:
                 <ul class="list-disc mt-2">
-                    <li class="list-item ml-8">
+                    <li class="list-item">
                         Imbunătățirea utilizării acestei pagini de internet,
                         inclusiv prin identificarea oricăror erori care apar în
                         timpul vizitării/utilizării acesteia de către
                         utilizatori
                     </li>
-                    <li class="list-item ml-8">
+                    <li class="list-item">
                         Furnizarea de statistici anonime cu privire la modul în
                         care este utilizată această pagină de internet către
                         Terrible Fortune SRL, în calitate de deținător al
                         acestei pagini de internet
                     </li>
-                    <li class="list-item ml-8">
+                    <li class="list-item">
                         Anticiparea unor eventuale bunuri care vor fi în viitor
                         puse la dispoziția utilizatorilor prin intermediul
                         acestei pagini de internet, în funcție de serviciile /
@@ -102,13 +103,13 @@
                 anumitor setări/preferințe stabilite de către utilizatorii
                 acestei pagini de internet, precum:
                 <ul class="list-disc mt-2">
-                    <li class="list-item ml-8">
+                    <li class="list-item">
                         Limba în care este vizualizată o pagină de internet
                     </li>
-                    <li class="list-item ml-8">
+                    <li class="list-item">
                         Facilitarea accesului în contul utilizatorilor
                     </li>
-                    <li class="list-item ml-8">
+                    <li class="list-item">
                         Memorarea produselor din cosul de cumparaturi intre
                         vizitele pe site
                     </li>
@@ -126,12 +127,12 @@
                 categorii de cookie-uri care determină și durata de viață a
                 acestora:
                 <ul class="list-disc mt-2">
-                    <li class="ml-8">
+                    <li class="">
                         <b class="text-lg">Cookie-uri de sesiune</b> – Un „cookie
                         de sesiune” este un cookie care este șters automat când utilizatorul
                         își închide browserul.
                     </li>
-                    <li class="ml-8">
+                    <li class="">
                         <b class="text-lg">Cookie-uri persistente sau fixe</b> –
                         Un „cookie persistent” sau „fix” este un cookie care rămâne
                         stocat în terminalul utilizatorului până când atinge o anumită
@@ -159,7 +160,7 @@
                 de Confidențialitate. Aceste cookie-uri pot proveni de la
                 urmatorii terți:
                 <ul class="list-disc mt-2">
-                    <li class="ml-8">Cloudflare</li>
+                    <li class="">Cloudflare</li>
                 </ul>
             </span>
         </section>
@@ -172,7 +173,7 @@
             <span>
                 Prin utilizarea/vizitarea paginii de internet pot fi plasate
                 următoarele cookie-uri:
-                <div class="ml-8 mt-2">
+                <div class=" mt-2">
                     <h1 class="text-vspot-purple font-bold !text-md">
                         Cookie-uri de performanță a paginii de internet
                     </h1>
@@ -183,7 +184,7 @@
                         ulterioare a paginii de internet nu mai este necesară.
                     </span>
                 </div>
-                <div class="ml-8 mt-2">
+                <div class=" mt-2">
                     <h1 class="text-vspot-purple font-bold !text-md">
                         Cookie-uri de analiză a utilizatorilor
                     </h1>
@@ -194,7 +195,7 @@
                         sunt utilizate doar în scopuri statistice.
                     </span>
                 </div>
-                <div class="ml-8 mt-2">
+                <div class=" mt-2">
                     <h1 class="text-vspot-purple font-bold !text-md">
                         Cookie-uri de înregistrare
                     </h1>
@@ -269,7 +270,7 @@
                 navigare. Pentru a înțelege aceste setări, următoarele linkuri
                 pot fi folositoare:
                 <ul class="list-disc mt-2">
-                    <li class="ml-8">
+                    <li class="">
                         <a
                             class="text-vspot-link"
                             target="_blank"
@@ -277,7 +278,7 @@
                             >Cookie settings in Internet Explorer</a
                         >
                     </li>
-                    <li class="ml-8">
+                    <li class="">
                         <a
                             class="text-vspot-link"
                             target="_blank"
@@ -285,7 +286,7 @@
                             >Cookie settings in Firefox</a
                         >
                     </li>
-                    <li class="ml-8">
+                    <li class="">
                         <a
                             class="text-vspot-link"
                             target="_blank"
@@ -293,7 +294,7 @@
                             >Cookie settings in Chrome</a
                         >
                     </li>
-                    <li class="ml-8">
+                    <li class="">
                         <a
                             class="text-vspot-link"
                             target="_blank"

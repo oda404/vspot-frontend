@@ -48,7 +48,7 @@
     </h1>
     <div class="h-[4px] rounded-lg my-2 w-full" />
     <div class="flex flex-col lg:flex-row w-full lg:space-x-4">
-        <div class="lg:w-[70%] p-4 rounded-lg drop-shadow space-y-8">
+        <div class="lg:w-[70%] rounded-lg drop-shadow space-y-8">
             {#if cart_item_count}
                 {#each cart_items as item}
                     <div
@@ -61,7 +61,7 @@
                             <img
                                 src={item.preview_image_url}
                                 alt={`${item.name} preview`}
-                                class="rounded border border-vspot-secondary-bg"
+                                class="rounded"
                             />
                         </a>
                         <div class="h-full">
@@ -135,10 +135,10 @@
                 </div>
             {:else}
                 <div class="w-fit space-y-2">
-                    <div class="text-xl font-semibold">
+                    <div class="text-xl mb-2 font-semibold">
                         {$l("description.cartempty")}
                     </div>
-                    <LinkButton href="/">
+                    <LinkButton simple href="/">
                         <div>{$l("action.backtomainpage")}</div>
                     </LinkButton>
                 </div>
@@ -176,12 +176,19 @@
                         <div>{$l("description.simpletotal")}</div>
                         <div>{cart_item_total} RON</div>
                     </div>
+                    {#if !data.user}
+                        <span class="text-vspot-green block !mt-4"
+                            >{$l("order.noaccount_notice")}</span
+                        >
+                    {/if}
                     <LinkButton
-                        href="order-info"
+                        href={data.user ? "/order-info" : "/signup"}
                         bg="bg-vspot-green"
                         color="#242729"
                         ><span class="mx-auto text-vspot-secondary-bg"
-                            >{$l("action.shipping")}</span
+                            >{data.user
+                                ? $l("action.shipping")
+                                : $l("action.signup")}</span
                         ></LinkButton
                     >
                 </div>

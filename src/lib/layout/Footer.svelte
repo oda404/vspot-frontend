@@ -20,13 +20,13 @@
             </div>
             <div>
                 <span class="font-bold">{$l("footer.products")}</span>
-                <a class="block" href="/disposables"
+                <a class="block" href="/disposable"
                     >{$l("product.disposables")}</a
                 >
-                <a class="block" href="/pouches">{$l("product.pouches")}</a>
+                <a class="block" href="/pouch">{$l("product.pouches")}</a>
                 <a class="block" href="/smoking">{$l("product.smoking")}</a>
-                <a class="block" href="/liquids">{$l("product.liquids")}</a>
-                <a class="block" href="/kits">{$l("product.kits")}</a>
+                <a class="block" href="/liquid">{$l("product.liquids")}</a>
+                <a class="block" href="/kit">{$l("product.kits")}</a>
             </div>
             <div>
                 <span class="font-bold">{$l("footer.locations")}</span>

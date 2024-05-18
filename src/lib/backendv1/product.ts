@@ -33,6 +33,7 @@ export type V1ServerProductListLandingPage = {
 }
 
 export type V1ServerProductFullinfo = {
+    internal_id: string;
     name: string;
     image_url: string;
     tags: { name: string; options: string[] }[];
@@ -42,6 +43,13 @@ export type V1ServerProductFullinfo = {
     price_decimals: number;
     currency: string;
     stock: number;
+    description_short?: string;
+    description_long?: string;
+};
+
+export type V1ServerProductFullInfoWithRecommendations = {
+    product: V1ServerProductFullinfo;
+    recommended: V1ServerProductDisplayData[];
 };
 
 export async function backendv1_get_products_all(
@@ -77,6 +85,23 @@ export async function backendv1_get_product_fullinfo(
     return { status: res.status, body: await res.json() };
 }
 
+export async function backendv1_get_product_fullinfo_with_recommendations(
+    id: string,
+    fetch: any
+): Promise<ServerResponse<V1ServerProductFullInfoWithRecommendations>> {
+    const res = await fetch(
+        `${backendv1_endpoint()}/product/fullinfo_recommend?product_id=${id}`,
+        {
+            method: "GET",
+            headers: {
+                ...BACKENDV1_BASE_GET_HEADERS
+            }
+        }
+    );
+
+    return { status: res.status, body: await res.json() };
+}
+
 export async function backendv1_get_products_landingpage(
     fetch: any
 ): Promise<ServerResponse<V1ServerProductListLandingPage>> {
@@ -94,3 +119,16 @@ export async function backendv1_get_products_landingpage(
     return { status: res.status, body: await res.json() };
 }
 
+export async function backendv1_get_products_displayinfo(ids: string[]): Promise<ServerResponse<V1ServerProductDisplayData[]>> {
+    const res = await fetch(
+        `${backendv1_endpoint()}/product/coreinfo?ids=${ids.join("+")}`,
+        {
+            method: "GET",
+            headers: {
+                ...BACKENDV1_BASE_GET_HEADERS
+            }
+        }
+    );
+
+    return { status: res.status, body: await res.json() };
+}

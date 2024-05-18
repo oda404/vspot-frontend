@@ -23,6 +23,10 @@
     import { PUBLIC_VSPOT_TURNSTILE_SITE_KEY } from "$env/static/public";
     import { pagetitle_make } from "$lib/title";
 
+    export let data;
+
+    if (!data.user) goto("/");
+
     let cart_items: CartProduct[];
     let currency: string;
     let cart_total = 0;
@@ -97,7 +101,7 @@
                     turnstile_mounted = false;
                     turnstile_response = undefined;
 
-                    order_submit_error = "description.failedordersubmit";
+                    order_submit_error = "error.failedordersubmit";
                     return;
                 }
 

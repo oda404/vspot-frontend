@@ -1,6 +1,7 @@
 
 import { PUBLIC_VSPOT_BACKEND_GLOBAL_URL } from "$env/static/public";
-import type { CartProduct, ProductCoreInfo } from "$lib/types";
+import { backendv1_get_products_displayinfo, type V1ServerProductDisplayData } from "$lib/backendv1/product";
+import type { CartProduct } from "$lib/types";
 import { writable } from "svelte/store";
 
 export type Cart = {
@@ -20,26 +21,26 @@ function cart_set(cart: Cart) {
     typeof window !== "undefined" && (localStorage.cart = JSON.stringify(cart));
 }
 
-function cart_update_item_coreinfo(item: CartProduct, coreinfo: ProductCoreInfo) {
+function cart_update_item_coreinfo(item: CartProduct, coreinfo: V1ServerProductDisplayData) {
     item.name = coreinfo.name;
     item.price = coreinfo.price;
     item.price_decimals = coreinfo.price_decimals;
     item.currency = coreinfo.currency;
     item.stock = coreinfo.stock;
-    item.preview_image_url = coreinfo.preview_image_url;
+    item.preview_image_url = coreinfo.image_url;
 }
 
 export async function cart_add_item(id: string, on_finished_cb?: (error?: string) => void, show_overlay = true) {
 
-    const coreinfo_res = await fetch(`${PUBLIC_VSPOT_BACKEND_GLOBAL_URL}/v1/product/coreinfo?id=${id}`);
-    if (!coreinfo_res.ok) {
+    const coreinfo_res = await backendv1_get_products_displayinfo([id]);
+    if (coreinfo_res.status !== 200) {
         console.error(`Failed to get coreinfo from backend: ${coreinfo_res.status}`);
         if (on_finished_cb)
             on_finished_cb(`Failed to get coreinfo from backend: ${coreinfo_res.status}`);
         return -1;
     }
 
-    let product_coreinfo = (await coreinfo_res.json())[0];
+    let product_coreinfo = coreinfo_res.body.data![0];
 
     if (!product_coreinfo.stock) {
         console.error(`Tried adding '${product_coreinfo.name}' to cart but stock is ${product_coreinfo.stock}`);

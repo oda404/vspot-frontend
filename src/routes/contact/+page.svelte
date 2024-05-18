@@ -20,14 +20,14 @@
         <ul class="list-disc">
             <b>{$l("contact.phone")}</b>
             {#each CONTACT_PHONE as phone}
-                <li class="list-item ml-8">{phone}</li>
+                <li class="list-item">{phone}</li>
             {/each}
             <small>{$l("contact.fees")}</small>
         </ul>
         <ul class="list-disc">
             <b>Email:</b>
             {#each CONTACT_EMAIL as email}
-                <li class="list-item ml-8">{email}</li>
+                <li class="list-item">{email}</li>
             {/each}
         </ul>
     </address>

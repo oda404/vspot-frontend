@@ -15,11 +15,11 @@
     ></div> -->
     <ProductSubmenuItem
         simple
-        href="/disposables"
+        href="/disposable"
         suboptions={[
-            { name: "Reincarcabile", href: "/disposables?reusable=true" },
-            { name: "Cartuse", href: "/disposables?cartridge=true" },
-            { name: "Fara nicotina", href: "/disposables?nicotinefree=true" },
+            { name: "Reincarcabile", href: "/disposable?reusable=true" },
+            { name: "Cartuse", href: "/disposable?cartridge=true" },
+            { name: "Fara nicotina", href: "/disposable?nicotinefree=true" },
         ]}
         bind:current_hover
     >
@@ -47,12 +47,12 @@
 
     <ProductSubmenuItem
         simple
-        href="/pouches"
+        href="/pouch"
         bind:current_hover
         suboptions={[
-            { name: "Slabe", href: "/pouches/weak" },
-            { name: "Moderate", href: "/pouches/mid" },
-            { name: "Sa te apere Dumnezeu", href: "/pouches/strong" },
+            { name: "Slabe", href: "/pouch/weak" },
+            { name: "Moderate", href: "/pouch/mid" },
+            { name: "Sa te apere Dumnezeu", href: "/pouch/strong" },
         ]}
     >
         <span>
@@ -62,8 +62,8 @@
 
     <ProductSubmenuItem
         simple
-        href="/liquids"
-        suboptions={[{ name: "Nicotina", href: "/liquids/nic" }]}
+        href="/liquid"
+        suboptions={[{ name: "Nicotinizare", href: "/liquid/nicotine" }]}
         bind:current_hover
     >
         <span>
@@ -73,10 +73,10 @@
 
     <ProductSubmenuItem
         simple
-        href="/kits"
+        href="/kit"
         suboptions={[
-            { name: "Kituri incepatori", href: "/kits/entry" },
-            { name: "Rezistente", href: "/kits/resistor" },
+            { name: "Kituri incepatori", href: "/kit/entry" },
+            { name: "Rezistente", href: "/kit/resistor" },
         ]}
         bind:current_hover
     >

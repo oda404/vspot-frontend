@@ -35,7 +35,7 @@
                         <img
                             src={item.preview_image_url}
                             alt={`${item.name} preview`}
-                            class="h-[60px] drop-shadow border border-vspot-secondary-bg rounded"
+                            class="h-[60px] drop-shadow rounded"
                         />
                         <div>
                             <div>

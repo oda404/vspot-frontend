@@ -1,10 +1,7 @@
 <script lang="ts">
     import { l } from "$lib/langs";
     import Fa from "svelte-fa";
-    import {
-        faCircleCheck,
-        faXmarkCircle,
-    } from "@fortawesome/free-solid-svg-icons";
+    import { faCircleCheck } from "@fortawesome/free-solid-svg-icons";
     import { browser } from "$app/environment";
 
     export let data;
@@ -68,6 +65,9 @@
         {/each}
         <div>
             {$l("description.orderplacedextrainfo")}
+            <a class="text-vspot-link" href="/contact"
+                >{$l("description.here")}</a
+            >
         </div>
     </div>
 {:else if order_id}

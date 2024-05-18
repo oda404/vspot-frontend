@@ -5,7 +5,7 @@
 
     export let products: V1ServerProductDisplayData[];
     export let name: string;
-    export let href: string;
+    export let href: string | undefined;
 </script>
 
 <div class="p-4 rounded-b-lg">
@@ -14,7 +14,9 @@
             <slot />
             <span class="text-2xl block"> {name} </span>
         </a>
-        <a {href} class=""> {$l("action.see_all")} </a>
+        {#if href}
+            <a {href} class=""> {$l("action.see_all")} </a>
+        {/if}
     </div>
     <div
         class="grid grid-cols-2 gap-2 lg:flex lg:[&>*:nth-child(6)]:hidden lg:gap-0 lg:space-x-2 pt-4"

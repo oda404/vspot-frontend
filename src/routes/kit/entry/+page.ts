@@ -5,7 +5,10 @@ import { error } from '@sveltejs/kit';
 
 export async function load({ fetch, url }) {
 
-    let res = await backendv1_get_products_all("entrykit", url.searchParams.toString(), fetch);
+    const url_params = new URLSearchParams(url.searchParams.toString());
+    url_params.set("subtypes", "entry");
+
+    let res = await backendv1_get_products_all("kit", url_params.toString(), fetch);
     if (res.status >= 500)
         error(res.status, { message: res.body.msg });
 

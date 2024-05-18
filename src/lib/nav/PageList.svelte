@@ -20,17 +20,22 @@
 
         goto(`?${url_params.toString()}`);
     };
+
+    $: left_disabled = pages === 1 || current_page === 1;
+    $: right_disabled = pages === 1 || current_page === pages;
 </script>
 
 <div class="flex">
-    {#if pages > 1 && current_page > 1}
-        <button
-            class="!mx-4"
-            on:click={() => navigate_to_page(current_page - 1)}
-        >
-            <Fa icon={faChevronLeft} />
-        </button>
-    {/if}
+    <button
+        disabled={left_disabled}
+        class="!mx-4"
+        on:click={() => navigate_to_page(current_page - 1)}
+    >
+        <Fa
+            color={left_disabled ? "#888888" : "#ffffff"}
+            icon={faChevronLeft}
+        />
+    </button>
     <div class="flex space-x-2">
         {#each pages_expanded as p}
             <button
@@ -45,12 +50,14 @@
             </button>
         {/each}
     </div>
-    {#if pages > 1 && current_page < pages}
-        <button
-            class="!mx-4"
-            on:click={() => navigate_to_page(current_page + 1)}
-        >
-            <Fa icon={faChevronRight} />
-        </button>
-    {/if}
+    <button
+        disabled={right_disabled}
+        class="!mx-4"
+        on:click={() => navigate_to_page(current_page + 1)}
+    >
+        <Fa
+            color={right_disabled ? "#888888" : "#ffffff"}
+            icon={faChevronRight}
+        />
+    </button>
 </div>

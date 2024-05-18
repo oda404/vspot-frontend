@@ -26,11 +26,3 @@ export type SortOption = {
     label: string;
 }
 
-export type ProductCoreInfo = {
-    name: string;
-    price: number;
-    price_decimals: number;
-    currency: string;
-    stock: number;
-    preview_image_url: string;
-};

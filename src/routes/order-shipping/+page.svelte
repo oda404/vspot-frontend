@@ -22,12 +22,16 @@
     import Spinner from "$lib/Spinner.svelte";
     import { pagetitle_make } from "$lib/title";
 
+    export let data;
+
     let orderinfo: OrderInfo | undefined;
     onDestroy(
         ORDERINFO_STORE.subscribe(($orderinfo) => {
             orderinfo = $orderinfo;
         }),
     );
+
+    if (!data.user) goto("/");
 
     if (!orderinfo || !orderinfo_is_first_stage_valid(orderinfo)) {
         goto("/order-info");
