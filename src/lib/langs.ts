@@ -95,6 +95,7 @@ var translations = {
         "product.pouches_mid": "Pouchuri moderate",
         "product.pouches_strong": "Pouchuri tari",
         "product.new": "Acum le-am primit!",
+        "product.cone": "Conuri",
 
         "product.disposables.description": "Kituri preumplute de unica folosinta sau reincarcabile",
         "product.pouches.description": "Pliculete cu nicotina aplicate in partea de sus a buzei",
@@ -112,6 +113,7 @@ var translations = {
         "product.pouches_weak.description": "O alegere buna pentru incepatori",
         "product.pouches_mid.description": "Daca te-ai plictisit de pouch-urile slabe dar totusi nu vrei sa adormi inca",
         "product.pouches_strong.description": "Pentru cei ce vor experienta autentica",
+        "product.cone.description": "Conuri prerulate gata pentru umplere",
 
         "nav.home": "Acasa",
         "nav.products": "Produse",
@@ -134,6 +136,9 @@ var translations = {
         "filter.nicotinefree": "Fara nicotina",
         "filter.has_nicotine": "Cu nicotina",
         "filter.active_coal": "Carbune activ",
+        "filter.with_filters": "Cu filtre",
+        "filter.compartments": "Compartimente",
+        "filter.kief_catcher": "Compartiment Kief",
 
         "filteropt.zippolike": "Tip Zippo",
         "filteropt.antiwind": "Anti-vant",
@@ -351,6 +356,7 @@ var translations = {
         "product.pouches_mid": "Moderate pouches",
         "product.pouches_strong": "Strong pouches",
         "product.new": "Just in!",
+        "product.cone": "Cones",
 
         "product.disposables.description": "One-time use kits",
         "product.pouches.description": "Nicotine pouches",
@@ -359,7 +365,7 @@ var translations = {
         "product.kits.description": "Entry and advanced kits for vaping",
         "product.rollingpaper.description": "Paper used for rolling cigarettes",
         "product.lighter.description": "Lighters running on butane, petroleum and shisha torches",
-        "product.grinder.description": "Grinders for grinding strictly tobacco!",
+        "product.grinder.description": "Grinders strictly for grinding tobacco!",
         "product.filter.description": "Filters for use in rolled cigarettes",
         "product.capsules.description": "Capsules for flavoring traditional cigarettes",
         "product.resistor.description": "???",
@@ -368,7 +374,7 @@ var translations = {
         "product.pouches_weak.description": "Good for people who have never tried pouches before",
         "product.pouches_mid.description": "Good if you're bored of weak pouches but don't want to fall asleep",
         "product.pouches_strong.description": "Pouches for those who seek the authentic experience",
-
+        "product.cone.description": "Cones, pre-rolled and ready to smoke",
 
         "nav.home": "Home",
         "nav.products": "Products",
@@ -390,6 +396,9 @@ var translations = {
         "filter.cartridge": "Cartridge",
         "filter.nicotinefree": "Nicotine-free",
         "filter.active_coal": "Activated charcoal",
+        "filter.with_filters": "With filters",
+        "filter.compartments": "Pieces",
+        "filter.kief_catcher": "Kief Catcher",
 
         "filteropt.zippolike": "Zippo-like",
         "filteropt.antiwind": "Wind resistant",
@@ -565,6 +574,8 @@ var translations = {
         "filteropt.actitube": "ActiTube",
         "filteropt.cyberg": "Cyber G",
         "filteropt.cyberg_slim": "Cyber G Slim",
+        "filteropt.2": "2",
+        "filteropt.3": "3",
 
         "shipping.fancourier": "Fan Courier",
         "shipping.sameday": "Sameday"

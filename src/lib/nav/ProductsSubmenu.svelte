@@ -35,8 +35,9 @@
             { name: "Capsule tigari", href: "/smoking/capsules" },
             { name: "Filtre", href: "/smoking/filter" },
             { name: "Foite", href: "/smoking/rollingpaper" },
-            { name: "Brichete", href: "/smoking/lighter" },
+            // { name: "Brichete", href: "/smoking/lighter" },
             { name: "Grindere", href: "/smoking/grinder" },
+            { name: "Conuri", href: "/smoking/cone" },
         ]}
         bind:current_hover
     >
