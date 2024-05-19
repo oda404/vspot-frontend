@@ -73,7 +73,7 @@
         {:else if current_menu === USER_ORDERS_MENU}
             <UserAccountOrdersMenu {orders} />
         {:else if current_menu === USER_DELETE_MENU}
-            <UserAccountDeleteMenu {user} />
+            <UserAccountDeleteMenu />
         {/if}
     </div>
 </section>

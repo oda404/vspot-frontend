@@ -8,8 +8,6 @@
     import { orderinfo_clear } from "$lib/orderinfo/orderinfo";
     import type { UserDisplayInfo } from "./user";
 
-    export let user: UserDisplayInfo;
-
     let delete_in_progress = false;
     let delete_error_msg = "";
 
