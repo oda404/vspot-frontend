@@ -45,7 +45,7 @@
                     <img
                         src={product.image_url}
                         alt={`${product.name} preview`}
-                        class="rounded border border-vspot-secondary-bg"
+                        class="rounded"
                     />
                 </a>
                 <div class="flex flex-col h-full space-between">

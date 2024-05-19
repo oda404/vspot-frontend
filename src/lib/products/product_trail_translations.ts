@@ -3,7 +3,6 @@ export const product_trail_translations = [
     {
         parent: "disposable",
         translation: "Disposable",
-        href: "/disposable",
         children: [
             {
                 name: "",
