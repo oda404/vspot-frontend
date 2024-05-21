@@ -6,6 +6,11 @@
 
 <svelte:head>
     <title>{pagetitle_make($l("page.contact"))}</title>
+
+    <meta
+        name="description"
+        content="Pentru orice sesizari sau intrebari ne puteti contacta folosind instructiunile de pe aceasta pagina."
+    />
 </svelte:head>
 
 <section>

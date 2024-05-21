@@ -34,6 +34,10 @@
 
 <svelte:head>
     <title>{pagetitle_make($l("product.disposables"))}</title>
+    <meta
+        name="description"
+        content="Vape-uri disposable de unica folosinta sau reincarcabile cu cartuse preumplute."
+    />
 </svelte:head>
 
 <MainProductContent
