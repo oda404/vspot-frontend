@@ -1,5 +1,7 @@
 <script lang="ts">
+    import Fa from "svelte-fa";
     import type { InputFieldContext } from "./InputField";
+    import { faEye, faEyeLowVision } from "@fortawesome/free-solid-svg-icons";
 
     export let id: string;
     export let label: string;
@@ -8,6 +10,8 @@
 
     let focused = false;
     $: move_label = focused || data.value.length > 0;
+
+    const is_password = type === "password";
 </script>
 
 <div class="flex flex-col space-y-1 relative w-full">
@@ -34,6 +38,16 @@
             ? 'border-vspot-text-error'
             : 'border-vspot-secondary-bg'} focus:border-vspot-green focus:outline-none"
     />
+    {#if is_password}
+        <button
+            class="absolute top-[12px] right-[12px]"
+            on:click={() => {
+                type = type === "password" ? "" : "password";
+            }}
+        >
+            <Fa icon={type === "password" ? faEye : faEyeLowVision} />
+        </button>
+    {/if}
     {#if data.error}
         <div class="text-sm leading-[1] text-vspot-text-error">
             {data.error}
