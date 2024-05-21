@@ -2,9 +2,9 @@ import { backendv1_get_user_display_info } from '$lib/backendv1/user.js';
 import type { UserDisplayInfo } from '$lib/user/user.js';
 import { error, redirect } from '@sveltejs/kit';
 
-const email_unverified_pages_exclude = ["/send-confirm-email", "/account", "/confirm-email"]
+const email_unverified_pages_exclude = ["/send-confirm-email", "/account", "/confirm-email", "/contact"]
 
-export async function load({ fetch, depends, url }) {
+export async function load({ fetch, depends, url, }) {
 
     depends("user:session_cookie");
 
