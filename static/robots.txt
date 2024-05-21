@@ -1,0 +1,34 @@
+#             .-"""-.
+#            '       \
+#           |         |
+#           | >///<   |
+#           |,'  `".| |
+#           |.___.',| `
+#          .j `--"' `  `.
+#         / '        '   \
+#        / /          `   `.
+#       / /            `    .
+#      / /              l   |
+#     . ,               |   |
+#     ,"`.             .|   |
+#  _.'   ``.          | `..-'l
+# |       `.`,        |      `.
+# |         `.    __.j         )
+# |__        |--""___|      ,-'
+#    `"--...,+""""   `._,.-' original by mh
+# windows suge pula, linux suge pula mai putin
+# digi suge pula, vodafone suge pula mai putin
+# infrastructura facuta si mentinuta de Alexandru Olaru https://github.com/oda404
+
+User-agent: *
+Allow: /
+Disallow: /account
+Disallow: /cart
+Disallow: /confirm-email/
+Disallow: /order-info/
+Disallow: /order-placed/
+Disallow: /order-shipping/
+Disallow: /order-submit/
+Disallow: /send-confirm-email/
+
+# no sitemap since the website is still too small to need one
