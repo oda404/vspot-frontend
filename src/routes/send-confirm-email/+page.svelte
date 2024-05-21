@@ -1,4 +1,6 @@
 <script lang="ts">
+    import { l } from "$lib/langs.js";
+
     export let data;
 
     $: user = data.user!;

@@ -72,7 +72,8 @@
     let phone_data = new InputFieldContext(orderinfo?.info?.phone);
     phone_data.validate = (value: string) => {
         if (value.length === 0) return "Ai uitat numarul de telefon!";
-        if (!value.match(/^(\+?4)?07[0-9]{8}$/)) return "Numar invalid!";
+        if (!value.replace(/\s/g, "").match(/^(\+?4)?07[0-9]{8}$/))
+            return "Numar invalid!";
     };
 
     let county_data = new InputFieldContext(orderinfo?.billing.county);
@@ -151,7 +152,7 @@
             info: {
                 lastname: lastname_data.value,
                 firstname: firstname_data.value,
-                phone: phone_data.value,
+                phone: phone_data.value.replace(/\s/g, ""),
             },
             billing: billing_address,
             shipping: billing_address,
