@@ -171,27 +171,27 @@
             >
                 <SiteFeatureBox
                     icon={faTruck}
-                    title="Transport in tota tara"
-                    description="Transport prin firma ta preferata de curierat oriunde in Romania"
+                    title={$l("page.main.shipping")}
+                    description={$l("page.main.shipping.description")}
                 />
                 <SiteFeatureBox
                     icons={[faCreditCard, faMoneyBill]}
-                    title="Plata card sau ramburs"
-                    description="Platesti folosind cardul online cu 3DSecure sau cash cand preiei comanda"
+                    title={$l("page.main.payment")}
+                    description={$l("page.main.payment.description")}
                 />
                 <SiteFeatureBox
                     icon={faArrowLeft}
-                    title="Retur gratuit"
-                    description="Daca nu esti multumit de un produs iti trimitem altul sau banii inapoi"
+                    title={$l("page.main.return")}
+                    description={$l("page.main.return.description")}
                 >
                     <a class="text-sm text-vspot-link" href="/return-policy"
-                        >*Vezi politica de retur
+                        >{$l("page.main.return.check_policy")}
                     </a>
                 </SiteFeatureBox>
                 <SiteFeatureBox
                     img_url={"/images/ahh.webp"}
-                    title="Satisfactie totala"
-                    description="Atat am avut de spus"
+                    title={$l("page.main.satisfaction")}
+                    description={$l("page.main.satisfaction.description")}
                 />
             </div>
         </div>

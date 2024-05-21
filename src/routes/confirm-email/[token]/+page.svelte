@@ -1,28 +1,30 @@
 <script lang="ts">
+    import { l } from "$lib/langs.js";
+
     export let data;
 </script>
 
 {#if data.status >= 400}
     <h1 class="text-6xl lg:text-9xl font-[Blowhole] font-semibold opacity-80">
-        Eroare
+        {$l("page.confirm_email.title.failed")}
     </h1>
     <div class="text-lg">
-        Link-ul de confirmare a expirat sau este invalid.
-        <a href="/send-confirm-email" class="text-vspot-link"
-            >Trimite email-ul de confirmare din nou</a
-        >.
+        {$l("page.confirm_email.description.failed")}
+        <a href="/send-confirm-email" class="text-vspot-link">
+            {$l("page.confirm_email.resend")}
+        </a>
     </div>
 {:else}
     <h1 class="text-6xl lg:text-9xl font-[Blowhole] font-semibold opacity-80">
-        Cont confirmat!
+        {$l("page.confirm_email.title.success")}
     </h1>
     <span class="text-lg block mb-2">
-        Iti multumim ca ai confirmat contul
+        {$l("page.confirm_email.description.success")}
     </span>
     <a
         href="/"
-        class="px-4 p-2 rounded-lg bg-vspot-green text-vspot-primary-bg"
+        class="px-4 p-2 block w-fit !mt-4 rounded-lg bg-vspot-green text-vspot-primary-bg"
     >
-        Inapoi la pagina principala
+        {$l("action.backtomainpage")}
     </a>
 {/if}

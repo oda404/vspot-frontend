@@ -162,7 +162,7 @@
 
 <div class="space-y-8">
     <div>
-        <span class="text-lg"> Detalii cont </span>
+        <span class="text-lg"> {$l("user.account_details")} </span>
         <div class="space-y-4 mt-4 w-[300px]">
             <InputField
                 id="firstname"
@@ -193,7 +193,7 @@
         </div>
     </div>
     <div>
-        <span class="text-lg"> Parola </span>
+        <span class="text-lg"> {$l("user.password")} </span>
         <div class="space-y-4 mt-4 w-fit">
             <div class="flex space-x-4">
                 <div class="w-[300px]">

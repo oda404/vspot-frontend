@@ -46,21 +46,21 @@
         </button>
     </div>
     <a
-        class="p-2 px-4 block rounded-lg hover:bg-vspot-secondary-bg"
-        href="/account?tab=user_info">Contul meu</a
+        class="block px-0 py-2 !border-vspot-primary-bg hover:!border-vspot-green"
+        href="/account?tab=user_info">{$l("page.account")}</a
     >
     <a
-        class="p-2 px-4 block rounded-lg hover:bg-vspot-secondary-bg"
-        href="/account?tab=user_orders">Comenzile mele</a
+        class="block px-0 py-2 !border-vspot-primary-bg hover:!border-vspot-green"
+        href="/account?tab=user_orders">{$l("page.my_orders")}</a
     >
     <button
-        class="p-2 px-4 w-full text-left block rounded-lg text-vspot-purple hover:bg-vspot-secondary-bg"
+        class="w-full text-left block px-0 py-2 !border-vspot-primary-bg hover:!border-vspot-green text-vspot-purple"
         on:click={async () => {
             await user_logout();
             orderinfo_clear();
             window.location.reload();
         }}
     >
-        Dezautentificare
+        {$l("action.logout")}
     </button>
 </div>

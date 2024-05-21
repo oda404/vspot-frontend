@@ -30,6 +30,36 @@ var translations = {
         "page.order_submit": "Trimite comanda",
         "page.tos": "Termenii serviciului",
 
+        "page.send_confirm_email.title": "Confirmare email",
+        "page.send_confirm_email.description": "V-am trimis un email de confirmare la adresa",
+        "page.send_confirm_email.follow_instructions": "Va rugam sa urmati instructiunile din email pentru a va activa contul.",
+        "page.send_confirm_email.spam_notice": "Daca nu ati primit nici un email va rugam sa verificati si folder-ul de spam.",
+        "page.send_confirm_email.wrong_email": "Nu ai acces la aceasta adresa de email? Schimba adresa",
+
+        "page.confirm_email.title.success": "Cont confirmat!",
+        "page.confirm_email.description.success": "Va multumim ca v-ati confirmat adresa de email!",
+        "page.confirm_email.title.failed": "Link expirat",
+        "page.confirm_email.description.failed": "Link-ul de confirmare a expirat sau este invalid.",
+        "page.confirm_email.resend": "Trimite alt email de confirmare",
+
+        "page.main.description": "are ca obiectiv sa-ti puna la dispozitie doar cele mai bune produse ce au de a face cu nicotina! Vapes, kituri, pouchuri sau tigari clasice, le gasesti la noi exclusiv de la cele mai bune branduri!",
+
+        "page.main.best_brands": "Cele mai bune branduri",
+        "page.main.best_brands.description": " Lucram exclusiv cu cele mai bune branduri pentru a-ti asigura satisfactia completa cand dai o comanda!",
+
+        "page.main.shipping": "Transport in tota tara",
+        "page.main.shipping.description": "Transport prin firma ta preferata de curierat oriunde in Romania.",
+
+        "page.main.payment": "Plata card sau cash",
+        "page.main.payment.description": "Platesti folosind cardul online cu 3DSecure sau cash cand preiei comanda.",
+
+        "page.main.return": "Retur gratuit",
+        "page.main.return.check_policy": "*Vezi politica de retur",
+        "page.main.return.description": "Daca nu esti multumit de un produs iti trimitem altul sau banii inapoi*",
+
+        "page.main.satisfaction": "Satisfactie totala",
+        "page.main.satisfaction.description": "Atat am avut de spus",
+
         "orderinfo.personaldata": "Date de contact",
         "orderinfo.shippingaddress": "Adresa livrare",
         "orderinfo.billingaddress": "Adresa facturare",
@@ -78,11 +108,10 @@ var translations = {
 
         "product.disposables": "Disposables",
         "product.kits": "Kituri",
-        "product.consumables": "Lichide/Mentenanta",
         "product.pouches": "Pouchuri",
         "product.cigs": "Tigari",
         "product.smoking": "Tutungerie",
-        "product.liquids": "Lichide",
+        "product.liquids": "E-Lichide",
         "product.rollingpaper": "Foite",
         "product.lighter": "Brichete",
         "product.grinder": "Grindere",
@@ -107,12 +136,12 @@ var translations = {
         "product.grinder.description": "Grindere pentru maruntit tutun si doar tutun!",
         "product.filter.description": "Filtre pentru tigari rulate",
         "product.capsules.description": "Capsule aromate pentru tigari",
-        "product.resistor.description": "Rezistente/cartuse + rezistente",
+        "product.resistor.description": "Rezistente pentru kit-uri",
         "product.entrykit.description": "Recomandat daca este primul tau vape",
-        "product.nic.description": "Shot-uri de nicotina pentru e-lichide",
+        "product.nic.description": "Shot-uri de nicotina pentru E-lichide",
         "product.pouches_weak.description": "O alegere buna pentru incepatori",
-        "product.pouches_mid.description": "Daca te-ai plictisit de pouch-urile slabe dar totusi nu vrei sa adormi inca",
-        "product.pouches_strong.description": "Pentru cei ce vor experienta autentica",
+        "product.pouches_mid.description": "Daca te-ai plictisit de pouch-urile slabe dar nu vrei sa adormi",
+        "product.pouches_strong.description": "Pentru cei ce au toleranta la nicotina a unui cal",
         "product.cone.description": "Conuri prerulate gata pentru umplere",
 
         "nav.home": "Acasa",
@@ -174,6 +203,7 @@ var translations = {
         "action.see_all": "Vezi toate",
         "action.remember_me": "Tine-ma minte",
         "action.update": "Actualizeaza",
+        "action.logout": "Iesi din cont",
 
         "description.description": "Descriere",
         "description.outofstock": "Acest produs nu este in stoc :(",
@@ -219,6 +249,7 @@ var translations = {
         "age.description": "Acest site este destinat persoanelor cu varta peste {{n}} ani.",
 
         "user.firstname": "Numele",
+        "user.account_details": "Detalii cont",
         "user.lastname": "Prenumele",
         "user.email": "Email",
         "user.password": "Parola",
@@ -274,7 +305,7 @@ var translations = {
         "footer.seo": "The V Spot este magazinul online pentru toate nevoiile tale ce au de a face cu nicotina. Tigari, vapeuri, kituri pentru vapat, lichide, baze, pouchuri, accesorii si nu numai! Toate acestea exclusiv de la cele mai bune branduri!"
     },
     "en": {
-        "home.title": "Your one-stop for all your Vape needs",
+        "home.title": "Your new Vapes & Tobacco store!",
         "home.explore": "Check out our catalogue",
         "home.explore.btn": "Let's go",
 
@@ -290,6 +321,36 @@ var translations = {
         "page.order_shipping": "Order shipping",
         "page.order_submit": "Send order",
         "page.tos": "Terms of service",
+
+        "page.confirm_email.title.success": "Account confirmed!",
+        "page.confirm_email.description.success": "Thank you for confirming your email address!",
+        "page.confirm_email.title.failed": "Expired link",
+        "page.confirm_email.description.failed": "The confirmation link has either expired or is invalid.",
+        "page.confirm_email.resend": "Send another confirmation email",
+
+        "page.send_confirm_email.title": "Email confirmation",
+        "page.send_confirm_email.description": "We have sent you an email at",
+        "page.send_confirm_email.follow_instructions": "Please follow the instructions in that email to confirm your account.",
+        "page.send_confirm_email.spam_notice": "If you haven't received anything, make sure to also check the spam folder.",
+        "page.send_confirm_email.wrong_email": "Don't have access to that email address? Change your email",
+
+        "page.main.description": "is commited to bringing you the highest quality nicotine-related products! Vapes, kits, pouches, cigarettes and much more exclusively from top brands!",
+
+        "page.main.best_brands": "Top brands",
+        "page.main.best_brands.description": "We've partnered up with the best brands in the pursuit of bringing you the cream of the crop!",
+
+        "page.main.shipping": "Shipping in all of Romania",
+        "page.main.shipping.description": "Shipping everywhere in Romania through your favorite shipping agency.",
+
+        "page.main.payment": "Card or cash payment",
+        "page.main.payment.description": "Pay online using your card, or cash when picking up your goodies.",
+
+        "page.main.return": "Product return",
+        "page.main.return.check_policy": "*See return policy",
+        "page.main.return.description": "If you're not satisfied with a product, you're getting a new one, or your money back*",
+
+        "page.main.satisfaction": "Complete satisfaction",
+        "page.main.satisfaction.description": "That's all there is to it",
 
         "orderinfo.personaldata": "Contact",
         "orderinfo.shippingaddress": "Shipping address",
@@ -339,17 +400,16 @@ var translations = {
 
         "product.disposables": "Disposables",
         "product.kits": "Kits",
-        "product.consumables": "Liquids",
         "product.pouches": "Pouches",
         "product.cigs": "Cigarettes",
         "product.smoking": "Smoking",
-        "product.liquids": "Liquids",
+        "product.liquids": "E-Liquids",
         "product.rollingpaper": "Rolling paper",
         "product.lighter": "Lighters",
         "product.grinder": "Grinders",
         "product.filter": "Filters",
         "product.capsules": "Capsules",
-        "product.resistor": "Resistors",
+        "product.resistor": "Coils",
         "product.entrykit": "Entry kits",
         "product.nic": "Nicotine",
         "product.pouches_weak": "Mild pouches",
@@ -358,22 +418,22 @@ var translations = {
         "product.new": "Just in!",
         "product.cone": "Cones",
 
-        "product.disposables.description": "One-time use kits",
+        "product.disposables.description": "Prefilled disposable / JUUL-like kits",
         "product.pouches.description": "Nicotine pouches",
         "product.smoking.description": "Products geared towards tobacco smokers",
         "product.liquids.description": "Liquids, bases and nicotine for vaping",
         "product.kits.description": "Entry and advanced kits for vaping",
         "product.rollingpaper.description": "Paper used for rolling cigarettes",
         "product.lighter.description": "Lighters running on butane, petroleum and shisha torches",
-        "product.grinder.description": "Grinders strictly for grinding tobacco!",
+        "product.grinder.description": "Grinders used for grinding tobacco!",
         "product.filter.description": "Filters for use in rolled cigarettes",
         "product.capsules.description": "Capsules for flavoring traditional cigarettes",
-        "product.resistor.description": "???",
+        "product.resistor.description": "Replacement coils for kits",
         "product.entrykit.description": "Recommended if you're trying out vaping for the first time",
-        "product.nic.description": "Nicotine ??/",
+        "product.nic.description": "Nicotine shots for use with E-liquids",
         "product.pouches_weak.description": "Good for people who have never tried pouches before",
-        "product.pouches_mid.description": "Good if you're bored of weak pouches but don't want to fall asleep",
-        "product.pouches_strong.description": "Pouches for those who seek the authentic experience",
+        "product.pouches_mid.description": "Good if you're bored of mild pouches but you're not looking to fall asleep",
+        "product.pouches_strong.description": "Good if you have the nicotine tolerance of a nordic viking",
         "product.cone.description": "Cones, pre-rolled and ready to smoke",
 
         "nav.home": "Home",
@@ -382,7 +442,7 @@ var translations = {
         "nav.search": "Search",
         "nav.login": "Log in",
 
-        "filters.title": "Apply filter",
+        "filters.title": "Filters",
         "filter.brand": "Brand",
         "filter.puffs": "Puffs",
         "filter.subtype": "Type",
@@ -421,7 +481,7 @@ var translations = {
         "action.apply": "Apply",
         "action.seecart": "See cart",
         "action.continueshopping": "Continue shopping",
-        "action.backtomainpage": "Back to the main page",
+        "action.backtomainpage": "Go to the main page",
         "action.delete": "Remove",
         "action.shipping": "Looks good!",
         "action.change": "Modify",
@@ -432,6 +492,7 @@ var translations = {
         "action.see_all": "See all",
         "action.remember_me": "Remember me",
         "action.update": "Update",
+        "action.logout": "Logout",
 
         "description.description": "Description",
         "description.outofstock": "This item is out of stock :(",
@@ -479,6 +540,7 @@ var translations = {
         "age.description": "This site contains products geared towards people over {{n}}.",
 
         "user.firstname": "Firstname",
+        "user.account_details": "Account details",
         "user.lastname": "Lastname",
         "user.email": "Email",
         "user.password": "Password",

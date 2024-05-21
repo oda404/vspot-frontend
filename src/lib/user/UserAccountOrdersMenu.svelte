@@ -47,7 +47,7 @@
                     status: $l(`order.${order.status}`),
                 })}
             </span>
-            <div class="flex mt-4 space-x-8">
+            <div class="lg:flex mt-4 space-y-4 lg:space-y-0 lg:space-x-8">
                 <div class="space-y-4">
                     {#each order.products as product}
                         <a
