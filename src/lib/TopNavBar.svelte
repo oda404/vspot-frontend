@@ -31,11 +31,11 @@
 <div class="!mt-0 z-20 flex space-x-4 lg:h-[160px]">
     <a
         href="/"
-        class="min-w-[60px] max-w-[60px] lg:min-w-[160px] lg:max-w-[160px]"
+        class="absolute left-[-2%] top-[-20px] lg:left-0 lg:top-0 lg:relative min-w-[130px] max-w-[130px] lg:min-w-[160px] lg:max-w-[160px]"
     >
         <img
             src="/images/vspot.webp"
-            class="transform lg:rotate-[-15deg] transition-transform"
+            class="transform rotate-[-15deg] transition-transform"
             alt="V Spot Logo"
         />
     </a>

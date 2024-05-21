@@ -17,7 +17,7 @@
         <ProgressBubble
             _class="{stage === 1
                 ? 'border-2 border-vspot-green'
-                : ''} bg-vspot-primary-bg"
+                : ''} bg-vspot-secondary-bg"
             ><div class="font-bold">1</div></ProgressBubble
         >
         <div class="font-bold text-lg whitespace-nowrap">
@@ -39,7 +39,7 @@
         <ProgressBubble
             _class="{stage === 2
                 ? 'border-2 border-vspot-green'
-                : ''} bg-vspot-primary-bg"
+                : ''} bg-vspot-secondary-bg"
             ><div class="font-bold">2</div></ProgressBubble
         >
         <div class="font-bold text-lg whitespace-nowrap">
@@ -55,7 +55,7 @@
         <ProgressBubble
             _class="{stage === 3
                 ? 'border-2 border-vspot-green'
-                : ''} bg-vspot-primary-bg"
+                : ''} bg-vspot-secondary-bg"
             ><div class="font-bold">3</div></ProgressBubble
         >
         <div class="font-bold text-lg whitespace-nowrap">

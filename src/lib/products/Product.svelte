@@ -30,7 +30,7 @@
             </div>
         </a>
         {#if product.stock > 0}
-            <div class="!mt-0">
+            <div class="!mt-0 !mb-2">
                 <div class="text-xl leading-tight">
                     {product.price}
                     {product.currency}
@@ -51,7 +51,7 @@
             >
                 <Fa
                     color="#181a1b"
-                    class={adding_load ? "animate-spin" : ""}
+                    class="{adding_load ? 'animate-spin' : ''} hidden lg:block"
                     size="xs"
                     icon={adding_load ? faSpinner : faCartArrowDown}
                 />
@@ -64,9 +64,29 @@
                 </div>
             </button>
         {:else}
-            <div class="py-1 text-vspot-text-hovered text-sm">
-                {$l("description.outofstock")}
+            <div class="!mt-0 !mb-2">
+                <span class="text-xl leading-tight">
+                    {product.price}
+                    {product.currency}
+                </span>
+                <span class="block text-sm leading-tight">
+                    {$l("description.outofstock")}
+                </span>
             </div>
+            <button
+                class="bg-vspot-secondary-bg px-2 p-1 rounded ml-auto flex items-center space-x-2 w-full"
+                disabled
+                on:click={() => {
+                    adding_load = true;
+                    cart_add_item(product.internal_id, () => {
+                        adding_load = false;
+                    });
+                }}
+            >
+                <span class="text-vspot-text-hovered">
+                    {$l("description.outofstock_simple")}
+                </span>
+            </button>
         {/if}
     </div>
 </div>

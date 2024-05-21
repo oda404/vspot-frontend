@@ -24,10 +24,10 @@
 
 <div class="space-y-4">
     <ProductTrailBar {tags} product_name={data.product.name} />
-    <div class="lg:flex space-x-8 max-h-[400px]">
+    <div class="lg:flex space-y-4 lg:space-y-0 lg:space-x-8 lg:max-h-[400px]">
         <div class="lg:min-w-[400px] lg:max-w-[400px]">
             <img
-                class="rounded-lg drop-shadow-2xl min-w-[400px]"
+                class="rounded-lg drop-shadow-2xl"
                 src={data.product.image_url}
                 alt="{data.product.name} image"
             />
@@ -113,7 +113,12 @@
     {#if recommended}
         <div class="space-y-2 !mt-16">
             <h1>Recomandate pentru tine!</h1>
-            <div class="flex space-x-2">
+            <div
+                class="flex space-x-2
+                [&>*:nth-child(6)]:hidden lg:[&>*:nth-child(6)]:flex
+                [&>*:nth-child(5)]:hidden lg:[&>*:nth-child(5)]:flex
+                [&>*:nth-child(4)]:hidden lg:[&>*:nth-child(4)]:flex"
+            >
                 {#each recommended as rec}
                     <Product product={rec} />
                 {/each}

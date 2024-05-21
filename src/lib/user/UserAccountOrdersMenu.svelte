@@ -68,7 +68,7 @@
                         </a>
                     {/each}
                 </div>
-                <div class="space-y-4 flex flex-col items-center">
+                <div class="space-y-4 flex flex-col lg:items-center">
                     <span class="whitespace-nowrap"
                         >{$l("shipping.shipping_through")}</span
                     >

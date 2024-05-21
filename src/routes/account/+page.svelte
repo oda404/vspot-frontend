@@ -37,12 +37,12 @@
 </svelte:head>
 
 <section>
-    <h1 class="text-6xl lg:text-9xl font-[Blowhole] font-semibold opacity-80">
+    <h1 class="text-7xl lg:text-9xl font-[Blowhole] font-semibold opacity-80">
         {$l("description.welcomeback", { name: user.firstname })}
     </h1>
 
-    <div class="flex space-x-16">
-        <div class="w-fit">
+    <div class="lg:flex lg:space-x-16 space-y-8 mt-4">
+        <div class="flex justify-between lg:block lg:w-fit">
             <UserAccountNavButton
                 active={current_menu === USER_INFO_MENU}
                 text={$l("description.user_info")}

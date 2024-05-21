@@ -111,7 +111,7 @@
 </svelte:head>
 
 <div class="space-y-4">
-    <span class="text-6xl lg:text-9xl font-[Blowhole] font-semibold opacity-80">
+    <span class="text-7xl lg:text-9xl font-[Blowhole] font-semibold opacity-80">
         {$l("action.login")}
     </span>
     <div class="space-y-8 w-full lg:w-[45%]">

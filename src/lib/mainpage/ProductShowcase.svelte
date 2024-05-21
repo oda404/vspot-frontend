@@ -5,7 +5,7 @@
 
     export let products: V1ServerProductDisplayData[];
     export let name: string;
-    export let href: string | undefined;
+    export let href: string | undefined = undefined;
 </script>
 
 <div class="p-4 rounded-b-lg">

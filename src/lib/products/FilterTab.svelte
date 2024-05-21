@@ -68,7 +68,7 @@
         </div>
         {#if can_apply}
             <button
-                class="flex items-center justify-center w-full !mt-2 bg-vspot-purple rounded-lg text-vspot-primary-bg hover:text-vspot-secondary-bg p-1"
+                class="flex items-center justify-center w-full !mt-2 bg-vspot-green rounded-lg text-vspot-primary-bg hover:text-vspot-secondary-bg p-1"
                 on:click={apply_filters}
             >
                 {$l("action.apply")}</button

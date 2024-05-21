@@ -27,11 +27,10 @@
     <div class="flex justify-between">
         <div>
             <h1
-                class="text-6xl lg:text-9xl font-[Blowhole] font-semibold opacity-80"
+                class="text-7xl lg:text-9xl font-[Blowhole] font-semibold opacity-80"
             >
                 {$l(`product.${product_title}`)}
             </h1>
-            <div class="lg:my-4" />
             <span
                 class="text-2xl font-semibold opacity-90 text-vspot-text-hovered"
             >
@@ -47,7 +46,7 @@
     <div class="h-[4px] rounded-lg my-2 w-full" />
     <div class="flex flex-col lg:flex-row lg:space-x-4">
         <div
-            class="w-fit lg:min-w-[23%] space-y-2 mb-2 divide-y divide-vspot-secondary-bg"
+            class="w-fit lg:min-w-[23%] space-y-2 mb-2 divide-y divide-vspot-secondary-bg hidden lg:block"
         >
             <SortTab options={sort_options} />
             <FilterTab {filters} />

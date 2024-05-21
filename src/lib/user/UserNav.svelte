@@ -17,10 +17,12 @@
                 user_tab_open = !user_tab_open;
             }}
             aria-label="User"
-            class="flex flex-col"
+            class="flex flex-col justify-center items-center"
         >
             <Fa icon={faUser} size="lg" />
-            <span class="text-sm">{user.firstname}</span>
+            <span class="hidden lg:block text-sm whitespace-nowrap"
+                >{user.firstname}</span
+            >
         </button>
         {#if user_tab_open}
             <UserDropdown

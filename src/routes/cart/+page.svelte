@@ -43,7 +43,7 @@
 </svelte:head>
 
 <div>
-    <h1 class="text-6xl lg:text-9xl font-[Blowhole] font-semibold opacity-80">
+    <h1 class="text-7xl lg:text-9xl font-[Blowhole] font-semibold opacity-80">
         {$l("cart.title")}
     </h1>
     <div class="h-[4px] rounded-lg my-2 w-full" />
@@ -51,9 +51,7 @@
         <div class="lg:w-[70%] rounded-lg drop-shadow space-y-8">
             {#if cart_item_count}
                 {#each cart_items as item}
-                    <div
-                        class="flex space-x-4 pb-2 border-b border-vspot-secondary-bg"
-                    >
+                    <div class="flex space-x-4 pb-2">
                         <a
                             href="/product/{item.id}"
                             class="w-[180px] lg:w-[80px]"
@@ -203,14 +201,14 @@
                     : $l("description.productreminder_noitems")}
             </div>
             <div class="flex space-x-4 p-2 px-0">
-                <a href="/product/{data.product.internal_id}" class="w-[80px]">
+                <a href="/product/{data.product.internal_id}" class="w-[100px]">
                     <img
                         src={data.product.image_url}
                         alt={`${data.product.name} preview`}
                         class="rounded"
                     />
                 </a>
-                <div class="flex flex-col justify-between">
+                <div class="flex flex-col">
                     <a
                         href="/product/{data.product.internal_id}"
                         class="text-lg leading-tight"
@@ -222,7 +220,7 @@
                         {data.product.currency}
                     </div>
                     <button
-                        class="rounded w-fit p-1 px-2 bg-vspot-green text-vspot-secondary-bg"
+                        class="rounded w-fit mt-auto p-1 px-2 bg-vspot-green text-vspot-secondary-bg"
                         on:click={() => {
                             cart_add_item(
                                 data.product.internal_id,

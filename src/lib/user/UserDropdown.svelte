@@ -32,7 +32,7 @@
 <div
     class="absolute bg-vspot-primary-bg right-[-14px] divide-vspot-secondary-bg top-12 p-4 rounded-lg drop-shadow z-[100] border-vspot-green"
 >
-    <div class="flex items-center space-x-20 justify-between pb-2">
+    <div class="flex items-center space-x-24 justify-between pb-2">
         <span class="whitespace-nowrap text-md">
             {$l("description.welcomeback", { name: user.firstname })}
         </span>

@@ -9,7 +9,6 @@
         faMoneyBill,
         faArrowLeft,
     } from "@fortawesome/free-solid-svg-icons";
-    import Product from "$lib/products/Product.svelte";
     import Disposable from "$lib/icons/disposable.svelte";
     import Cig from "$lib/icons/cig.svelte";
     import Pouch from "$lib/icons/pouch.svelte";
@@ -28,18 +27,18 @@
     <title>{pagetitle_make($l("home.title"))}</title>
     <meta
         name="description"
-        content="Noul tau vape shop. La The V-Spot gasesti toate produsele ce au de a face cu nicotina: vapes, pouchuri, kituri, lichide, nicotina si accesorii!"
+        content="Noul tau vape shop. La The VSpot gasesti toate produsele ce au de a face cu nicotina: vapes, pouchuri, kituri, e-lichide, nicotina si accesorii!"
     />
     <meta
         name="keywords"
-        content="Vape Shop, Tutungerie, Vape, Vapes, Pouchuri, Tigari, Vapat, Kituri, Lichide, Nicotina, Accesorii"
+        content="V Spot, VSpot, The VSpot, The V Spot, Vape Shop, Tigara electronica, Tigari electronice, Tutungerie, Vape, Vapes, Pouchuri, Tigari, Vapat, Kituri, E-Lichide, Lichide, Nicotina, Accesorii"
     />
 </svelte:head>
 
 <div class="space-y-4">
     <div class="space-y-4 lg:w-[100%]">
         <span
-            class="text-7xl font-[Blowhole] lg:text-9xl font-semibold opacity-80 block max-w-[80%]"
+            class="text-8xl font-[Blowhole] lg:text-9xl font-semibold opacity-80 block max-w-[100%] lg:max-w-[80%]"
         >
             {$l("home.title")}
         </span>
@@ -47,54 +46,63 @@
             <span class="font-[Blowhole] font-bold text-3xl !opacity-100">
                 The V-Spot
             </span>
-            are ca obiectiv sa-ti puna la dispozitie doar cele mai bune produse ce
-            au de a face cu nicotina! Vapes, kituri, pouchuri sau tigari clasice,
-            le gasesti la noi exclusiv de la cele mai bune branduri!
+            {$l("page.main.description")}
         </span>
     </div>
 
     <div
-        class="w-full h-fit p-4 drop-shadow flex flex-col space-y-4 lg:space-y-0 lg:flex-row lg:justify-between !my-16 border-t border-vspot-secondary-bg"
+        class="w-full h-fit p-4 grid grid-cols-2 gap-16 lg:gap-0 lg:flex lg:justify-between !my-12"
     >
-        <div class="flex space-x-4 items-center">
-            <div class="rotate-[24deg]">
+        <div class="flex flex-col lg:flex-row space-x-4 items-center">
+            <div class="rotate-[24deg] mb-auto lg:mb-0">
                 <Disposable h={52} />
             </div>
-            <LinkButton simple href="/disposable">
-                <div class="text-2xl">{$l("product.disposables")}</div>
-            </LinkButton>
-        </div>
-        <div class="flex space-x-4 items-center">
-            <div class="rotate-[0deg]">
-                <Cig h={16} />
+            <div class="mt-2 lg:mt-0">
+                <LinkButton simple href="/disposable">
+                    <div class="text-2xl">{$l("product.disposables")}</div>
+                </LinkButton>
             </div>
-            <LinkButton simple href="/smoking">
-                <div class="text-2xl">{$l("product.smoking")}</div>
-            </LinkButton>
         </div>
-        <div class="flex space-x-4 items-center">
-            <div>
-                <Pouch h={35} />
-            </div>
-            <LinkButton simple href="/pouch">
-                <div class="text-2xl">{$l("product.pouches")}</div>
-            </LinkButton>
-        </div>
-        <div class="flex space-x-4 items-center">
-            <div class="rotate-[24deg]">
+        <div class="flex flex-col lg:flex-row space-x-4 items-center">
+            <div class="rotate-[24deg] mb-auto lg:mb-0">
                 <Liquid h={52} />
             </div>
-            <LinkButton simple href="/liquid">
-                <div class="text-2xl">{$l("product.liquids")}</div>
-            </LinkButton>
+            <div class="mt-2 lg:mt-0">
+                <LinkButton simple href="/liquid">
+                    <div class="text-2xl">{$l("product.liquids")}</div>
+                </LinkButton>
+            </div>
         </div>
-        <div class="flex space-x-4 items-center">
-            <div>
+        <div class="flex flex-col lg:flex-row space-x-4 items-center">
+            <div class="rotate-[0deg] mb-auto lg:mb-0">
+                <Cig h={16} />
+            </div>
+            <div class="mt-2 lg:mt-0">
+                <LinkButton simple href="/smoking">
+                    <div class="text-2xl">{$l("product.smoking")}</div>
+                </LinkButton>
+            </div>
+        </div>
+        <div class="flex flex-col lg:flex-row space-x-4 items-center">
+            <div class="mb-auto lg:mb-0">
+                <Pouch h={35} />
+            </div>
+            <div class="mt-2 lg:mt-0">
+                <LinkButton simple href="/pouch">
+                    <div class="text-2xl">{$l("product.pouches")}</div>
+                </LinkButton>
+            </div>
+        </div>
+
+        <div class="flex flex-col lg:flex-row space-x-4 items-center">
+            <div class="mb-auto lg:mb-0">
                 <Kit h={46} />
             </div>
-            <LinkButton simple href="/kit">
-                <div class="text-2xl">{$l("product.kits")}</div>
-            </LinkButton>
+            <div class="mt-2 lg:mt-0">
+                <LinkButton simple href="/kit">
+                    <div class="text-2xl">{$l("product.kits")}</div>
+                </LinkButton>
+            </div>
         </div>
     </div>
     <div class="space-y-24 pb-24">
@@ -130,33 +138,30 @@
                     bg-vspot-secondary-bg opacity-80 -z-10 drop-shadow-lg
                 "
             />
-            <span class="text-2xl block"> Cele mai bune branduri </span>
-            <span
-                >Lucram exclusiv cu cele mai bune branduri pentru a-ti asigura
-                satisfactia completa cand dai o comanda!</span
-            >
+            <span class="text-2xl block"> {$l("page.main.best_brands")} </span>
+            <span>{$l("page.main.best_brands.description")}</span>
             <div
-                class="grid lg:flex lg:justify-between grid-cols-1 gap-y-24 mt-8"
+                class="flex flex-col lg:flex-row lg:justify-between grid-cols-1 gap-y-24 mt-8"
             >
                 <img
                     src="/images/vozol/vozol.webp"
                     alt="Vozol"
-                    class="h-[60px]"
+                    class="max-h-[60px] object-contain"
                 />
                 <img
                     src="/images/elfv2/elfbar.webp"
                     alt="Elf Bar"
-                    class="h-[60px]"
+                    class="h-[60px] object-contain"
                 />
                 <img
                     src="/images/aspire/aspire.webp"
                     alt="Aspire"
-                    class="h-[60px]"
+                    class="h-[60px] object-contain"
                 />
                 <img
                     src="/images/nasty/nasty.webp"
                     alt="Vozol"
-                    class="h-[60px]"
+                    class="h-[60px] object-contain"
                 />
             </div>
         </div>

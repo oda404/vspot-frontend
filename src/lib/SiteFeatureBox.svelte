@@ -25,6 +25,6 @@
         />
     {/if}
     <span class="text-lg font-bold mx-auto">{title}</span>
-    <span class="max-w-[210px] mx-auto">{description}</span>
+    <span class="max-w-[210px] mx-auto text-center">{description}</span>
     <slot />
 </div>
