@@ -16,8 +16,7 @@
     import { onDestroy } from "svelte";
     import InputRadio from "$lib/input/InputRadio.svelte";
     import { shipping_get_methods } from "$lib/orderinfo/shipping_methods";
-    import { backend_shatpants_store } from "$lib/backend_shatpants/backend_shatpants";
-    import { error as peniserror } from "@sveltejs/kit";
+    import { error } from "@sveltejs/kit";
 
     import Spinner from "$lib/Spinner.svelte";
     import { pagetitle_make } from "$lib/title";
@@ -88,8 +87,7 @@
             console.error(
                 `Error trying to fetch shipping methods from backend: ${error}`,
             );
-            peniserror(400, "penis");
-            // backend_shatpants_store.set(true);
+            error(400, "Eroare");
         });
 
     let shipping_method_error = false;
