@@ -276,12 +276,10 @@ var translations = {
         "error.page404": "Pagina nu exista :(",
         "error.page404_description": "Aceasta pagina ori a fost stearsa ori nu a existat de la inceput :3",
 
-        "error.email": "Adresa de email este invalida",
         "error.creds": "Adresa de email sau parola este gresita",
         "error.turnstile_failed": "Verificare a esuat, incercati sa reincarcati pagina",
         "error.turnstile_invalid": "Am intampinat o problema, te rog reincarca pagina si incearca din nou",
         "error.passwords_dont_match": "Parolele introduse difera",
-        "error.password_incorrect": "Parola nu este corecta",
         "error.failedordersubmit": "Ceva nu a mers bine, va rog incercati din nou",
 
         "error.empty.email": "Ai uitat adresa de email",
@@ -291,14 +289,15 @@ var translations = {
         "error.empty.password": "Ai uitat parola",
         "error.2short.password": "Parola este prea scurta",
         "error.2long.password": "Parola poate avea un numar maxim de 256 de caractere",
+        "error.creds.password": "Parola este gresita",
 
         "error.empty.firstname": "Ai uitat prenumele",
         "error.2short.firstname": "Numele este prea scurt",
-        "error.2long.firstname": "Numele poate avea un numar maxim de 256 de caractere",
+        "error.2long.firstname": "Numele poate avea un numar maxim de 64 de caractere",
 
         "error.empty.lastname": "Ai uitat numele",
         "error.2short.lastname": "Prenumele este prea scurt",
-        "error.2long.lastname": "Prenumele poate avea un numar maxim de 256 de caractere",
+        "error.2long.lastname": "Prenumele poate avea un numar maxim de 64 de caractere",
 
         "contact.description": "Pentru orice intrebari sau sesizari va stam la dispozitie prin urmatoarele canale de comunicare:",
         "contact.schedule": "Program de lucru cu publicul prin mediul online: Luni - Vineri 10:30-18:30 UTC+2",
@@ -580,21 +579,30 @@ var translations = {
         "signup.tos_consent_missing": "The terms of service are mandatory",
         "signup.goto_login": "I already have an account",
 
-        "error.email_taken": "This is email has already been registered",
         "error.encountered_error": "We encountered a problem :(",
         "error.encountered_error_description": "If this error persists you can contact us",
         "error.page404": "This page does not exist :(",
         "error.page404_description": "This page was either delete or it never existed :3",
-        "error.password_forgot": "You forgot the password",
-        "error.password_2big": "The password is too long",
-        "error.name_2big": "The name is too long",
-        "error.email": "The email is invalid",
-        "error.email_or_password_invalid": "The email or the password in incorrect",
-        "error.email_invalid": "The email is invalid",
         "error.turnstile_failed": "The human verification failed, try to reload the page",
         "error.turnstile_invalid": "We encountered a problem, please reload the page and try again",
         "error.passwords_dont_match": "Passwords don't match",
         "error.failedordersubmit": "Something went wrong, please try again",
+
+        "error.empty.email": "The email is required",
+        "error.invalid.email": "The email is invalid",
+        "error.duplicate.email": "This email has already been registered",
+
+        "error.empty.password": "The password is required",
+        "error.2short.password": "The password is too short",
+        "error.2long.password": "The password can have a maximum of 256 characters",
+
+        "error.empty.firstname": "The firstname is required",
+        "error.2short.firstname": "The firstname is too short",
+        "error.2long.firstname": "The firstname can have a maximum of 64 characters",
+
+        "error.empty.lastname": "The lastname is required",
+        "error.2short.lastname": "The lastname is too short",
+        "error.2long.lastname": "The lastname can have a maximum of 64 characters",
 
         "contact.description": "For any questions or feedback you can reach out to us through any of the following methods:",
         "contact.schedule": "Online working hours: Monday - Friday 10:30-18:30 UTC+2",
