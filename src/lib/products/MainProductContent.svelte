@@ -54,9 +54,11 @@
         <div class="flex flex-col items-center space-y-4">
             <ProductsTab {products} />
             <div class="rounded-lg bg-vspot-secondary-bg size-2" />
-            <div class="p-4">
-                <PageList {pages} {current_page} />
-            </div>
+            {#if pages > 0}
+                <div class="p-4">
+                    <PageList {pages} {current_page} />
+                </div>
+            {/if}
         </div>
     </div>
 </div>
