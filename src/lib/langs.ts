@@ -217,7 +217,7 @@ var translations = {
         "description.yourcart": "Cosul tau",
         "description.total": "Subtotal: {{n}}",
         "description.cartcheckout": "Vezi cosul",
-        "description.cartempty": "Cosul de cumparaturi este gol :(",
+        "description.cartempty": "Cosul de cumparaturi este gol...",
         "description.ordersummary": "Sumar comanda",
         "description.shipping": "Livrare",
         "description.producttotal": "Subtotal",
@@ -242,6 +242,7 @@ var translations = {
         "description.user_info": "Contul meu",
         "description.user_orders": "Comenzile mele",
         "description.user_delete": "Inchide contul",
+        "description.noproducts": "Nu s-a gasit nici un produs...",
 
         "easter.badorder": "Daca ai ajuns pe pagina asta ori a facut caca baza noastra de date pe ea, ori ai umblat la url paramter... sa dormi cu un ochi deschis la noapte",
 
@@ -258,7 +259,7 @@ var translations = {
         "user.password_new_confirm": "Confirma noua parola",
         "user.password_confirm": "Confirma parola",
         "user.createaccount": "Creeaza un cont nou",
-        "user.forgorpassword": "Am uitat parola :(",
+        "user.forgorpassword": "Am uitat parola",
         "user.delete_title": "Ne pare rau sa auzim...",
         "user.delete_data_notice": "Datele tale de contact, adresele de facturare si adresele livrare vor si sterse de pe serverele noastre instant.",
         "user.password_requirements": "Parola trebuie sa fie compusa din minim 8 caractere",
@@ -273,17 +274,30 @@ var translations = {
         "error.encountered_error_description": "Incercati sa reincarcati pagina, daca problema persista contactati-ne",
         "error.page404": "Pagina nu exista :(",
         "error.page404_description": "Aceasta pagina ori a fost stearsa ori nu a existat de la inceput :3",
-        "error.password_forgot": "Ai uitat parola",
-        "error.password_2big": "Parola este prea lunga",
-        "error.name_2big": "Numele este prea lung",
+
         "error.email": "Adresa de email este invalida",
-        "error.email_or_password_invalid": "Ai gresit adresa de email sau parola",
-        "error.email_invalid": "Adresa email este invalida",
+        "error.creds": "Adresa de email sau parola este gresita",
         "error.turnstile_failed": "Verificare a esuat, incercati sa reincarcati pagina",
         "error.turnstile_invalid": "Am intampinat o problema, te rog reincarca pagina si incearca din nou",
         "error.passwords_dont_match": "Parolele introduse difera",
         "error.password_incorrect": "Parola nu este corecta",
         "error.failedordersubmit": "Ceva nu a mers bine, va rog incercati din nou",
+
+        "error.empty.email": "Ai uitat adresa de email",
+        "error.invalid.email": "Adresa de email este invalida",
+        "error.duplicate.email": "Aceasta adresa de email a fost inregistrata deja",
+
+        "error.empty.password": "Ai uitat parola",
+        "error.2short.password": "Parola este prea scurta",
+        "error.2long.password": "Parola poate avea un numar maxim de 256 de caractere",
+
+        "error.empty.firstname": "Ai uitat prenumele",
+        "error.2short.firstname": "Numele este prea scurt",
+        "error.2long.firstname": "Numele poate avea un numar maxim de 256 de caractere",
+
+        "error.empty.lastname": "Ai uitat numele",
+        "error.2short.lastname": "Prenumele este prea scurt",
+        "error.2long.lastname": "Prenumele poate avea un numar maxim de 256 de caractere",
 
         "contact.description": "Pentru orice intrebari sau sesizari va stam la dispozitie prin urmatoarele canale de comunicare:",
         "contact.schedule": "Program de lucru cu publicul prin mediul online: Luni - Vineri 10:30-18:30 UTC+2",
@@ -438,7 +452,7 @@ var translations = {
 
         "nav.home": "Home",
         "nav.products": "Products",
-        "nav.contact": "Contact us",
+        "nav.contact": "Get in touch",
         "nav.search": "Search",
         "nav.login": "Log in",
 
@@ -506,7 +520,7 @@ var translations = {
         "description.yourcart": "Your cart",
         "description.total": "Total: {{n}}",
         "description.cartcheckout": "Go to checkout",
-        "description.cartempty": "Your shopping cart is empty :(",
+        "description.cartempty": "Your shopping cart is empty...",
         "description.ordersummary": "Summary",
         "description.shipping": "Shipping",
         "description.producttotal": "Products",
@@ -522,6 +536,7 @@ var translations = {
         "description.user_info": "My account",
         "description.user_orders": "My orders",
         "description.user_delete": "Close account",
+        "description.noproducts": "No products were found...",
 
         "description.details": "Details",
 
@@ -549,7 +564,7 @@ var translations = {
         "user.password_new_confirm": "Confirm new password",
         "user.password_confirm": "Confirm password",
         "user.createaccount": "Create a new account",
-        "user.forgorpassword": "I forgot my password :(",
+        "user.forgorpassword": "I forgot my password",
         "user.password_requirements": "The password must be at least 8 characters in length",
         "user.passwords_dont_match": "The password don't match",
         "user.delete_title": "Sorry to see you go...",

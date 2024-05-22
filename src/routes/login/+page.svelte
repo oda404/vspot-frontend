@@ -15,15 +15,14 @@
 
     let email = new InputFieldContext();
     email.validate = (value: string) => {
-        if (value.length === 0) return "Ai uitat adresa de email";
-        // if (!value.match()) return "Email invalid";
+        if (value.length === 0) return $l("error.empty.email");
     };
 
     let password = new InputFieldContext();
     password.validate = (value: string) => {
-        if (value.length === 0) return "Ai uitat parola!";
-        if (value.length < 8) return "Parola este prea scurta";
-        if (value.length > 256) return "Parola este prea lunga";
+        if (value.length === 0) return $l("error.empty.password");
+        if (value.length < 8) return $l("error.2short.password");
+        if (value.length > 256) return $l("error.2long.password");
     };
 
     let remember_me: boolean = false;
@@ -35,7 +34,7 @@
     let turnstile_error = false;
     let turnstile_mounted = false;
 
-    const validate_and_login = () => {
+    const validate_and_login = async () => {
         let has_error = false;
 
         has_error = email.do_validate() !== undefined || has_error;
@@ -56,53 +55,55 @@
             remember_me: remember_me,
         };
 
-        backendv1_post_user_login(user_info, turnstile_response!)
-            .then((res) => {
-                login_in_progress = false;
-                if (res.status !== 200) {
-                    turnstile_response = undefined;
-                    turnstile_mounted = false;
-                    switch (res.body.field) {
-                        case "email":
-                            email.error = $l(res.body.msg);
-                            break;
+        try {
+            let res = await backendv1_post_user_login(
+                user_info,
+                turnstile_response!,
+            );
 
-                        case "password":
-                            password.error = $l(res.body.msg);
-                            break;
+            login_in_progress = false;
 
-                        case "turnstile_token":
-                            turnstile_error = true;
-                            break;
-
-                        default:
-                            if (
-                                res.body.msg ===
-                                "error.email_or_password_invalid"
-                            ) {
-                                email.error = "";
-                                password.error = "";
-                            }
-
-                            login_error_msg = res.body.msg;
-                            break;
-                    }
-                    return;
-                }
-
-                const from_path = new URLSearchParams(
-                    window.location.search,
-                ).get("from");
+            if (res.status === 200) {
+                const from = new URLSearchParams(window.location.search).get(
+                    "from",
+                );
 
                 invalidate("user:session_cookie");
-                if (from_path) goto(`/${from_path}`);
+
+                if (from) goto(`/${from}`);
                 else goto(`/`);
-            })
-            .catch((error) => {
-                login_in_progress = false;
-                console.error(`Failed to register user. ${error}`);
-                backend_shatpants_store.set(true);
-            });
+                return;
+            }
+
+            turnstile_response = undefined;
+            turnstile_mounted = false;
+
+            switch (res.body.field) {
+                case "email":
+                    email.error = $l(res.body.msg + ".email");
+                    break;
+
+                case "password":
+                    password.error = $l(res.body.msg + ".password");
+                    break;
+
+                case "turnstile_token":
+                    turnstile_error = true;
+                    break;
+
+                default:
+                    email.error = "";
+                    password.error = "";
+                    login_error_msg = res.body.msg;
+                    break;
+            }
+        } catch (e) {
+            login_in_progress = false;
+            turnstile_response = undefined;
+            turnstile_mounted = false;
+            console.error(`Failed to register user. ${e}`);
+            backend_shatpants_store.set(true);
+        }
     };
 </script>
 
@@ -133,8 +134,11 @@
                     >{$l(login_error_msg)}</span
                 >
             {/if}
-            <div class="flex justify-between">
-                <a href="/forgor-password" class="block">
+            <div class="flex justify-between items-center">
+                <a
+                    href="/forgor-password"
+                    class="block text-vspot-text-hovered"
+                >
                     {$l("user.forgorpassword")}
                 </a>
                 <label>
@@ -142,7 +146,7 @@
                     {$l("action.remember_me")}
                 </label>
             </div>
-            <div class="flex justify-between">
+            <div class="flex justify-between items-center">
                 <a class="mt-auto" href="/signup">{$l("user.createaccount")}</a>
                 <button
                     class="bg-vspot-green flex justify-center items-center min-w-32 min-h-10 p-2 px-4 rounded-lg text-vspot-primary-bg"

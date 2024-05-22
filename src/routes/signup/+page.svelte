@@ -20,27 +20,26 @@
 
     let firstname_data = new InputFieldContext();
     firstname_data.validate = (value: string) => {
-        if (value.length === 0) return "Ai uitat numele!";
-        if (value.length > 256) return "Numele este prea lung";
+        if (value.length === 0) return $l("error.empty.firstname");
+        if (value.length > 256) return $l("error.2long.firstname");
     };
 
     let lastname_data = new InputFieldContext();
     lastname_data.validate = (value: string) => {
-        if (value.length === 0) return "Ai uitat numele";
-        if (value.length > 256) return "Numele este prea lung";
+        if (value.length === 0) return $l("error.empty.lastname");
+        if (value.length > 256) return $l("error.2long.lastname");
     };
 
     let email = new InputFieldContext();
     email.validate = (value: string) => {
-        if (value.length === 0) return "Ai uitat adresa de email";
-        // if (!value.match()) return "Email invalid";
+        if (value.length === 0) return $l("error.empty.email");
     };
 
     let password = new InputFieldContext();
     password.validate = (value: string) => {
-        if (value.length === 0) return "Ai uitat parola!";
-        if (value.length < 8) return "Parola este prea scurta";
-        if (value.length > 256) return "Parola este prea lunga";
+        if (value.length === 0) return $l("error.empty.password");
+        if (value.length < 8) return $l("error.2short.password");
+        if (value.length > 256) return $l("error.2long.password");
     };
 
     let password_confirm = new InputFieldContext();
@@ -59,7 +58,7 @@
     let turnstile_error = false;
     let turnstile_mounted = false;
 
-    const validate_and_register = () => {
+    const validate_and_register = async () => {
         let has_error = false;
 
         has_error = firstname_data.do_validate() !== undefined || has_error;
@@ -93,42 +92,61 @@
             password: password.value,
         };
 
-        backendv1_post_user_register(userinfo, turnstile_response!)
-            .then((res) => {
-                register_in_progress = false;
-                if (res.status !== 200) {
-                    turnstile_response = undefined;
-                    turnstile_mounted = false;
+        try {
+            const res = await backendv1_post_user_register(
+                userinfo,
+                turnstile_response!,
+            );
 
-                    switch (res.body.field) {
-                        case "email":
-                            email.error = $l(res.body.msg);
-                            break;
+            register_in_progress = false;
 
-                        case "turnstile_token":
-                            turnstile_error = true;
-                            break;
-
-                        default:
-                            register_error_msg = $l(res.body.msg);
-                            break;
-                    }
-                    return;
-                }
-
-                const from_path = new URLSearchParams(
-                    window.location.search,
-                ).get("from");
+            if (res.status === 200) {
+                const from = new URLSearchParams(window.location.search).get(
+                    "from",
+                );
 
                 invalidate("user:session_cookie");
-                if (from_path) goto(`/${from_path}`);
+
+                if (from) goto(`/${from}`);
                 else goto(`/`);
-            })
-            .catch((error) => {
-                register_in_progress = false;
-                console.error(`Failed to register user. ${error}`);
-                backend_shatpants_store.set(true);
-            });
+                return;
+            }
+
+            turnstile_response = undefined;
+            turnstile_mounted = false;
+
+            switch (res.body.field) {
+                case "firstname":
+                    firstname_data.error = $l(res.body.msg + ".firstname");
+                    break;
+
+                case "lastname":
+                    lastname_data.error = $l(res.body.msg + ".lastname");
+                    break;
+
+                case "email":
+                    email.error = $l(res.body.msg + ".email");
+                    break;
+
+                case "password":
+                    password.error = $l(res.body.msg + ".password");
+                    break;
+
+                case "turnstile_token":
+                    turnstile_error = true;
+                    break;
+
+                default:
+                    register_error_msg = $l(res.body.msg);
+                    break;
+            }
+        } catch (e) {
+            register_in_progress = false;
+            turnstile_response = undefined;
+            turnstile_mounted = false;
+            console.error(`Failed to register user. ${e}`);
+            backend_shatpants_store.set(true);
+        }
     };
 </script>
 
