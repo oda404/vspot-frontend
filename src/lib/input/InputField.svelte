@@ -17,10 +17,12 @@
 <div class="flex flex-col space-y-1 relative w-full">
     <label
         class="absolute transition-all {move_label
-            ? 'top-[-8px]'
+            ? 'top-[-4px]'
             : 'top-[12px]'} {move_label
-            ? 'left-[8px]'
-            : 'left-[14px]'} text-vspot-text-hovered bg-vspot-primary-bg px-1"
+            ? 'left-[10px]'
+            : 'left-[14px]'} {move_label
+            ? 'text-sm'
+            : ''} text-vspot-text-hovered bg-vspot-primary-bg px-1"
         for={id}>{label}</label
     >
     <input
@@ -36,11 +38,13 @@
         class="bg-vspot-primary-bg p-2 px-4 w-full rounded-md border {typeof data.error !==
         'undefined'
             ? 'border-vspot-text-error'
-            : 'border-vspot-secondary-bg'} focus:border-vspot-green focus:outline-none"
+            : 'border-vspot-secondary-bg'}  focus:outline-none"
     />
     {#if is_password}
         <button
             class="absolute top-[12px] right-[12px]"
+            type="button"
+            tabindex={-1}
             on:click={() => {
                 type = type === "password" ? "" : "password";
             }}
