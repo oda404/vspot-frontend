@@ -184,7 +184,7 @@
                         ulterioare a paginii de internet nu mai este necesară.
                     </span>
                 </div>
-                <div class=" mt-2">
+                <!-- <div class=" mt-2">
                     <h1 class="text-vspot-purple font-bold !text-md">
                         Cookie-uri de analiză a utilizatorilor
                     </h1>
@@ -194,7 +194,7 @@
                         această pagină de internet anterior. Aceste cookie-uri
                         sunt utilizate doar în scopuri statistice.
                     </span>
-                </div>
+                </div> -->
                 <div class=" mt-2">
                     <h1 class="text-vspot-purple font-bold !text-md">
                         Cookie-uri de înregistrare

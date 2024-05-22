@@ -204,6 +204,7 @@ var translations = {
         "action.remember_me": "Tine-ma minte",
         "action.update": "Actualizeaza",
         "action.logout": "Iesi din cont",
+        "action.see_policy": "Vezi politica",
 
         "description.description": "Descriere",
         "description.outofstock": "Acest produs nu este in stoc :(",
@@ -310,6 +311,8 @@ var translations = {
         "privacy_policy.title": "Politica confidentialitate",
         "cookie_policy.title": "Politica cookies",
         "return_policy.title": "Politica retururi",
+
+        "cookies.mandatory_notice": "Acest site foloseste cookie-uri necesare pentru functionarea serviciului. Prin folosire site-ului va dati acordul la folosirea acestor cookie-uri.",
 
         "footer.products": "Produse",
         "footer.locations": "Locatii",
@@ -507,6 +510,7 @@ var translations = {
         "action.remember_me": "Remember me",
         "action.update": "Update",
         "action.logout": "Logout",
+        "action.see_policy": "See policy",
 
         "description.description": "Description",
         "description.outofstock": "This item is out of stock :(",
@@ -603,6 +607,8 @@ var translations = {
         "privacy_policy.title": "Privacy policy",
         "cookie_policy.title": "Cookie policy",
         "return_policy.title": "Return policy",
+
+        "cookies.mandatory_notice": "This site uses mandatory cookies in order to function properly. By using this site you agree to the use of the these cookies.",
 
         "footer.products": "Products",
         "footer.locations": "Locations",
