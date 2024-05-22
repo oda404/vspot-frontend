@@ -7,23 +7,8 @@
     import BackendShatpantsOverlay from "$lib/backend_shatpants/BackendShatpantsOverlay.svelte";
     import type { UserDisplayInfo } from "$lib/user/user";
     import CookieNotice from "$lib/cookies/CookieNotice.svelte";
-
-    // let bg_component: any = null;
-    // let rotate = false;
-
-    // $: {
-    //     switch ($page.url.pathname) {
-    //         case "/":
-    //             bg_component = LayoutBgFoldSmall;
-    //             rotate = true;
-    //             break;
-
-    //         default:
-    //             bg_component = null;
-    //             rotate = false;
-    //             break;
-    //     }
-    // }
+    import { navigating } from "$app/stores";
+    import NavigatingOverlay from "./NavigatingOverlay.svelte";
 
     let global_disable_scroll = false;
     onDestroy(
@@ -44,19 +29,9 @@
 <div
     class="min-h-screen h-max w-[100%] flex justify-center bg-vspot-primary-bg relative overflow-x-hidden"
 >
-    <!-- {#if bg_component}
-        <svelte:component this={bg_component} />
+    {#if $navigating}
+        <NavigatingOverlay />
     {/if}
-    <LayoutBgFoldBig {rotate} />
-    {#if bg_component}
-        {#if Array.isArray(bg_component)}
-            {#each bg_component as comp}
-                <svelte:component this={comp} {...prosp} />
-            {/each}
-        {:else}
-            <svelte:component this={bg_component} />
-        {/if}
-    {/if} -->
     <AgeConfirmationOverlay />
     <BackendShatpantsOverlay />
     <CookieNotice />
