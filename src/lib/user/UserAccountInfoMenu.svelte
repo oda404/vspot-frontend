@@ -136,7 +136,9 @@
                 if (res.status !== 200) {
                     switch (res.body.field) {
                         case "password_old":
-                            password_old_input.error = $l(res.body.msg);
+                            password_old_input.error = $l(
+                                res.body.msg + ".password",
+                            );
                             break;
 
                         case "password_new":
@@ -160,10 +162,10 @@
     };
 </script>
 
-<div class="space-y-8">
+<div class="space-y-8 divide-y divide-vspot-secondary-bg">
     <div>
         <span class="text-lg"> {$l("user.account_details")} </span>
-        <div class="space-y-4 mt-4 w-[300px]">
+        <div class="space-y-4 mt-2 w-[300px]">
             <InputField
                 id="firstname"
                 label={$l("user.firstname")}
@@ -192,11 +194,11 @@
             {/if}
         </div>
     </div>
-    <div>
+    <div class="pt-4">
         <span class="text-lg"> {$l("user.password")} </span>
-        <div class="space-y-4 mt-4 w-fit">
-            <div class="flex space-x-4">
-                <div class="w-[300px]">
+        <form class="space-y-4 mt-2">
+            <div>
+                <div class="">
                     <InputField
                         id="password_old"
                         type="password"
@@ -204,11 +206,12 @@
                         bind:data={password_old_input}
                     />
                 </div>
-                <a class="mt-2 block whitespace-nowrap" href="/forgor-password"
-                    >{$l("user.forgorpassword")}</a
+                <a
+                    class="mt-2 text-sm text-vspot-text-hovered block whitespace-nowrap"
+                    href="/forgor-password">{$l("user.forgorpassword")}</a
                 >
             </div>
-            <div class="w-[300px] space-y-4">
+            <div class="space-y-4">
                 <InputField
                     id="password_new"
                     type="password"
@@ -227,12 +230,13 @@
                 {#if password_changed}
                     <button
                         on:click={() => validate_and_update_password()}
+                        type="submit"
                         class="p-4 py-2 rounded-lg bg-vspot-green text-vspot-primary-bg w-full !mt-2"
                     >
                         {$l("action.update")}
                     </button>
                 {/if}
             </div>
-        </div>
+        </form>
     </div>
 </div>
