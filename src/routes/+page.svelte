@@ -15,6 +15,7 @@
     import Liquid from "$lib/icons/liquid.svelte";
     import Kit from "$lib/icons/kit.svelte";
     import ProductShowcase from "$lib/mainpage/ProductShowcase.svelte";
+    import Slideshow from "$lib/mainpage/Slideshow.svelte";
 
     export let data;
 
@@ -36,20 +37,21 @@
 </svelte:head>
 
 <div class="space-y-4">
-    <div class="space-y-4 lg:w-[100%]">
+    <Slideshow />
+    <div
+        class="!mt-[100vh] lg:!mt-[90vh] space-y-4 lg:w-[100%] flex items-center flex-col lg:flex-row"
+    >
+        <img
+            class="h-[45%] w-[45%] drop-shadow-lg"
+            src="/images/vspot.webp"
+            alt="The VSpot"
+        />
         <span
-            class="text-8xl font-[Blowhole] lg:text-9xl font-semibold opacity-80 block max-w-[100%] lg:max-w-[80%]"
+            class="text-8xl text-center font-[Blowhole] lg:text-9xl font-semibold opacity-80 block"
         >
             {$l("home.title")}
         </span>
-        <span class="block text-lg opacity-80">
-            <span class="font-[Blowhole] font-bold text-3xl !opacity-100">
-                The V-Spot
-            </span>
-            {$l("page.main.description")}
-        </span>
     </div>
-
     <div
         class="w-full h-fit p-4 grid grid-cols-2 gap-16 lg:gap-0 lg:flex lg:justify-between !my-12"
     >
