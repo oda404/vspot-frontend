@@ -28,10 +28,5 @@ declare global {
 		sync_price_per_one_decimals: number;
 		currency: string;
 	}
-
-	type SortOption = {
-		value: string;
-		label: string;
-	}
 }
 

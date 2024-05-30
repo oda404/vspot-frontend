@@ -3,6 +3,7 @@ import { backendv1_endpoint } from "./endpoint";
 import type { ServerResponse } from "./response";
 import { BACKENDV1_BASE_GET_HEADERS, BACKENDV1_BASE_POST_HEADERS } from "./headers";
 import { error } from "@sveltejs/kit";
+import type { FetchFunction } from "./safe_fetch";
 
 export type V1ClientPurchasedProduct = {
     internal_id: string;
@@ -48,7 +49,7 @@ export type V1ServerPurchasedProduct = {
     discount_decimals: number;
 };
 
-export type V1ServerOrderStatus = "registered" | "confirmed" | "shipped" | "completed";
+export type V1ServerOrderStatus = "canceled" | "registered" | "confirmed" | "shipped" | "completed";
 
 export type V1ServerOrder = {
     id: string;
@@ -93,7 +94,7 @@ export type V1ServerOrders = {
     pages: number;
 }
 
-export async function backendv1_post_order_submit(order_info: V1ClientOrderInfo, turnstile_token: string): Promise<ServerResponse<string>> {
+export async function backendv1_post_order_submit(order_register_info: V1ClientOrderInfo, turnstile_token: string): Promise<ServerResponse<string>> {
 
     const BASE_ENDPOINT = backendv1_endpoint();
     const res = await fetch(`${BASE_ENDPOINT}/order/register`, {
@@ -102,7 +103,7 @@ export async function backendv1_post_order_submit(order_info: V1ClientOrderInfo,
         headers: {
             ...BACKENDV1_BASE_POST_HEADERS
         },
-        body: JSON.stringify({ turnstile_token, order_info })
+        body: JSON.stringify({ turnstile_token, order_register_info })
     });
 
     return { status: res.status, body: await res.json() };
@@ -121,9 +122,9 @@ export async function backendv1_get_order_get(order_id: string, fetch: any): Pro
     return { status: res.status, body: await res.json() };
 }
 
-export async function backendv1_get_order_get_user(fetch: any): Promise<ServerResponse<V1ServerOrder[]>> {
+export async function backendv1_order_user_all(fetch: FetchFunction): Promise<ServerResponse<V1ServerOrders>> {
 
-    const res = await fetch(`${backendv1_endpoint()}/order/get-user`, {
+    const res = await fetch(`${backendv1_endpoint()}/order/all`, {
         method: "GET",
         credentials: "include",
         headers: {

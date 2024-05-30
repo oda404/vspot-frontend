@@ -15,7 +15,7 @@
     const user = data.user!;
     $: current_menu = data.tab ? data.tab : USER_INFO_MENU;
 
-    const orders = data.orders;
+    const orders = data.orders.orders;
 
     let page_title: string;
     $: {

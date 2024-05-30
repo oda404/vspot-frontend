@@ -6,14 +6,14 @@
     } from "@fortawesome/free-solid-svg-icons";
     import { l } from "$lib/langs";
     import { cart_add_item } from "$lib/cart/cart";
-    import type { Product } from "./types";
+    import type { V1ServerProductDisplayData } from "$lib/backendv1/product";
 
-    export let product: Product;
+    export let product: V1ServerProductDisplayData;
 
     let adding_load = false;
 </script>
 
-<div class="w-full rounded-xl drop-shadow flex flex-col">
+<div class="w-full rounded-lg drop-shadow flex flex-col">
     <a href="/product/{product.internal_id}">
         <img
             src={product.image_url}
@@ -24,23 +24,30 @@
     <div
         class="p-2 h-full space-y-1 flex flex-col justify-between text-lg rounded-b-lg"
     >
-        <a href="/product/{product.internal_id}">
+        <a class="mb-4" href="/product/{product.internal_id}">
             <div class="leading-tight text-md">
                 {product.name}
             </div>
         </a>
         {#if product.stock > 0}
-            <div class="!mt-0 !mb-2">
-                <div class="text-xl leading-tight">
+            <div class="!mt-auto !mb-2">
+                <div class="flex items-center space-x-1">
+                    <div class="w-[4px] h-[4px] rounded-full bg-vspot-green" />
+                    <span class="text-sm text-vspot-green block">
+                        {$l("description.instock")}
+                    </span>
+                </div>
+                <span class="text-2xl font-semibold text-vspot-text-hovered">
                     {product.price}
+                    <span
+                        class="text-sm -ml-2 font-semibold text-vspot-text-hovered"
+                        >.00</span
+                    >
                     {product.currency}
-                </div>
-                <div class="text-sm text-vspot-green leading-tight">
-                    {$l("description.instock")}
-                </div>
+                </span>
             </div>
             <button
-                class="bg-vspot-green text-vspot-primary-bg px-2 p-1 rounded ml-auto flex items-center space-x-2 w-full"
+                class="bg-vspot-green px-2 p-1 min-h-[32px] rounded-br-lg rounded-tl-lg w-full"
                 disabled={adding_load}
                 on:click={() => {
                     adding_load = true;
@@ -49,32 +56,31 @@
                     });
                 }}
             >
-                <Fa
-                    color="#181a1b"
-                    class="{adding_load ? 'animate-spin' : ''} hidden lg:block"
-                    size="xs"
-                    icon={adding_load ? faSpinner : faCartArrowDown}
-                />
-                <div class="text-vspot-primary-bg">
+                <span class="text-vspot-primary-bg mx-auto">
                     {#if !adding_load}
                         {$l("action.addtocart")}
                     {:else}
-                        ...
+                        <Fa
+                            color="#181a1b"
+                            class="animate-spin"
+                            icon={faSpinner}
+                        />
                     {/if}
-                </div>
+                </span>
             </button>
         {:else}
-            <div class="!mt-0 !mb-2">
-                <span class="text-xl leading-tight">
+            <div class="!mt-auto !mb-2">
+                <span class="text-2xl font-semibold text-vspot-text-hovered">
                     {product.price}
+                    <span
+                        class="text-sm -ml-2 font-semibold text-vspot-text-hovered"
+                        >.00</span
+                    >
                     {product.currency}
-                </span>
-                <span class="block text-sm leading-tight">
-                    {$l("description.outofstock")}
                 </span>
             </div>
             <button
-                class="bg-vspot-secondary-bg px-2 p-1 rounded ml-auto flex items-center space-x-2 w-full"
+                class="bg-vspot-secondary-bg px-2 p-1 min-h-[32px] rounded-br-lg rounded-tl-lg w-full"
                 disabled
                 on:click={() => {
                     adding_load = true;
@@ -83,7 +89,7 @@
                     });
                 }}
             >
-                <span class="text-vspot-text-hovered">
+                <span class="text-vspot-text-hovered max-auto block">
                     {$l("description.outofstock_simple")}
                 </span>
             </button>

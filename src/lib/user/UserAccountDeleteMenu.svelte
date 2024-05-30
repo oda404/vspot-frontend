@@ -6,7 +6,6 @@
     import InputField from "$lib/input/InputField.svelte";
     import { l } from "$lib/langs";
     import { orderinfo_clear } from "$lib/orderinfo/orderinfo";
-    import type { UserDisplayInfo } from "./user";
 
     let delete_in_progress = false;
     let delete_error_msg = "";

@@ -1,6 +1,7 @@
 import { backendv1_endpoint } from "./endpoint";
 import { BACKENDV1_BASE_GET_HEADERS, BACKENDV1_BASE_POST_HEADERS } from "./headers";
 import type { ServerResponse } from "./response";
+import { safe_fetch, type FetchFunction } from "./safe_fetch";
 
 export type V1ClientUserRegisterInfo = {
     firstname: string;
@@ -33,7 +34,7 @@ export type V1ClientUserUpdatePasswordInfo = {
     password_new: string;
 };
 
-export async function backendv1_post_user_register(user_info: V1ClientUserRegisterInfo, turnstile_token: string): Promise<ServerResponse<string>> {
+export async function backendv1_post_user_register(user_info: V1ClientUserRegisterInfo, turnstile_token: string): Promise<ServerResponse> {
 
     const res = await fetch(`${backendv1_endpoint()}/user/register`, {
         method: "POST",
@@ -41,7 +42,7 @@ export async function backendv1_post_user_register(user_info: V1ClientUserRegist
             ...BACKENDV1_BASE_POST_HEADERS
         },
         credentials: 'include',
-        body: JSON.stringify({ turnstile_token, user_info })
+        body: JSON.stringify({ turnstile_token, user_register_info: user_info })
     });
 
     return { status: res.status, body: await res.json() };
@@ -60,7 +61,7 @@ export async function backendv1_get_user_display_info(fetch: any): Promise<Serve
     return { status: res.status, body: await res.json() };
 }
 
-export async function backendv1_post_user_login(user_info: V1ClientUserLoginInfo, turnstile_token: string): Promise<ServerResponse<string>> {
+export async function backendv1_post_user_login(user_info: V1ClientUserLoginInfo, turnstile_token: string): Promise<ServerResponse> {
 
     const res = await fetch(`${backendv1_endpoint()}/user/login`, {
         method: "POST",
@@ -68,7 +69,7 @@ export async function backendv1_post_user_login(user_info: V1ClientUserLoginInfo
             ...BACKENDV1_BASE_POST_HEADERS
         },
         credentials: 'include',
-        body: JSON.stringify({ turnstile_token, user_info })
+        body: JSON.stringify({ turnstile_token, user_login_info: user_info })
     });
 
     return { status: res.status, body: await res.json() };
@@ -91,7 +92,7 @@ export async function backendv1_post_user_update_info(user_info: V1ClientUserUpd
             ...BACKENDV1_BASE_POST_HEADERS
         },
         credentials: 'include',
-        body: JSON.stringify({ user_info })
+        body: JSON.stringify({ user_update_info: user_info })
     });
 
     return { status: res.status, body: await res.json() };
@@ -104,7 +105,7 @@ export async function backendv1_post_user_update_password(password_info: V1Clien
             ...BACKENDV1_BASE_POST_HEADERS
         },
         credentials: 'include',
-        body: JSON.stringify({ password_info })
+        body: JSON.stringify({ user_update_password_info: password_info })
     });
 
     return { status: res.status, body: await res.json() };
@@ -112,26 +113,32 @@ export async function backendv1_post_user_update_password(password_info: V1Clien
 
 export async function backendv1_post_user_delete(password: string): Promise<ServerResponse> {
     const res = await fetch(`${backendv1_endpoint()}/user/delete`, {
-        method: "POST",
+        method: "DELETE",
         headers: {
             ...BACKENDV1_BASE_POST_HEADERS
         },
         credentials: 'include',
-        body: JSON.stringify({ password })
+        body: JSON.stringify({ user_delete_info: { password } })
     });
 
     return { status: res.status, body: await res.json() };
 }
 
-export async function backendv1_post_user_confirm_email(token: string, fetch: any): Promise<ServerResponse> {
-    const res = await fetch(`${backendv1_endpoint()}/user/confirm-email`, {
+export async function backendv1_post_user_confirm_email(token: string, fetch_func: FetchFunction): Promise<ServerResponse> {
+
+    // const res = await backendv1_base_fetch()
+
+    const res = await safe_fetch(`${backendv1_endpoint()}/user/confirm-email`, {
         method: "POST",
         headers: {
             ...BACKENDV1_BASE_POST_HEADERS
         },
         credentials: 'include',
-        body: JSON.stringify({ token })
-    });
+        body: JSON.stringify({ user_confirm_email_info: { token } })
+    }, fetch_func);
+
+    if (typeof res === "string")
+        return { status: 500, body: { msg: res } };
 
     return { status: res.status, body: await res.json() };
 }

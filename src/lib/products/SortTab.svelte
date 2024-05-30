@@ -5,8 +5,8 @@
     import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
     import Fa from "svelte-fa";
 
-    export let options: SortOption[];
-    let selected: SortOption;
+    export let options: { label: string; value: string }[];
+    let selected: string;
 
     $: {
         const url_sort_value = $page.url.searchParams.get("sort");
@@ -26,51 +26,45 @@
 </script>
 
 {#if options.length > 0}
-    <div
-        class="flex w-full h-max items-center bg-vspot-primary-bg rounded-lg py-2 space-x-4"
-    >
-        <h1 class=" text-lg text-white whitespace-nowrap">
-            {$l("sort.title")}
-        </h1>
-        <div>
+    <div class="relative w-fit">
+        <button
+            class="flex items-center space-x-8 px-2 border-b border-vspot-secondary-bg pb-2 !rounded-none"
+            on:click={() => {
+                opened = !opened;
+            }}
+        >
+            <span class="whitespace-nowrap text-lg">
+                {selected}
+            </span>
+            <Fa
+                icon={faChevronDown}
+                size="sm"
+                class="{opened
+                    ? 'transform -rotate-180'
+                    : ''} transition ease-out duration-250"
+            />
+        </button>
+        {#if opened}
             <button
+                class="fixed top-0 left-0 h-full w-full z-10 cursor-default"
                 on:click={() => {
-                    opened = !opened;
+                    opened = false;
                 }}
-                class="flex items-center space-x-2"
+            />
+            <div
+                class="absolute w-[100%] z-20 rounded-b-lg bg-vspot-primary-bg border-b border-l border-r border-vspot-secondary-bg"
             >
-                <div class="whitespace-nowrap">
-                    {selected}
-                </div>
-                <Fa
-                    icon={faChevronDown}
-                    class="{opened
-                        ? 'transform -rotate-180'
-                        : ''} transition ease-out duration-250"
-                />
-            </button>
-            {#if opened}
-                <button
-                    class="fixed top-0 left-0 h-full w-full z-10 cursor-default"
-                    on:click={() => {
-                        opened = false;
-                    }}
-                />
-                <div class="relative z-20 drop-shadow">
-                    <div
-                        class="absolute w-max rounded-lg bg-vspot-secondary-bg border border-vspot-purple"
+                {#each options as option}
+                    <button
+                        on:click={() => {
+                            if (option.label === selected) opened = false;
+                            else on_sort_selected(option.value);
+                        }}
+                        class="whitespace-nowrap w-full text-left block hover:bg-vspot-secondary-bg p-2 px-4 !rounded-none"
+                        >{option.label}</button
                     >
-                        {#each options as option}
-                            <button
-                                on:click={() => on_sort_selected(option.value)}
-                                class="whitespace-nowrap w-full text-left block hover:bg-vspot-purple p-1 px-2"
-                                disabled={option.label === selected}
-                                >{option.label}</button
-                            >
-                        {/each}
-                    </div>
-                </div>
-            {/if}
-        </div>
+                {/each}
+            </div>
+        {/if}
     </div>
 {/if}

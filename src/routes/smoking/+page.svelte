@@ -9,14 +9,13 @@
 
     $: filters = data.filters.map((f) => {
         return {
-            title: f.title,
+            name: f.name,
             options: f.options.map((o) => {
                 return {
-                    name: o.name,
-                    matches: o.matches,
+                    name: o,
                     selected: !!set_filters
-                        .find((sf) => sf.name === f.title)
-                        ?.values.find((val) => val === o.name),
+                        .find((sf) => sf.name === f.name)
+                        ?.values.find((val) => val === o),
                 };
             }),
         };

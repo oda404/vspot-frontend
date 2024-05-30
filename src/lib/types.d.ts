@@ -20,9 +20,3 @@ export type CartProduct = {
     stock: number;
     preview_image_url: string;
 }
-
-export type SortOption = {
-    value: string;
-    label: string;
-}
-

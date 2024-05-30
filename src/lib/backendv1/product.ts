@@ -3,11 +3,8 @@ import { BACKENDV1_BASE_GET_HEADERS } from "./headers";
 import type { ServerResponse } from "./response";
 
 export type V1ServerCategoryFilter = {
-    title: string;
-    options: {
-        name: string;
-        matches: number;
-    }[];
+    name: string;
+    options: string[];
 };
 
 export type V1ServerProductDisplayData = {
@@ -68,22 +65,21 @@ export async function backendv1_get_products_all(
     return { status: res.status, body: await res.json() };
 }
 
-export async function backendv1_get_product_fullinfo(
-    id: string,
-    fetch: any
-): Promise<ServerResponse<V1ServerProductFullinfo>> {
-    const res = await fetch(
-        `${backendv1_endpoint()}/product/fullinfo?product_id=${id}`,
-        {
-            method: "GET",
-            headers: {
-                ...BACKENDV1_BASE_GET_HEADERS
-            }
-        }
-    );
-
-    return { status: res.status, body: await res.json() };
-}
+// export async function backendv1_get_product_fullinfo(
+//     id: string,
+//     fetch: any
+// ): Promise<ServerResponse<V1ServerProductFullinfo>> {
+//     const res = await fetch(
+//         `${backendv1_endpoint()}/product/fullinfo?product_id=${id}`,
+//         {
+//             method: "GET",
+//             headers: {
+//                 ...BACKENDV1_BASE_GET_HEADERS
+//             }
+//         }
+//     );
+//     return { status: res.status, body: await res.json() };
+// }
 
 export async function backendv1_get_product_fullinfo_with_recommendations(
     id: string,
