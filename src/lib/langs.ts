@@ -306,10 +306,7 @@ var translations = {
         "contact.hq": "Sediu social: {{address}}",
         "contact.capital": "Capital social: {{n}}",
 
-        "tos.title": "Termenii serviciului",
-        "privacy_policy.title": "Politica confidentialitate",
-        "cookie_policy.title": "Politica cookies",
-        "return_policy.title": "Politica retururi",
+        "cookies.mandatory_notice": "Acest site foloseste cookie-uri necesare pentru functionarea sa. Prin folosire site-ului va dati acordul la folosirea acestor cookie-uri.",
 
         "cookies.mandatory_notice": "Acest site foloseste cookie-uri necesare pentru functionarea serviciului. Prin folosire site-ului va dati acordul la folosirea acestor cookie-uri.",
 
@@ -611,10 +608,7 @@ var translations = {
         "contact.hq": "Headquarters: {{address}}",
         "contact.capital": "Equity capital: {{n}}",
 
-        "tos.title": "Terms of service",
-        "privacy_policy.title": "Privacy policy",
-        "cookie_policy.title": "Cookie policy",
-        "return_policy.title": "Return policy",
+        "cookies.mandatory_notice": "This site uses mandatory cookies in order to function properly. By continuing to use this site, you agree to the use of the these cookies.",
 
         "cookies.mandatory_notice": "This site uses mandatory cookies in order to function properly. By using this site you agree to the use of the these cookies.",
 

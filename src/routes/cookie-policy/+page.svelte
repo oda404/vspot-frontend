@@ -1,5 +1,4 @@
 <script>
-    import { CONTACT_EMAIL, CONTACT_PHONE } from "$lib/contact/info";
     import { l } from "$lib/langs";
     import { pagetitle_make } from "$lib/title";
     import Fa from "svelte-fa";
@@ -17,10 +16,8 @@
         {$l("page.cookie_policy")}
         <Fa class="ml-4" size="sm" icon={faCookieBite} />
     </h1>
-    <div class="my-4" />
-
-    <div class="space-y-16">
-        <span> Ultima actualizare: Mai 2024 </span>
+    <div class="space-y-8">
+        <span> Ultima actualizare: 29/05/2024 </span>
 
         <section class="space-y-2">
             <h1 class="font-bold text-lg">Introducere</h1>
