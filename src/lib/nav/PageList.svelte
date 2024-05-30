@@ -33,6 +33,7 @@
     >
         <Fa
             color={left_disabled ? "#888888" : "#ffffff"}
+            size="sm"
             icon={faChevronLeft}
         />
     </button>
@@ -41,7 +42,7 @@
             <button
                 on:click={() => navigate_to_page(p)}
                 disabled={current_page === p}
-                class="p-4 py-2 rounded-lg
+                class="p-3 py-1 rounded-tl-lg rounded-br-lg
                 {current_page === p
                     ? 'bg-vspot-purple'
                     : 'bg-vspot-secondary-bg'}"
@@ -57,6 +58,7 @@
     >
         <Fa
             color={right_disabled ? "#888888" : "#ffffff"}
+            size="sm"
             icon={faChevronRight}
         />
     </button>

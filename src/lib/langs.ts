@@ -28,7 +28,9 @@ var translations = {
         "page.order_info": "Informatii comanda",
         "page.order_shipping": "Livrare comanda",
         "page.order_submit": "Trimite comanda",
-        "page.tos": "Termenii serviciului",
+        "page.tos": "Termenii si conditiile",
+        "page.privacy_policy": "Politica de confidentialitate",
+        "page.return_policy": "Politica retur",
 
         "page.send_confirm_email.title": "Confirmare email",
         "page.send_confirm_email.description": "V-am trimis un email de confirmare la adresa",
@@ -123,7 +125,7 @@ var translations = {
         "product.pouches_weak": "Pouchuri slabe",
         "product.pouches_mid": "Pouchuri moderate",
         "product.pouches_strong": "Pouchuri tari",
-        "product.new": "Acum le-am primit!",
+        "product.new": "Noutati!",
         "product.cone": "Conuri",
 
         "product.disposables.description": "Kituri preumplute de unica folosinta sau reincarcabile",
@@ -181,7 +183,7 @@ var translations = {
         "filteropt.nicshot": "Shot nicotina",
 
         "sort.title": "Sorteaza",
-        "sort.new": "Nou",
+        "sort.new": "Cele mai noi",
         "sort.priceup": "Pret crescator",
         "sort.pricedown": "Pret descresator",
         "sort.name": "Nume A-Z",
@@ -262,7 +264,8 @@ var translations = {
         "user.createaccount": "Creeaza un cont nou",
         "user.forgorpassword": "Am uitat parola",
         "user.delete_title": "Inchide contul tau la V-Spot",
-        "user.delete_data_notice": "Datele tale de contact, adresele de facturare si adresele de livrare vor fi sterse de pe serverele noastre instant.",
+        "user.delete_warning": "Stergerea unui cont este o operatiune ireversibila!",
+        "user.delete_data_notice": "Datele tale cu caracter personal vor fi sterse de pe serverele noastre conform politicii de confidentialitate.",
         "user.password_requirements": "Parola trebuie sa fie compusa din minim 8 caractere",
         "user.delete": "Inchide contul",
 
@@ -308,11 +311,11 @@ var translations = {
 
         "cookies.mandatory_notice": "Acest site foloseste cookie-uri necesare pentru functionarea sa. Prin folosire site-ului va dati acordul la folosirea acestor cookie-uri.",
 
-        "cookies.mandatory_notice": "Acest site foloseste cookie-uri necesare pentru functionarea serviciului. Prin folosire site-ului va dati acordul la folosirea acestor cookie-uri.",
+        "slideshow.switchpro": "Vezi Switch Pro",
 
         "footer.products": "Produse",
         "footer.locations": "Locatii",
-        "footer.legal": "Prostii legale",
+        "footer.legal": "Informatii utile",
         "footer.contact": "Contact",
         "footer.seedetails": "Vezi detalii",
         "footer.seo": "The V Spot este magazinul online pentru toate nevoiile tale ce au de a face cu nicotina. Tigari, vapeuri, kituri pentru vapat, lichide, baze, pouchuri, accesorii si nu numai! Toate acestea exclusiv de la cele mai bune branduri!"
@@ -334,6 +337,8 @@ var translations = {
         "page.order_shipping": "Order shipping",
         "page.order_submit": "Send order",
         "page.tos": "Terms of service",
+        "page.privacy_policy": "Privacy policy",
+        "page.return_policy": "Return policy",
 
         "page.confirm_email.title.success": "Account confirmed!",
         "page.confirm_email.description.success": "Thank you for confirming your email address!",
@@ -352,7 +357,7 @@ var translations = {
         "page.main.best_brands": "Top brands",
         "page.main.best_brands.description": "We've partnered up with the best brands in the pursuit of bringing you the cream of the crop!",
 
-        "page.main.shipping": "Shipping in all of Romania",
+        "page.main.shipping": "Shipping all across Romania",
         "page.main.shipping.description": "Shipping everywhere in Romania through your favorite shipping agency.",
 
         "page.main.payment": "Card or cash payment",
@@ -568,7 +573,8 @@ var translations = {
         "user.password_requirements": "The password must be at least 8 characters in length",
         "user.passwords_dont_match": "The password don't match",
         "user.delete_title": "Close your V-Spot account",
-        "user.delete_data_notice": "Your contact, shipping and billing information will be deleted from our servers instantly.",
+        "user.delete_warning": "Deleting an account is an irreversible operation!",
+        "user.delete_data_notice": "Your contact, shipping and billing information will be delete from ours servers according to our privacy policy.",
         "error.password_incorrect": "The password is incorrect",
         "user.delete": "Close my account",
 
@@ -610,7 +616,7 @@ var translations = {
 
         "cookies.mandatory_notice": "This site uses mandatory cookies in order to function properly. By continuing to use this site, you agree to the use of the these cookies.",
 
-        "cookies.mandatory_notice": "This site uses mandatory cookies in order to function properly. By using this site you agree to the use of the these cookies.",
+        "slideshow.switchpro": "Take me to Switch Pro",
 
         "footer.products": "Products",
         "footer.locations": "Locations",

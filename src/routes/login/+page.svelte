@@ -149,7 +149,7 @@
             <div class="flex justify-between items-center">
                 <a class="mt-auto" href="/signup">{$l("user.createaccount")}</a>
                 <button
-                    class="bg-vspot-green flex justify-center items-center min-w-32 min-h-10 p-2 px-4 rounded-lg text-vspot-primary-bg"
+                    class="bg-vspot-green flex justify-center items-center min-w-32 min-h-10 p-2 px-4 rounded-tl-lg rounded-br-lg text-vspot-primary-bg"
                     disabled={login_in_progress}
                     type="submit"
                     on:submit={() => {

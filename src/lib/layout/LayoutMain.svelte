@@ -35,7 +35,7 @@
     <AgeConfirmationOverlay />
     <BackendShatpantsOverlay />
     <CookieNotice />
-    <div class="p-4 space-y-16 w-full lg:w-[1100px] z-10">
+    <div class="p-4 space-y-24 w-full lg:w-[1100px] z-10">
         <TopNavBar {user} />
         <main>
             <slot />

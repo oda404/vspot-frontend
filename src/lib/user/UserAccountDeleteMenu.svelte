@@ -34,7 +34,9 @@
                 if (res.status !== 200) {
                     switch (res.body.field) {
                         case "password":
-                            password_input.error = $l(res.body.msg);
+                            password_input.error = $l(
+                                res.body.msg + ".password",
+                            );
                             break;
 
                             delete_error_msg = res.body.msg;
@@ -55,14 +57,17 @@
     };
 </script>
 
-<div class="space-y-4">
+<div class="">
     <span class="text-xl text-vspot-purple block">
         {$l("user.delete_title")}
+    </span>
+    <span class="block">
+        {$l("user.delete_warning")}
     </span>
     <span>
         {$l("user.delete_data_notice")}
     </span>
-    <form class="w-[300px] space-y-2">
+    <form class="lg:w-[300px] space-y-2 mt-4">
         <InputField
             id="password"
             label={$l("user.password")}
@@ -72,7 +77,7 @@
         <button
             disabled={delete_in_progress}
             type="submit"
-            class="px-4 p-2 rounded-lg bg-vspot-text-error w-full"
+            class="px-4 p-2 rounded-lg bg-vspot-secondary-bg w-full"
             on:submit={() => {
                 return false;
             }}

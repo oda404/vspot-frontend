@@ -2,6 +2,8 @@
     import { CONTACT_EMAIL, CONTACT_PHONE } from "$lib/contact/info";
     import { l } from "$lib/langs";
     import { pagetitle_make } from "$lib/title";
+    import { faEnvelope, faPhone } from "@fortawesome/free-solid-svg-icons";
+    import Fa from "svelte-fa";
 </script>
 
 <svelte:head>
@@ -9,7 +11,7 @@
 
     <meta
         name="description"
-        content="Pentru orice sesizari sau intrebari ne puteti contacta folosind instructiunile de pe aceasta pagina."
+        content="Contactati-ne folosind una din metodele de pe aceasta pagina pentru orice sesizari sau intrebari legate de serviciile noastre."
     />
 </svelte:head>
 
@@ -22,19 +24,29 @@
         {$l("contact.description")}
     </span>
     <address class="space-y-4 mt-4">
-        <ul class="list-disc">
-            <b>{$l("contact.phone")}</b>
-            {#each CONTACT_PHONE as phone}
-                <li class="list-item">{phone}</li>
-            {/each}
-            <small>{$l("contact.fees")}</small>
-        </ul>
-        <ul class="list-disc">
-            <b>Email:</b>
-            {#each CONTACT_EMAIL as email}
-                <li class="list-item">{email}</li>
-            {/each}
-        </ul>
+        {#if CONTACT_PHONE.length > 0}
+            <ul class="list-disc">
+                <div class="flex items-center space-x-2">
+                    <Fa icon={faPhone} />
+                    <b>{$l("contact.phone")}</b>
+                </div>
+                {#each CONTACT_PHONE as phone}
+                    <li class="list-item">{phone}</li>
+                {/each}
+                <small>{$l("contact.fees")}</small>
+            </ul>
+        {/if}
+        {#if CONTACT_EMAIL.length > 0}
+            <ul class="list-disc">
+                <div class="flex items-center space-x-2">
+                    <Fa icon={faEnvelope} />
+                    <b>Email:</b>
+                </div>
+                {#each CONTACT_EMAIL as email}
+                    <li class="list-item">{email}</li>
+                {/each}
+            </ul>
+        {/if}
     </address>
     <span class="block mt-4">
         {$l("contact.schedule")}

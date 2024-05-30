@@ -205,7 +205,7 @@
             </div>
         {/if}
         <button
-            class="bg-vspot-green flex justify-center px-4 p-2 rounded-lg text-vspot-primary-bg w-full"
+            class="bg-vspot-green flex justify-center px-4 p-2 rounded-tl-lg rounded-br-lg text-vspot-primary-bg w-full"
             on:submit={() => {
                 return false;
             }}

@@ -12,7 +12,7 @@
     <div class="flex items-center justify-between">
         <a {href} class="flex space-x-2 items-center">
             <slot />
-            <span class="text-2xl block"> {name} </span>
+            <span class="text-2xl font-semibold block"> {name} </span>
         </a>
         {#if href}
             <a {href} class=""> {$l("action.see_all")} </a>

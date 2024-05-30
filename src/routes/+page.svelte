@@ -42,12 +42,12 @@
         class="!mt-[100vh] lg:!mt-[90vh] space-y-4 lg:w-[100%] flex items-center flex-col lg:flex-row"
     >
         <img
-            class="h-[45%] w-[45%] drop-shadow-lg"
+            class="hidden lg:block max-h-[240px] max-w-[240px] drop-shadow-lg"
             src="/images/vspot.webp"
             alt="The VSpot"
         />
         <span
-            class="text-8xl text-center font-[Blowhole] lg:text-9xl font-semibold opacity-80 block"
+            class="text-8xl text-center font-[Blowhole] lg:text-9xl font-semibold opacity-100 bg-gradient-to-r from-vspot-green to-vspot-purple text-transparent bg-clip-text inline-block"
         >
             {$l("home.title")}
         </span>

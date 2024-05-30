@@ -96,7 +96,7 @@
                 {/if}
                 <button
                     disabled={data.product.stock === 0}
-                    class="px-16 w-fit p-2 rounded-lg bg-vspot-green text-vspot-primary-bg disabled:bg-vspot-secondary-bg disabled:text-vspot-text-hovered"
+                    class="px-16 w-fit p-2 bg-vspot-green text-vspot-primary-bg disabled:bg-vspot-secondary-bg disabled:text-vspot-text-hovered"
                     on:click={() => {
                         cart_add_item(data.product.internal_id);
                     }}
@@ -127,7 +127,10 @@
     {/if}
     {#if data.product.description_long}
         <div class="block space-y-4 !mt-16 !mb-32">
-            <button class=" bg-vspot-secondary-bg w-fit px-4 p-2" disabled>
+            <button
+                class=" bg-vspot-secondary-bg w-fit px-4 p-2 !rounded-b-none !rounded-t-lg"
+                disabled
+            >
                 {$l("description.description")}
             </button>
             <div class="h-[1px] !-mt-0 w-full bg-vspot-secondary-bg" />

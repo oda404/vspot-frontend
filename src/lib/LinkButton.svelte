@@ -18,7 +18,7 @@
     on:mouseenter={() => (hovered = true)}
     on:mouseleave={() => (hovered = false)}
     class="flex items-center {!simple
-        ? `p-2 px-4 ${!bg ? 'bg-vspot-purple' : bg} rounded-lg`
+        ? `p-2 px-4 ${!bg ? 'bg-vspot-purple' : bg} rounded-tl-lg rounded-br-lg`
         : ''} {hovered ? 'space-x-2' : 'space-x-3'}"
 >
     <slot />

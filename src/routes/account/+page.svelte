@@ -41,7 +41,7 @@
         {$l("description.welcomeback", { name: user.firstname })}
     </h1>
 
-    <div class="lg:flex lg:space-x-16">
+    <div class="lg:flex lg:space-x-16 space-y-4 lg:space-y-0">
         <div class="flex justify-between lg:block lg:w-fit">
             <UserAccountNavButton
                 active={current_menu === USER_INFO_MENU}
