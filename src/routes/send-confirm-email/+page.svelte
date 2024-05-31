@@ -12,15 +12,14 @@
     </h1>
     <span class="text-lg block">
         {$l("page.send_confirm_email.description")}
-        <b class="text-lg">{user.email}</b>
-    </span>
-    <span class="text-lg block">
+        <b class="text-lg">{user.email}</b>.
         {$l("page.send_confirm_email.follow_instructions")}
     </span>
+    <span class="text-lg block"> </span>
     <span class="block mt-4">
         {$l("page.send_confirm_email.spam_notice")}
     </span>
-    <span class="block mt-12">
+    <span class="block mt-4">
         {$l("page.send_confirm_email.wrong_email")}
         <a class="text-vspot-purple" href="/account">{$l("description.here")}</a
         >

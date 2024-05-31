@@ -197,11 +197,11 @@
         >
         <label class="text-sm flex items-center">
             <input type="checkbox" class="mr-2" bind:checked={consent_tos} />
-            {$l("signup.tos_consent")}
+            {$l("signup.consent")}
         </label>
         {#if consent_error}
             <div class="text-sm text-vspot-text-error !mt-1">
-                {$l("signup.tos_consent_missing")}
+                {$l("signup.consent_missing")}
             </div>
         {/if}
         <button

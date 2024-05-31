@@ -60,7 +60,7 @@
         </div>
         <span class="block">
             Terrible Fortune SRL are obligatia de a restitui suma comenzii
-            intr-un maxim de 14 zile de la primirea a produselor returnate.
+            intr-un maxim de 14 zile de la primirea produselor returnate.
         </span>
         <span class="block">
             Restituirea sumei se va face DOAR in contul bancar indicat de catre
@@ -86,7 +86,6 @@
         @apply text-2xl;
     }
     span,
-    b,
     li {
         @apply text-lg;
     }

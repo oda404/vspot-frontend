@@ -7,17 +7,17 @@
 
 <div>
     {#if status == 404}
-        <div class="mb-14 flex items-center space-x-8">
-            <span class="text-6xl font-semibold opacity-80">
+        <div class="1">
+            <span class="text-9xl font-[Blowhole] font-semibold opacity-80">
                 404 {$l("error.page404")}
             </span>
         </div>
-        <div class="text-2xl">
+        <div class="text-lg">
             {$l("error.page404_description")}
         </div>
     {:else}
-        <div class="mb-14 flex items-center space-x-8">
-            <span class="text-6xl font-semibold opacity-80">
+        <div class="">
+            <span class="text-9xl font-[Blowhole] font-semibold opacity-80">
                 {$page.status}
                 {$l("error.encountered_error")}
             </span>
@@ -35,7 +35,7 @@
     {/if}
     <a
         href="/"
-        class="block !mt-4 text-vspot-primary-bg px-4 p-2 rounded-lg bg-vspot-green w-fit hover:text-vspot-secondary-bg"
+        class="block !mt-4 text-vspot-primary-bg px-4 p-2 rounded-tl-lg rounded-br-lg bg-vspot-green w-fit hover:text-vspot-secondary-bg"
     >
         {$l("action.backtomainpage")}
     </a>

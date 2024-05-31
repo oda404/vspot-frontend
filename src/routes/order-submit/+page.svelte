@@ -60,6 +60,9 @@
     const billing_address = orderinfo!.billing;
     const shipping_address = orderinfo!.shipping;
     const shipping_method = orderinfo!.shipping_method!;
+    let consent = false;
+    let consent_error = false;
+    $: if (consent_error && consent) consent_error = false;
 
     let order_submitting = false;
     let order_submit_error: string | undefined;
@@ -69,6 +72,11 @@
     let turnstile_mounted = false;
 
     const order_submit = () => {
+        if (!consent) {
+            consent_error = true;
+            return;
+        }
+
         order_submitting = true;
         const info: V1ClientOrderInfo = {
             products: cart_items.map((item) => {
@@ -180,7 +188,7 @@
             </div>
         </div>
         <div class="flex flex-col lg:flex-row">
-            <div class="min-w-[70%] w-[70%] p-4 rounded-lg space-y-2">
+            <div class="min-w-[65%] w-[65%] p-4 rounded-lg space-y-2">
                 <div class="text-lg text-vspot-text-hovered">
                     {$l("description.yourproducts")}
                 </div>
@@ -270,8 +278,21 @@
                             </div>
                         </div>
                     </div>
+                    <label class="text-sm flex items-center">
+                        <input
+                            type="checkbox"
+                            class="mr-2"
+                            bind:checked={consent}
+                        />
+                        {$l("order.consent")}
+                    </label>
+                    {#if consent_error}
+                        <span class="text-sm text-vspot-text-error"
+                            >{$l("order.consent_error")}</span
+                        >
+                    {/if}
                     <button
-                        class="bg-vspot-green w-full p-2 px-4 rounded-lg text-vspot-primary-bg flex justify-center"
+                        class="bg-vspot-green w-full p-2 px-4 text-vspot-primary-bg flex justify-center"
                         disabled={order_submitting ||
                             typeof order_submit_error !== "undefined"}
                         on:submit={() => {

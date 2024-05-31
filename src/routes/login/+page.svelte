@@ -137,7 +137,7 @@
             <div class="flex justify-between items-center">
                 <a
                     href="/forgor-password"
-                    class="block text-vspot-text-hovered"
+                    class="block text-sm text-vspot-link"
                 >
                     {$l("user.forgorpassword")}
                 </a>

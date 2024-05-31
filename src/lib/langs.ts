@@ -96,6 +96,8 @@ var translations = {
         "order.completed": "A ajuns la tine",
         "order.orderon": "Comanda pe {{date}}",
         "order.no_orders": "Nu ai plasat nicio comanda inca...",
+        "order.consent": "Sunt de acord cu Termenii serviciului si Politica de confidentialitate",
+        "order.consent_error": "Termenii serviciului si politica de confidentialitate sunt obligatorii.",
 
         "payment.card": "Card",
         "payment.cash": "Ramburs la livrare",
@@ -269,15 +271,15 @@ var translations = {
         "user.password_requirements": "Parola trebuie sa fie compusa din minim 8 caractere",
         "user.delete": "Inchide contul",
 
-        "signup.tos_consent": "Accept termenii si conditiile serviciului",
-        "signup.tos_consent_missing": "Termenii si conditiile serviciului sunt obligatorii",
+        "signup.consent": "Sunt de acord cu Termenii serviciului si Politica de confidentialitate",
+        "signup.consent_missing": "Termenii serviciului si politica de confidentialitate sunt obligatorii.",
         "signup.goto_login": "Am deja un cont",
 
         "error.email_taken": "Acesta adresa de email a fost inregistrata deja",
         "error.encountered_error": "Am intampinat o problema :(",
         "error.encountered_error_description": "Incercati sa reincarcati pagina, daca problema persista contactati-ne",
         "error.page404": "Pagina nu exista :(",
-        "error.page404_description": "Aceasta pagina ori a fost stearsa ori nu a existat de la inceput :3",
+        "error.page404_description": "Aceasta pagina nu a existat niciodata sau a fost stearsa...",
 
         "error.creds": "Adresa de email sau parola este gresita",
         "error.turnstile_failed": "Verificare a esuat, incercati sa reincarcati pagina",
@@ -404,6 +406,8 @@ var translations = {
         "order.completed": "Completed",
         "order.orderon": "Order on {{date}}",
         "order.no_orders": "You haven't placed any orders yet...",
+        "order.consent": "I have read and accept the terms of service and the privacy policy",
+        "order.consent_error": "The terms of service and privacy policy are mandatory",
 
         "payment.card": "Card",
         "payment.cash": "Cash on delivery",
@@ -578,14 +582,14 @@ var translations = {
         "error.password_incorrect": "The password is incorrect",
         "user.delete": "Close my account",
 
-        "signup.tos_consent": "I accept the terms of service",
-        "signup.tos_consent_missing": "The terms of service are mandatory",
+        "signup.consent": "I have read and accept the terms of service and the privacy policy",
+        "signup.consent_missing": "The terms of service and privacy policy are mandatory",
         "signup.goto_login": "I already have an account",
 
         "error.encountered_error": "We encountered a problem :(",
         "error.encountered_error_description": "If this error persists you can contact us",
         "error.page404": "This page does not exist :(",
-        "error.page404_description": "This page was either delete or it never existed :3",
+        "error.page404_description": "This page was either delete or it never existed...",
         "error.turnstile_failed": "The human verification failed, try to reload the page",
         "error.turnstile_invalid": "We encountered a problem, please reload the page and try again",
         "error.passwords_dont_match": "Passwords don't match",

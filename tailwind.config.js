@@ -12,7 +12,7 @@ export default {
         'vspot-text-hovered': '#dddddd',
         'vspot-text-error': '#dd1111',
         'vspot-green': '#00ff01',
-        'vspot-link': '#e802f7',
+        'vspot-link': '#5555DD',
         'vspot-link-hover': '#0000EE'
       },
       'animation': {

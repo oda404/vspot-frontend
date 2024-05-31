@@ -90,12 +90,14 @@
     let address_data = new InputFieldContext(orderinfo?.billing?.address);
     address_data.validate = (value: string) => {
         if (value.length === 0) return "Ai uitat adresa!";
+        if (value.length < 5) return "Adresa este prea scurta";
         if (value.length > 256) return "Adresa este prea lunga!";
     };
 
     let postalcode_data = new InputFieldContext(orderinfo?.billing?.postalcode);
     postalcode_data.validate = (value: string) => {
         if (value.length === 0) return "Ai uitat codul postal!";
+        if (value.length < 6) return "Codul postal este prea scurt!";
         if (value.length > 6) return "Cod postal invalid!";
     };
 

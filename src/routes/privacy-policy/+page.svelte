@@ -487,7 +487,6 @@
         @apply text-2xl;
     }
     span,
-    b,
     li {
         @apply text-lg;
     }
