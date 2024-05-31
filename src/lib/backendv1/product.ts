@@ -13,6 +13,7 @@ export type V1ServerProductDisplayData = {
     image_url: string;
     price: number;
     price_decimals: number;
+    discount: number;
     currency: string;
     stock: number;
 }
@@ -38,6 +39,7 @@ export type V1ServerProductFullinfo = {
     /* These are handed by us */
     price: number;
     price_decimals: number;
+    discount: number;
     currency: string;
     stock: number;
     description_short?: string;

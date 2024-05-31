@@ -35,7 +35,8 @@
         if (cart_items.length > 0) currency = cart_items[0].currency;
         cart_total = 0;
         cart_items.forEach((item) => {
-            cart_total += item.qty * (item.price + item.price_decimals);
+            cart_total +=
+                item.qty * (item.price + item.price_decimals - item.discount);
         });
     });
 
@@ -199,15 +200,23 @@
                                 <a href="/product/{item.id}" class="text-lg">
                                     {item.name}
                                 </a>
-                                <div class="text-xl font-semibold">
-                                    {item.price *
-                                        item.qty}.{item.price_decimals}
-                                    {item.currency}
-                                </div>
                                 <div>
+                                    <span class="text-xl font-semibold">
+                                        {item.price * item.qty -
+                                            item.discount}.00
+                                        {item.currency}
+                                    </span>
+                                    {#if item.discount}
+                                        <span class="line-through"
+                                            >{item.price * item.qty}.00
+                                            {item.currency}</span
+                                        >
+                                    {/if}
+                                </div>
+                                <span>
                                     {item.qty}
                                     {$l("description.pcs")}
-                                </div>
+                                </span>
                             </div>
                         </div>
                     {/each}

@@ -17,6 +17,7 @@ export type CartProduct = {
     price: number;
     price_decimals: number;
     currency: string;
+    discount: number;
     stock: number;
     preview_image_url: string;
 }

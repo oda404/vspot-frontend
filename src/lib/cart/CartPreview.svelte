@@ -15,7 +15,9 @@
     $: for (let i = 0; i < cart_items.length; ++i) {
         total +=
             cart_items[i].qty *
-            (cart_items[i].price + cart_items[i].price_decimals);
+            (cart_items[i].price +
+                cart_items[i].price_decimals -
+                cart_items[i].discount);
     }
 
     onMount(() => {
@@ -64,9 +66,12 @@
                             <div
                                 class="w-full flex text-vspot-text-hovered justify-between space-y-1 items-center"
                             >
-                                <div class="text whitespace-nowrap">
-                                    {item.price * item.qty}
-                                    {item.currency}
+                                <div>
+                                    <span class="text-lg whitespace-nowrap">
+                                        {(item.price - item.discount) *
+                                            item.qty}.00
+                                        {item.currency}
+                                    </span>
                                 </div>
                                 <div class="flex items-center space-x-2">
                                     <button

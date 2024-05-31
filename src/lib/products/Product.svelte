@@ -29,34 +29,48 @@
                 {product.name}
             </div>
         </a>
-        {#if product.stock > 0}
-            <div class="!mt-auto !mb-2">
+        <div class="!mt-auto !mb-2">
+            {#if product.stock > 0}
                 <div class="flex items-center space-x-1">
                     <div class="w-[4px] h-[4px] rounded-full bg-vspot-green" />
                     <span class="text-sm text-vspot-green block">
                         {$l("description.instock")}
                     </span>
                 </div>
-                <span class="text-2xl font-semibold text-vspot-text-hovered">
-                    {product.price}
-                    <span
-                        class="text-sm -ml-2 font-semibold text-vspot-text-hovered"
-                        >.00</span
-                    >
-                    {product.currency}
-                </span>
-            </div>
-            <button
-                class="bg-vspot-green px-2 p-1 min-h-[32px] rounded-br-lg rounded-tl-lg w-full"
-                disabled={adding_load}
-                on:click={() => {
-                    adding_load = true;
-                    cart_add_item(product.internal_id, () => {
-                        adding_load = false;
-                    });
-                }}
+            {/if}
+            <span class="text-2xl font-semibold text-vspot-text-hovered">
+                {product.price - product.discount}
+            </span>
+            <span class="text-sm -ml-1 font-semibold text-vspot-text-hovered"
+                >.00</span
             >
-                <span class="text-vspot-primary-bg mx-auto">
+            <span class="text-lg font-semibold">
+                {product.currency}
+            </span>
+            {#if product.discount > 0}
+                <span class="line-through"
+                    >{product.price}.00 {product.currency}</span
+                >
+            {/if}
+        </div>
+        <button
+            class="{product.stock > 0
+                ? 'bg-vspot-green'
+                : 'bg-vspot-secondary-bg'}  px-2 p-1 min-h-[32px] rounded-br-lg rounded-tl-lg w-full"
+            disabled={adding_load || product.stock === 0}
+            on:click={() => {
+                adding_load = true;
+                cart_add_item(product.internal_id, () => {
+                    adding_load = false;
+                });
+            }}
+        >
+            <span
+                class="{product.stock > 0
+                    ? 'text-vspot-primary-bg'
+                    : 'text-vspot-text-pimary'} mx-auto"
+            >
+                {#if product.stock > 0}
                     {#if !adding_load}
                         {$l("action.addtocart")}
                     {:else}
@@ -66,33 +80,10 @@
                             icon={faSpinner}
                         />
                     {/if}
-                </span>
-            </button>
-        {:else}
-            <div class="!mt-auto !mb-2">
-                <span class="text-2xl font-semibold text-vspot-text-hovered">
-                    {product.price}
-                    <span
-                        class="text-sm -ml-2 font-semibold text-vspot-text-hovered"
-                        >.00</span
-                    >
-                    {product.currency}
-                </span>
-            </div>
-            <button
-                class="bg-vspot-secondary-bg px-2 p-1 min-h-[32px] rounded-br-lg rounded-tl-lg w-full"
-                disabled
-                on:click={() => {
-                    adding_load = true;
-                    cart_add_item(product.internal_id, () => {
-                        adding_load = false;
-                    });
-                }}
-            >
-                <span class="text-vspot-text-hovered max-auto block">
+                {:else}
                     {$l("description.outofstock_simple")}
-                </span>
-            </button>
-        {/if}
+                {/if}
+            </span>
+        </button>
     </div>
 </div>

@@ -27,6 +27,7 @@ function cart_update_item_coreinfo(item: CartProduct, coreinfo: V1ServerProductD
     item.price_decimals = coreinfo.price_decimals;
     item.currency = coreinfo.currency;
     item.stock = coreinfo.stock;
+    item.discount = coreinfo.discount;
     item.preview_image_url = coreinfo.image_url;
 }
 

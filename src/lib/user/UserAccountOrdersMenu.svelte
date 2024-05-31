@@ -17,7 +17,7 @@
     const order_total = (products: V1ServerPurchasedProduct[]) => {
         let total = 0;
         products.forEach((p) => {
-            total += p.price + p.price_decimals;
+            total += p.price + p.price_decimals - p.discount;
         });
         return total;
     };
@@ -61,9 +61,14 @@
                             />
                             <div>
                                 <span class="block">{product.name}</span>
-                                <span class="text-lg block"
-                                    >{product.price} RON</span
+                                <span class="text-lg"
+                                    >{product.price - product.discount}.00 RON</span
                                 >
+                                {#if product.discount}
+                                    <span class="line-through">
+                                        {product.price}.00 RON
+                                    </span>
+                                {/if}
                             </div>
                         </a>
                     {/each}

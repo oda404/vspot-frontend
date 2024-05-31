@@ -31,7 +31,8 @@
         cart_item_total = 0;
         $cart["items"].forEach((i: CartProduct) => {
             cart_item_count += i.qty;
-            cart_item_total += (i.price + i.price_decimals) * i.qty;
+            cart_item_total +=
+                (i.price + i.price_decimals - i.discount) * i.qty;
         });
     };
 
@@ -66,10 +67,16 @@
                             <a href="/product/{item.id}" class="text-lg">
                                 {item.name}
                             </a>
-                            <div class="mt-auto text-xl font-semibold">
-                                {item.price * item.qty}.{item.price_decimals}
+                            <span class="block mt-auto text-xl font-semibold">
+                                {(item.price - item.discount) * item.qty}.00
                                 {item.currency}
-                            </div>
+                            </span>
+                            {#if item.discount}
+                                <span class="block line-through">
+                                    {item.price * item.qty}.00
+                                    {item.currency}
+                                </span>
+                            {/if}
                         </div>
                         <div
                             class="flex items-center space-x-8 !ml-auto mt-auto"
@@ -160,7 +167,7 @@
                         class="flex justify-between border-b pb-2 border-vspot-secondary-bg"
                     >
                         <div>{$l("description.producttotal")}</div>
-                        <div>{cart_item_total} {cart_items[0].currency}</div>
+                        <div>{cart_item_total}.00 {cart_items[0].currency}</div>
                     </div>
                     <div
                         class="flex justify-between border-b pb-2 border-vspot-secondary-bg"
@@ -172,7 +179,7 @@
                         class="flex justify-between border-b pb-2 border-vspot-secondary-bg !mt-6"
                     >
                         <div>{$l("description.simpletotal")}</div>
-                        <div>{cart_item_total} RON</div>
+                        <div>{cart_item_total}.00 RON</div>
                     </div>
                     {#if !data.user}
                         <span class="text-vspot-green block !mt-4"
@@ -216,9 +223,14 @@
                         {data.product.name}
                     </a>
                     <div class="text-xl font-semibold">
-                        {data.product.price}.{data.product.price_decimals}
+                        {data.product.price - data.product.discount}.00
                         {data.product.currency}
                     </div>
+                    {#if data.product.discount}
+                        <span class="line-through">
+                            {data.product.price}.00 {data.product.currency}
+                        </span>
+                    {/if}
                     <button
                         class="rounded w-fit mt-auto p-1 px-2 bg-vspot-green text-vspot-secondary-bg"
                         on:click={() => {

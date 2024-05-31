@@ -52,9 +52,16 @@
                     <a href="/product/{product.id}" class="text-lg">
                         {product.name}
                     </a>
-                    <div class="text-xl font-semibold">
-                        {product.price * product.qty}.{product.price_decimals}
-                        RON
+                    <div>
+                        <span class="text-xl font-semibold">
+                            {product.price * product.qty - product.discount}.00
+                            RON
+                        </span>
+                        {#if product.discount}
+                            <span class="line-through">
+                                {product.price * product.qty}.00 RON
+                            </span>
+                        {/if}
                     </div>
                     <div>
                         {product.qty}

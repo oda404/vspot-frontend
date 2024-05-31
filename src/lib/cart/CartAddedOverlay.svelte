@@ -41,10 +41,16 @@
                             <div>
                                 {item.name}
                             </div>
-                            <div class="text-lg leading-tight">
-                                {item.price}
+                            <span
+                                class="block text-lg font-semibold leading-tight"
+                            >
+                                {item.price - item.discount}.00
                                 {item.currency}
-                            </div>
+                            </span>
+                            <span class="line-through">
+                                {item.price}.00
+                                {item.currency}
+                            </span>
                         </div>
                     </div>
                     <div class="flex space-x-16">

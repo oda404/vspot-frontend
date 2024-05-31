@@ -36,10 +36,24 @@
             <span class="text-3xl opacity-90 font-bold">
                 {data.product.name}
             </span>
-            <span class="text-2xl"
-                >{data.product.price}
-                {data.product.currency}
-            </span>
+            <div>
+                <span class="text-2xl font-semibold text-vspot-text-hovered">
+                    {data.product.price - data.product.discount}
+                </span>
+                <span
+                    class="text-sm -ml-1 font-semibold text-vspot-text-hovered"
+                    >.00</span
+                >
+                <span class="text-lg font-semibold">
+                    {data.product.currency}
+                </span>
+                {#if data.product.discount > 0}
+                    <span class="line-through"
+                        >{data.product.price}.00 {data.product.currency}</span
+                    >
+                {/if}
+            </div>
+
             <span class={data.product.stock > 0 ? "text-vspot-green" : ""}>
                 {data.product.stock
                     ? $l("description.instock")
