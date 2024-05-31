@@ -34,7 +34,7 @@
 >
     <a
         href="/"
-        class="hidden lg:block left-[-2%] top-[-20px] lg:left-0 lg:top-0 lg:relative min-w-[130px] max-w-[130px] lg:min-w-[160px] lg:max-w-[160px]"
+        class="hidden lg:block left-[-2%] top-[-20px] lg:left-0 lg:top-0 lg:relative min-w-[140px] max-w-[140px]"
     >
         <img src="/images/vspot.webp" class="mt-14" alt="V Spot Logo" />
     </a>
