@@ -1,5 +1,10 @@
 <script lang="ts">
     import { l } from "$lib/langs.js";
+    import {
+        faEnvelopeCircleCheck,
+        faEnvelopeOpen,
+    } from "@fortawesome/free-solid-svg-icons";
+    import Fa from "svelte-fa";
 
     export let data;
 </script>
@@ -15,15 +20,20 @@
         </a>
     </div>
 {:else}
-    <h1 class="text-6xl lg:text-9xl font-[Blowhole] font-semibold opacity-80">
-        {$l("page.confirm_email.title.success")}
-    </h1>
+    <div class="flex items-center space-x-20">
+        <span
+            class="text-6xl lg:text-9xl font-[Blowhole] font-semibold opacity-80"
+        >
+            {$l("page.confirm_email.title.success")}
+        </span>
+        <Fa primaryColor="#00ff01" scale="6x" icon={faEnvelopeCircleCheck} />
+    </div>
     <span class="text-lg block mb-2">
         {$l("page.confirm_email.description.success")}
     </span>
     <a
         href="/"
-        class="px-4 p-2 block w-fit !mt-4 rounded-lg bg-vspot-green text-vspot-primary-bg"
+        class="px-4 p-2 block w-fit !mt-4 rounded-tl-lg rounded-br-lg bg-vspot-green text-vspot-primary-bg"
     >
         {$l("action.backtomainpage")}
     </a>
