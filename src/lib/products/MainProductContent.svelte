@@ -26,7 +26,7 @@
     >
         <FilterTab {filters} />
     </div>
-    <div class="flex flex-col items-center space-y-8">
+    <div class="flex flex-col items-center space-y-4">
         <div class="w-full">
             <div>
                 <h1

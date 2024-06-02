@@ -3,8 +3,9 @@
     import { l } from "$lib/langs";
     import Product from "$lib/products/Product.svelte";
     import ProductTrailBar from "$lib/products/ProductTrailBar.svelte";
+    import { product_price_get_percdiff } from "$lib/products/price.js";
     import { pagetitle_make } from "$lib/title";
-    import { faMinus, faPlus } from "@fortawesome/free-solid-svg-icons";
+    import { faDollar } from "@fortawesome/free-solid-svg-icons";
     import Fa from "svelte-fa";
     import SvelteMarkdown from "svelte-markdown";
 
@@ -15,7 +16,11 @@
     const tags =
         data.product.tags.find((t) => t.name === "type")?.options || [];
 
-    let add_qty = 1;
+    const price_full = data.product.price;
+    const price_actual = price_full - data.product.discount;
+
+    type Tab = "description" | "specs";
+    let selected_tab: Tab = "description";
 </script>
 
 <svelte:head>
@@ -24,93 +29,66 @@
 
 <div class="space-y-4">
     <ProductTrailBar {tags} product_name={data.product.name} />
-    <div class="lg:flex space-y-4 lg:space-y-0 lg:space-x-8 lg:max-h-[400px]">
-        <div class="lg:min-w-[400px] lg:max-w-[400px]">
+    <div class="space-y-8">
+        <span class="text-3xl opacity-90 font-bold">
+            {data.product.name}
+        </span>
+        <div class="flex flex-col lg:flex-row lg:space-x-16">
             <img
-                class="rounded-lg drop-shadow-2xl"
+                class="rounded-lg lg:min-w-[500px] lg:max-w-[500px]"
                 src={data.product.image_url}
                 alt="{data.product.name} image"
             />
-        </div>
-        <div class="flex flex-col">
-            <span class="text-3xl opacity-90 font-bold">
-                {data.product.name}
-            </span>
-            <div>
-                <span class="text-2xl font-semibold text-vspot-text-hovered">
-                    {data.product.price - data.product.discount}
-                </span>
-                <span
-                    class="text-sm -ml-1 font-semibold text-vspot-text-hovered"
-                    >.00</span
-                >
-                <span class="text-lg font-semibold">
-                    {data.product.currency}
-                </span>
-                {#if data.product.discount > 0}
-                    <span class="line-through"
-                        >{data.product.price}.00 {data.product.currency}</span
-                    >
-                {/if}
-            </div>
-
-            <span class={data.product.stock > 0 ? "text-vspot-green" : ""}>
-                {data.product.stock
-                    ? $l("description.instock")
-                    : $l("description.outofstock")}
-            </span>
-            {#if data.product.description_short}
-                <div
-                    class="overflow-y-scroll h-full mt-4 p-4 border-vspot-secondary-bg border-t border-b w-full"
-                >
-                    <SvelteMarkdown source={data.product.description_short} />
-                </div>
-            {/if}
-            <div
-                class="flex {data.product.description_short
-                    ? 'mt-4'
-                    : 'mt-auto'} space-x-4 items-center"
-            >
-                {#if data.product.stock}
-                    <div class="flex space-x-8">
-                        <div class="flex space-x-2">
-                            <button
-                                on:click={() => {
-                                    --add_qty;
-                                }}
-                                disabled={add_qty === 1}
+            <div class="space-y-1">
+                <div class="space-y-2">
+                    {#if data.product.discount > 0}
+                        <div class="flex items-center space-x-2">
+                            <span
+                                class="line-through text-2xl text-vspot-text-hovered"
                             >
-                                <Fa
-                                    color={add_qty === 1
-                                        ? "#999999"
-                                        : "#FFFFFF"}
-                                    icon={faMinus}
-                                    size="sm"
-                                />
-                            </button>
-                            <span class="px-4 bg-vspot-secondary-bg rounded">
-                                {add_qty}
+                                {data.product.price}.00
                             </span>
-                            <button
-                                on:click={() => {
-                                    ++add_qty;
-                                }}
-                                disabled={add_qty >= data.product.stock}
+                            <span
+                                class="px-2 p-[0.1rem] rounded-tl-lg rounded-br-lg bg-vspot-secondary-bg text-lg"
                             >
-                                <Fa
-                                    icon={faPlus}
-                                    color={add_qty < data.product.stock
-                                        ? "#FFFFFF"
-                                        : "#999999"}
-                                    size="sm"
-                                />
-                            </button>
+                                -{product_price_get_percdiff(
+                                    price_full,
+                                    price_actual,
+                                )}%
+                            </span>
                         </div>
+                    {/if}
+                    <span
+                        class="text-4xl block font-semibold text-vspot-text-hovered"
+                    >
+                        {data.product.price - data.product.discount}
+                        <span class="text-2xl font-semibold -ml-3">.00</span>
+                        {data.product.currency}
+                    </span>
+                </div>
+                <div class="flex items-center space-x-2">
+                    {#if data.product.stock}
+                        <div
+                            class="w-[6px] h-[6px] rounded-full bg-vspot-green"
+                        />
+                    {/if}
+                    <span
+                        class={data.product.stock > 0 ? "text-vspot-green" : ""}
+                    >
+                        {data.product.stock
+                            ? $l("description.instock")
+                            : $l("description.outofstock")}
+                    </span>
+                </div>
+                {#if price_actual !== price_full}
+                    <div class="flex items-center space-x-2">
+                        <Fa icon={faDollar} />
+                        <span>Acest pret este valabil exclusiv online</span>
                     </div>
                 {/if}
                 <button
                     disabled={data.product.stock === 0}
-                    class="px-16 w-fit p-2 bg-vspot-green text-vspot-primary-bg disabled:bg-vspot-secondary-bg disabled:text-vspot-text-hovered"
+                    class="px-16 w-fit p-2 !mt-4 bg-vspot-green text-vspot-primary-bg disabled:bg-vspot-secondary-bg disabled:text-vspot-text-hovered"
                     on:click={() => {
                         cart_add_item(data.product.internal_id);
                     }}
@@ -124,31 +102,48 @@
             </div>
         </div>
     </div>
+    {#if data.product.description_long}
+        <div class="block space-y-4">
+            <button
+                class="{selected_tab === 'description'
+                    ? 'bg-vspot-secondary-bg'
+                    : ''} w-fit px-4 p-2 !rounded-b-none !rounded-t-lg"
+                disabled={selected_tab === "description"}
+                on:click={() => (selected_tab = "description")}
+            >
+                {$l("description.description")}
+            </button>
+            <button
+                class="{selected_tab === 'specs'
+                    ? 'bg-vspot-secondary-bg'
+                    : ''} w-fit px-4 p-2 !rounded-b-none !rounded-t-lg"
+                disabled={selected_tab === "specs"}
+                on:click={() => (selected_tab = "specs")}
+            >
+                {$l("description.specs")}
+            </button>
+            <div class="h-[1px] !-mt-0 w-full bg-vspot-secondary-bg" />
+            {#if selected_tab === "description"}
+                <SvelteMarkdown source={data.product.description_long} />
+            {:else if selected_tab === "specs"}
+                <SvelteMarkdown source={data.product.description_short} />
+            {/if}
+        </div>
+    {/if}
     {#if recommended}
-        <div class="space-y-2 !mt-16">
-            <h1>Recomandate pentru tine!</h1>
+        <div class="space-y-4 border-t border-vspot-secondary-bg py-8">
+            <span class="text-2xl">Recomandate pentru tine</span>
             <div
-                class="flex space-x-2
-                [&>*:nth-child(6)]:hidden lg:[&>*:nth-child(6)]:flex
+                class="flex space-x-4
+                [&>*:nth-child(6)]:hidden
                 [&>*:nth-child(5)]:hidden lg:[&>*:nth-child(5)]:flex
-                [&>*:nth-child(4)]:hidden lg:[&>*:nth-child(4)]:flex"
+                [&>*:nth-child(4)]:hidden lg:[&>*:nth-child(4)]:flex
+                [&>*:nth-child(3)]:hidden lg:[&>*:nth-child(3)]:flex"
             >
                 {#each recommended as rec}
                     <Product product={rec} />
                 {/each}
             </div>
-        </div>
-    {/if}
-    {#if data.product.description_long}
-        <div class="block space-y-4 !mt-16 !mb-32">
-            <button
-                class=" bg-vspot-secondary-bg w-fit px-4 p-2 !rounded-b-none !rounded-t-lg"
-                disabled
-            >
-                {$l("description.description")}
-            </button>
-            <div class="h-[1px] !-mt-0 w-full bg-vspot-secondary-bg" />
-            <SvelteMarkdown source={data.product.description_long} />
         </div>
     {/if}
 </div>

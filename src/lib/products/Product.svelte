@@ -48,9 +48,7 @@
                 {product.currency}
             </span>
             {#if product.discount > 0}
-                <span class="line-through"
-                    >{product.price}.00 {product.currency}</span
-                >
+                <span class="line-through">{product.price}.00</span>
             {/if}
         </div>
         <button

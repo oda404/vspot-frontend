@@ -211,6 +211,7 @@ var translations = {
         "action.see_policy": "Vezi politica",
 
         "description.description": "Descriere",
+        "description.specs": "Specificatii",
         "description.outofstock": "Acest produs nu este in stoc :(",
         "description.outofstock_simple": "Nu este in stoc",
         "description.instock": "In stoc",
@@ -518,6 +519,7 @@ var translations = {
         "action.see_policy": "See policy",
 
         "description.description": "Description",
+        "description.specs": "Specifications",
         "description.outofstock": "This item is out of stock :(",
         "description.outofstock_simple": "Out of stock",
         "description.instock": "In stock",
