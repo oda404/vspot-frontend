@@ -39,7 +39,7 @@
                 src={data.product.image_url}
                 alt="{data.product.name} image"
             />
-            <div class="space-y-1">
+            <div class="space-y-1 mt-4">
                 <div class="space-y-2">
                     {#if data.product.discount > 0}
                         <div class="flex items-center space-x-2">
