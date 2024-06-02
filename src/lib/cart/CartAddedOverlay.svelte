@@ -47,10 +47,12 @@
                                 {item.price - item.discount}.00
                                 {item.currency}
                             </span>
-                            <span class="line-through">
-                                {item.price}.00
-                                {item.currency}
-                            </span>
+                            {#if item.discount}
+                                <span class="line-through">
+                                    {item.price}.00
+                                    {item.currency}
+                                </span>
+                            {/if}
                         </div>
                     </div>
                     <div class="flex space-x-16">
