@@ -5,9 +5,13 @@ export const product_trail_translations = [
         translation: "Disposable",
         children: [
             {
-                name: "",
-                translation: ""
-            }
+                name: "cartridge",
+                translation: "Cartuse"
+            },
+            {
+                name: "reusable",
+                translation: "Reincarcabile"
+            },
         ]
     },
     {
