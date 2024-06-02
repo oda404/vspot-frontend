@@ -2,8 +2,8 @@ import type { PaymentMethod } from "$lib/orderinfo/orderinfo";
 import { backendv1_endpoint } from "./endpoint";
 import type { ServerResponse } from "./response";
 import { BACKENDV1_BASE_GET_HEADERS, BACKENDV1_BASE_POST_HEADERS } from "./headers";
-import { error } from "@sveltejs/kit";
 import type { FetchFunction } from "./safe_fetch";
+import { backendv1_base_fetch } from "./base_fetch";
 
 export type V1ClientPurchasedProduct = {
     internal_id: string;
@@ -95,42 +95,43 @@ export type V1ServerOrders = {
 }
 
 export async function backendv1_post_order_submit(order_register_info: V1ClientOrderInfo, turnstile_token: string): Promise<ServerResponse<string>> {
-
-    const BASE_ENDPOINT = backendv1_endpoint();
-    const res = await fetch(`${BASE_ENDPOINT}/order/register`, {
-        method: "POST",
-        credentials: "include",
-        headers: {
-            ...BACKENDV1_BASE_POST_HEADERS
-        },
-        body: JSON.stringify({ turnstile_token, order_register_info })
-    });
-
-    return { status: res.status, body: await res.json() };
+    return await backendv1_base_fetch(
+        `${backendv1_endpoint()}/order/register`,
+        {
+            method: "POST",
+            credentials: "include",
+            headers: {
+                ...BACKENDV1_BASE_POST_HEADERS
+            },
+            body: JSON.stringify({ turnstile_token, order_register_info })
+        }
+    );
 }
 
-export async function backendv1_get_order_get(order_id: string, fetch: any): Promise<ServerResponse<V1ServerOrderDisplayInfo>> {
-
-    const res = await fetch(`${backendv1_endpoint()}/order/get?order_id=${order_id}`, {
-        method: "GET",
-        credentials: "include",
-        headers: {
-            ...BACKENDV1_BASE_GET_HEADERS
+export async function backendv1_get_order_get(order_id: string, fetch_func: FetchFunction): Promise<ServerResponse<V1ServerOrderDisplayInfo>> {
+    return await backendv1_base_fetch(
+        `${backendv1_endpoint()}/order/get?order_id=${order_id}`,
+        {
+            method: "GET",
+            credentials: "include",
+            headers: {
+                ...BACKENDV1_BASE_GET_HEADERS
+            },
         },
-    });
-
-    return { status: res.status, body: await res.json() };
+        fetch_func
+    );
 }
 
-export async function backendv1_order_user_all(fetch: FetchFunction): Promise<ServerResponse<V1ServerOrders>> {
-
-    const res = await fetch(`${backendv1_endpoint()}/order/all`, {
-        method: "GET",
-        credentials: "include",
-        headers: {
-            ...BACKENDV1_BASE_GET_HEADERS
+export async function backendv1_order_user_all(fetch_func: FetchFunction): Promise<ServerResponse<V1ServerOrders>> {
+    return await backendv1_base_fetch(
+        `${backendv1_endpoint()}/order/all`,
+        {
+            method: "GET",
+            credentials: "include",
+            headers: {
+                ...BACKENDV1_BASE_GET_HEADERS
+            },
         },
-    });
-
-    return { status: res.status, body: await res.json() };
+        fetch_func
+    );
 }

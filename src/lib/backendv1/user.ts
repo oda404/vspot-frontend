@@ -1,7 +1,8 @@
+import { backendv1_base_fetch } from "./base_fetch";
 import { backendv1_endpoint } from "./endpoint";
 import { BACKENDV1_BASE_GET_HEADERS, BACKENDV1_BASE_POST_HEADERS } from "./headers";
 import type { ServerResponse } from "./response";
-import { safe_fetch, type FetchFunction } from "./safe_fetch";
+import { type FetchFunction } from "./safe_fetch";
 
 export type V1ClientUserRegisterInfo = {
     firstname: string;
@@ -34,9 +35,22 @@ export type V1ClientUserUpdatePasswordInfo = {
     password_new: string;
 };
 
-export async function backendv1_post_user_register(user_info: V1ClientUserRegisterInfo, turnstile_token: string): Promise<ServerResponse> {
+export async function backendv1_get_user_display_info(fetch: FetchFunction): Promise<ServerResponse<V1ServerUserDisplayInfo>> {
+    return await backendv1_base_fetch(
+        `${backendv1_endpoint()}/user/get`,
+        {
+            method: "GET",
+            headers: {
+                ...BACKENDV1_BASE_GET_HEADERS
+            },
+            credentials: 'include'
+        },
+        fetch
+    );
+}
 
-    const res = await fetch(`${backendv1_endpoint()}/user/register`, {
+export async function backendv1_post_user_register(user_info: V1ClientUserRegisterInfo, turnstile_token: string): Promise<ServerResponse> {
+    return await backendv1_base_fetch(`${backendv1_endpoint()}/user/register`, {
         method: "POST",
         headers: {
             ...BACKENDV1_BASE_POST_HEADERS
@@ -44,26 +58,11 @@ export async function backendv1_post_user_register(user_info: V1ClientUserRegist
         credentials: 'include',
         body: JSON.stringify({ turnstile_token, user_register_info: user_info })
     });
-
-    return { status: res.status, body: await res.json() };
 }
 
-export async function backendv1_get_user_display_info(fetch: any): Promise<ServerResponse<V1ServerUserDisplayInfo>> {
-
-    const res = await fetch(`${backendv1_endpoint()}/user/get`, {
-        method: "GET",
-        headers: {
-            ...BACKENDV1_BASE_GET_HEADERS
-        },
-        credentials: 'include',
-    });
-
-    return { status: res.status, body: await res.json() };
-}
 
 export async function backendv1_post_user_login(user_info: V1ClientUserLoginInfo, turnstile_token: string): Promise<ServerResponse> {
-
-    const res = await fetch(`${backendv1_endpoint()}/user/login`, {
+    return await backendv1_base_fetch(`${backendv1_endpoint()}/user/login`, {
         method: "POST",
         headers: {
             ...BACKENDV1_BASE_POST_HEADERS
@@ -71,12 +70,10 @@ export async function backendv1_post_user_login(user_info: V1ClientUserLoginInfo
         credentials: 'include',
         body: JSON.stringify({ turnstile_token, user_login_info: user_info })
     });
-
-    return { status: res.status, body: await res.json() };
 }
 
-export async function backendv1_post_user_logout(): Promise<void> {
-    await fetch(`${backendv1_endpoint()}/user/logout`, {
+export async function backendv1_post_user_logout(): Promise<ServerResponse> {
+    return await backendv1_base_fetch(`${backendv1_endpoint()}/user/logout`, {
         method: "POST",
         headers: {
             ...BACKENDV1_BASE_POST_HEADERS
@@ -86,7 +83,7 @@ export async function backendv1_post_user_logout(): Promise<void> {
 }
 
 export async function backendv1_post_user_update_info(user_info: V1ClientUserUpdateInfo): Promise<ServerResponse> {
-    const res = await fetch(`${backendv1_endpoint()}/user/update-info`, {
+    return await backendv1_base_fetch(`${backendv1_endpoint()}/user/update-info`, {
         method: "POST",
         headers: {
             ...BACKENDV1_BASE_POST_HEADERS
@@ -94,12 +91,10 @@ export async function backendv1_post_user_update_info(user_info: V1ClientUserUpd
         credentials: 'include',
         body: JSON.stringify({ user_update_info: user_info })
     });
-
-    return { status: res.status, body: await res.json() };
 }
 
 export async function backendv1_post_user_update_password(password_info: V1ClientUserUpdatePasswordInfo): Promise<ServerResponse> {
-    const res = await fetch(`${backendv1_endpoint()}/user/update-password`, {
+    return await backendv1_base_fetch(`${backendv1_endpoint()}/user/update-password`, {
         method: "POST",
         headers: {
             ...BACKENDV1_BASE_POST_HEADERS
@@ -107,28 +102,10 @@ export async function backendv1_post_user_update_password(password_info: V1Clien
         credentials: 'include',
         body: JSON.stringify({ user_update_password_info: password_info })
     });
-
-    return { status: res.status, body: await res.json() };
-}
-
-export async function backendv1_post_user_delete(password: string): Promise<ServerResponse> {
-    const res = await fetch(`${backendv1_endpoint()}/user/delete`, {
-        method: "DELETE",
-        headers: {
-            ...BACKENDV1_BASE_POST_HEADERS
-        },
-        credentials: 'include',
-        body: JSON.stringify({ user_delete_info: { password } })
-    });
-
-    return { status: res.status, body: await res.json() };
 }
 
 export async function backendv1_post_user_confirm_email(token: string, fetch_func: FetchFunction): Promise<ServerResponse> {
-
-    // const res = await backendv1_base_fetch()
-
-    const res = await safe_fetch(`${backendv1_endpoint()}/user/confirm-email`, {
+    return await backendv1_base_fetch(`${backendv1_endpoint()}/user/confirm-email`, {
         method: "POST",
         headers: {
             ...BACKENDV1_BASE_POST_HEADERS
@@ -136,21 +113,25 @@ export async function backendv1_post_user_confirm_email(token: string, fetch_fun
         credentials: 'include',
         body: JSON.stringify({ user_confirm_email_info: { token } })
     }, fetch_func);
-
-    if (typeof res === "string")
-        return { status: 500, body: { msg: res } };
-
-    return { status: res.status, body: await res.json() };
 }
 
-export async function backendv1_post_user_send_confirm_email(fetch: any): Promise<ServerResponse> {
-    const res = await fetch(`${backendv1_endpoint()}/user/send-confirm-email`, {
+export async function backendv1_post_user_send_confirm_email(fetch_func: FetchFunction): Promise<ServerResponse> {
+    return await backendv1_base_fetch(`${backendv1_endpoint()}/user/send-confirm-email`, {
         method: "POST",
         headers: {
             ...BACKENDV1_BASE_POST_HEADERS
         },
         credentials: 'include',
-    });
+    }, fetch_func);
+}
 
-    return { status: res.status, body: await res.json() };
+export async function backendv1_post_user_delete(password: string): Promise<ServerResponse> {
+    return await backendv1_base_fetch(`${backendv1_endpoint()}/user/delete`, {
+        method: "DELETE",
+        headers: {
+            ...BACKENDV1_BASE_POST_HEADERS
+        },
+        credentials: 'include',
+        body: JSON.stringify({ user_delete_info: { password } })
+    });
 }
