@@ -63,8 +63,8 @@ var translations = {
         "page.main.satisfaction.description": "Atat am avut de spus",
 
         "orderinfo.personaldata": "Date de contact",
-        "orderinfo.shippingaddress": "Adresa livrare",
-        "orderinfo.billingaddress": "Adresa facturare",
+        "orderinfo.shippingaddress": "Adresa de livrare",
+        "orderinfo.billingaddress": "Adresa de facturare",
         "orderinfo.firstname": "Nume",
         "orderinfo.lastname": "Prenume",
         "orderinfo.phone": "Telefon",
@@ -74,7 +74,7 @@ var translations = {
         "orderinfo.postalcode": "Cod postal",
         "orderinfo.newaccount": "Creeaza un cont",
         "orderinfo.noaccount": "Continua fara cont",
-        "orderinfo.continue": "Continua",
+        "orderinfo.continue": "Urmatorul pas",
         "orderinfo.dataconsent": "Accept politica de confidentialitate cu privire la prelucrarea datelor personale.",
         "orderinfo.paymentoption": "Metoda de plata",
 

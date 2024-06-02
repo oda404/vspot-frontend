@@ -13,6 +13,7 @@
     import { onDestroy } from "svelte";
     import Spinner from "$lib/Spinner.svelte";
     import { pagetitle_make } from "$lib/title.js";
+    import { price_make } from "$lib/price";
 
     export let data;
 
@@ -67,16 +68,17 @@
                             <a href="/product/{item.id}" class="text-lg">
                                 {item.name}
                             </a>
-                            <span class="block mt-auto text-xl font-semibold">
-                                {(item.price - item.discount) * item.qty}.00
-                                {item.currency}
-                            </span>
                             {#if item.discount}
-                                <span class="block line-through">
-                                    {item.price * item.qty}.00
-                                    {item.currency}
+                                <span class="block text-lg line-through">
+                                    {price_make(item.price * item.qty)}
                                 </span>
                             {/if}
+                            <span class="block mt-auto text-xl font-semibold">
+                                {price_make(
+                                    (item.price - item.discount) * item.qty,
+                                )}
+                                {item.currency}
+                            </span>
                         </div>
                         <div
                             class="flex items-center space-x-8 !ml-auto mt-auto"
@@ -166,20 +168,15 @@
                     <div
                         class="flex justify-between border-b pb-2 border-vspot-secondary-bg"
                     >
-                        <div>{$l("description.producttotal")}</div>
-                        <div>{cart_item_total}.00 {cart_items[0].currency}</div>
+                        <span>{$l("description.producttotal")}</span>
+                        <span>{price_make(cart_item_total)} RON</span>
                     </div>
-                    <div
-                        class="flex justify-between border-b pb-2 border-vspot-secondary-bg"
-                    >
-                        <div>{$l("description.shipping")}</div>
-                        <div>{$l("description.shippingtbd")}</div>
-                    </div>
+
                     <div
                         class="flex justify-between border-b pb-2 border-vspot-secondary-bg !mt-6"
                     >
-                        <div>{$l("description.simpletotal")}</div>
-                        <div>{cart_item_total}.00 RON</div>
+                        <span>{$l("description.simpletotal")}</span>
+                        <span>{price_make(cart_item_total)} RON</span>
                     </div>
                     {#if !data.user}
                         <span class="text-vspot-green block !mt-4"
@@ -222,15 +219,15 @@
                     >
                         {data.product.name}
                     </a>
-                    <div class="text-xl font-semibold">
-                        {data.product.price - data.product.discount}.00
-                        {data.product.currency}
-                    </div>
                     {#if data.product.discount}
-                        <span class="line-through">
-                            {data.product.price}.00 {data.product.currency}
+                        <span class="text-lg line-through">
+                            {price_make(data.product.price)}
                         </span>
                     {/if}
+                    <span class="text-xl font-semibold">
+                        {price_make(data.product.price - data.product.discount)}
+                        {data.product.currency}
+                    </span>
                     <button
                         class="rounded w-fit mt-auto p-1 px-2 bg-vspot-green text-vspot-secondary-bg"
                         on:click={() => {

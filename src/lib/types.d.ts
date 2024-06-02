@@ -1,15 +1,3 @@
-
-export type FilterTabOptionSelectable = {
-    name: string;
-    selected: boolean;
-    matches: number;
-};
-
-export type FilterTabOption = {
-    name: string;
-    selectable: FilterTabOptionSelectable[];
-};
-
 export type CartProduct = {
     id: string;
     name: string;

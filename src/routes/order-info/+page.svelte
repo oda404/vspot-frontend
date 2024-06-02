@@ -101,11 +101,6 @@
         if (value.length > 6) return "Cod postal invalid!";
     };
 
-    /* Consent box */
-    let consent_personal_data = false;
-    let consent_error = false;
-    $: if (consent_personal_data && consent_error) consent_error = false;
-
     const validate_data_and_redirect = () => {
         let has_error = false;
 
@@ -129,11 +124,6 @@
 
         has_error = postalcode_data.do_validate() !== undefined || has_error;
         postalcode_data = postalcode_data;
-
-        if (!consent_personal_data) {
-            has_error = true;
-            consent_error = true;
-        }
 
         let payment_method = payment_options.find((o) => o.selected);
         if (!payment_method) {
@@ -168,114 +158,79 @@
     <title>{pagetitle_make($l("page.order_info"))}</title>
 </svelte:head>
 
-<div class="lg:px-24 space-y-12">
+<div class="space-y-8">
     <OrderStage stage={1} />
-    <div class="lg:w-[55%] rounded-lg bg-vspot-primary-bg p-4 space-y-4">
+    <div class="lg:w-[50%] rounded-lg bg-vspot-primary-bg p-4 space-y-4">
         <div class="space-y-4">
             <div class="text-xl">{$l("orderinfo.personaldata")}</div>
-            <form class="space-y-4">
-                <div class="flex space-x-4">
-                    <InputField
-                        id="lastname"
-                        label={$l("orderinfo.lastname")}
-                        bind:data={lastname_data}
-                    />
-                    <InputField
-                        id="firstname"
-                        label={$l("orderinfo.firstname")}
-                        bind:data={firstname_data}
-                    />
-                </div>
-                <div class="flex space-x-4">
-                    <InputField
-                        id="phone"
-                        label={$l("orderinfo.phone")}
-                        bind:data={phone_data}
-                    />
-                </div>
-            </form>
+            <div class="flex space-x-4">
+                <InputField
+                    id="lastname"
+                    label={$l("orderinfo.lastname")}
+                    bind:data={lastname_data}
+                />
+                <InputField
+                    id="firstname"
+                    label={$l("orderinfo.firstname")}
+                    bind:data={firstname_data}
+                />
+            </div>
+            <InputField
+                id="phone"
+                label={$l("orderinfo.phone")}
+                bind:data={phone_data}
+            />
         </div>
         <div class="space-y-4">
             <div class="text-xl">{$l("orderinfo.billingaddress")}</div>
-            <form class="space-y-4">
-                <div class="flex space-x-4">
-                    <InputDropdown
-                        id="county"
-                        label={$l("orderinfo.county")}
-                        options={romanian_counties}
-                        bind:data={county_data}
-                    />
+            <div class="flex space-x-4">
+                <InputDropdown
+                    id="county"
+                    label={$l("orderinfo.county")}
+                    options={romanian_counties}
+                    bind:data={county_data}
+                />
+                <InputField
+                    id="city"
+                    label={$l("orderinfo.city")}
+                    bind:data={city_data}
+                />
+            </div>
+            <div class="flex space-x-4">
+                <div class="w-[70%]">
                     <InputField
-                        id="city"
-                        label={$l("orderinfo.city")}
-                        bind:data={city_data}
+                        id="address"
+                        label={$l("orderinfo.address")}
+                        bind:data={address_data}
                     />
                 </div>
-                <div class="flex space-x-4">
-                    <div class="w-[70%]">
-                        <InputField
-                            id="address"
-                            label={$l("orderinfo.address")}
-                            bind:data={address_data}
-                        />
-                    </div>
-                    <div class="w-[30%]">
-                        <InputField
-                            id="postalcode"
-                            label={$l("orderinfo.postalcode")}
-                            bind:data={postalcode_data}
-                        />
-                    </div>
+                <div class="w-[30%]">
+                    <InputField
+                        id="postalcode"
+                        label={$l("orderinfo.postalcode")}
+                        bind:data={postalcode_data}
+                    />
                 </div>
-            </form>
+            </div>
         </div>
         <div class="space-y-4">
             <div class="text-xl">{$l("orderinfo.paymentoption")}</div>
-            <form>
-                <InputRadio
-                    do_locale
-                    name="payment"
-                    bind:options={payment_options}
-                />
-                {#if payment_option_error}
-                    <div class="text-vspot-text-error">
-                        {$l("payment.missingerror")}
-                    </div>
-                {/if}
-            </form>
+            <InputRadio
+                do_locale
+                name="payment"
+                bind:options={payment_options}
+            />
+            {#if payment_option_error}
+                <div class="text-vspot-text-error">
+                    {$l("payment.missingerror")}
+                </div>
+            {/if}
         </div>
-        <div class="mt-auto space-y-4">
-            <label class="text-sm">
-                <input
-                    type="checkbox"
-                    class="mr-1"
-                    bind:checked={consent_personal_data}
-                />
-                {$l("orderinfo.dataconsent")}
-                {#if consent_error}
-                    <div class="text-sm text-vspot-text-error">
-                        Politica de confidentialitate este obligatorie
-                    </div>
-                {/if}
-            </label>
-            <div class="flex {data.user ? 'justify-end' : 'justify-between'}">
-                {#if !data.user}
-                    <LinkButton
-                        bg="bg-vspot-primary-bg"
-                        href="/signup?from=order-info"
-                    >
-                        <div>{$l("orderinfo.newaccount")}</div>
-                    </LinkButton>
-                {/if}
-                <button
-                    class="bg-vspot-green px-4 py-2 rounded-lg"
-                    on:click={() => validate_data_and_redirect()}
-                >
-                    <div class="text-vspot-primary-bg">
-                        {$l("orderinfo.continue")}
-                    </div>
-                </button>
-            </div>
-        </div>
+        <button
+            class="bg-vspot-green text-vspot-primary-bg px-4 py-2"
+            on:click={() => validate_data_and_redirect()}
+        >
+            {$l("orderinfo.continue")}
+        </button>
     </div>
 </div>

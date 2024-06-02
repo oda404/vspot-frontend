@@ -133,7 +133,7 @@
     <title>{pagetitle_make($l("page.order_submit"))}</title>
 </svelte:head>
 
-<div class="lg:px-24 space-y-12">
+<div class="space-y-8">
     <OrderStage stage={3} />
     <div class="border-vspot-green space-y-4">
         <div
@@ -189,9 +189,6 @@
         </div>
         <div class="flex flex-col lg:flex-row">
             <div class="min-w-[65%] w-[65%] p-4 rounded-lg space-y-2">
-                <div class="text-lg text-vspot-text-hovered">
-                    {$l("description.yourproducts")}
-                </div>
                 <div class="space-y-8">
                     {#each cart_items as item}
                         <div

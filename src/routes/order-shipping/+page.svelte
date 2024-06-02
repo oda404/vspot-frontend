@@ -15,11 +15,10 @@
     } from "$lib/orderinfo/orderinfo";
     import { onDestroy } from "svelte";
     import InputRadio from "$lib/input/InputRadio.svelte";
-    import { shipping_get_methods } from "$lib/orderinfo/shipping_methods";
-    import { error } from "@sveltejs/kit";
 
     import Spinner from "$lib/Spinner.svelte";
     import { pagetitle_make } from "$lib/title";
+    import { backendv1_get_shipping_methods } from "$lib/backendv1/shipping.js";
 
     export let data;
 
@@ -62,7 +61,7 @@
     };
 
     let shipping_methods: any[] = [];
-    let shipping_methods_promise = shipping_get_methods()
+    let shipping_methods_promise = backendv1_get_shipping_methods(100, fetch)
         .then((data) => {
             shipping_methods = data.body.data!.map((method) => {
                 const delivery_time = `${method.delivery_time_days[0]}-${method.delivery_time_days[1]}`;
@@ -145,7 +144,7 @@
     <title>{pagetitle_make($l("page.order_shipping"))}</title>
 </svelte:head>
 
-<div class="lg:px-24 space-y-12">
+<div class="space-y-8">
     <OrderStage stage={2} />
     <div class="bg-vspot-primary-bg rounded-lg p-4 space-y-4">
         <div class="space-y-4">
@@ -212,9 +211,10 @@
             {/if}
         </div>
         <button
-            class="p-2 px-4 rounded-lg bg-vspot-green text-vspot-primary-bg"
+            class="p-2 px-4 bg-vspot-green text-vspot-primary-bg"
             on:click={() => validate_shipping_and_redirect()}
-            >{$l("ordership.next")}</button
         >
+            {$l("ordership.next")}
+        </button>
     </div>
 </div>

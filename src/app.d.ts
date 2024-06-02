@@ -8,25 +8,5 @@ declare global {
 		// interface PageState {}
 		// interface Platform {}
 	}
-
-	type FilterTabOptionSelectable = {
-		name: string;
-		selected: boolean;
-		matches: number;
-	};
-
-	type FilterTabOption = {
-		name: string;
-		selectable: FilterTabOptionSelectable[];
-	};
-
-	type CartProduct = {
-		id: string;
-		sync_name: string;
-		qty: string;
-		sync_price_per_one: number;
-		sync_price_per_one_decimals: number;
-		currency: string;
-	}
 }
 
