@@ -12,6 +12,7 @@
     import { backend_shatpants_store } from "$lib/backend_shatpants/backend_shatpants";
     import Turnstile from "$lib/turnstile/Turnstile.svelte";
     import { PUBLIC_VSPOT_TURNSTILE_SITE_KEY } from "$env/static/public";
+    import CheckBox from "$lib/input/CheckBox.svelte";
 
     let email = new InputFieldContext();
     email.validate = (value: string) => {
@@ -141,10 +142,15 @@
                 >
                     {$l("user.forgorpassword")}
                 </a>
-                <label>
-                    <input type="checkbox" bind:value={remember_me} />
-                    {$l("action.remember_me")}
-                </label>
+                <button
+                    class="flex items-center space-x-2"
+                    on:click={() => (remember_me = !remember_me)}
+                >
+                    <CheckBox bind:selected={remember_me} />
+                    <span>
+                        {$l("action.remember_me")}
+                    </span>
+                </button>
             </div>
             <div class="flex justify-between items-center">
                 <a class="mt-auto" href="/signup">{$l("user.createaccount")}</a>

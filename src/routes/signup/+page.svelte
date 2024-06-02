@@ -12,6 +12,7 @@
     import { pagetitle_make } from "$lib/title.js";
     import Turnstile from "$lib/turnstile/Turnstile.svelte";
     import { PUBLIC_VSPOT_TURNSTILE_SITE_KEY } from "$env/static/public";
+    import CheckBox from "$lib/input/CheckBox.svelte";
 
     export let data;
 
@@ -195,10 +196,15 @@
         <small class="text-vspot-text-hovered"
             >{$l("user.password_requirements")}</small
         >
-        <label class="text-sm flex items-center">
-            <input type="checkbox" class="mr-2" bind:checked={consent_tos} />
-            {$l("signup.consent")}
-        </label>
+        <button
+            class="flex items-center space-x-2"
+            on:click={() => (consent_tos = !consent_tos)}
+        >
+            <CheckBox selected={consent_tos} />
+            <span class="text-sm">
+                {$l("signup.consent")}
+            </span>
+        </button>
         {#if consent_error}
             <div class="text-sm text-vspot-text-error !mt-1">
                 {$l("signup.consent_missing")}

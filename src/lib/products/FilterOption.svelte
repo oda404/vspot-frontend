@@ -2,6 +2,7 @@
     import Fa from "svelte-fa";
     import { faSquareCheck, faSquare } from "@fortawesome/free-solid-svg-icons";
     import { l } from "$lib/langs";
+    import CheckBox from "$lib/input/CheckBox.svelte";
 
     export let filter: {
         name: string;
@@ -23,7 +24,7 @@
                     cb(selectable.name);
                 }}
             >
-                <Fa icon={selectable.selected ? faSquareCheck : faSquare} />
+                <CheckBox selected={selectable.selected} />
                 <span class="">
                     {$l(`filteropt.${selectable.name}`)}
                 </span>
