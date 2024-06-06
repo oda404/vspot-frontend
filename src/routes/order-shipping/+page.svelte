@@ -22,6 +22,8 @@
 
     export let data;
 
+    if (!data.user) goto("/");
+
     let orderinfo: OrderInfo | undefined;
     onDestroy(
         ORDERINFO_STORE.subscribe(($orderinfo) => {
@@ -29,34 +31,39 @@
         }),
     );
 
-    if (!data.user) goto("/");
-
     if (!orderinfo || !orderinfo_is_first_stage_valid(orderinfo)) {
         goto("/order-info");
     }
 
     let shipping_is_billing = orderinfo_shipping_address_is_billing(orderinfo!);
 
-    let county_data = new InputFieldContext(orderinfo!.shipping.county);
+    let county_data = new InputFieldContext(orderinfo!.shipping?.county);
     county_data.validate = (value: string) => {
         if (value.length === 0) return "Ai uitat judetul!";
+        if (value.length > 256) return "Judetul este prea lung!";
+        if (value.length < 3) return "Judetul este prea scurt!";
     };
 
-    let city_data = new InputFieldContext(orderinfo!.shipping.city);
+    let city_data = new InputFieldContext(orderinfo!.shipping?.city);
     city_data.validate = (value: string) => {
         if (value.length === 0) return "Ai uitat localitatea!";
         if (value.length > 256) return "Localitatea este prea lunga!";
+        if (value.length < 3) return "Localitatea este prea scurta!";
     };
 
-    let address_data = new InputFieldContext(orderinfo!.shipping.address);
+    let address_data = new InputFieldContext(orderinfo!.shipping?.address);
     address_data.validate = (value: string) => {
         if (value.length === 0) return "Ai uitat adresa!";
+        if (value.length < 5) return "Adresa este prea scurta";
         if (value.length > 256) return "Adresa este prea lunga!";
     };
 
-    let postalcode_data = new InputFieldContext(orderinfo!.shipping.postalcode);
+    let postalcode_data = new InputFieldContext(
+        orderinfo!.shipping?.postalcode,
+    );
     postalcode_data.validate = (value: string) => {
         if (value.length === 0) return "Ai uitat codul postal!";
+        if (value.length < 6) return "Codul postal este prea scurt!";
         if (value.length > 6) return "Cod postal invalid!";
     };
 

@@ -4,6 +4,7 @@ import type { ServerResponse } from "./response";
 import { BACKENDV1_BASE_GET_HEADERS, BACKENDV1_BASE_POST_HEADERS } from "./headers";
 import type { FetchFunction } from "./safe_fetch";
 import { backendv1_base_fetch } from "./base_fetch";
+import type { V1ServerCouponInfo } from "./coupon";
 
 export type V1ClientPurchasedProduct = {
     internal_id: string;
@@ -17,7 +18,6 @@ export type V1ClientOrderInfo = {
     firstname: string;
     lastname: string;
     phone: string;
-    email?: string;
 
     /* Payment */
     payment_method: PaymentMethod;
@@ -36,6 +36,8 @@ export type V1ClientOrderInfo = {
 
     /* Shipping method */
     shipping_method: string;
+
+    coupon?: string;
 };
 
 export type V1ServerPurchasedProduct = {
@@ -80,6 +82,8 @@ export type V1ServerOrder = {
     products: V1ServerPurchasedProduct[];
 
     status: V1ServerOrderStatus;
+
+    coupon?: V1ServerCouponInfo;
 };
 
 /* server -> client. This stuff is publicly accessible by anyone, so let's not include any personal info */

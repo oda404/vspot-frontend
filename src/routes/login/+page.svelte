@@ -144,9 +144,10 @@
                 </a>
                 <button
                     class="flex items-center space-x-2"
+                    type="button"
                     on:click={() => (remember_me = !remember_me)}
                 >
-                    <CheckBox bind:selected={remember_me} />
+                    <CheckBox selected={remember_me} />
                     <span>
                         {$l("action.remember_me")}
                     </span>

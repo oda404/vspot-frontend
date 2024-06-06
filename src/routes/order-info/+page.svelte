@@ -1,13 +1,15 @@
 <script lang="ts">
-    import LinkButton from "$lib/LinkButton.svelte";
     import InputField from "$lib/input/InputField.svelte";
     import { InputFieldContext } from "$lib/input/InputField";
     import {
-        orderinfo_set,
         ORDERINFO_STORE,
         type PaymentMethod,
         type OrderInfo,
         type Address,
+        orderinfo_set_contactinfo,
+        orderinfo_set_billing_address,
+        orderinfo_set_shipping_address,
+        orderinfo_set_payment_method,
     } from "$lib/orderinfo/orderinfo";
     import InputDropdown from "$lib/input/InputFieldDropdown.svelte";
     import { l } from "$lib/langs";
@@ -58,6 +60,7 @@
     );
     firstname_data.validate = (value: string) => {
         if (value.length === 0) return "Ai uitat numele!";
+        if (value.length < 3) return "Numele este prea scurt";
         if (value.length > 256) return "Numele este prea lung!";
     };
 
@@ -66,6 +69,7 @@
     );
     lastname_data.validate = (value: string) => {
         if (value.length === 0) return "Ai uitat numele!";
+        if (value.length < 3) return "Numele este prea scurt";
         if (value.length > 256) return "Numele este prea lung!";
     };
 
@@ -76,15 +80,18 @@
             return "Numar invalid!";
     };
 
-    let county_data = new InputFieldContext(orderinfo?.billing.county);
+    let county_data = new InputFieldContext(orderinfo?.billing?.county);
     county_data.validate = (value: string) => {
         if (value.length === 0) return "Ai uitat judetul!";
+        if (value.length > 256) return "Judetul este prea lung!";
+        if (value.length < 3) return "Judetul este prea scurt!";
     };
 
-    let city_data = new InputFieldContext(orderinfo?.billing.city);
+    let city_data = new InputFieldContext(orderinfo?.billing?.city);
     city_data.validate = (value: string) => {
         if (value.length === 0) return "Ai uitat localitatea!";
         if (value.length > 256) return "Localitatea este prea lunga!";
+        if (value.length < 3) return "Localitatea este prea scurta!";
     };
 
     let address_data = new InputFieldContext(orderinfo?.billing?.address);
@@ -125,13 +132,19 @@
         has_error = postalcode_data.do_validate() !== undefined || has_error;
         postalcode_data = postalcode_data;
 
-        let payment_method = payment_options.find((o) => o.selected);
+        let payment_method = payment_options.find((o) => o.selected)!;
         if (!payment_method) {
             has_error = true;
             payment_option_error = true;
         }
 
         if (has_error) return;
+
+        orderinfo_set_contactinfo({
+            lastname: lastname_data.value,
+            firstname: firstname_data.value,
+            phone: phone_data.value,
+        });
 
         const billing_address: Address = {
             county: county_data.value,
@@ -140,16 +153,9 @@
             postalcode: postalcode_data.value,
         };
 
-        orderinfo_set({
-            info: {
-                lastname: lastname_data.value,
-                firstname: firstname_data.value,
-                phone: phone_data.value.replace(/\s/g, ""),
-            },
-            billing: billing_address,
-            shipping: billing_address,
-            payment_option: payment_method!.value,
-        });
+        orderinfo_set_billing_address(billing_address);
+        orderinfo_set_shipping_address(billing_address);
+        orderinfo_set_payment_method(payment_method.value);
         goto("/order-shipping");
     };
 </script>

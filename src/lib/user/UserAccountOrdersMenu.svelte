@@ -1,4 +1,5 @@
 <script lang="ts">
+    import type { V1ServerCouponInfo } from "$lib/backendv1/coupon";
     import type {
         V1ServerOrder,
         V1ServerPurchasedProduct,
@@ -6,19 +7,34 @@
     import { current_language, l } from "$lib/langs";
     import AddressBox from "$lib/order/AddressBox.svelte";
     import { shipping_methods_get_img_url } from "$lib/orderinfo/shipping_methods";
+    import { price_discount, price_format } from "$lib/price";
     import {
         faCreditCard,
         faMoneyBill,
     } from "@fortawesome/free-solid-svg-icons";
+    import Decimal from "decimal.js";
     import Fa from "svelte-fa";
 
     export let orders: V1ServerOrder[];
 
-    const order_total = (products: V1ServerPurchasedProduct[]) => {
+    const order_total = (
+        products: V1ServerPurchasedProduct[],
+        coupon?: V1ServerCouponInfo,
+    ) => {
         let total = 0;
         products.forEach((p) => {
-            total += p.price + p.price_decimals - p.discount;
+            total = new Decimal(total)
+                .plus(p.price)
+                .plus(p.price_decimals)
+                .minus(p.discount)
+                .toNumber();
         });
+
+        if (coupon)
+            total = new Decimal(total)
+                .minus(price_discount(total, coupon.discount_perc))
+                .toNumber();
+
         return total;
     };
 
@@ -61,14 +77,14 @@
                             />
                             <div>
                                 <span class="block">{product.name}</span>
+                                {#if product.discount}
+                                    <span class="line-through block">
+                                        {price_format(product.price)}
+                                    </span>
+                                {/if}
                                 <span class="text-lg"
                                     >{product.price - product.discount}.00 RON</span
                                 >
-                                {#if product.discount}
-                                    <span class="line-through">
-                                        {product.price}.00 RON
-                                    </span>
-                                {/if}
                             </div>
                         </a>
                     {/each}
@@ -104,6 +120,17 @@
                             </div>
                         {/if}
                     </span>
+                    {#if order.coupon}
+                        <div>
+                            <span>Voucher</span>
+                            <span class="text-lg font-bold block"
+                                >{order.coupon?.code}</span
+                            >
+                            <span class="text-lg font-bold"
+                                >-{order.coupon?.discount_perc}%</span
+                            >
+                        </div>
+                    {/if}
                 </div>
                 <div class="space-y-4 w-full">
                     <AddressBox
@@ -148,6 +175,22 @@
                                 RON
                             </span>
                         </div>
+                        {#if order.coupon}
+                            <div
+                                class="flex justify-between border-vspot-secondary-bg space-x-16"
+                            >
+                                <span class="whitespace-nowrap"
+                                    >{$l("description.discount")}</span
+                                >
+                                <span class="whitespace-nowrap">
+                                    -{price_discount(
+                                        order_total(order.products),
+                                        order.coupon.discount_perc,
+                                    )}
+                                    RON
+                                </span>
+                            </div>
+                        {/if}
                         <div
                             class="flex justify-between border-vspot-secondary-bg"
                         >
@@ -166,7 +209,7 @@
                                 >{$l("description.simpletotal")}</span
                             >
                             <span class="whitespace-nowrap">
-                                {order_total(order.products) +
+                                {order_total(order.products, order.coupon) +
                                     order_total_shipping(order)} RON
                             </span>
                         </div>

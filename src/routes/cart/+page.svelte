@@ -13,7 +13,9 @@
     import { onDestroy } from "svelte";
     import Spinner from "$lib/Spinner.svelte";
     import { pagetitle_make } from "$lib/title.js";
-    import { price_make } from "$lib/price";
+    import { price_make, price_discount, price_format } from "$lib/price";
+    import CouponInput from "$lib/cart/CouponInput.svelte";
+    import { ORDERINFO_STORE } from "$lib/orderinfo/orderinfo.js";
 
     export let data;
 
@@ -25,7 +27,7 @@
     let flash_add = false;
     let flash_add_in_progress = false;
 
-    const update_cart = ($cart: any) => {
+    const on_cart_update = ($cart: any) => {
         if (!$cart) return;
         cart_items = $cart["items"];
         cart_item_count = 0;
@@ -37,7 +39,22 @@
         });
     };
 
-    onDestroy(cart_store.subscribe(($cart) => update_cart($cart)));
+    onDestroy(cart_store.subscribe(($cart) => on_cart_update($cart)));
+
+    let coupon_discount: number = 0;
+    $: onDestroy(
+        ORDERINFO_STORE.subscribe(($orderinfo) => {
+            if (!$orderinfo?.coupon) {
+                coupon_discount = 0;
+                return;
+            }
+
+            coupon_discount = price_discount(
+                cart_item_total,
+                $orderinfo.coupon.value_perc,
+            );
+        }),
+    );
 </script>
 
 <svelte:head>
@@ -164,19 +181,31 @@
                     </div>
                 </div>
 
-                <div class="space-y-3">
+                <div class="space-y-4">
                     <div
                         class="flex justify-between border-b pb-2 border-vspot-secondary-bg"
                     >
                         <span>{$l("description.producttotal")}</span>
                         <span>{price_make(cart_item_total)} RON</span>
                     </div>
-
+                    {#if data.user}
+                        <CouponInput />
+                    {/if}
+                    {#if coupon_discount}
+                        <div
+                            class="flex justify-between border-b pb-2 border-vspot-secondary-bg"
+                        >
+                            <span>{$l("description.discount")}</span>
+                            <span>-{price_format(coupon_discount)} RON</span>
+                        </div>
+                    {/if}
                     <div
-                        class="flex justify-between border-b pb-2 border-vspot-secondary-bg !mt-6"
+                        class="flex justify-between border-b pb-2 border-vspot-secondary-bg"
                     >
                         <span>{$l("description.simpletotal")}</span>
-                        <span>{price_make(cart_item_total)} RON</span>
+                        <span
+                            >{price_format(cart_item_total - coupon_discount)} RON</span
+                        >
                     </div>
                     {#if !data.user}
                         <span class="text-vspot-green block !mt-4"
@@ -229,7 +258,7 @@
                         {data.product.currency}
                     </span>
                     <button
-                        class="rounded w-fit mt-auto p-1 px-2 bg-vspot-green text-vspot-secondary-bg"
+                        class="w-fit mt-auto p-1 px-2 bg-vspot-green text-vspot-secondary-bg"
                         on:click={() => {
                             cart_add_item(
                                 data.product.internal_id,

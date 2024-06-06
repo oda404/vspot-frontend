@@ -94,6 +94,7 @@ var translations = {
         "order.confirmed": "Iti pregatim comanda",
         "order.shipped": "In transport",
         "order.completed": "A ajuns la tine",
+        "order.coupon": "Voucher reducere",
         "order.orderon": "Comanda pe {{date}}",
         "order.no_orders": "Nu ai plasat nicio comanda inca...",
         "order.consent": "Sunt de acord cu Termenii serviciului si Politica de confidentialitate",
@@ -229,7 +230,7 @@ var translations = {
         "description.producttotal": "Subtotal",
         "description.simpletotal": "Total",
         "description.productcount": { text: "{{n}} $", formatter: (n: number) => { return n === 1 ? "produs" : "produse" } },
-        "description.productreminder": "Inainte sa trimiti comanda, ai tot ce iti trebuie?",
+        "description.productreminder": "Ai tot ce iti trebuie?",
         "description.productreminder_noitems": "Poate ai nevoie de...",
         "description.yourproducts": "Produsele tale",
         "description.pcs": "BUC.",
@@ -249,6 +250,7 @@ var translations = {
         "description.user_orders": "Comenzile mele",
         "description.user_delete": "Inchide contul",
         "description.noproducts": "Nu s-a gasit nici un produs...",
+        "description.discount": "Reducere",
 
         "easter.badorder": "Daca ai ajuns pe pagina asta ori a facut caca baza noastra de date pe ea, ori ai umblat la url paramter... sa dormi cu un ochi deschis la noapte",
 
@@ -288,6 +290,9 @@ var translations = {
         "error.passwords_dont_match": "Parolele introduse difera",
         "error.failedordersubmit": "Ceva nu a mers bine, va rog incercati din nou",
 
+        "error.empty": "Acest camp este obligatoriu",
+        "error.invalid": "Camp invalid",
+
         "error.empty.email": "Ai uitat adresa de email",
         "error.invalid.email": "Adresa de email este invalida",
         "error.duplicate.email": "Aceasta adresa de email a fost inregistrata deja",
@@ -304,6 +309,9 @@ var translations = {
         "error.empty.lastname": "Ai uitat numele",
         "error.2short.lastname": "Prenumele este prea scurt",
         "error.2long.lastname": "Prenumele poate avea un numar maxim de 64 de caractere",
+
+        "error.invalid.coupon": "Acest voucher nu exista",
+        "error.duplicate.coupon": "Ai folosit deja acest voucher pentru o comanda",
 
         "contact.description": "Pentru orice intrebari sau sesizari va stam la dispozitie prin urmatoarele canale de comunicare:",
         "contact.schedule": "Program de lucru cu publicul prin mediul online: Luni - Vineri 10:30-18:30 UTC+2",
@@ -405,6 +413,7 @@ var translations = {
         "order.confirmed": "Confirmed",
         "order.shipped": "Shipped",
         "order.completed": "Completed",
+        "order.coupon": "Voucher",
         "order.orderon": "Order on {{date}}",
         "order.no_orders": "You haven't placed any orders yet...",
         "order.consent": "I have read and accept the terms of service and the privacy policy",
@@ -548,6 +557,7 @@ var translations = {
         "description.user_orders": "My orders",
         "description.user_delete": "Close account",
         "description.noproducts": "No products were found...",
+        "description.discount": "Discount",
 
         "description.details": "Details",
 
@@ -597,6 +607,9 @@ var translations = {
         "error.passwords_dont_match": "Passwords don't match",
         "error.failedordersubmit": "Something went wrong, please try again",
 
+        "error.empty": "This field is required",
+        "error.invalid": "Invalid field",
+
         "error.empty.email": "The email is required",
         "error.invalid.email": "The email is invalid",
         "error.duplicate.email": "This email has already been registered",
@@ -612,6 +625,9 @@ var translations = {
         "error.empty.lastname": "The lastname is required",
         "error.2short.lastname": "The lastname is too short",
         "error.2long.lastname": "The lastname can have a maximum of 64 characters",
+
+        "error.invalid.coupon": "This voucher is invalid",
+        "error.duplicate.coupon": "You already used this voucher for an order",
 
         "contact.description": "For any questions or feedback you can reach out to us through any of the following methods:",
         "contact.schedule": "Online working hours: Monday - Friday 10:30-18:30 UTC+2",

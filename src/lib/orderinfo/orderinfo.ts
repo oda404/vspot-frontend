@@ -1,6 +1,6 @@
 
 import { is_string_len_valid } from "$lib/input/validation";
-import { writable } from "svelte/store";
+import { get, writable } from "svelte/store";
 
 const ALL_PAYMENT_METHODS = ["card", "cash"] as const;
 type PaymentMethodTuple = typeof ALL_PAYMENT_METHODS;
@@ -29,12 +29,18 @@ export type ShippingMethod = {
     delivery_time_for_order: string;
 };
 
+export type Coupon = {
+    code: string;
+    value_perc: number;
+}
+
 export type OrderInfo = {
-    info: ContactInfo;
-    billing: Address;
-    shipping: Address;
-    payment_option: PaymentMethod;
+    info?: ContactInfo;
+    billing?: Address;
+    shipping?: Address;
+    payment_option?: PaymentMethod;
     shipping_method?: ShippingMethod;
+    coupon?: Coupon;
 };
 
 /* FIXME: hardcoded from the backend. The backend also checks stuff when submitting 
@@ -47,6 +53,10 @@ export const ORDERINFO_FIRSTNAME_LEN = 64;
 export const ORDERINFO_LASTNAME_LEN = 64;
 export const ORDERINFO_PHONE_LEN = 12;
 
+function orderinfo_save_to_local(orderinfo: OrderInfo) {
+    typeof window !== "undefined" && (localStorage.orderinfo = JSON.stringify(orderinfo));
+}
+
 export const ORDERINFO_STORE = writable<OrderInfo | undefined>(
     typeof window !== "undefined" &&
     (localStorage.orderinfo && JSON.parse(localStorage.orderinfo)) || undefined
@@ -54,7 +64,7 @@ export const ORDERINFO_STORE = writable<OrderInfo | undefined>(
 
 export function orderinfo_set(value: OrderInfo) {
     ORDERINFO_STORE.set(value);
-    typeof window !== "undefined" && (localStorage.orderinfo = JSON.stringify(value));
+    orderinfo_save_to_local(value);
 }
 
 export function orderinfo_is_address_valid(address: Address) {
@@ -110,13 +120,89 @@ export function orderinfo_is_second_stage_valid(orderinfo: OrderInfo) {
 }
 
 export function orderinfo_shipping_address_is_billing(orderinfo: OrderInfo) {
-    return orderinfo.shipping.county === orderinfo.billing.county &&
-        orderinfo.shipping.city === orderinfo.billing.city &&
-        orderinfo.shipping.address === orderinfo.billing.address &&
-        orderinfo.shipping.postalcode === orderinfo.billing.postalcode;
+    return orderinfo.shipping?.county === orderinfo.billing?.county &&
+        orderinfo.shipping?.city === orderinfo.billing?.city &&
+        orderinfo.shipping?.address === orderinfo.billing?.address &&
+        orderinfo.shipping?.postalcode === orderinfo.billing?.postalcode;
 }
 
 export function orderinfo_clear() {
     ORDERINFO_STORE.set(undefined);
     typeof window !== "undefined" && delete localStorage.orderinfo;
+}
+
+export function orderinfo_set_coupon(coupon: Coupon) {
+    if (!get(ORDERINFO_STORE)) {
+        orderinfo_set({ coupon: coupon });
+        return;
+    }
+
+    ORDERINFO_STORE.update($order_info => {
+        $order_info!.coupon = coupon;
+        orderinfo_save_to_local($order_info!);
+        return $order_info;
+    });
+}
+
+export function orderinfo_unset_coupon() {
+    if (!get(ORDERINFO_STORE))
+        return;
+
+    ORDERINFO_STORE.update($order_info => {
+        $order_info!.coupon = undefined;
+        orderinfo_save_to_local($order_info!);
+        return $order_info;
+    });
+}
+
+export function orderinfo_set_contactinfo(info: ContactInfo) {
+    if (!get(ORDERINFO_STORE)) {
+        orderinfo_set({ info });
+        return;
+    }
+
+    ORDERINFO_STORE.update($order_info => {
+        $order_info!.info = info;
+        orderinfo_save_to_local($order_info!);
+        return $order_info;
+    });
+}
+
+export function orderinfo_set_billing_address(address: Address) {
+    if (!get(ORDERINFO_STORE)) {
+        orderinfo_set({ billing: address });
+        return;
+    }
+
+    ORDERINFO_STORE.update($order_info => {
+        $order_info!.billing = address;
+        orderinfo_save_to_local($order_info!);
+        return $order_info;
+    });
+}
+
+export function orderinfo_set_shipping_address(address: Address) {
+    if (!get(ORDERINFO_STORE)) {
+        orderinfo_set({ shipping: address });
+        return;
+    }
+
+    ORDERINFO_STORE.update($order_info => {
+        $order_info!.shipping = address;
+        orderinfo_save_to_local($order_info!);
+        return $order_info;
+    });
+}
+
+export function orderinfo_set_payment_method(payment: PaymentMethod) {
+    if (!get(ORDERINFO_STORE)) {
+        orderinfo_set({ payment_option: payment });
+        return;
+    }
+
+    ORDERINFO_STORE.update($order_info => {
+        $order_info!.payment_option = payment;
+        orderinfo_save_to_local($order_info!);
+        return $order_info;
+    });
 }

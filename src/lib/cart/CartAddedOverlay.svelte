@@ -1,6 +1,7 @@
 <script lang="ts">
     import LinkButton from "$lib/LinkButton.svelte";
     import { l } from "$lib/langs";
+    import { price_format } from "$lib/price";
     import { scroll_add_lock, scroll_remove_lock } from "$lib/scroll";
     import { faXmark } from "@fortawesome/free-solid-svg-icons";
     import { Fa } from "svelte-fa";
@@ -35,24 +36,23 @@
                         <img
                             src={item.preview_image_url}
                             alt={`${item.name} preview`}
-                            class="h-[60px] drop-shadow rounded"
+                            class="w-[60px] drop-shadow rounded"
                         />
                         <div>
                             <div>
                                 {item.name}
                             </div>
+                            {#if item.discount}
+                                <span class="line-through">
+                                    {price_format(item.price)}
+                                </span>
+                            {/if}
                             <span
                                 class="block text-lg font-semibold leading-tight"
                             >
                                 {item.price - item.discount}.00
                                 {item.currency}
                             </span>
-                            {#if item.discount}
-                                <span class="line-through">
-                                    {item.price}.00
-                                    {item.currency}
-                                </span>
-                            {/if}
                         </div>
                     </div>
                     <div class="flex space-x-16">

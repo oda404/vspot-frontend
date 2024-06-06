@@ -22,6 +22,7 @@
     import Turnstile from "$lib/turnstile/Turnstile.svelte";
     import { PUBLIC_VSPOT_TURNSTILE_SITE_KEY } from "$env/static/public";
     import { pagetitle_make } from "$lib/title";
+    import { price_discount, price_format } from "$lib/price.js";
 
     export let data;
 
@@ -45,20 +46,29 @@
     $: if (!cart_items || cart_items.length === 0) goto("/");
 
     let orderinfo: OrderInfo | undefined;
-    const orderinfo_store_unsubscribe = ORDERINFO_STORE.subscribe(
-        ($orderinfo) => {
+    let coupon_discount: number = 0;
+    onDestroy(
+        ORDERINFO_STORE.subscribe(($orderinfo) => {
             orderinfo = $orderinfo;
-        },
-    );
 
-    onDestroy(orderinfo_store_unsubscribe);
+            if (!$orderinfo?.coupon) {
+                coupon_discount = 0;
+                return;
+            }
+
+            coupon_discount = price_discount(
+                cart_total,
+                $orderinfo.coupon.value_perc,
+            );
+        }),
+    );
 
     if (!orderinfo || !orderinfo_is_second_stage_valid(orderinfo))
         goto("/order-info"); // Hmm
 
-    const billing_info = orderinfo!.info;
-    const billing_address = orderinfo!.billing;
-    const shipping_address = orderinfo!.shipping;
+    const billing_info = orderinfo!.info!;
+    const billing_address = orderinfo!.billing!;
+    const shipping_address = orderinfo!.shipping!;
     const shipping_method = orderinfo!.shipping_method!;
     let consent = false;
     let consent_error = false;
@@ -83,24 +93,25 @@
                 return { internal_id: item.id, qty: item.qty };
             }),
 
-            firstname: orderinfo!.info.firstname,
-            lastname: orderinfo!.info.lastname,
-            phone: orderinfo!.info.phone,
-            email: undefined, // TODO
+            firstname: orderinfo!.info!.firstname,
+            lastname: orderinfo!.info!.lastname,
+            phone: orderinfo!.info!.phone,
 
-            payment_method: orderinfo!.payment_option,
+            payment_method: orderinfo!.payment_option!,
 
-            billing_county: orderinfo!.billing.county,
-            billing_city: orderinfo!.billing.city,
-            billing_address: orderinfo!.billing.address,
-            billing_postalcode: orderinfo!.billing.postalcode,
+            billing_county: orderinfo!.billing!.county,
+            billing_city: orderinfo!.billing!.city,
+            billing_address: orderinfo!.billing!.address,
+            billing_postalcode: orderinfo!.billing!.postalcode,
 
-            shipping_county: orderinfo!.shipping.county,
-            shipping_city: orderinfo!.shipping.city,
-            shipping_address: orderinfo!.shipping.address,
-            shipping_postalcode: orderinfo!.shipping.postalcode,
+            shipping_county: orderinfo!.shipping!.county,
+            shipping_city: orderinfo!.shipping!.city,
+            shipping_address: orderinfo!.shipping!.address,
+            shipping_postalcode: orderinfo!.shipping!.postalcode,
 
             shipping_method: orderinfo!.shipping_method!.value,
+
+            coupon: orderinfo!.coupon?.code,
         };
 
         backendv1_post_order_submit(info, turnstile_response!)
@@ -249,29 +260,46 @@
                             <div
                                 class="flex justify-between border-b pb-2 border-vspot-secondary-bg"
                             >
-                                <div>{$l("description.producttotal")}</div>
-                                <div>
-                                    {cart_total}
+                                <span>{$l("description.producttotal")}</span>
+                                <span>
+                                    {price_format(cart_total)}
                                     {currency}
-                                </div>
+                                </span>
                             </div>
+                            {#if coupon_discount}
+                                <div
+                                    class="flex justify-between border-b pb-2 border-vspot-secondary-bg"
+                                >
+                                    <span>{$l("description.discount")}</span>
+                                    <span>
+                                        -{price_format(coupon_discount)}
+                                        {currency}
+                                    </span>
+                                </div>
+                            {/if}
                             <div
                                 class="flex justify-between border-b pb-2 border-vspot-secondary-bg"
                             >
-                                <div>{$l("description.shipping")}</div>
-                                <div>
-                                    {shipping_method.cost_for_order.cost}
+                                <span>{$l("description.shipping")}</span>
+                                <span>
+                                    {price_format(
+                                        shipping_method.cost_for_order.cost,
+                                    )}
                                     {shipping_method.cost_for_order.currency}
-                                </div>
+                                </span>
                             </div>
                             <div
                                 class="flex justify-between border-vspot-secondary-bg !mt-6"
                             >
-                                <div>{$l("description.simpletotal")}</div>
-                                <div>
-                                    {cart_total +
-                                        shipping_method.cost_for_order.cost} RON
-                                </div>
+                                <span>{$l("description.simpletotal")}</span>
+                                <span>
+                                    {price_format(
+                                        cart_total +
+                                            shipping_method.cost_for_order
+                                                .cost -
+                                            coupon_discount,
+                                    )} RON
+                                </span>
                             </div>
                         </div>
                     </div>
