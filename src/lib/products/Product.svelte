@@ -7,6 +7,7 @@
     import { l } from "$lib/langs";
     import { cart_add_item } from "$lib/cart/cart";
     import type { V1ServerProductDisplayData } from "$lib/backendv1/product";
+    import { price_discounted_val, price_format } from "$lib/price";
 
     export let product: V1ServerProductDisplayData;
 
@@ -39,16 +40,15 @@
                 </div>
             {/if}
             <span class="text-2xl font-semibold text-vspot-text-hovered">
-                {product.price - product.discount}
+                {price_format(
+                    price_discounted_val(product.price, product.discount),
+                )}
             </span>
-            <span class="text-sm -ml-1 font-semibold text-vspot-text-hovered"
-                >.00</span
-            >
             <span class="text-lg font-semibold">
                 {product.currency}
             </span>
             {#if product.discount > 0}
-                <span class="line-through">{product.price}.00</span>
+                <span class="line-through">{price_format(product.price)}</span>
             {/if}
         </div>
         <button

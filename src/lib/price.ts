@@ -1,14 +1,15 @@
 import Decimal from "decimal.js";
 
-export function price_make(whole: number, decimals: number = 0) {
-    if (decimals)
-        return whole.toString() + "." + decimals.toString();
-
-    return whole.toString() + ".00";
-}
-
 export function price_discount(total: number, discount_perc: number) {
     return new Decimal(total).dividedBy(100).mul(discount_perc).toNumber();
+}
+
+export function price_discounted_perc(total: number, discount_perc: number) {
+    return new Decimal(total).minus(price_discount(total, discount_perc)).toNumber();
+}
+
+export function price_discounted_val(total: number, discount: number) {
+    return new Decimal(total).minus(discount).toNumber();
 }
 
 export function price_format(price: number) {

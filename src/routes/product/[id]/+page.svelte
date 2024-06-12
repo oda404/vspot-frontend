@@ -66,20 +66,20 @@
                         {data.product.currency}
                     </span>
                 </div>
-                <div class="flex items-center space-x-2">
-                    {#if data.product.stock}
+                {#if data.product.stock}
+                    <div class="flex items-center space-x-2">
                         <div
                             class="w-[6px] h-[6px] rounded-full bg-vspot-green"
                         />
-                    {/if}
-                    <span
-                        class={data.product.stock > 0 ? "text-vspot-green" : ""}
-                    >
-                        {data.product.stock
-                            ? $l("description.instock")
-                            : $l("description.outofstock")}
-                    </span>
-                </div>
+                        <span
+                            class={data.product.stock > 0
+                                ? "text-vspot-green"
+                                : ""}
+                        >
+                            {$l("description.instock")}
+                        </span>
+                    </div>
+                {/if}
                 {#if price_actual !== price_full}
                     <div class="flex items-center space-x-2">
                         <Fa icon={faDollar} />

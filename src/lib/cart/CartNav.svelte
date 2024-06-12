@@ -1,16 +1,15 @@
 <script lang="ts">
     import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
-    import { cart_clear_overlay, cart_store } from "./cart";
+    import { cart_clear_overlay, cart_store, type CartProduct } from "./cart";
     import CartAddedOverlay from "./CartAddedOverlay.svelte";
     import CartPreview from "./CartPreview.svelte";
     import Fa from "svelte-fa";
     import { beforeNavigate } from "$app/navigation";
-    import type { CartProduct } from "$lib/types";
 
     let item_count = 0;
 
     let show_overlay = false;
-    let last_item: any;
+    let last_item: CartProduct;
     let stock_error = false;
 
     let cart_opened = false;
@@ -18,16 +17,16 @@
 
     cart_store.subscribe(($cart) => {
         cart = $cart;
-        if ($cart["show_overlay"]) {
+        if ($cart.show_overlay) {
             show_overlay = true;
-            stock_error = $cart["stock_error"];
-            last_item = $cart["items"].find(
-                (i: any) => i.id === $cart["last_added"],
-            );
+            stock_error = $cart.stock_error;
+            last_item = $cart.items.find(
+                (product) => product.internal_id === $cart.last_added,
+            )!;
         }
 
         item_count = 0;
-        $cart["items"].forEach((i: CartProduct) => {
+        $cart.items.forEach((i: CartProduct) => {
             item_count += i.qty;
         });
     });
@@ -42,7 +41,7 @@
 
 <div class="relative">
     <CartAddedOverlay
-        show={show_overlay}
+        bind:show={show_overlay}
         item={last_item}
         {stock_error}
         on_close_cb={() => {

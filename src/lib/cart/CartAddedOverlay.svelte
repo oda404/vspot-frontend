@@ -1,96 +1,78 @@
 <script lang="ts">
-    import LinkButton from "$lib/LinkButton.svelte";
     import { l } from "$lib/langs";
-    import { price_format } from "$lib/price";
+    import ProductHorizontalDisplay from "$lib/products/ProductHorizontalDisplay.svelte";
     import { scroll_add_lock, scroll_remove_lock } from "$lib/scroll";
     import { faXmark } from "@fortawesome/free-solid-svg-icons";
     import { Fa } from "svelte-fa";
+    import type { CartProduct } from "./cart";
 
     export let show: boolean;
     export let on_close_cb: any;
-    export let item: any;
+    export let item: CartProduct;
     export let stock_error: boolean;
 
     $: if (show) scroll_add_lock("cart_overlay");
     else scroll_remove_lock("cart_overlay");
+
+    const on_key_down = (event: any) => {
+        if (show && event.key === "Escape") show = false;
+    };
 </script>
 
+<svelte:window on:keydown={on_key_down} />
+
 {#if show}
-    <div
-        class="fixed top-0 left-0 w-full h-full bg-[rgba(0,0,0,0.5)] z-[100] overflow-y-hidden"
+    <button
+        on:click={() => (show = false)}
+        class="flex justify-center items-center fixed top-0 left-0 w-full h-full bg-[rgba(0,0,0,0.5)] z-[100]"
     >
-        <div class="h-full flex justify-center items-center drop-shadow-lg">
-            <div
-                class="bg-vspot-primary-bg p-4 max-w-[400px] rounded-lg space-y-2"
-            >
-                {#if !stock_error}
-                    <div class="flex items-center">
-                        <div class="text-vspot-text-hovered">
-                            {$l("description.addedtocart")}
-                        </div>
-                        <button class="ml-auto" on:click={on_close_cb}>
-                            <Fa size="lg" color="#dddddd" icon={faXmark} />
-                        </button>
+        <div class="bg-vspot-primary-bg p-4 h-fit rounded-lg space-y-2">
+            {#if !stock_error}
+                <div class="flex items-center">
+                    <span class="text-vspot-text-hovered">
+                        {$l("description.addedtocart")}
+                    </span>
+                    <button class="ml-auto" on:click={on_close_cb}>
+                        <Fa size="lg" color="#dddddd" icon={faXmark} />
+                    </button>
+                </div>
+                <ProductHorizontalDisplay
+                    show_qty_control={false}
+                    show_discount
+                    product={item}
+                />
+                <div class="flex justify-between space-x-16">
+                    <button
+                        on:click={on_close_cb}
+                        class="text-vspot-green mt-auto"
+                    >
+                        {$l("action.continueshopping")}
+                    </button>
+                    <a
+                        class="px-4 bg-vspot-green rounded-tl-lg rounded-br-lg text-vspot-primary-bg p-1"
+                        href="/cart"
+                    >
+                        {$l("action.seecart")}
+                    </a>
+                </div>
+            {:else}
+                <div class="flex items-center">
+                    <div class="text-vspot-text-hovered">
+                        {$l("description.notaddedtocart")}
                     </div>
-                    <div class="flex space-x-4">
-                        <img
-                            src={item.preview_image_url}
-                            alt={`${item.name} preview`}
-                            class="w-[60px] drop-shadow rounded"
-                        />
-                        <div>
-                            <div>
-                                {item.name}
-                            </div>
-                            {#if item.discount}
-                                <span class="line-through">
-                                    {price_format(item.price)}
-                                </span>
-                            {/if}
-                            <span
-                                class="block text-lg font-semibold leading-tight"
-                            >
-                                {item.price - item.discount}.00
-                                {item.currency}
-                            </span>
-                        </div>
-                    </div>
-                    <div class="flex space-x-16">
-                        <button
-                            on:click={on_close_cb}
-                            class="text-vspot-green mt-auto"
-                        >
-                            {$l("action.continueshopping")}
-                        </button>
-                        <div class="!ml-auto" />
-                        <a
-                            class="px-4 bg-vspot-green rounded-lg text-vspot-primary-bg p-1"
-                            href="/cart"
-                        >
-                            {$l("action.seecart")}
-                        </a>
-                    </div>
-                {:else}
-                    <div class="flex items-center">
-                        <div class="text-vspot-text-hovered">
-                            {$l("description.notaddedtocart")}
-                        </div>
-                        <button class="ml-auto" on:click={on_close_cb}>
-                            <Fa size="lg" color="#dddddd" icon={faXmark} />
-                        </button>
-                    </div>
-                    <div class="flex items-center">
-                        <div>
-                            {$l("description.cartlimithit")}
-                        </div>
-                    </div>
-                    <div class="flex space-x-4">
-                        <button on:click={on_close_cb} class="text-vspot-green">
-                            {$l("action.continueshopping")}
-                        </button>
-                    </div>
-                {/if}
-            </div>
+                    <button class="ml-auto" on:click={on_close_cb}>
+                        <Fa size="lg" color="#dddddd" icon={faXmark} />
+                    </button>
+                </div>
+                <span>
+                    {$l("description.cartlimithit")}
+                </span>
+                <div class="flex space-x-4">
+                    <button on:click={on_close_cb} class="text-vspot-green">
+                        {$l("action.continueshopping")}
+                    </button>
+                </div>
+            {/if}
         </div>
-    </div>
+    </button>
 {/if}

@@ -41,14 +41,14 @@ export type V1ClientOrderInfo = {
 };
 
 export type V1ServerPurchasedProduct = {
-    id: string;
+    internal_id: string;
     name: string;
     image_url: string;
+    currency: string;
     qty: number;
     price: number;
     price_decimals: number;
     discount: number;
-    discount_decimals: number;
 };
 
 export type V1ServerOrderStatus = "canceled" | "registered" | "confirmed" | "shipped" | "completed";

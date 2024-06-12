@@ -3,6 +3,7 @@
     import Fa from "svelte-fa";
     import { faCircleCheck } from "@fortawesome/free-solid-svg-icons";
     import { browser } from "$app/environment";
+    import ProductHorizontalDisplay from "$lib/products/ProductHorizontalDisplay.svelte";
 
     export let data;
 
@@ -35,42 +36,22 @@
     <div class="text-lg">
         {$l(`description.${order_stage}`)}
     </div>
-    <div class="mt-8 space-y-1">
-        <div class="text-2xl border-b space-y-2 border-vspot-secondary-bg">
-            {$l("description.details")}
-        </div>
+    <div class="text-2xl mt-8">
+        {$l("description.details")}
+    </div>
+    <div class="mt-0 space-y-4 divide-y divide-vspot-secondary-bg">
         {#each data.order.products as product}
-            <div class="flex space-x-4 pb-2">
-                <a href="/product/{product.id}" class="w-[80px]">
-                    <img
-                        src={product.image_url}
-                        alt={`${product.name} preview`}
-                        class="rounded"
-                    />
-                </a>
-                <div class="flex flex-col h-full space-between">
-                    <a href="/product/{product.id}" class="text-lg">
-                        {product.name}
-                    </a>
-                    <div>
-                        <span class="text-xl font-semibold">
-                            {product.price * product.qty - product.discount}.00
-                            RON
-                        </span>
-                        {#if product.discount}
-                            <span class="line-through">
-                                {product.price * product.qty}.00 RON
-                            </span>
-                        {/if}
-                    </div>
-                    <div>
-                        {product.qty}
-                        {$l("description.pcs")}
-                    </div>
-                </div>
+            <div class="pt-4">
+                <ProductHorizontalDisplay
+                    show_qty
+                    qty={product.qty}
+                    large
+                    show_discount
+                    {product}
+                />
             </div>
         {/each}
-        <div>
+        <div class="pt-4">
             {$l("description.orderplacedextrainfo")}
             <a class="text-vspot-link" href="/contact"
                 >{$l("description.here")}</a

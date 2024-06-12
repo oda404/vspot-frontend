@@ -1,34 +1,48 @@
 
-import { PUBLIC_VSPOT_BACKEND_GLOBAL_URL } from "$env/static/public";
 import { backendv1_get_products_displayinfo, type V1ServerProductDisplayData } from "$lib/backendv1/product";
-import type { CartProduct } from "$lib/types";
 import { writable } from "svelte/store";
 
+export type CartProduct = {
+    internal_id: string;
+    name: string;
+    image_url: string;
+    price: number;
+    price_decimals: number;
+    discount: number;
+    currency: string;
+    stock: number;
+    qty: number;
+}
+
 export type Cart = {
-    items: CartProduct[],
+    items: CartProduct[];
     last_added?: string;
-    show_overlay: boolean,
-    stock_error: boolean,
+    show_overlay: boolean;
+    stock_error: boolean;
 };
 
 export const cart_store = writable<Cart>(
     typeof window !== "undefined" &&
-    (localStorage.cart && JSON.parse(localStorage.cart)) || { items: [], show_overlay: false, stock_error: false }
+    (localStorage.cart && JSON.parse(localStorage.cart)) || { items: [], last_added: undefined, show_overlay: false, stock_error: false }
 );
 
-function cart_set(cart: Cart) {
-    cart_store.set(cart);
+function cart_save_to_localstorage(cart: Cart) {
     typeof window !== "undefined" && (localStorage.cart = JSON.stringify(cart));
+}
+
+function cart_set(cart: Cart) {
+    cart_save_to_localstorage(cart);
+    cart_store.set(cart);
 }
 
 function cart_update_item_coreinfo(item: CartProduct, coreinfo: V1ServerProductDisplayData) {
     item.name = coreinfo.name;
+    item.image_url = coreinfo.image_url;
     item.price = coreinfo.price;
     item.price_decimals = coreinfo.price_decimals;
+    item.discount = coreinfo.discount;
     item.currency = coreinfo.currency;
     item.stock = coreinfo.stock;
-    item.discount = coreinfo.discount;
-    item.preview_image_url = coreinfo.image_url;
 }
 
 export async function cart_add_item(id: string, on_finished_cb?: (error?: string) => void, show_overlay = true) {
@@ -53,30 +67,31 @@ export async function cart_add_item(id: string, on_finished_cb?: (error?: string
 
     cart_store.update(($cart) => {
 
-        let items = $cart["items"];
-        let item = items.find((i: CartProduct) => i.id === id);
+        let items = $cart.items;
+        let item = items.find(product => product.internal_id === id);
 
         if (!item) {
             /* The rest of the fields are set by cart_update_item_coreinfo */
-            items.push({ id, qty: 1 } as CartProduct);
+            items.push({ internal_id: id, qty: 1 } as CartProduct);
             item = items[items.length - 1];
         }
         else {
-            let qty = item["qty"];
-            if (qty === product_coreinfo.stock)
-                $cart["stock_error"] = true;
-            else if (qty > product_coreinfo.stock)
-                item["qty"] = product_coreinfo.stock;
-            else
-                ++item["qty"];
+            const qty = item.qty;
+            if (qty >= product_coreinfo.stock) {
+                $cart.stock_error = true;
+                item.qty = product_coreinfo.stock;
+            }
+            else {
+                ++item.qty;
+            }
         }
 
         cart_update_item_coreinfo(item, product_coreinfo);
 
-        $cart["show_overlay"] = show_overlay;
-        $cart["last_added"] = id;
+        $cart.show_overlay = show_overlay;
+        $cart.last_added = id;
 
-        typeof window !== "undefined" && (localStorage.cart = JSON.stringify($cart));
+        cart_save_to_localstorage($cart);
 
         if (on_finished_cb)
             on_finished_cb();
@@ -88,36 +103,33 @@ export async function cart_add_item(id: string, on_finished_cb?: (error?: string
 }
 
 export function cart_remove_one_item(id: string) {
-    cart_store.update(($cart_store) => {
+    cart_store.update($cart => {
+        let items = $cart.items;
 
-        let items = $cart_store["items"];
+        let item_idx = items.findIndex(product => product.internal_id === id);
+        if (item_idx === -1)
+            return $cart;
 
-        let item = items.find((i: CartProduct) => i.id === id);
-        if (!item)
-            return $cart_store;
+        if ((--items[item_idx].qty) === 0)
+            items.splice(item_idx, 1);
 
-        --item.qty;
-        if (item.qty === 0)
-            items.splice(items.findIndex((i: any) => i.id === id), 1);
-
-        typeof window !== "undefined" && (localStorage.cart = JSON.stringify($cart_store));
-        return $cart_store
+        cart_save_to_localstorage($cart);
+        return $cart;
     });
 }
 
 export function cart_delete_item(id: string) {
-    cart_store.update(($cart_store) => {
+    cart_store.update(($cart) => {
+        let items = $cart.items;
 
-        let items = $cart_store["items"];
-
-        let idx = items.findIndex((i: CartProduct) => i.id === id);
+        let idx = items.findIndex(product => product.internal_id === id);
         if (idx === -1)
-            return $cart_store;
+            return $cart;
 
         items.splice(idx, 1);
 
-        typeof window !== "undefined" && (localStorage.cart = JSON.stringify($cart_store));
-        return $cart_store
+        cart_save_to_localstorage($cart);
+        return $cart;
     });
 }
 
@@ -135,10 +147,10 @@ export function cart_do_empty() {
 }
 
 export function cart_clear_overlay() {
-    cart_store.update(($cart_store) => {
-        $cart_store["show_overlay"] = false;
-        $cart_store["stock_error"] = false;
-        typeof window !== "undefined" && (localStorage.cart = JSON.stringify($cart_store));
-        return $cart_store
+    cart_store.update(($cart) => {
+        $cart.show_overlay = false;
+        $cart.stock_error = false;
+        cart_save_to_localstorage($cart);
+        return $cart;
     });
 }

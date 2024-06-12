@@ -9,7 +9,7 @@
         orderinfo_unset_coupon,
         type Coupon,
     } from "$lib/orderinfo/orderinfo";
-    import { onDestroy } from "svelte";
+    import { onDestroy, onMount } from "svelte";
 
     let current_coupon: Coupon | undefined;
     onDestroy(
@@ -19,6 +19,13 @@
     );
 
     let coupon_data = new InputFieldContext(current_coupon?.code);
+
+    onMount(async () => {
+        if (!current_coupon) return;
+
+        const coupon_res = await backendv1_coupon_get_info(current_coupon.code);
+        if (coupon_res.status >= 400) orderinfo_unset_coupon();
+    });
 
     const validate_and_set_coupon = async () => {
         let new_coupon_code = coupon_data.value;
@@ -46,7 +53,7 @@
 </script>
 
 <div class="space-y-1">
-    <div class="flex space-x-2 items-center">
+    <div class="flex space-x-2 items-start">
         <InputField
             id="coupon"
             label={$l("order.coupon")}
@@ -54,7 +61,7 @@
         />
         <button
             on:click={() => validate_and_set_coupon()}
-            class="px-4 p-1 w-fit whitespace-nowrap bg-vspot-green text-vspot-primary-bg"
+            class="px-4 mt-1.5 !h-[32px] w-fit whitespace-nowrap bg-vspot-green text-vspot-primary-bg"
         >
             {$l("action.apply")}
         </button>

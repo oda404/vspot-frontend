@@ -11,8 +11,11 @@
         orderinfo_clear,
     } from "$lib/orderinfo/orderinfo";
     import { onDestroy } from "svelte";
-    import type { CartProduct } from "$lib/types";
-    import { cart_do_empty, cart_store } from "$lib/cart/cart";
+    import {
+        cart_do_empty,
+        cart_store,
+        type CartProduct,
+    } from "$lib/cart/cart";
     import {
         backendv1_post_order_submit,
         type V1ClientOrderInfo,
@@ -23,6 +26,7 @@
     import { PUBLIC_VSPOT_TURNSTILE_SITE_KEY } from "$env/static/public";
     import { pagetitle_make } from "$lib/title";
     import { price_discount, price_format } from "$lib/price.js";
+    import ProductHorizontalDisplay from "$lib/products/ProductHorizontalDisplay.svelte";
 
     export let data;
 
@@ -90,7 +94,7 @@
         order_submitting = true;
         const info: V1ClientOrderInfo = {
             products: cart_items.map((item) => {
-                return { internal_id: item.id, qty: item.qty };
+                return { internal_id: item.internal_id, qty: item.qty };
             }),
 
             firstname: orderinfo!.info!.firstname,
@@ -200,40 +204,16 @@
         </div>
         <div class="flex flex-col lg:flex-row">
             <div class="min-w-[65%] w-[65%] p-4 rounded-lg space-y-2">
-                <div class="space-y-8">
+                <div class="space-y-4 divide-y divide-vspot-secondary-bg">
                     {#each cart_items as item}
-                        <div
-                            class="flex space-x-4 pb-2 border-b border-vspot-secondary-bg"
-                        >
-                            <a href="/product/{item.id}" class="w-[80px]">
-                                <img
-                                    src={item.preview_image_url}
-                                    alt={`${item.name} preview`}
-                                    class="rounded"
-                                />
-                            </a>
-                            <div class="flex flex-col h-full space-between">
-                                <a href="/product/{item.id}" class="text-lg">
-                                    {item.name}
-                                </a>
-                                <div>
-                                    <span class="text-xl font-semibold">
-                                        {item.price * item.qty -
-                                            item.discount}.00
-                                        {item.currency}
-                                    </span>
-                                    {#if item.discount}
-                                        <span class="line-through"
-                                            >{item.price * item.qty}.00
-                                            {item.currency}</span
-                                        >
-                                    {/if}
-                                </div>
-                                <span>
-                                    {item.qty}
-                                    {$l("description.pcs")}
-                                </span>
-                            </div>
+                        <div class="pt-4">
+                            <ProductHorizontalDisplay
+                                large
+                                show_discount
+                                qty={item.qty}
+                                show_qty
+                                product={item}
+                            />
                         </div>
                     {/each}
                 </div>

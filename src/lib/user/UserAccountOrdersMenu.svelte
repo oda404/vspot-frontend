@@ -7,7 +7,8 @@
     import { current_language, l } from "$lib/langs";
     import AddressBox from "$lib/order/AddressBox.svelte";
     import { shipping_methods_get_img_url } from "$lib/orderinfo/shipping_methods";
-    import { price_discount, price_format } from "$lib/price";
+    import { price_discount } from "$lib/price";
+    import ProductHorizontalDisplay from "$lib/products/ProductHorizontalDisplay.svelte";
     import {
         faCreditCard,
         faMoneyBill,
@@ -64,29 +65,19 @@
                 })}
             </span>
             <div class="lg:flex mt-4 space-y-4 lg:space-y-0 lg:space-x-8">
-                <div class="space-y-4">
+                <div
+                    class="space-y-4 divide-y divide-vspot-secondary-bg min-w-[420px]"
+                >
                     {#each order.products as product}
-                        <a
-                            href="/product/{product.id}"
-                            class="flex space-x-4 min-w-[420px]"
-                        >
-                            <img
-                                src={product.image_url}
-                                alt="{product.name} image"
-                                class="rounded-md max-w-[80px] max-h-[80px]"
+                        <div class="pt-4">
+                            <ProductHorizontalDisplay
+                                qty={product.qty}
+                                show_qty
+                                show_discount
+                                price_on_qty
+                                {product}
                             />
-                            <div>
-                                <span class="block">{product.name}</span>
-                                {#if product.discount}
-                                    <span class="line-through block">
-                                        {price_format(product.price)}
-                                    </span>
-                                {/if}
-                                <span class="text-lg"
-                                    >{product.price - product.discount}.00 RON</span
-                                >
-                            </div>
-                        </a>
+                        </div>
                     {/each}
                 </div>
                 <div class="space-y-4 flex flex-col lg:items-center">
