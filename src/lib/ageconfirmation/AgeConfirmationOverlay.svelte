@@ -5,7 +5,7 @@
         ageconfirmation_store,
         ageconfirmation_store_set,
     } from "./ageconfirmation";
-    import { l } from "$lib/langs";
+    import { current_language, l } from "$lib/langs";
     import { scroll_add_lock, scroll_remove_lock } from "$lib/scroll";
     import { browser } from "$app/environment";
 
@@ -25,31 +25,33 @@
         class="fixed flex z-[100] top-0 left-0 w-full h-full bg-[rgba(0,0,0,0.5)] hideScroll justify-center items-center"
     >
         <div class="hidden">te-a dus capul sa ajungi aici</div>
-        <div
-            class="bg-vspot-primary-bg p-4 rounded-lg overflow-hidden max-w-[300px] relative"
-        >
+        <div class="bg-vspot-primary-bg p-12 max-w-[450px] relative">
             <img
-                src="/images/vspot.webp"
-                alt="VSpot logo"
-                class="w-[80px] absolute z-0 right-[-6%] top-[-6%] rotate-[15deg] opacity-15"
+                class="max-w-[200px] mb-8 mx-auto"
+                src="/images/18+.webp"
+                alt="18+"
             />
+
             <span class="text-lg block">
-                {$l("age.confirmation", { n: ageconfirmation_minimum_age })}
+                {$l("age.notice")}
             </span>
-            <span class="text-vspot-text-hovered">
-                {$l("age.description", { n: ageconfirmation_minimum_age })}
-            </span>
-            <div class="flex space-x-4">
-                <a
-                    class="w-full bg-vspot-text-error p-2 rounded-lg text-vspot-text-pimary mt-4 text-center"
-                    href="https://ro.wikipedia.org/wiki/Penitenciarul_Slobozia"
-                    >{$l("action.no")}</a
-                >
+            <div class="flex justify-center space-x-4">
                 <button
-                    class="w-full bg-vspot-green p-2 rounded-lg text-vspot-primary-bg mt-4"
+                    class="w-full bg-vspot-green p-2 px-4 text-vspot-primary-bg mt-4"
                     on:click={() =>
                         ageconfirmation_store_set(ageconfirmation_minimum_age)}
-                    >{$l("action.yes")}</button
+                    >{$l("age.confirmok", {
+                        age: ageconfirmation_minimum_age,
+                    })}</button
+                >
+                <a
+                    class="w-full bg-vspot-text-error p-2 px-4 rounded-tl-lg rounded-br-lg text-vspot-text-pimary mt-4 text-center"
+                    href={$current_language === "ro"
+                        ? "https://ro.wikipedia.org/wiki/Penitenciarul_Slobozia"
+                        : "https://en.wikipedia.org/wiki/United_States_Penitentiary,_Lompoc"}
+                    >{$l("age.confirm_not_ok", {
+                        age: ageconfirmation_minimum_age,
+                    })}</a
                 >
             </div>
         </div>

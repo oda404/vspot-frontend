@@ -1,12 +1,12 @@
 
 import { derived, writable } from "svelte/store";
 
-export const current_language = writable(
+export const current_language = writable<"ro" | "en">(
     typeof window !== "undefined" &&
     (localStorage.lang && JSON.parse(localStorage.lang)) || "ro"
 );
 
-export function current_language_set(lang: string) {
+export function current_language_set(lang: "ro" | "en") {
     typeof window !== "undefined" && (localStorage.lang = JSON.stringify(lang));
     current_language.set(lang);
 }
@@ -254,8 +254,9 @@ var translations = {
 
         "easter.badorder": "Daca ai ajuns pe pagina asta ori a facut caca baza noastra de date pe ea, ori ai umblat la url paramter... sa dormi cu un ochi deschis la noapte",
 
-        "age.confirmation": "Aveti peste {{n}} ani?",
-        "age.description": "Acest site este destinat persoanelor cu varta peste {{n}} ani.",
+        "age.notice": "Acest site comercializeaza produse ce contin nicotina/substante ce pot dauna sanatatii si crea dependenta. Trebuie sa confirmati ca aveti varsta minima legala pentru a continua.",
+        "age.confirmok": "Am minim {{age}} ani",
+        "age.confirm_not_ok": "Am sub {{age}} ani",
 
         "user.firstname": "Numele",
         "user.account_details": "Detalii cont",
@@ -572,8 +573,9 @@ var translations = {
 
         "easter.badorder": "If you got here either our db shit the bed or you had a poke at the url paramter... sleep with one eye open",
 
-        "age.confirmation": "Are you over {{n}}?",
-        "age.description": "This site contains products geared towards people over {{n}}.",
+        "age.notice": "This website sells products that contain nicotine and other potentially harmful and addictive substances. Before using this website you have to confirm you are of legal age.",
+        "age.confirmok": "I'm at least {{age}}",
+        "age.confirm_not_ok": "I'm under {{age}}",
 
         "user.firstname": "Firstname",
         "user.account_details": "Account details",
