@@ -112,3 +112,21 @@ export async function backendv1_get_products_displayinfo(ids: string[]): Promise
         }
     );
 }
+
+export async function backendv1_get_random_product(ids: string[], fetch_func: FetchFunction): Promise<ServerResponse<V1ServerProductDisplayData | null>> {
+
+    let exclude = "";
+    if (ids.length)
+        exclude = `exclude=${ids.join("+")}`
+
+    return await backendv1_base_fetch(
+        `${backendv1_endpoint()}/product/random?${exclude}`,
+        {
+            method: "GET",
+            headers: {
+                ...BACKENDV1_BASE_GET_HEADERS
+            }
+        },
+        fetch_func
+    );
+}
