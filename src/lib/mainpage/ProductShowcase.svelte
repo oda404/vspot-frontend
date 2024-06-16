@@ -10,9 +10,11 @@
 
 <div class="p-4 rounded-b-lg">
     <div class="flex items-center justify-between">
-        <a {href} class="flex space-x-2 items-center">
+        <a {href} class="flex space-x-4 items-center">
             <slot />
-            <span class="text-2xl font-semibold block"> {name} </span>
+            <span class="text-5xl font-semibold font-[Blowhole] block">
+                {name}
+            </span>
         </a>
         {#if href}
             <a {href} class=""> {$l("action.see_all")} </a>

@@ -2,7 +2,7 @@
     import { l } from "$lib/langs";
 </script>
 
-<div class="absolute h-fit inset-0 -z-10 drop-shadow-lg">
+<div class="absolute h-fit inset-0 z-[5]">
     <a href="/disposable?subtype=switchpro" class="relative block">
         <img
             class="min-w-[100vw] h-[100vh] object-none object-top"
@@ -10,11 +10,12 @@
             alt="Vozol Switch Pro Promo"
         />
         <div
-            class="absolute space-y-2 pl-[20px] lg:pl-[40px] pr-[80px] bottom-[40px] p-4 bg-gradient-to-r from-vspot-green/80 to-vspot-purple/0"
+            class="absolute space-y-2 pl-[20px] lg:pl-[40px] pr-[80px] bottom-[5%] p-4"
         >
-            <div class="drop-shadow-lg">
+            <div class="">
                 <img
-                    class="h-[80px]"
+                    id="fade-image"
+                    class="h-[80px] fade-image"
                     src="/images/vozol/vozol.webp"
                     alt="Vozol"
                 />
@@ -25,7 +26,7 @@
                 </span>
             </div>
             <a
-                class="text-lg block w-fit font-semibold drop-shadow-lg bg-vspot-green px-8 p-4 rounded-tl-lg rounded-br-lg text-vspot-primary-bg"
+                class="text-lg block w-fit font-semibold bg-vspot-green px-8 p-4 rounded-tl-lg rounded-br-lg text-vspot-primary-bg"
                 href="/disposable?subtype=switchpro"
             >
                 {$l("slideshow.switchpro")}

@@ -38,82 +38,91 @@
 
 <div class="space-y-4">
     <Slideshow />
-    <div
-        class="!mt-[100vh] lg:!mt-[90vh] space-y-4 lg:w-[100%] flex items-center flex-col lg:flex-row"
-    >
-        <img
-            class="hidden lg:block max-h-[240px] max-w-[240px] drop-shadow-lg"
-            src="/images/vspot.webp"
-            alt="The VSpot"
+    <div class="!mt-[950px] lg:!mt-[800px] space-y-4 lg:w-[100%] p-4 relative">
+        <div
+            class="
+                    absolute inset-0 my-auto
+                    h-[120%] lg:h-[140%] w-[1000%] translate-y-[-15%] lg:translate-y-[-30%] translate-x-[-25%] -skew-y-2
+                    bg-vspot-secondary-bg opacity-80 drop-shadow-lg
+                "
         />
-        <span
-            class="text-8xl text-center font-[Blowhole] lg:text-9xl font-semibold opacity-100 bg-gradient-to-r from-vspot-green to-vspot-purple text-transparent bg-clip-text inline-block"
+        <div class="flex flex-col lg:flex-row">
+            <span
+                class="z-[8] text-8xl lg:text-9xl font-[Blowhole] font-semibold opacity-80 bg-clip-text inline-block"
+            >
+                {$l("home.title")}
+            </span>
+            <img
+                class="hidden lg:block max-h-[210px] max-w-[210px] drop-shadow-lg rotate-[15deg]"
+                src="/images/vspot.webp"
+                alt="The VSpot"
+            />
+        </div>
+        <div
+            class="w-full h-fit grid grid-cols-2 gap-16 lg:gap-0 lg:flex lg:justify-between py-8 pb-14"
         >
-            {$l("home.title")}
-        </span>
-    </div>
-    <div
-        class="w-full h-fit p-4 grid grid-cols-2 gap-16 lg:gap-0 lg:flex lg:justify-between !my-12"
-    >
-        <div class="flex flex-col lg:flex-row space-x-4 items-center">
-            <div class="rotate-[24deg] mb-auto lg:mb-0">
-                <Disposable h={52} />
+            <div class="flex flex-col lg:flex-row space-x-4 items-center z-[8]">
+                <div class="rotate-[24deg] mb-auto lg:mb-0">
+                    <Disposable h={52} />
+                </div>
+                <div class="mt-2 lg:mt-0">
+                    <LinkButton simple href="/disposable">
+                        <div class="text-2xl">
+                            {$l("product.disposables")}
+                        </div>
+                    </LinkButton>
+                </div>
             </div>
-            <div class="mt-2 lg:mt-0">
-                <LinkButton simple href="/disposable">
-                    <div class="text-2xl">{$l("product.disposables")}</div>
-                </LinkButton>
+            <div class="flex flex-col lg:flex-row space-x-4 items-center z-[8]">
+                <div class="rotate-[24deg] mb-auto lg:mb-0">
+                    <Liquid h={52} />
+                </div>
+                <div class="mt-2 lg:mt-0">
+                    <LinkButton simple href="/liquid">
+                        <div class="text-2xl">{$l("product.liquids")}</div>
+                    </LinkButton>
+                </div>
             </div>
-        </div>
-        <div class="flex flex-col lg:flex-row space-x-4 items-center">
-            <div class="rotate-[24deg] mb-auto lg:mb-0">
-                <Liquid h={52} />
+            <div class="flex flex-col lg:flex-row space-x-4 items-center z-[8]">
+                <div class="rotate-[0deg] mb-auto lg:mb-0">
+                    <Cig h={16} />
+                </div>
+                <div class="mt-2 lg:mt-0">
+                    <LinkButton simple href="/smoking">
+                        <div class="text-2xl">{$l("product.smoking")}</div>
+                    </LinkButton>
+                </div>
             </div>
-            <div class="mt-2 lg:mt-0">
-                <LinkButton simple href="/liquid">
-                    <div class="text-2xl">{$l("product.liquids")}</div>
-                </LinkButton>
+            <div class="flex flex-col lg:flex-row space-x-4 items-center z-[8]">
+                <div class="mb-auto lg:mb-0">
+                    <Pouch h={35} />
+                </div>
+                <div class="mt-2 lg:mt-0">
+                    <LinkButton simple href="/pouch">
+                        <div class="text-2xl">{$l("product.pouches")}</div>
+                    </LinkButton>
+                </div>
             </div>
-        </div>
-        <div class="flex flex-col lg:flex-row space-x-4 items-center">
-            <div class="rotate-[0deg] mb-auto lg:mb-0">
-                <Cig h={16} />
-            </div>
-            <div class="mt-2 lg:mt-0">
-                <LinkButton simple href="/smoking">
-                    <div class="text-2xl">{$l("product.smoking")}</div>
-                </LinkButton>
-            </div>
-        </div>
-        <div class="flex flex-col lg:flex-row space-x-4 items-center">
-            <div class="mb-auto lg:mb-0">
-                <Pouch h={35} />
-            </div>
-            <div class="mt-2 lg:mt-0">
-                <LinkButton simple href="/pouch">
-                    <div class="text-2xl">{$l("product.pouches")}</div>
-                </LinkButton>
-            </div>
-        </div>
 
-        <div class="flex flex-col lg:flex-row space-x-4 items-center">
-            <div class="mb-auto lg:mb-0">
-                <Kit h={46} />
-            </div>
-            <div class="mt-2 lg:mt-0">
-                <LinkButton simple href="/kit">
-                    <div class="text-2xl">{$l("product.kits")}</div>
-                </LinkButton>
+            <div class="flex flex-col lg:flex-row space-x-4 items-center z-[8]">
+                <div class="mb-auto lg:mb-0">
+                    <Kit h={46} />
+                </div>
+                <div class="mt-2 lg:mt-0">
+                    <LinkButton simple href="/kit">
+                        <div class="text-2xl">{$l("product.kits")}</div>
+                    </LinkButton>
+                </div>
             </div>
         </div>
     </div>
-    <div class="space-y-24 pb-24">
+    <div class="space-y-24 pt-12 pb-24">
         <ProductShowcase name={$l("product.new")} products={newest} />
         <div class="relative">
             <div
                 class="
                 absolute inset-0 my-auto
-                h-[110%] w-[200%] lg:translate-y-[0%] translate-x-[-25%]
+                h-[110%] w-[1000%] lg:translate-y-[0%] translate-x-[-25%]
                 bg-vspot-secondary-bg opacity-40 -z-10 drop-shadow-lg
             "
             />
@@ -136,7 +145,7 @@
             <div
                 class="
                     absolute inset-0 my-auto
-                    h-[120%] lg:h-[180%] w-[200%] lg:translate-y-[10%] translate-x-[-25%] skew-y-3
+                    h-[120%] lg:h-[180%] w-[1000%] translate-y-[10%] lg:translate-y-[50%] translate-x-[-25%] skew-y-3
                     bg-vspot-secondary-bg opacity-80 -z-10 drop-shadow-lg
                 "
             />
@@ -167,35 +176,33 @@
                 />
             </div>
         </div>
-        <div class="space-y-4 !mt-48">
-            <div
-                class="grid lg:flex lg:justify-between lg:grid-cols-none grid-cols-2"
+        <div
+            class="grid lg:flex lg:justify-between lg:grid-cols-none grid-cols-2 !mt-48"
+        >
+            <SiteFeatureBox
+                icon={faTruck}
+                title={$l("page.main.shipping")}
+                description={$l("page.main.shipping.description")}
+            />
+            <SiteFeatureBox
+                icons={[faCreditCard, faMoneyBill]}
+                title={$l("page.main.payment")}
+                description={$l("page.main.payment.description")}
+            />
+            <SiteFeatureBox
+                icon={faArrowLeft}
+                title={$l("page.main.return")}
+                description={$l("page.main.return.description")}
             >
-                <SiteFeatureBox
-                    icon={faTruck}
-                    title={$l("page.main.shipping")}
-                    description={$l("page.main.shipping.description")}
-                />
-                <SiteFeatureBox
-                    icons={[faCreditCard, faMoneyBill]}
-                    title={$l("page.main.payment")}
-                    description={$l("page.main.payment.description")}
-                />
-                <SiteFeatureBox
-                    icon={faArrowLeft}
-                    title={$l("page.main.return")}
-                    description={$l("page.main.return.description")}
-                >
-                    <a class="text-sm text-vspot-link" href="/return-policy"
-                        >{$l("page.main.return.check_policy")}
-                    </a>
-                </SiteFeatureBox>
-                <SiteFeatureBox
-                    img_url={"/images/ahh.webp"}
-                    title={$l("page.main.satisfaction")}
-                    description={$l("page.main.satisfaction.description")}
-                />
-            </div>
+                <a class="text-sm text-vspot-link" href="/return-policy"
+                    >{$l("page.main.return.check_policy")}
+                </a>
+            </SiteFeatureBox>
+            <SiteFeatureBox
+                img_url={"/images/ahh.webp"}
+                title={$l("page.main.satisfaction")}
+                description={$l("page.main.satisfaction.description")}
+            />
         </div>
     </div>
 </div>

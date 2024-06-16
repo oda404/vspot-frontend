@@ -23,7 +23,7 @@
         ]}
         bind:current_hover
     >
-        <span>
+        <span class="hover:text-vspot-text-hovered">
             {$l("product.disposables")}
         </span>
     </ProductSubmenuItem>
@@ -41,7 +41,7 @@
         ]}
         bind:current_hover
     >
-        <span>
+        <span class="hover:text-vspot-text-hovered">
             {$l("product.smoking")}
         </span>
     </ProductSubmenuItem>
@@ -53,10 +53,10 @@
         suboptions={[
             { name: "Slabe", href: "/pouch/weak" },
             { name: "Moderate", href: "/pouch/mid" },
-            { name: "Sa te apere Dumnezeu", href: "/pouch/strong" },
+            { name: "Tari", href: "/pouch/strong" },
         ]}
     >
-        <span>
+        <span class="hover:text-vspot-text-hovered">
             {$l("product.pouches")}
         </span>
     </ProductSubmenuItem>
@@ -67,7 +67,7 @@
         suboptions={[{ name: "Nicotinizare", href: "/liquid/nicotine" }]}
         bind:current_hover
     >
-        <span>
+        <span class="hover:text-vspot-text-hovered">
             {$l("product.liquids")}
         </span>
     </ProductSubmenuItem>
@@ -81,7 +81,7 @@
         ]}
         bind:current_hover
     >
-        <span>
+        <span class="hover:text-vspot-text-hovered">
             {$l("product.kits")}
         </span>
     </ProductSubmenuItem>

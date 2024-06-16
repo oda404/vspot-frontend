@@ -1,10 +1,8 @@
 <script lang="ts">
-    import type { V1ServerProductDisplayData } from "$lib/backendv1/product";
     import {
         cart_add_item,
         cart_delete_item,
         cart_remove_one_item,
-        type CartProduct,
     } from "$lib/cart/cart";
     import { l } from "$lib/langs";
     import { price_format } from "$lib/price";
