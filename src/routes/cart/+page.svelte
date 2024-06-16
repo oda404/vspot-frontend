@@ -16,9 +16,6 @@
 
     let cart_item_total = 0;
 
-    let flash_add = false;
-    let flash_add_in_progress = false;
-
     const on_cart_update = ($cart: Cart) => {
         if (!$cart) return;
         cart_items = $cart.items;
@@ -35,7 +32,7 @@
     onDestroy(cart_store.subscribe(($cart) => on_cart_update($cart)));
 
     let coupon_discount: number = 0;
-    $: onDestroy(
+    onDestroy(
         ORDERINFO_STORE.subscribe(($orderinfo) => {
             if (!$orderinfo?.coupon) {
                 coupon_discount = 0;
@@ -144,7 +141,7 @@
             </div>
         {/if}
     </div>
-    {#if data.product && !flash_add}
+    {#if data.product}
         <div class="mt-16 w-fit">
             <div class="text-2xl">
                 {cart_item_count > 0

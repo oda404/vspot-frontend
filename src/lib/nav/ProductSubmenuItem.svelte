@@ -12,8 +12,20 @@
 
     export let current_hover: string | undefined;
 
-    export let suboptions: { name: string; href: string }[] | undefined =
+    export let suboptions: ({ name: string; href: string } | {})[] | undefined =
         undefined;
+
+    const is_suboption_dividider = (
+        suboption: { name: string; href: string } | {},
+    ) => {
+        return Object.keys(suboption).length === 0;
+    };
+
+    const suboption_as_defined = (
+        suboption: { name: string; href: string } | {},
+    ): { name: string; href: string } => {
+        return suboption as { name: string; href: string };
+    };
 
     $: hovered = current_hover === href;
 </script>
@@ -40,9 +52,15 @@
                 class="absolute top-[-14px] left-[110%] bg-vspot-primary-bg p-4 space-y-2 rounded-lg"
             >
                 {#each suboptions as suboption}
-                    <a class="block whitespace-nowrap" href={suboption.href}
-                        >{suboption.name}</a
-                    >
+                    {#if is_suboption_dividider(suboption)}
+                        <div class="bg-vspot-secondary-bg h-[1px] w-full" />
+                    {:else}
+                        <a
+                            class="block whitespace-nowrap hover:text-vspot-text-hovered"
+                            href={suboption_as_defined(suboption).href}
+                            >{suboption_as_defined(suboption).name}</a
+                        >
+                    {/if}
                 {/each}
             </div>
         {/if}

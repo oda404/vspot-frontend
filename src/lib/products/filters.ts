@@ -1,3 +1,4 @@
+import type { V1ServerCategoryFilter } from "$lib/backendv1/product";
 
 export type ProductSetFilter = {
     name: string;
@@ -16,4 +17,8 @@ export function product_filters_from_searchquery(query: URLSearchParams) {
     });
 
     return set_filters;
+}
+
+export function product_filters_omit(name: string, filters: V1ServerCategoryFilter[]) {
+    return filters.filter(f => f.name !== name);
 }

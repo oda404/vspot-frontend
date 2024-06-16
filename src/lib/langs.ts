@@ -130,6 +130,8 @@ var translations = {
         "product.pouches_strong": "Pouchuri tari",
         "product.new": "Noutati!",
         "product.cone": "Conuri",
+        "product.disposable_reusable": "Vape reincarcabil",
+        "product.disposable_cartridge": "Poduri",
 
         "product.disposables.description": "Kituri preumplute de unica folosinta sau reincarcabile",
         "product.pouches.description": "Pliculete cu nicotina aplicate in partea de sus a buzei",
@@ -148,6 +150,8 @@ var translations = {
         "product.pouches_mid.description": "Daca te-ai plictisit de pouch-urile slabe dar nu vrei sa adormi",
         "product.pouches_strong.description": "Pentru cei ce au toleranta la nicotina a unui cal",
         "product.cone.description": "Conuri prerulate gata pentru umplere",
+        "product.disposable_reusable.description": "Vape-uri reincarcabile cu poduri",
+        "product.disposable_cartridge.description": "Poduri preumplute",
 
         "nav.home": "Acasa",
         "nav.products": "Produse",
@@ -165,8 +169,8 @@ var translations = {
         "filter.material": "Material",
         "filter.trait": "Caracteristici",
         "filter.color": "Culoare",
-        "filter.reusable": "Reincarcabil",
-        "filter.cartridge": "Cartus",
+        "filter.reusable": "Dispozitiv poduri",
+        "filter.cartridge": "Poduri",
         "filter.nicotinefree": "Fara nicotina",
         "filter.has_nicotine": "Cu nicotina",
         "filter.active_coal": "Carbune activ",
@@ -450,6 +454,8 @@ var translations = {
         "product.pouches_strong": "Strong pouches",
         "product.new": "Just in!",
         "product.cone": "Cones",
+        "product.disposable_reusable": "Pod kits",
+        "product.disposable_cartridge": "Pods",
 
         "product.disposables.description": "Prefilled disposable / JUUL-like kits",
         "product.pouches.description": "Nicotine pouches",
@@ -468,6 +474,8 @@ var translations = {
         "product.pouches_mid.description": "Good if you're bored of mild pouches but you're not looking to fall asleep",
         "product.pouches_strong.description": "Good if you have the nicotine tolerance of a nordic viking",
         "product.cone.description": "Cones, pre-rolled and ready to smoke",
+        "product.disposable_reusable.description": "Juul-like kits with prefilled pods",
+        "product.disposable_cartridge.description": "Prefilled pods",
 
         "nav.home": "Home",
         "nav.products": "Products",
@@ -693,7 +701,9 @@ var translations = {
         "filteropt.3": "3",
 
         "shipping.fancourier": "Fan Courier",
-        "shipping.sameday": "Sameday"
+        "shipping.sameday": "Sameday",
+
+        "product.switchpro": "Switch Pro"
     },
     "fallback": {
         "missing_translation": "Missing localization"

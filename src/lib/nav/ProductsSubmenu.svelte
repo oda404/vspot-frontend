@@ -17,9 +17,13 @@
         simple
         href="/disposable"
         suboptions={[
-            { name: "Reincarcabile", href: "/disposable?reusable=true" },
-            { name: "Cartuse", href: "/disposable?cartridge=true" },
+            { name: "Reincarcabile", href: "/disposable/reusable" },
+            { name: "Poduri", href: "/disposable/cartridge" },
             { name: "Fara nicotina", href: "/disposable?nicotinefree=true" },
+            {},
+            { name: "Vozol Switch Pro", href: "/disposable?subtype=switchpro" },
+            { name: "Vozol Neon 800", href: "/disposable?subtype=neon800" },
+            { name: "Elf Bar V2", href: "/disposable?subtype=elfbarv2" },
         ]}
         bind:current_hover
     >
@@ -64,7 +68,15 @@
     <ProductSubmenuItem
         simple
         href="/liquid"
-        suboptions={[{ name: "Nicotinizare", href: "/liquid/nicotine" }]}
+        suboptions={[
+            { name: "E-Lichide", href: "/liquid" },
+            { name: "Nicotinizare", href: "/liquid/nicotine" },
+            {},
+            {
+                name: "Guerrilla Flavors",
+                href: "/liquid?brand=guerrilla_flavors",
+            },
+        ]}
         bind:current_hover
     >
         <span class="hover:text-vspot-text-hovered">
@@ -78,6 +90,9 @@
         suboptions={[
             { name: "Kituri incepatori", href: "/kit/entry" },
             { name: "Rezistente", href: "/kit/resistor" },
+            {},
+            { name: "Aspire", href: "/kit?brand=aspire" },
+            { name: "Voopoo", href: "/kit?brand=voopoo" },
         ]}
         bind:current_hover
     >

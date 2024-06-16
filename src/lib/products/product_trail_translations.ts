@@ -6,11 +6,11 @@ export const product_trail_translations = [
         children: [
             {
                 name: "cartridge",
-                translation: "Cartuse"
+                translation: "Poduri"
             },
             {
                 name: "reusable",
-                translation: "Reincarcabile"
+                translation: "Dispozitiv poduri"
             },
         ]
     },
