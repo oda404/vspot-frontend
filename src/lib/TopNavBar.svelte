@@ -8,8 +8,7 @@
     import ProductsSubmenu from "./nav/ProductsSubmenu.svelte";
     import { beforeNavigate } from "$app/navigation";
     import UserNav from "./user/UserNav.svelte";
-    import { browser } from "$app/environment";
-    import { faBars, faGripLines } from "@fortawesome/free-solid-svg-icons";
+    import { faBars } from "@fortawesome/free-solid-svg-icons";
     import Fa from "svelte-fa";
 
     export let user: UserDisplayInfo | undefined;
@@ -23,12 +22,13 @@
 
 {#if products_submenu_open}
     <button
-        class="fixed z-10 inset-0 w-full h-full bg-[rgba(0,0,0,0.5)] cursor-default"
+        class="fixed rounded-none left-0 top-0 w-full h-full bg-[rgba(0,0,0,0.5)] z-[10] cursor-default"
         on:click={() => {
-            products_submenu_open = false;
+            products_submenu_open = !products_submenu_open;
         }}
     />
 {/if}
+
 <div
     class="max-w-[1100px] min-w-[1100px] w-[1100px] !mt-0 z-20 flex items-start lg:space-x-4 lg:h-[160px]"
 >
@@ -42,24 +42,20 @@
         <div
             class="w-[calc(100%-100px)] bg-vspot-primary-bg border-2 border-vspot-purple border-opacity-80 z-20 opacity-100 rounded-full space-x-8 px-8 h-[45px] flex items-center drop-shadow-lg"
         >
-            <div class="hidden lg:block relative z-20">
-                <button
-                    on:click={() => {
-                        products_submenu_open = !products_submenu_open;
-                    }}
-                >
-                    {$l("nav.products")}
-                </button>
-                {#if products_submenu_open}
-                    <ProductsSubmenu />
-                {/if}
-            </div>
-            <button class="lg:hidden !ml-0 lg:ml-8">
+            <button
+                on:click={() => {
+                    products_submenu_open = !products_submenu_open;
+                }}
+            >
                 <Fa icon={faBars} />
             </button>
+            {#if products_submenu_open}
+                <ProductsSubmenu
+                    on_close_cb={() => (products_submenu_open = false)}
+                />
+            {/if}
             <SearchBar />
             <div class="!ml-auto" />
-
             <NavItem
                 only_show_on_lg
                 url="/disposable"

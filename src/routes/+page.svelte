@@ -43,17 +43,17 @@
             class="
                     absolute inset-0 my-auto
                     h-[120%] lg:h-[140%] w-[1000%] translate-y-[-15%] lg:translate-y-[-30%] translate-x-[-25%] -skew-y-2
-                    bg-vspot-secondary-bg opacity-80 drop-shadow-lg
+                    bg-vspot-secondary-bg/40 drop-shadow-lg
                 "
         />
-        <div class="flex flex-col lg:flex-row">
+        <div class="flex flex-col items-center justify-center lg:flex-row pb-4">
             <span
-                class="z-[8] text-8xl lg:text-9xl font-[Blowhole] font-semibold opacity-80 bg-clip-text inline-block"
+                class="z-[8] text-8xl lg:text-9xl font-[Blowhole] text-center lg:text-left opacity-80 bg-clip-text inline-block drop-shadow-2xl"
             >
                 {$l("home.title")}
             </span>
             <img
-                class="hidden lg:block max-h-[210px] max-w-[210px] drop-shadow-lg rotate-[15deg]"
+                class="lg:block max-h-[210px] max-w-[210px] z-[8]"
                 src="/images/vspot.webp"
                 alt="The VSpot"
             />

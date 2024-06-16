@@ -10,7 +10,7 @@
     class="bg-vspot-primary-bg border-t border-vspot-green w-full p-10 lg:p-28 flex-col space-y-8 justify-center z-[200]"
 >
     <div
-        class="flex flex-col lg:flex-row lg:space-x-32 lg:items-start items-center lg:w-[1100px] mx-auto lg:space-y-0 space-y-10"
+        class="flex flex-col lg:flex-row lg:space-x-32 lg:items-start lg:w-[1100px] mx-auto lg:space-y-0 space-y-10"
     >
         <!-- <div class="flex flex-col items-center w-fit">
             <img src="/images/vspot.webp" alt="V Spot Logo" class="w-[120px]" />

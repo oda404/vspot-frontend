@@ -1,7 +1,7 @@
 <script lang="ts">
-    import { faMinus, faPlus, faX } from "@fortawesome/free-solid-svg-icons";
+    import { faX } from "@fortawesome/free-solid-svg-icons";
     import Fa from "svelte-fa";
-    import { cart_add_item, cart_remove_one_item, type Cart } from "./cart";
+    import { type Cart } from "./cart";
     import { l } from "$lib/langs";
     import { onDestroy, onMount } from "svelte";
     import { scroll_add_lock, scroll_remove_lock } from "$lib/scroll";
@@ -37,7 +37,7 @@
     }}
 />
 <div
-    class="absolute bg-vspot-primary-bg w-[380px] right-[-14px] top-14 p-4 px-4 rounded-lg drop-shadow z-[100] border-vspot-green"
+    class="absolute bg-vspot-primary-bg w-[97vw] lg:w-[380px] right-[-14px] top-14 p-4 px-4 rounded-lg drop-shadow z-[100] border-vspot-green"
 >
     <div class="flex items-center mb-2 justify-between">
         <div class="whitespace-nowrap text-vspot-green text-md">
