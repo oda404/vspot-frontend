@@ -14,17 +14,20 @@
     export let user: UserDisplayInfo | undefined;
 
     let products_submenu_open = false;
+    let search_bar_open = false;
 
     beforeNavigate(() => {
         products_submenu_open = false;
+        search_bar_open = false;
     });
 </script>
 
-{#if products_submenu_open}
+{#if products_submenu_open || search_bar_open}
     <button
         class="fixed rounded-none left-0 top-0 w-full h-full bg-[rgba(0,0,0,0.5)] z-[10] cursor-default"
         on:click={() => {
-            products_submenu_open = !products_submenu_open;
+            products_submenu_open = false;
+            search_bar_open = false;
         }}
     />
 {/if}
@@ -54,7 +57,7 @@
                     on_close_cb={() => (products_submenu_open = false)}
                 />
             {/if}
-            <SearchBar />
+            <SearchBar bind:open={search_bar_open} />
             <div class="!ml-auto" />
             <NavItem
                 only_show_on_lg

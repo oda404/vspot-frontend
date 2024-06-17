@@ -130,3 +130,16 @@ export async function backendv1_get_random_product(ids: string[], fetch_func: Fe
         fetch_func
     );
 }
+
+export async function backendv1_product_search(keywords: string[], fetch_func: FetchFunction): Promise<ServerResponse<V1ServerProductDisplayData[]>> {
+    return await backendv1_base_fetch(
+        `${backendv1_endpoint()}/product/search?keywords=${keywords.join("+")}`,
+        {
+            method: "GET",
+            headers: {
+                ...BACKENDV1_BASE_GET_HEADERS
+            },
+        },
+        fetch_func
+    );
+}
