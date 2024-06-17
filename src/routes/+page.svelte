@@ -26,6 +26,14 @@
 
 <svelte:head>
     <title>{pagetitle_make($l("home.title"))}</title>
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            "name": "VSpot",
+            "url": "https://vspot.ro"
+        }
+    </script>
     <meta
         name="description"
         content="Noul tau vape shop. La The VSpot gasesti toate produsele ce au de a face cu nicotina: vapes, pouchuri, kituri, e-lichide, nicotina si accesorii!"
