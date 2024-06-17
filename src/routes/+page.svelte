@@ -48,7 +48,7 @@
         />
         <div class="flex flex-col items-center justify-center lg:flex-row pb-4">
             <span
-                class="z-[8] text-8xl lg:text-9xl font-[Blowhole] text-center lg:text-left opacity-80 bg-clip-text inline-block drop-shadow-2xl"
+                class="z-[8] text-8xl lg:text-9xl font-[Blowhole] text-center lg:text-left opacity-100 bg-clip-text inline-block drop-shadow-2xl"
             >
                 {$l("home.title")}
             </span>
@@ -145,7 +145,7 @@
             <div
                 class="
                     absolute inset-0 my-auto
-                    h-[120%] lg:h-[180%] w-[1000%] translate-y-[10%] lg:translate-y-[50%] translate-x-[-25%] skew-y-3
+                    h-[120%] lg:h-[180%] w-[600%] translate-y-[0%] lg:translate-y-[25%] translate-x-[-30%] skew-y-3
                     bg-vspot-secondary-bg opacity-80 -z-10 drop-shadow-lg
                 "
             />
