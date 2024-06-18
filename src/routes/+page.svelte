@@ -46,11 +46,13 @@
 
 <div class="space-y-4">
     <Slideshow />
-    <div class="!mt-[950px] lg:!mt-[800px] space-y-4 lg:w-[100%] p-4 relative">
+    <div
+        class="!mt-[calc(100vh-50px)] lg:!mt-[calc(100vh-100px)] space-y-4 lg:w-[100%] p-4 relative"
+    >
         <div
             class="
                     absolute inset-0 my-auto
-                    h-[120%] lg:h-[140%] w-[1000%] translate-y-[-15%] lg:translate-y-[-30%] translate-x-[-25%] -skew-y-2
+                    h-[120%] lg:h-[140%] w-[1000%] translate-y-[-13%] lg:translate-y-[-28%] translate-x-[-25%] -skew-y-2
                     bg-vspot-secondary-bg/40 drop-shadow-lg
                 "
         />
