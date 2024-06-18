@@ -1,9 +1,6 @@
 <script lang="ts">
     import Fa from "svelte-fa";
-    import {
-        faCartArrowDown,
-        faSpinner,
-    } from "@fortawesome/free-solid-svg-icons";
+    import { faSpinner } from "@fortawesome/free-solid-svg-icons";
     import { l } from "$lib/langs";
     import { cart_add_item } from "$lib/cart/cart";
     import type { V1ServerProductDisplayData } from "$lib/backendv1/product";

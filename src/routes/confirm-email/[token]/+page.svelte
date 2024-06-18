@@ -1,9 +1,6 @@
 <script lang="ts">
     import { l } from "$lib/langs.js";
-    import {
-        faEnvelopeCircleCheck,
-        faEnvelopeOpen,
-    } from "@fortawesome/free-solid-svg-icons";
+    import { faEnvelopeCircleCheck } from "@fortawesome/free-solid-svg-icons";
     import Fa from "svelte-fa";
 
     export let data;
