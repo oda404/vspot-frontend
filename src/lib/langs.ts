@@ -699,6 +699,11 @@ var translations = {
         "filteropt.cyberg_slim": "Cyber G Slim",
         "filteropt.2": "2",
         "filteropt.3": "3",
+        "filteropt.voopoo": "VooPoo",
+        "filteropt.vaporesso": "Vaporesso",
+        "filteropt.xros4": "XROS 4",
+        "filteropt.argusz": "Argus Z",
+        "filteropt.eliquid_france": "ELiquid France",
 
         "shipping.fancourier": "Fan Courier",
         "shipping.sameday": "Sameday",
