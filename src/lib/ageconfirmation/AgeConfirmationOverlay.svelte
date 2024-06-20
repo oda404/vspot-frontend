@@ -28,7 +28,7 @@
         <div class="bg-vspot-primary-bg p-12 max-w-[450px] relative">
             <img
                 class="max-w-[200px] mb-8 mx-auto"
-                src="/images/18+.webp"
+                src="/images/18plus.webp"
                 alt="18+"
             />
 
