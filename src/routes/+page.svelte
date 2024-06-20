@@ -187,7 +187,7 @@
             </div>
         </div>
         <div
-            class="grid lg:flex lg:justify-between lg:grid-cols-none grid-cols-2 !mt-48"
+            class="grid lg:flex lg:justify-between lg:grid-cols-none grid-cols-1 lg:space-y-0 space-y-12 !mt-48"
         >
             <SiteFeatureBox
                 icon={faTruck}
@@ -204,7 +204,7 @@
                 title={$l("page.main.return")}
                 description={$l("page.main.return.description")}
             >
-                <a class="text-sm text-vspot-link" href="/return-policy"
+                <a class="text-sm mx-auto text-vspot-link" href="/return-policy"
                     >{$l("page.main.return.check_policy")}
                 </a>
             </SiteFeatureBox>
