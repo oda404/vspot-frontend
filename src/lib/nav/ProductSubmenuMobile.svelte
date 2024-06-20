@@ -21,7 +21,7 @@
 <div
     role="menu"
     tabindex="0"
-    class="z-20 flex flex-col fixed lg:hidden w-[60vw] h-[98vh] left-[-40px] top-[-10px] p-4 rounded-lg bg-vspot-primary-bg space-y-4"
+    class="z-20 flex flex-col fixed lg:hidden w-[60vw] h-[calc(100vh-20px)] left-[-40px] top-[-10px] p-4 rounded-lg bg-vspot-primary-bg space-y-4"
 >
     <div
         class="flex space-x-4 items-center border-b border-vspot-secondary-bg pb-2"

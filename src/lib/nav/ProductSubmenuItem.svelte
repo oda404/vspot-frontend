@@ -81,7 +81,7 @@
         {/if}
     </a>
 {:else if mobile_selected}
-    <div class="space-y-2 mt-4">
+    <div class="space-y-4 mt-4">
         {#if suboptions}
             {#each suboptions as suboption}
                 {#if is_suboption_dividider(suboption)}
