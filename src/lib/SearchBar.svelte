@@ -1,6 +1,6 @@
 <script lang="ts">
     import Fa from "svelte-fa";
-    import { faSearch } from "@fortawesome/free-solid-svg-icons";
+    import { faSearch, faX } from "@fortawesome/free-solid-svg-icons";
     import { l } from "./langs";
     import { onDestroy } from "svelte";
     import {
@@ -38,7 +38,7 @@
     $: if (search_data) open = true;
 </script>
 
-<div class="relative w-full">
+<div class="lg:relative w-full">
     <button class="flex w-full items-center hover:cursor-pointer">
         <Fa icon={faSearch} />
         <form class="relative">
@@ -59,23 +59,50 @@
     </button>
     {#if open && search_data}
         <div
-            class="absolute flex justify-center left-0 top-12 bg-vspot-primary-bg w-full border-2 border-vspot-secondary-bg rounded-lg p-4 drop-shadow-lg"
+            class="absolute flex justify-center left-0 lg:top-12 top-14 bg-vspot-primary-bg lg:w-full w-[calc(100vw-30px)] border-2 border-vspot-secondary-bg rounded-lg p-4 drop-shadow-lg"
         >
             {#if search_promise}
                 {#await search_promise}
                     <Spinner scale={1.5} fg="#ffffff" />
                 {:then search_res}
                     {#if !search_res || search_res.status !== 200}
-                        <span class="text-left w-full"
-                            >Am intampinat o problema</span
-                        >
+                        <div class="flex items-center justify-between">
+                            <span class="text-left w-full"
+                                >Am intampinat o problema</span
+                            >
+                            <button
+                                on:click={() => {
+                                    open = false;
+                                }}
+                            >
+                                <Fa icon={faX} />
+                            </button>
+                        </div>
                     {:else if search_res.body.data?.length === 0}
-                        <span class="text-left w-full"
-                            >Nu s-a gasit niciun rezultat</span
-                        >
+                        <div class="flex items-center justify-between">
+                            <span class="text-left w-full">
+                                Nu s-a gasit niciun rezultat
+                            </span>
+                            <button
+                                on:click={() => {
+                                    open = false;
+                                }}
+                            >
+                                <Fa icon={faX} />
+                            </button>
+                        </div>
                     {:else}
                         <div class="space-y-4 flex flex-col w-full">
-                            <span>Rezultatele cautarii</span>
+                            <div class="flex items-center justify-between">
+                                <span>Rezultatele cautarii</span>
+                                <button
+                                    on:click={() => {
+                                        open = false;
+                                    }}
+                                >
+                                    <Fa icon={faX} />
+                                </button>
+                            </div>
                             {#each search_res.body.data as product}
                                 <div class="overflow-x-hidden">
                                     <ProductHorizontalDisplay
