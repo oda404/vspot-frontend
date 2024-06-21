@@ -1,6 +1,6 @@
 <script lang="ts">
     import LayoutMain from "$lib/layout/LayoutMain.svelte";
-    import "../app.css";
+    import "../../app.css";
 
     export let data;
 </script>
