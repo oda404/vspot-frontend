@@ -704,6 +704,7 @@ var translations = {
         "filteropt.xros4": "XROS 4",
         "filteropt.argusz": "Argus Z",
         "filteropt.eliquid_france": "ELiquid France",
+        "filteropt.10": "10 buc.",
 
         "shipping.fancourier": "Fan Courier",
         "shipping.sameday": "Sameday",
