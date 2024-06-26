@@ -14,23 +14,22 @@ export type V1ServerProductDisplayData = {
     name: string;
     image_url: string;
     price: number;
-    price_decimals: number;
     discount: number;
     currency: string;
     stock: number;
-}
+};
 
 export type V1ServerProductListByCategory = {
-    products: V1ServerProductDisplayData[],
+    products: V1ServerProductDisplayData[];
     filters: V1ServerCategoryFilter[];
     pages: number;
-}
+};
 
 export type V1ServerProductListLandingPage = {
     newest: V1ServerProductDisplayData[];
     pouches: V1ServerProductDisplayData[];
     kits: V1ServerProductDisplayData[];
-}
+};
 
 export type V1ServerProductFullinfo = {
     internal_id: string;
@@ -40,7 +39,6 @@ export type V1ServerProductFullinfo = {
 
     /* These are handed by us */
     price: number;
-    price_decimals: number;
     discount: number;
     currency: string;
     stock: number;
@@ -56,90 +54,96 @@ export type V1ServerProductFullInfoWithRecommendations = {
 export async function backendv1_get_products_all(
     category: string,
     search_params: string,
-    fetch_func: FetchFunction
+    fetch_func: FetchFunction,
 ): Promise<ServerResponse<V1ServerProductListByCategory>> {
     return await backendv1_base_fetch(
         `${backendv1_endpoint()}/product/${category}/all?${search_params}`,
         {
             method: "GET",
             headers: {
-                ...BACKENDV1_BASE_GET_HEADERS
+                ...BACKENDV1_BASE_GET_HEADERS,
             },
         },
-        fetch_func
+        fetch_func,
     );
 }
 
 export async function backendv1_get_product_fullinfo_with_recommendations(
     id: string,
-    fetch_func: FetchFunction
+    fetch_func: FetchFunction,
 ): Promise<ServerResponse<V1ServerProductFullInfoWithRecommendations>> {
     return await backendv1_base_fetch(
         `${backendv1_endpoint()}/product/fullinfo_recommend?product_id=${id}`,
         {
             method: "GET",
             headers: {
-                ...BACKENDV1_BASE_GET_HEADERS
-            }
+                ...BACKENDV1_BASE_GET_HEADERS,
+            },
         },
-        fetch_func
+        fetch_func,
     );
 }
 
 export async function backendv1_get_products_landingpage(
-    fetch_func: FetchFunction
+    fetch_func: FetchFunction,
 ): Promise<ServerResponse<V1ServerProductListLandingPage>> {
     return await backendv1_base_fetch(
         `${backendv1_endpoint()}/product/landingpage`,
         {
             method: "GET",
             headers: {
-                ...BACKENDV1_BASE_GET_HEADERS
-            }
+                ...BACKENDV1_BASE_GET_HEADERS,
+            },
         },
-        fetch_func
+        fetch_func,
     );
 }
 
-export async function backendv1_get_products_displayinfo(ids: string[]): Promise<ServerResponse<V1ServerProductDisplayData[]>> {
+export async function backendv1_get_products_displayinfo(
+    ids: string[],
+): Promise<ServerResponse<V1ServerProductDisplayData[]>> {
     return await backendv1_base_fetch(
         `${backendv1_endpoint()}/product/coreinfo?ids=${ids.join("+")}`,
         {
             method: "GET",
             headers: {
-                ...BACKENDV1_BASE_GET_HEADERS
-            }
-        }
+                ...BACKENDV1_BASE_GET_HEADERS,
+            },
+        },
     );
 }
 
-export async function backendv1_get_random_product(ids: string[], fetch_func: FetchFunction): Promise<ServerResponse<V1ServerProductDisplayData | null>> {
-
+export async function backendv1_get_random_product(
+    ids: string[],
+    fetch_func: FetchFunction,
+): Promise<ServerResponse<V1ServerProductDisplayData | null>> {
     let exclude = "";
-    if (ids.length)
-        exclude = `exclude=${ids.join("+")}`
+    if (ids.length) exclude = `exclude=${ids.join("+")}`;
 
     return await backendv1_base_fetch(
         `${backendv1_endpoint()}/product/random?${exclude}`,
         {
             method: "GET",
             headers: {
-                ...BACKENDV1_BASE_GET_HEADERS
-            }
+                ...BACKENDV1_BASE_GET_HEADERS,
+            },
         },
-        fetch_func
+        fetch_func,
     );
 }
 
-export async function backendv1_product_search(keywords: string[], fetch_func: FetchFunction): Promise<ServerResponse<V1ServerProductDisplayData[]>> {
+export async function backendv1_product_search(
+    keywords: string[],
+    fetch_func: FetchFunction,
+): Promise<ServerResponse<V1ServerProductDisplayData[]>> {
     return await backendv1_base_fetch(
         `${backendv1_endpoint()}/product/search?keywords=${keywords.join("+")}`,
         {
             method: "GET",
             headers: {
-                ...BACKENDV1_BASE_GET_HEADERS
+                ...BACKENDV1_BASE_GET_HEADERS,
             },
         },
-        fetch_func
+        fetch_func,
     );
 }

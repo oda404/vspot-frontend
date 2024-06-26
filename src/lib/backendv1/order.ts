@@ -1,7 +1,10 @@
 import type { PaymentMethod } from "$lib/orderinfo/orderinfo";
 import { backendv1_endpoint } from "./endpoint";
 import type { ServerResponse } from "./response";
-import { BACKENDV1_BASE_GET_HEADERS, BACKENDV1_BASE_POST_HEADERS } from "./headers";
+import {
+    BACKENDV1_BASE_GET_HEADERS,
+    BACKENDV1_BASE_POST_HEADERS,
+} from "./headers";
 import type { FetchFunction } from "./safe_fetch";
 import { backendv1_base_fetch } from "./base_fetch";
 import type { V1ServerCouponInfo } from "./coupon";
@@ -47,16 +50,20 @@ export type V1ServerPurchasedProduct = {
     currency: string;
     qty: number;
     price: number;
-    price_decimals: number;
     discount: number;
 };
 
-export type V1ServerOrderStatus = "canceled" | "registered" | "confirmed" | "shipped" | "completed";
+export type V1ServerOrderStatus =
+    | "canceled"
+    | "registered"
+    | "confirmed"
+    | "shipped"
+    | "completed";
 
 export type V1ServerOrder = {
     id: string;
 
-    date: Date,
+    date: Date;
 
     firstname: string;
     lastname: string;
@@ -77,7 +84,6 @@ export type V1ServerOrder = {
     shipping_method: string;
     shipping_tracking_number: string | undefined;
     shipping_price: number;
-    shipping_price_decimals: number;
 
     products: V1ServerPurchasedProduct[];
 
@@ -96,46 +102,54 @@ export type V1ServerOrderDisplayInfo = {
 export type V1ServerOrders = {
     orders: V1ServerOrder[];
     pages: number;
-}
+};
 
-export async function backendv1_post_order_submit(order_register_info: V1ClientOrderInfo, turnstile_token: string): Promise<ServerResponse<string>> {
+export async function backendv1_post_order_submit(
+    order_register_info: V1ClientOrderInfo,
+    turnstile_token: string,
+): Promise<ServerResponse<string>> {
     return await backendv1_base_fetch(
         `${backendv1_endpoint()}/order/register`,
         {
             method: "POST",
             credentials: "include",
             headers: {
-                ...BACKENDV1_BASE_POST_HEADERS
+                ...BACKENDV1_BASE_POST_HEADERS,
             },
-            body: JSON.stringify({ turnstile_token, order_register_info })
-        }
+            body: JSON.stringify({ turnstile_token, order_register_info }),
+        },
     );
 }
 
-export async function backendv1_get_order_get(order_id: string, fetch_func: FetchFunction): Promise<ServerResponse<V1ServerOrderDisplayInfo>> {
+export async function backendv1_get_order_get(
+    order_id: string,
+    fetch_func: FetchFunction,
+): Promise<ServerResponse<V1ServerOrderDisplayInfo>> {
     return await backendv1_base_fetch(
         `${backendv1_endpoint()}/order/get?order_id=${order_id}`,
         {
             method: "GET",
             credentials: "include",
             headers: {
-                ...BACKENDV1_BASE_GET_HEADERS
+                ...BACKENDV1_BASE_GET_HEADERS,
             },
         },
-        fetch_func
+        fetch_func,
     );
 }
 
-export async function backendv1_order_user_all(fetch_func: FetchFunction): Promise<ServerResponse<V1ServerOrders>> {
+export async function backendv1_order_user_all(
+    fetch_func: FetchFunction,
+): Promise<ServerResponse<V1ServerOrders>> {
     return await backendv1_base_fetch(
         `${backendv1_endpoint()}/order/all`,
         {
             method: "GET",
             credentials: "include",
             headers: {
-                ...BACKENDV1_BASE_GET_HEADERS
+                ...BACKENDV1_BASE_GET_HEADERS,
             },
         },
-        fetch_func
+        fetch_func,
     );
 }

@@ -23,9 +23,7 @@
         cart_item_total = 0;
         $cart.items.forEach((product) => {
             cart_item_count += product.qty;
-            cart_item_total +=
-                (product.price + product.price_decimals - product.discount) *
-                product.qty;
+            cart_item_total += product.qty * (product.price - product.discount);
         });
     };
 

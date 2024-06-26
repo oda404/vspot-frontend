@@ -40,8 +40,7 @@
         if (cart_items.length > 0) currency = cart_items[0].currency;
         cart_total = 0;
         cart_items.forEach((item) => {
-            cart_total +=
-                item.qty * (item.price + item.price_decimals - item.discount);
+            cart_total += item.qty * (item.price - item.discount);
         });
     });
 

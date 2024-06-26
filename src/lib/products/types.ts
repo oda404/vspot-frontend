@@ -1,4 +1,3 @@
-
 export type ProductFilter = {
     name: string;
     options: {
@@ -17,7 +16,6 @@ export type ProductHorizontalData = {
     name: string;
     image_url: string;
     price: number;
-    price_decimals: number;
     discount: number;
     currency: string;
 };

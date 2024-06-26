@@ -76,13 +76,13 @@
                     value: method.name,
                     display: method.display,
                     image_url: `/images/shipping/${method.name}.webp`,
-                    cost_value: { cost: method.cost.price, currency: "RON" },
+                    cost_value: { cost: method.price, currency: "RON" },
                     delivery_time_value: delivery_time,
                     selected: orderinfo!.shipping_method?.value === method.name,
                     description: {
                         translation: "shipping.methoddescription",
                         args: {
-                            cost: `${method.cost.price} RON`,
+                            cost: `${method.price} RON`,
                             delivery_time: delivery_time,
                         },
                     },

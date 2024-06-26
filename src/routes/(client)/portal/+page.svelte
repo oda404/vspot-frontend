@@ -31,7 +31,6 @@
         products.forEach((p) => {
             total = new Decimal(total)
                 .plus(p.price)
-                .plus(p.price_decimals)
                 .minus(p.discount)
                 .toNumber();
         });
@@ -42,10 +41,6 @@
                 .toNumber();
 
         return total;
-    };
-
-    const order_total_shipping = (order: V1ServerOrder) => {
-        return order.shipping_price + order.shipping_price_decimals;
     };
 
     $: tracking_number_inputs = data.orders.orders.map((order) => {
@@ -160,7 +155,7 @@
                 <div class="space-y-4">
                     {#each order.products as product}
                         <a
-                            href="/product/{product.id}"
+                            href="/product/{product.internal_id}"
                             class="flex space-x-4 min-w-[420px]"
                         >
                             <img
@@ -291,7 +286,7 @@
                                 >{$l("description.shipping")}</span
                             >
                             <span class="whitespace-nowrap">
-                                {order_total_shipping(order)}
+                                {order.shipping_price}
                                 RON
                             </span>
                         </div>
@@ -303,7 +298,7 @@
                             >
                             <span class="whitespace-nowrap">
                                 {order_total(order.products, order.coupon) +
-                                    order_total_shipping(order)} RON
+                                    order.shipping_price} RON
                             </span>
                         </div>
                     </div>

@@ -26,7 +26,6 @@
         products.forEach((p) => {
             total = new Decimal(total)
                 .plus(p.price)
-                .plus(p.price_decimals)
                 .minus(p.discount)
                 .toNumber();
         });
@@ -37,10 +36,6 @@
                 .toNumber();
 
         return total;
-    };
-
-    const order_total_shipping = (order: V1ServerOrder) => {
-        return order.shipping_price + order.shipping_price_decimals;
     };
 </script>
 
@@ -189,7 +184,7 @@
                                 >{$l("description.shipping")}</span
                             >
                             <span class="whitespace-nowrap">
-                                {order_total_shipping(order)}
+                                {order.shipping_price}
                                 RON
                             </span>
                         </div>
@@ -201,7 +196,7 @@
                             >
                             <span class="whitespace-nowrap">
                                 {order_total(order.products, order.coupon) +
-                                    order_total_shipping(order)} RON
+                                    order.shipping_price} RON
                             </span>
                         </div>
                     </div>

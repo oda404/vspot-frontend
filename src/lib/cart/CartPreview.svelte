@@ -13,13 +13,11 @@
 
     $: cart_items = cart.items;
 
+    /* reset to zero if cart_items changes */
     $: total = cart_items ? 0 : 0;
     $: for (let i = 0; i < cart_items.length; ++i) {
         total +=
-            cart_items[i].qty *
-            (cart_items[i].price +
-                cart_items[i].price_decimals -
-                cart_items[i].discount);
+            cart_items[i].qty * (cart_items[i].price - cart_items[i].discount);
     }
 
     onMount(() => {
