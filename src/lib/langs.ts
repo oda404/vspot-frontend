@@ -820,6 +820,9 @@ var translations = {
         "filteropt.10": "10 buc.",
         "filteropt.ske": "SKE",
         "filteropt.crystalbar": "Crystal Bar",
+        "filteropt.epotion": "E-Potion",
+        "filteropt.mystique": "Mystique",
+        "filteropt.70/30": "70/30",
 
         "shipping.fancourier": "Fan Courier",
         "shipping.sameday": "Sameday",
