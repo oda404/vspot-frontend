@@ -18,7 +18,7 @@ export async function load({ fetch, url }) {
     if (Number.isNaN(current_page) || current_page <= 0 || current_page > pages)
         current_page = 1;
 
-    let filters = res.body.data?.filters;
+    let filters = res.body.data!.filters;
     if (filters)
         filters = product_filters_omit("reusable", filters);
 

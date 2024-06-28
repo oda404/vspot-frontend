@@ -31,6 +31,12 @@
         search_promise = backendv1_product_search(keywords, fetch);
     }, query_interval_ms);
 
+    const to_product_core_infos = (
+        prods: V1ServerProductDisplayData[] | undefined,
+    ) => {
+        return prods as V1ServerProductDisplayData[];
+    };
+
     onDestroy(() => {
         clearInterval(interval_id);
     });
@@ -103,7 +109,7 @@
                                     <Fa icon={faX} />
                                 </button>
                             </div>
-                            {#each search_res.body.data as product}
+                            {#each to_product_core_infos(search_res.body.data) as product}
                                 <div class="overflow-x-hidden">
                                     <ProductHorizontalDisplay
                                         show_discount

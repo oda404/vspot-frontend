@@ -1,15 +1,7 @@
 <script lang="ts">
     import { l } from "$lib/langs";
     import Fa from "svelte-fa";
-
-    type RadioOption = {
-        value: string;
-        icon?: any;
-        image_url?: string;
-        description?: string | { translation: string; args: any };
-        display: string;
-        selected: boolean;
-    };
+    import type { RadioOption } from "./InputRadio";
 
     export let name: string;
     export let options: RadioOption[];
