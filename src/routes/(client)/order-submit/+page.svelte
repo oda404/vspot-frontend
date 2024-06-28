@@ -112,7 +112,7 @@
             shipping_address: orderinfo!.shipping!.address,
             shipping_postalcode: orderinfo!.shipping!.postalcode,
 
-            shipping_method: orderinfo!.shipping_method!.value,
+            shipping_method: orderinfo!.shipping_method!.name,
 
             coupon: orderinfo!.coupon?.code,
         };
@@ -178,26 +178,21 @@
                 >
             </div>
             <div class="flex items-center space-x-2">
-                <div class="w-[50px] h-full">
-                    <img
-                        src={shipping_methods_get_img_url(
-                            shipping_method.value,
-                        )}
-                        alt="Shipping method"
-                        class="rounded-lg"
-                    />
-                </div>
+                <img
+                    src={shipping_methods_get_img_url(shipping_method.name)}
+                    alt="Shipping method"
+                    class="rounded-lg w-[50px]"
+                />
                 <div>
-                    <div>
+                    <span class="block">
                         {shipping_method.display}
-                    </div>
-                    <div>
+                    </span>
+                    <span class="block">
                         {$l("shipping.methoddescription", {
-                            cost: `${shipping_method.cost_for_order.cost} ${shipping_method.cost_for_order.currency}`,
-                            delivery_time:
-                                shipping_method.delivery_time_for_order,
+                            cost: `${shipping_method.price} RON`,
+                            delivery_time: "1-2",
                         })}
-                    </div>
+                    </span>
                 </div>
             </div>
         </div>
@@ -261,10 +256,8 @@
                             >
                                 <span>{$l("description.shipping")}</span>
                                 <span>
-                                    {price_format(
-                                        shipping_method.cost_for_order.cost,
-                                    )}
-                                    {shipping_method.cost_for_order.currency}
+                                    {price_format(shipping_method.price)}
+                                    RON
                                 </span>
                             </div>
                             <div
@@ -274,8 +267,7 @@
                                 <span>
                                     {price_format(
                                         cart_total +
-                                            shipping_method.cost_for_order
-                                                .cost -
+                                            shipping_method.price -
                                             coupon_discount,
                                     )} RON
                                 </span>

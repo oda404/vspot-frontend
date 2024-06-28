@@ -23,10 +23,9 @@ export type ContactInfo = {
 };
 
 export type ShippingMethod = {
-    value: string;
+    name: string;
     display: string;
-    cost_for_order: { cost: number, currency: string };
-    delivery_time_for_order: string;
+    price: number;
 };
 
 export type Coupon = {
@@ -62,7 +61,7 @@ export const ORDERINFO_STORE = writable<OrderInfo | undefined>(
     (localStorage.orderinfo && JSON.parse(localStorage.orderinfo)) || undefined
 );
 
-export function orderinfo_set(value: OrderInfo) {
+function orderinfo_set(value: OrderInfo) {
     ORDERINFO_STORE.set(value);
     orderinfo_save_to_local(value);
 }
@@ -202,6 +201,19 @@ export function orderinfo_set_payment_method(payment: PaymentMethod) {
 
     ORDERINFO_STORE.update($order_info => {
         $order_info!.payment_option = payment;
+        orderinfo_save_to_local($order_info!);
+        return $order_info;
+    });
+}
+
+export function orderinfo_set_shipping_method(method: ShippingMethod) {
+    if (!get(ORDERINFO_STORE)) {
+        orderinfo_set({ shipping_method: method });
+        return;
+    }
+
+    ORDERINFO_STORE.update($order_info => {
+        $order_info!.shipping_method = method;
         orderinfo_save_to_local($order_info!);
         return $order_info;
     });

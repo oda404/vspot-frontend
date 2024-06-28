@@ -7,18 +7,24 @@
     import { InputFieldContext } from "$lib/input/InputField";
     import { romanian_counties } from "$lib/input/romanian_counties";
     import {
-        orderinfo_set,
         ORDERINFO_STORE,
         type OrderInfo,
         orderinfo_shipping_address_is_billing,
         orderinfo_is_first_stage_valid,
+        orderinfo_set_shipping_method,
+        orderinfo_set_shipping_address,
     } from "$lib/orderinfo/orderinfo";
     import { onDestroy } from "svelte";
     import InputRadio from "$lib/input/InputRadio.svelte";
 
     import Spinner from "$lib/Spinner.svelte";
     import { pagetitle_make } from "$lib/title";
-    import { backendv1_get_shipping_methods } from "$lib/backendv1/shipping.js";
+    import {
+        backendv1_get_shipping_methods,
+        type V1ShippingMethod,
+    } from "$lib/backendv1/shipping.js";
+    import { shipping_methods_get_img_url } from "$lib/orderinfo/shipping_methods.js";
+    import type { RadioOption } from "$lib/input/InputRadio.js";
 
     export let data;
 
@@ -67,18 +73,24 @@
         if (value.length > 6) return "Cod postal invalid!";
     };
 
-    let shipping_methods: any[] = [];
+    let shipping_methods_radio: RadioOption[] = [];
+    let shipping_methods: V1ShippingMethod[] = [];
+
     let shipping_methods_promise = backendv1_get_shipping_methods(100, fetch)
-        .then((data) => {
-            shipping_methods = data.body.data!.map((method) => {
+        .then((res) => {
+            if (res.status >= 400) {
+                console.error(`Failed to fetch shipping method: ${res}`);
+                return;
+            }
+
+            shipping_methods = res.body.data!;
+            shipping_methods_radio = shipping_methods.map((method) => {
                 const delivery_time = `${method.delivery_time_days[0]}-${method.delivery_time_days[1]}`;
                 return {
                     value: method.name,
                     display: method.display,
-                    image_url: `/images/shipping/${method.name}.webp`,
-                    cost_value: { cost: method.price, currency: "RON" },
-                    delivery_time_value: delivery_time,
-                    selected: orderinfo!.shipping_method?.value === method.name,
+                    image_url: shipping_methods_get_img_url(method.name),
+                    selected: orderinfo!.shipping_method?.name === method.name,
                     description: {
                         translation: "shipping.methoddescription",
                         args: {
@@ -93,16 +105,15 @@
             console.error(
                 `Error trying to fetch shipping methods from backend: ${error}`,
             );
-            error(400, "Eroare");
         });
 
     let shipping_method_error = false;
-    $: if (shipping_methods.find((o) => o.selected))
+    $: if (shipping_methods_radio.find((o) => o.selected))
         shipping_method_error = false;
 
     const validate_shipping_and_redirect = () => {
         if (shipping_is_billing) {
-            orderinfo!.shipping = orderinfo!.billing;
+            orderinfo_set_shipping_address(orderinfo!.billing!);
         } else {
             let has_error = false;
 
@@ -121,28 +132,36 @@
 
             if (has_error) return;
 
-            orderinfo!.shipping = {
+            orderinfo_set_shipping_address({
                 county: county_data.value,
                 city: city_data.value,
                 address: address_data.value,
                 postalcode: postalcode_data.value,
-            };
+            });
         }
 
-        let shipping_method = shipping_methods.find((o) => o.selected);
+        const shipping_method_radio = shipping_methods_radio.find(
+            (o) => o.selected,
+        );
+        if (!shipping_method_radio) {
+            shipping_method_error = true;
+            return;
+        }
+
+        const shipping_method = shipping_methods.find(
+            (method) => (method.name = shipping_method_radio.value),
+        );
         if (!shipping_method) {
             shipping_method_error = true;
             return;
         }
 
-        orderinfo!.shipping_method = {
-            value: shipping_method.value,
+        orderinfo_set_shipping_method({
+            name: shipping_method.name,
             display: shipping_method.display,
-            cost_for_order: shipping_method.cost_value,
-            delivery_time_for_order: shipping_method.delivery_time_value,
-        };
+            price: shipping_method.price,
+        });
 
-        orderinfo_set(orderinfo!);
         goto("/order-submit");
     };
 </script>
@@ -205,7 +224,7 @@
             {:then}
                 <InputRadio
                     name="shipping_option"
-                    bind:options={shipping_methods}
+                    bind:options={shipping_methods_radio}
                     do_locale_description
                 />
             {:catch}
