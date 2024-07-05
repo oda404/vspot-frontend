@@ -1,5 +1,6 @@
 <script lang="ts">
     import { browser } from "$app/environment";
+    import { PUBLIC_VSPOT_COOKIE_DOMAIN } from "$env/static/public";
     import { l } from "$lib/langs";
 
     let show = false;
@@ -24,9 +25,9 @@
         >
         <div class="flex justify-between mt-2 space-x-4">
             <button
-                class="bg-vspot-primary-bg p-2 rounded-tl-lg rounded-br-lg w-full"
+                class="bg-vspot-green text-vspot-primary-bg p-2 rounded-tl-lg rounded-br-lg w-full"
                 on:click={() => {
-                    document.cookie = `cookie_consent=true; SameSite=strict; Domain=.dev.vspot.ro; Max-Age=31536000`;
+                    document.cookie = `cookie_consent=true; SameSite=strict; Domain=${PUBLIC_VSPOT_COOKIE_DOMAIN}; Max-Age=31536000`;
                     show = false;
                 }}
             >
