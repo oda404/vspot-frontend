@@ -101,7 +101,7 @@ var translations = {
         "order.info": "Facturare",
         "order.shipping": "Livrare",
         "order.noaccount_notice":
-            "Inainte sa trimiti comanda te rugam sa-ti faci un cont, e gratis!",
+            "Inainte sa trimiti comanda te rugam sa-ti creezi un cont!",
         "order.send": "Trimite",
         "order.sendorder": "Trimite comanda",
         "order.payandsend": "Plateste & trimite",
@@ -179,6 +179,10 @@ var translations = {
         "product.disposable_reusable.description":
             "Vape-uri reincarcabile cu poduri",
         "product.disposable_cartridge.description": "Poduri preumplute",
+
+        "product.recommended_for_you": "Recomandate pentru tine",
+
+        "price.only_online": "Acest pret este valabil exclusiv online",
 
         "nav.home": "Acasa",
         "nav.products": "Produse",
@@ -559,6 +563,10 @@ var translations = {
         "product.disposable_reusable.description":
             "Juul-like kits with prefilled pods",
         "product.disposable_cartridge.description": "Prefilled pods",
+
+        "product.recommended_for_you": "Recommended for you",
+
+        "price.only_online": "This price is only valid when purchasing online",
 
         "nav.home": "Home",
         "nav.products": "Products",
