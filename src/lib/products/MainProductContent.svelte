@@ -50,7 +50,7 @@
                 {$l(`product.${product_title}.description`)}
             </span>
         </div>
-        <div class="flex items-center space-x-4 mr-auto">
+        <div class="flex items-center space-x-4 lg:space-x-0 mr-auto">
             <button
                 class="lg:hidden flex items-center space-x-2 pb-2 border-b border-vspot-secondary-bg"
                 on:click={() =>
