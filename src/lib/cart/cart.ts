@@ -58,6 +58,7 @@ export async function cart_add_item(
     id: string,
     on_finished_cb?: (error?: string) => void,
     show_overlay = true,
+    qty: number = 1
 ) {
     const coreinfo_res = await backendv1_get_products_displayinfo([id]);
     if (coreinfo_res.status !== 200) {
@@ -90,7 +91,7 @@ export async function cart_add_item(
 
         if (!item) {
             /* The rest of the fields are set by cart_update_item_coreinfo */
-            items.push({ internal_id: id, qty: 1 } as CartProduct);
+            items.push({ internal_id: id, qty: qty } as CartProduct);
             item = items[items.length - 1];
         } else {
             const qty = item.qty;
@@ -98,7 +99,7 @@ export async function cart_add_item(
                 $cart.stock_error = true;
                 item.qty = product_coreinfo.stock;
             } else {
-                ++item.qty;
+                item.qty += qty;
             }
         }
 
@@ -145,7 +146,7 @@ export function cart_delete_item(id: string) {
     });
 }
 
-export async function cart_sync_products() {}
+export async function cart_sync_products() { }
 
 export function cart_do_empty() {
     cart_set({
