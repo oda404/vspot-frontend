@@ -189,7 +189,7 @@
         </div>
         <div class="space-y-4">
             <div class="text-xl">{$l("orderinfo.billingaddress")}</div>
-            <div class="flex space-x-4">
+            <div class="flex items-center space-x-4">
                 <InputDropdown
                     id="county"
                     label={$l("orderinfo.county")}

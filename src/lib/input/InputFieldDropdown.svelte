@@ -13,9 +13,9 @@
         );
     else working_options = options;
 
-    let focused = false;
-    let dropdown_open = false;
-    $: move_label = focused || data.value.length > 0;
+    $: move_label = data.value.length > 0;
+
+    $: if (data.value && data.error) data.error = undefined;
 </script>
 
 <div class="flex flex-col space-y-1 relative w-full">
@@ -25,42 +25,21 @@
             : 'left-[14px]'} text-vspot-text-hovered bg-vspot-primary-bg px-1"
         for={id}>{label}</label
     >
-    <input
-        {id}
-        on:focus={() => {
-            focused = true;
-            dropdown_open = true;
-            data.error = undefined;
-        }}
-        on:blur={() => (focused = false)}
-        bind:value={data.value}
-        spellcheck={false}
-        class="bg-vspot-primary-bg p-2 px-4 w-full rounded-md border {data.error
+    <select
+        class="bg-vspot-primary-bg border {data.error
             ? 'border-vspot-text-error'
-            : 'border-vspot-secondary-bg'} focus:border-vspot-green focus:outline-none"
-    />
-    {#if dropdown_open}
-        <button
-            class="fixed w-full h-full top-0 left-0"
-            on:click={() => {
-                dropdown_open = false;
-            }}
-        />
-        <div
-            class="absolute w-full top-[40px] z-10 max-h-[200px] overflow-y-scroll bg-vspot-primary-bg rounded-lg border border-vspot-green"
-        >
-            {#each working_options as option}
-                <button
-                    class="p-2 px-4 block w-full text-left hover:bg-vspot-secondary-bg"
-                    on:click={() => {
-                        data.value = option;
-                        dropdown_open = false;
-                    }}>{option}</button
-                >
-            {/each}
-        </div>
-    {/if}
+            : 'border-vspot-secondary-bg'} rounded-lg h-[37px] px-4"
+        name="county"
+        id="county"
+        bind:value={data.value}
+    >
+        {#each options as option}
+            <option value={option}>{option}</option>
+        {/each}
+    </select>
     {#if data.error}
-        <div class="text-sm text-vspot-text-error">{data.error}</div>
+        <div class="text-sm leading-[1] text-vspot-text-error">
+            {data.error}
+        </div>
     {/if}
 </div>

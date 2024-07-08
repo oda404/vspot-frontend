@@ -68,8 +68,7 @@
     </div>
     {#if current_coupon}
         <span class="text-vspot-green block">
-            Felicitari ai {current_coupon.value_perc}% reducere pentru aceasta
-            comanda!
+            {$l("order.discount_showcase", { perc: current_coupon.value_perc })}
         </span>
     {/if}
 </div>

@@ -94,8 +94,7 @@ export async function cart_add_item(
             items.push({ internal_id: id, qty: qty } as CartProduct);
             item = items[items.length - 1];
         } else {
-            const qty = item.qty;
-            if (qty >= product_coreinfo.stock) {
+            if (item.qty >= product_coreinfo.stock) {
                 $cart.stock_error = true;
                 item.qty = product_coreinfo.stock;
             } else {

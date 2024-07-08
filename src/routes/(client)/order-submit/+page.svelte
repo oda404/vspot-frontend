@@ -197,20 +197,18 @@
             </div>
         </div>
         <div class="flex flex-col lg:flex-row">
-            <div class="min-w-[65%] w-[65%] p-4 rounded-lg space-y-2">
-                <div class="space-y-4 divide-y divide-vspot-secondary-bg">
-                    {#each cart_items as item}
-                        <div class="pt-4">
-                            <ProductHorizontalDisplay
-                                large
-                                show_discount
-                                qty={item.qty}
-                                show_qty
-                                product={item}
-                            />
-                        </div>
-                    {/each}
-                </div>
+            <div class="min-w-[65%] p-4 rounded-lg space-y-2">
+                {#each cart_items as item}
+                    <div class="pt-4 w-full">
+                        <ProductHorizontalDisplay
+                            large
+                            show_discount
+                            qty={item.qty}
+                            show_qty
+                            product={item}
+                        />
+                    </div>
+                {/each}
             </div>
             <div class="w-full">
                 <div

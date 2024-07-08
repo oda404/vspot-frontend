@@ -110,13 +110,15 @@ var translations = {
         "order.confirmed": "Iti pregatim comanda",
         "order.shipped": "In transport",
         "order.completed": "A ajuns la tine",
-        "order.coupon": "Voucher",
+        "order.coupon": "Cod",
         "order.orderon": "Comanda pe {{date}}",
         "order.no_orders": "Nu ai plasat nicio comanda inca...",
         "order.consent":
             "Sunt de acord cu Termenii serviciului si Politica de confidentialitate",
         "order.consent_error":
             "Termenii serviciului si politica de confidentialitate sunt obligatorii.",
+        "order.do_you_have_a_voucher": "Ai un voucher?",
+        "order.discount_showcase": "Ai {{perc}}% reducere pentru aceasta comanda!",
 
         "payment.card": "Card",
         "payment.cash": "Ramburs la livrare",
@@ -252,9 +254,9 @@ var translations = {
         "description.outofstock_simple": "Nu este in stoc",
         "description.instock": "In stoc",
         "description.addedtocart": "Adaugat in cos",
-        "description.notaddedtocart": "Produsul nu a putut fi adaugat in cos!",
+        "description.notaddedtocart": "Produsul nu a putut fi adaugat in cos",
         "description.cartlimithit":
-            "Ai deja tot stocul nostru disponibil pentru acest produs in cos.",
+            "Ai deja tot stocul nostru disponibil pentru acest produs in cos",
         "description.stock": "{{n}} in stoc",
         "description.itemsincart": "{{n}} in cos",
         "description.yourcart": "Cosul tau",
@@ -497,13 +499,15 @@ var translations = {
         "order.confirmed": "Confirmed",
         "order.shipped": "Shipped",
         "order.completed": "Completed",
-        "order.coupon": "Voucher",
+        "order.coupon": "Code",
         "order.orderon": "Order on {{date}}",
         "order.no_orders": "You haven't placed any orders yet...",
         "order.consent":
             "I have read and accept the terms of service and the privacy policy",
         "order.consent_error":
             "The terms of service and privacy policy are mandatory",
+        "order.do_you_have_a_voucher": "Have a voucher?",
+        "order.discount_showcase": "You have a {{perc}}% discount on this order!",
 
         "payment.card": "Card",
         "payment.cash": "Cash on delivery",
@@ -658,7 +662,7 @@ var translations = {
             },
         },
         "description.productreminder":
-            "Wait! Are you stocked up on everything?",
+            "Are you stocked up on everything?",
         "description.productreminder_noitems": "Maybe you're looking for...",
         "description.yourproducts": "Your products",
         "description.pcs": "PCS.",
@@ -758,7 +762,7 @@ var translations = {
             "The lastname can have a maximum of 64 characters",
 
         "error.invalid.coupon": "This voucher is invalid",
-        "error.duplicate.coupon": "You already used this voucher for an order",
+        "error.duplicate.coupon": "You have already used this voucher for another order",
 
         "contact.description":
             "For any questions or feedback you can reach out to us through any of the following methods:",

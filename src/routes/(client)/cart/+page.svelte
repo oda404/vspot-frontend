@@ -8,6 +8,7 @@
     import { ORDERINFO_STORE } from "$lib/orderinfo/orderinfo.js";
     import ProductHorizontalDisplay from "$lib/products/ProductHorizontalDisplay.svelte";
     import { price_discount, price_format } from "$lib/price.js";
+    import Decimal from "decimal.js";
 
     export let data;
 
@@ -23,7 +24,9 @@
         cart_item_total = 0;
         $cart.items.forEach((product) => {
             cart_item_count += product.qty;
-            cart_item_total += product.qty * (product.price - product.discount);
+            cart_item_total += new Decimal(product.qty)
+                .mul(new Decimal(product.price).sub(product.discount))
+                .toNumber();
         });
     };
 
@@ -54,7 +57,9 @@
         {$l("cart.title")}
     </h1>
     <div class="h-[4px] rounded-lg my-2 w-full" />
-    <div class="flex flex-col lg:flex-row w-full lg:space-x-4">
+    <div
+        class="flex flex-col lg:space-y-0 space-y-8 lg:flex-row w-full lg:space-x-8"
+    >
         <div class="lg:w-[70%] space-y-4 divide-y divide-vspot-secondary-bg">
             {#each cart_items as item}
                 <div class=" pt-4">
@@ -83,7 +88,7 @@
         </div>
         {#if cart_item_count}
             <div
-                class="lg:w-[30%] h-fit bg-vspot-primary-bg border border-vspot-secondary-bg p-4 rounded-lg drop-shadow space-y-4"
+                class="lg:w-[35%] h-fit bg-vspot-primary-bg border border-vspot-secondary-bg p-4 rounded-lg drop-shadow space-y-4"
             >
                 <div>
                     <div class="text-vspot-text-hovered text-xl">
@@ -101,9 +106,12 @@
                         <span>{$l("description.producttotal")}</span>
                         <span>{price_format(cart_item_total)} RON</span>
                     </div>
-                    {#if data.user}
-                        <CouponInput />
-                    {/if}
+                    <div class="space-y-1">
+                        <span>{$l("order.do_you_have_a_voucher")}</span>
+                        {#if data.user}
+                            <CouponInput />
+                        {/if}
+                    </div>
                     {#if coupon_discount}
                         <div
                             class="flex justify-between border-b pb-2 border-vspot-secondary-bg"
@@ -112,9 +120,7 @@
                             <span>-{price_format(coupon_discount)} RON</span>
                         </div>
                     {/if}
-                    <div
-                        class="flex justify-between border-b pb-2 border-vspot-secondary-bg"
-                    >
+                    <div class="flex justify-between">
                         <span>{$l("description.simpletotal")}</span>
                         <span
                             >{price_format(cart_item_total - coupon_discount)} RON</span

@@ -64,11 +64,11 @@
                 </div>
             {/each}
             <div class="flex justify-between pt-4">
-                <div class="mt-auto">
+                <span class="mt-auto text-lg">
                     {$l("description.total", {
                         n: `${price_format(total)} ${cart_items[0].currency}`,
                     })}
-                </div>
+                </span>
                 <a
                     class="rounded-tl-lg rounded-br-lg bg-vspot-green text-vspot-secondary-bg px-4 p-1 text-left hover:text-vspot-primary-bg"
                     href="/cart"

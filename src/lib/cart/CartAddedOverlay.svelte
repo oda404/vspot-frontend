@@ -56,21 +56,23 @@
                     </a>
                 </div>
             {:else}
-                <div class="flex items-center">
-                    <div class="text-vspot-text-hovered">
-                        {$l("description.notaddedtocart")}
+                <div class="space-y-4">
+                    <div class="flex items-center">
+                        <div class="text-vspot-text-hovered">
+                            {$l("description.notaddedtocart")}
+                        </div>
+                        <button class="ml-auto" on:click={on_close_cb}>
+                            <Fa size="lg" color="#dddddd" icon={faXmark} />
+                        </button>
                     </div>
-                    <button class="ml-auto" on:click={on_close_cb}>
-                        <Fa size="lg" color="#dddddd" icon={faXmark} />
-                    </button>
-                </div>
-                <span>
-                    {$l("description.cartlimithit")}
-                </span>
-                <div class="flex space-x-4">
-                    <button on:click={on_close_cb} class="text-vspot-green">
-                        {$l("action.continueshopping")}
-                    </button>
+                    <span class="block">
+                        {$l("description.cartlimithit")}
+                    </span>
+                    <div class="flex space-x-4">
+                        <button on:click={on_close_cb} class="text-vspot-green">
+                            {$l("action.continueshopping")}
+                        </button>
+                    </div>
                 </div>
             {/if}
         </div>

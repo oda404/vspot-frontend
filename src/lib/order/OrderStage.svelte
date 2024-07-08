@@ -15,10 +15,10 @@
         disabled={stage === 1}
     >
         <ProgressBubble
-            _class="{stage === 1
-                ? 'border-2 border-vspot-green'
-                : ''} bg-vspot-secondary-bg"
-            ><div class="font-bold">1</div></ProgressBubble
+            _class="{stage === 1 ? 'border-2 border-vspot-green' : ''} {stage >
+            1
+                ? 'border-2 border-vspot-secondary-bg'
+                : ''}"><div class="font-bold">1</div></ProgressBubble
         >
         <div class="font-bold text-lg whitespace-nowrap">
             {$l("order.info")}
@@ -37,10 +37,10 @@
         disabled={stage < 3}
     >
         <ProgressBubble
-            _class="{stage === 2
-                ? 'border-2 border-vspot-green'
-                : ''} bg-vspot-secondary-bg"
-            ><div class="font-bold">2</div></ProgressBubble
+            _class="{stage === 2 ? 'border-2 border-vspot-green' : ''} {stage >
+            2
+                ? 'border-2 border-vspot-secondary-bg'
+                : ''}"><div class="font-bold">2</div></ProgressBubble
         >
         <div class="font-bold text-lg whitespace-nowrap">
             {$l("order.shipping")}
@@ -53,9 +53,7 @@
     />
     <button class="flex flex-col items-center" disabled>
         <ProgressBubble
-            _class="{stage === 3
-                ? 'border-2 border-vspot-green'
-                : ''} bg-vspot-secondary-bg"
+            _class={stage === 3 ? "border-2 border-vspot-green" : ""}
             ><div class="font-bold">3</div></ProgressBubble
         >
         <div class="font-bold text-lg whitespace-nowrap">
