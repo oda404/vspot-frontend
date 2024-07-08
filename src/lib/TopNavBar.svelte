@@ -43,7 +43,7 @@
     </a>
     <nav class="flex w-full lg:w-[1100px] z-10 space-x-4 fixed items-center">
         <div
-            class="w-[calc(100%-100px)] bg-vspot-primary-bg border-2 border-vspot-purple border-opacity-80 z-20 opacity-100 rounded-full space-x-8 px-8 h-[45px] flex items-center drop-shadow-lg"
+            class="w-[calc(100%-100px)] bg-vspot-primary-bg border-2 border-vspot-secondary-bg z-20 opacity-100 rounded-full space-x-8 px-8 h-[45px] flex items-center"
         >
             <button
                 on:click={() => {
