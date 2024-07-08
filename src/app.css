@@ -16,10 +16,6 @@
     @apply text-vspot-text-pimary;
 }
 
-html {
-    scroll-behavior: smooth;
-}
-
 button:hover {
     filter: brightness(95%);
 }
