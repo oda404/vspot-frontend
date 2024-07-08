@@ -45,9 +45,9 @@
 </script>
 
 <div class="lg:relative w-full">
-    <button class="flex w-full items-center hover:cursor-pointer">
+    <div class="flex w-full items-center hover:cursor-pointer">
         <Fa icon={faSearch} />
-        <form class="relative">
+        <form class="relative w-full">
             <label
                 for="search_bar_input"
                 class="absolute {open || search_data ? 'hidden' : ''} left-4"
@@ -59,10 +59,13 @@
                 on:focus={() => (open = true)}
                 bind:value={search_data}
                 spellcheck={false}
-                class="bg-vspot-primary-bg px-4 w-full outline-none focus:outline-none"
+                class="bg-vspot-primary-bg px-4 !w-full outline-none focus:outline-none {!open &&
+                search_data
+                    ? 'text-vspot-text-hovered'
+                    : ''}"
             />
         </form>
-    </button>
+    </div>
     {#if open && search_data}
         <div
             class="absolute flex justify-center left-0 lg:top-12 top-14 bg-vspot-primary-bg lg:w-full w-[calc(100vw-30px)] border-2 border-vspot-secondary-bg rounded-lg p-4 drop-shadow-lg"
@@ -74,7 +77,7 @@
                     {#if !search_res || search_res.status !== 200}
                         <div class="flex items-center justify-between">
                             <span class="text-left w-full"
-                                >Am intampinat o problema</span
+                                >{$l("searchbar.error_occured")}</span
                             >
                             <button
                                 on:click={() => {
@@ -85,9 +88,9 @@
                             </button>
                         </div>
                     {:else if search_res.body.data?.length === 0}
-                        <div class="flex items-center justify-between">
-                            <span class="text-left w-full">
-                                Nu s-a gasit niciun rezultat
+                        <div class="flex w-full items-center justify-between">
+                            <span class="text-left">
+                                {$l("searchbar.nothing_found")}
                             </span>
                             <button
                                 on:click={() => {
@@ -100,7 +103,7 @@
                     {:else}
                         <div class="space-y-4 flex flex-col w-full">
                             <div class="flex items-center justify-between">
-                                <span>Rezultatele cautarii</span>
+                                <span>{$l("searchbar.search_results")}</span>
                                 <button
                                     on:click={() => {
                                         open = false;

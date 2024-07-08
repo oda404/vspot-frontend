@@ -390,6 +390,10 @@ var translations = {
 
         "slideshow.switchpro": "Vezi Switch Pro",
 
+        "searchbar.error_occured": "Am intampinat o problema",
+        "searchbar.nothing_found": "Nu s-a gasit niciun rezultat",
+        "searchbar.search_results": "Rezultatele cautarii",
+
         "footer.products": "Produse",
         "footer.locations": "Locatii",
         "footer.legal": "Informatii utile",
@@ -770,6 +774,10 @@ var translations = {
 
         "slideshow.switchpro": "Take me to Switch Pro",
 
+        "searchbar.error_occured": "An error occured",
+        "searchbar.nothing_found": "We couldn't find anything",
+        "searchbar.search_results": "Search results",
+
         "footer.products": "Products",
         "footer.locations": "Locations",
         "footer.legal": "Legal stuff",
@@ -844,7 +852,8 @@ var translations = {
 
 export const l = derived(
     current_language,
-    ($lang) => (title: string, props?: any) => {
+    ($lang) => (title: string, props?: any
+    ) => {
         const translation = (translations as any)[$lang];
         if (!translation)
             throw new Error(
