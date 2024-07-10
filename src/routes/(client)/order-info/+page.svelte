@@ -25,6 +25,7 @@
     import { pagetitle_make } from "$lib/title.js";
     import { cart_store } from "$lib/cart/cart.js";
     import { get } from "svelte/store";
+    import { USER_EMAIL_REGEX } from "$lib/user/validation.js";
 
     export let data;
 
@@ -35,7 +36,7 @@
         }),
     );
 
-    if (!data.user || !get(cart_store)?.items?.length) goto("/");
+    if (!get(cart_store)?.items?.length) goto("/");
 
     let payment_options = [
         // {
@@ -80,6 +81,11 @@
             return "Numar invalid!";
     };
 
+    let email_data = new InputFieldContext(data.user?.email);
+    email_data.validate = (value: string) => {
+        if (!value.match(USER_EMAIL_REGEX)) return $l("error.invalid.email");
+    };
+
     let county_data = new InputFieldContext(orderinfo?.billing?.county);
     county_data.validate = (value: string) => {
         if (value.length === 0) return "Ai uitat judetul!";
@@ -120,6 +126,9 @@
         has_error = phone_data.do_validate() !== undefined || has_error;
         phone_data = phone_data;
 
+        has_error = email_data.do_validate() !== undefined || has_error;
+        email_data = email_data;
+
         has_error = county_data.do_validate() !== undefined || has_error;
         county_data = county_data;
 
@@ -144,6 +153,7 @@
             lastname: lastname_data.value,
             firstname: firstname_data.value,
             phone: phone_data.value,
+            email: email_data.value,
         });
 
         const billing_address: Address = {
@@ -186,6 +196,13 @@
                 label={$l("orderinfo.phone")}
                 bind:data={phone_data}
             />
+            {#if !data.user}
+                <InputField
+                    id="email"
+                    label={$l("user.email")}
+                    bind:data={email_data}
+                />
+            {/if}
         </div>
         <div class="space-y-4">
             <div class="text-xl">{$l("orderinfo.billingaddress")}</div>

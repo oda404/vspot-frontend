@@ -26,10 +26,6 @@
     import { shipping_methods_get_img_url } from "$lib/orderinfo/shipping_methods.js";
     import type { RadioOption } from "$lib/input/InputRadio.js";
 
-    export let data;
-
-    if (!data.user) goto("/");
-
     let orderinfo: OrderInfo | undefined;
     onDestroy(
         ORDERINFO_STORE.subscribe(($orderinfo) => {

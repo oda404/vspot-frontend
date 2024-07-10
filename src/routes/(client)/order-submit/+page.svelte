@@ -28,10 +28,6 @@
     import { price_discount, price_format } from "$lib/price.js";
     import ProductHorizontalDisplay from "$lib/products/ProductHorizontalDisplay.svelte";
 
-    export let data;
-
-    if (!data.user) goto("/");
-
     let cart_items: CartProduct[];
     let currency: string;
     let cart_total = 0;
@@ -99,6 +95,7 @@
             firstname: orderinfo!.info!.firstname,
             lastname: orderinfo!.info!.lastname,
             phone: orderinfo!.info!.phone,
+            email: orderinfo!.info!.email,
 
             payment_method: orderinfo!.payment_option!,
 

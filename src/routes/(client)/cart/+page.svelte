@@ -111,6 +111,14 @@
                             <span>{$l("order.do_you_have_a_voucher")}</span>
                             <CouponInput />
                         </div>
+                    {:else}
+                        <div class="flex items-center space-x-2">
+                            <div
+                                class="w-[4px] h-[4px] rounded-full bg-vspot-green"
+                            />
+                            <span>{$l("order.create_account_for_voucher")}</span
+                            >
+                        </div>
                     {/if}
                     {#if coupon_discount}
                         <div
@@ -120,27 +128,41 @@
                             <span>-{price_format(coupon_discount)} RON</span>
                         </div>
                     {/if}
-                    <div class="flex justify-between">
+                    <div
+                        class="flex justify-between border-b border-vspot-secondary-bg pb-2"
+                    >
                         <span>{$l("description.simpletotal")}</span>
                         <span
                             >{price_format(cart_item_total - coupon_discount)} RON</span
                         >
                     </div>
-                    {#if !data.user}
-                        <span class="text-vspot-green block !mt-4"
-                            >{$l("order.noaccount_notice")}</span
+                    {#if data.user}
+                        <LinkButton
+                            href="/order-info"
+                            bg="bg-vspot-green"
+                            color="#242729"
                         >
+                            <span class="mx-auto text-vspot-secondary-bg">
+                                {$l("action.shipping")}
+                            </span>
+                        </LinkButton>
+                    {:else}
+                        <a
+                            class="mx-auto block text-center text-vspot-green"
+                            href="/order-info"
+                        >
+                            {$l("action.continue_without_account")}
+                        </a>
+                        <LinkButton
+                            href="/signup"
+                            bg="bg-vspot-green"
+                            color="#242729"
+                        >
+                            <span class="mx-auto text-vspot-secondary-bg">
+                                {$l("action.signup")}
+                            </span>
+                        </LinkButton>
                     {/if}
-                    <LinkButton
-                        href={data.user ? "/order-info" : "/signup"}
-                        bg="bg-vspot-green"
-                        color="#242729"
-                        ><span class="mx-auto text-vspot-secondary-bg"
-                            >{data.user
-                                ? $l("action.shipping")
-                                : $l("action.signup")}</span
-                        ></LinkButton
-                    >
                 </div>
             </div>
         {/if}

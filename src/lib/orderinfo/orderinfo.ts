@@ -20,6 +20,7 @@ export type ContactInfo = {
     lastname: string;
     firstname: string;
     phone: string;
+    email: string;
 };
 
 export type ShippingMethod = {

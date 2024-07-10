@@ -21,6 +21,7 @@ export type V1ClientOrderInfo = {
     firstname: string;
     lastname: string;
     phone: string;
+    email: string;
 
     /* Payment */
     payment_method: PaymentMethod;
@@ -45,6 +46,7 @@ export type V1ClientOrderInfo = {
 
 export type V1ServerPurchasedProduct = {
     internal_id: string;
+    pretty_internal_id: string;
     name: string;
     image_url: string;
     currency: string;

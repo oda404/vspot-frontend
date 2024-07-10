@@ -118,6 +118,7 @@ var translations = {
         "order.consent_error":
             "Termenii serviciului si politica de confidentialitate sunt obligatorii.",
         "order.do_you_have_a_voucher": "Ai un voucher?",
+        "order.create_account_for_voucher": "Creeaza un cont pentru a aplica un voucher",
         "order.discount_showcase": "Ai {{perc}}% reducere pentru aceasta comanda!",
 
         "payment.card": "Card",
@@ -235,6 +236,7 @@ var translations = {
         "action.backtomainpage": "Inapoi la pagina principala",
         "action.delete": "Sterge",
         "action.shipping": "Mai departe",
+        "action.continue_without_account": "Continua fara cont",
         "action.change": "Schimba",
         "action.yes": "Da",
         "action.no": "Nu",
@@ -286,8 +288,8 @@ var translations = {
         "description.ordernumber": "Comanda #",
         "description.orderplacedextrainfo":
             'Pentru mai multe detalii vezi rubrica "Comenzile mele" a profilului tau. Pentru oricare alte probleme ne poti contacta direct pe noi',
-        "description.orderregistered":
-            "a fost inregistrata! Vei primi cat de curand un email de confirmare",
+        "description.order_registered":
+            "Am primit comanda ta! Vei primi cat de curand un email de confirmare.",
         "description.orderconfirmed":
             "a fost confirmata, si in momentul asta o pregatim pentru livrare",
         "description.ordershipped": "se afla in drum spre tine!",
@@ -508,6 +510,7 @@ var translations = {
         "order.consent_error":
             "The terms of service and privacy policy are mandatory",
         "order.do_you_have_a_voucher": "Have a voucher?",
+        "order.create_account_for_voucher": "Sign up in order to apply vouchers",
         "order.discount_showcase": "You have a {{perc}}% discount on this order!",
 
         "payment.card": "Card",
@@ -625,6 +628,7 @@ var translations = {
         "action.backtomainpage": "Go to the main page",
         "action.delete": "Remove",
         "action.shipping": "Looks good!",
+        "action.continue_without_account": "Order without an account",
         "action.change": "Modify",
         "action.yes": "Yes",
         "action.no": "No",
@@ -682,8 +686,8 @@ var translations = {
         "description.ordernumber": "The order #",
         "description.orderplacedextrainfo":
             "For more details about this order go to the Orders tab in your profile. For any other questions feel free to contact us",
-        "description.orderregistered":
-            " has been registered! You will soon get an email confirming the order",
+        "description.order_registered":
+            "Your order has been registered! You will soon get an email confirming the order",
         "description.orderconfirmed":
             "has been confirmed, and we're getting it ready for shipping",
         "description.ordershipped": "is currently on it's way to you!",

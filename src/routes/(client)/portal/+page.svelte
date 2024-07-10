@@ -232,6 +232,7 @@
                             lastname: order.lastname,
                             firstname: order.firstname,
                             phone: order.phone,
+                            email: "",
                         }}
                         title={$l("orderinfo.billingaddress")}
                     />
@@ -246,6 +247,7 @@
                             lastname: order.lastname,
                             firstname: order.firstname,
                             phone: order.phone,
+                            email: "",
                         }}
                         title={$l("orderinfo.shippingaddress")}
                     />

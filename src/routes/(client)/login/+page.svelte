@@ -13,10 +13,11 @@
     import Turnstile from "$lib/turnstile/Turnstile.svelte";
     import { PUBLIC_VSPOT_TURNSTILE_SITE_KEY } from "$env/static/public";
     import CheckBox from "$lib/input/CheckBox.svelte";
+    import { USER_EMAIL_REGEX } from "$lib/user/validation";
 
     let email = new InputFieldContext();
     email.validate = (value: string) => {
-        if (value.length === 0) return $l("error.empty.email");
+        if (!value.match(USER_EMAIL_REGEX)) return $l("error.invalid.email");
     };
 
     let password = new InputFieldContext();
