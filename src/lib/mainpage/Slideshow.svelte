@@ -25,12 +25,11 @@
                     Switch Pro
                 </span>
             </div>
-            <a
+            <span
                 class="text-lg block w-fit font-semibold bg-vspot-green px-8 p-4 rounded-tl-lg rounded-br-lg text-vspot-primary-bg"
-                href="/disposable?subtype=switchpro"
             >
                 {$l("slideshow.switchpro")}
-            </a>
+            </span>
         </div>
     </a>
 </div>
