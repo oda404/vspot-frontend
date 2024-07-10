@@ -6,6 +6,7 @@ import { writable } from "svelte/store";
 
 export type CartProduct = {
     internal_id: string;
+    pretty_internal_id: string;
     name: string;
     image_url: string;
     price: number;
@@ -56,6 +57,7 @@ function cart_update_item_coreinfo(
 
 export async function cart_add_item(
     id: string,
+    pretty_id: string,
     on_finished_cb?: (error?: string) => void,
     show_overlay = true,
     qty: number = 1
@@ -91,7 +93,7 @@ export async function cart_add_item(
 
         if (!item) {
             /* The rest of the fields are set by cart_update_item_coreinfo */
-            items.push({ internal_id: id, qty: qty } as CartProduct);
+            items.push({ internal_id: id, pretty_internal_id: pretty_id, qty: qty } as CartProduct);
             item = items[items.length - 1];
         } else {
             if (item.qty >= product_coreinfo.stock) {

@@ -12,7 +12,7 @@
 </script>
 
 <div class="w-full rounded-lg drop-shadow flex flex-col">
-    <a href="/product/{product.internal_id}">
+    <a href="/product/{product.pretty_internal_id}">
         <img
             src={product.image_url}
             alt="{product.name} image"
@@ -22,7 +22,7 @@
     <div
         class="p-2 h-full space-y-1 flex flex-col justify-between text-lg rounded-b-lg"
     >
-        <a class="mb-4" href="/product/{product.internal_id}">
+        <a class="mb-4" href="/product/{product.pretty_internal_id}">
             <div class="leading-tight text-md">
                 {product.name}
             </div>
@@ -55,9 +55,13 @@
             disabled={adding_load || product.stock === 0}
             on:click={() => {
                 adding_load = true;
-                cart_add_item(product.internal_id, () => {
-                    adding_load = false;
-                });
+                cart_add_item(
+                    product.internal_id,
+                    product.pretty_internal_id,
+                    () => {
+                        adding_load = false;
+                    },
+                );
             }}
         >
             <span

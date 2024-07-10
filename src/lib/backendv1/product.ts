@@ -11,6 +11,7 @@ export type V1ServerCategoryFilter = {
 
 export type V1ServerProductDisplayData = {
     internal_id: string;
+    pretty_internal_id: string;
     name: string;
     image_url: string;
     price: number;
@@ -33,6 +34,7 @@ export type V1ServerProductListLandingPage = {
 
 export type V1ServerProductFullinfo = {
     internal_id: string;
+    pretty_internal_id: string;
     name: string;
     image_url: string;
     tags: { name: string; options: string[] }[];

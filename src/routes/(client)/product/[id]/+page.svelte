@@ -167,6 +167,7 @@
                         on:click={() => {
                             cart_add_item(
                                 data.product.internal_id,
+                                data.product.pretty_internal_id,
                                 undefined,
                                 true,
                                 Number(qty),

@@ -43,7 +43,7 @@
 
 <div class="flex space-x-4">
     <a
-        href="/product/{product.internal_id}"
+        href="/product/{product.pretty_internal_id}"
         class={large
             ? show_add_to_cart_button
                 ? "w-[140px]"
@@ -58,7 +58,7 @@
     </a>
     <div class="flex flex-col text-start w-full">
         <a
-            href="/product/{product.internal_id}"
+            href="/product/{product.pretty_internal_id}"
             class="block {large ? 'text-lg' : ''}"
         >
             {show_qty ? `${qty}x` : ""}
@@ -90,7 +90,12 @@
                     <button
                         class="p-1 px-2 bg-vspot-green text-vspot-secondary-bg"
                         on:click={() => {
-                            cart_add_item(product.internal_id, () => {}, false);
+                            cart_add_item(
+                                product.internal_id,
+                                product.pretty_internal_id,
+                                () => {},
+                                false,
+                            );
                         }}
                     >
                         {$l("action.addtocart")}
@@ -132,6 +137,7 @@
                         on:click={() => {
                             cart_add_item(
                                 product.internal_id,
+                                product.pretty_internal_id,
                                 undefined,
                                 false,
                             );

@@ -13,6 +13,7 @@ export type ProductSortOption = {
 
 export type ProductHorizontalData = {
     internal_id: string;
+    pretty_internal_id: string;
     name: string;
     image_url: string;
     price: number;
