@@ -17,7 +17,7 @@
         {$l("page.tos")}
     </h1>
     <div class="space-y-8">
-        <span> Ultima actualizare: 29/05/2024 </span>
+        <span> Ultima actualizare: 10/07/2024 </span>
         <section class="space-y-2">
             <h1 class="font-bold text-lg">1. Definitii</h1>
             <ul>
@@ -165,9 +165,9 @@
             <ul>
                 <li>
                     Livrarea comenzii se face in 1-2 zile de la confirmarea ei
-                    pentru comenzile plasate de luni pana pineri in intervalul
-                    orar 10:30 - 12:30. Acest estimat de livrare poate varia in
-                    cazul in care firma de curierat intampina dificultati.
+                    pentru comenzile plasate de luni pana vineri in intervalul
+                    orar 9:00 - 12:00. Acest estimat de livrare poate varia in
+                    cazul in care firma de curierat intampina neprevazute.
                 </li>
                 <li>
                     Ne luam angajamentul de a livra comanda intr-un maxim de 30

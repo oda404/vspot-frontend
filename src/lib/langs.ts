@@ -382,7 +382,7 @@ var translations = {
         "contact.description":
             "Pentru orice intrebari sau sesizari va stam la dispozitie prin urmatoarele canale de comunicare:",
         "contact.schedule":
-            "Program de lucru cu publicul prin mediul online: Luni - Vineri 10:30-18:30 UTC+2",
+            "Program de lucru cu publicul prin mediul online: Luni - Vineri 10:00-18:00 UTC+2",
         "contact.phone": "Telefonic la:",
         "contact.fees": "*Tarifele standard se aplica",
         "contact.hq": "Sediu social: {{address}}",

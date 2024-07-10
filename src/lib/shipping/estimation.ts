@@ -35,7 +35,7 @@ export function shipping_estimation_get_date_from_now() {
     else if (now.getDay() === 7) {
         days_to_deliver += 1;
     }
-    else if (now.getHours() > 13) {
+    else if (now.getHours() > 12) {
         ++days_to_deliver;
     }
 
