@@ -106,12 +106,12 @@
                         <span>{$l("description.producttotal")}</span>
                         <span>{price_format(cart_item_total)} RON</span>
                     </div>
-                    <div class="space-y-1">
-                        <span>{$l("order.do_you_have_a_voucher")}</span>
-                        {#if data.user}
+                    {#if data.user}
+                        <div class="space-y-1">
+                            <span>{$l("order.do_you_have_a_voucher")}</span>
                             <CouponInput />
-                        {/if}
-                    </div>
+                        </div>
+                    {/if}
                     {#if coupon_discount}
                         <div
                             class="flex justify-between border-b pb-2 border-vspot-secondary-bg"
