@@ -253,6 +253,7 @@ var translations = {
         "description.outofstock": "Acest produs nu este in stoc :(",
         "description.outofstock_simple": "Nu este in stoc",
         "description.instock": "In stoc",
+        "description.lastinstock": "Ultimul produs",
         "description.addedtocart": "Adaugat in cos",
         "description.notaddedtocart": "Produsul nu a putut fi adaugat in cos",
         "description.cartlimithit":
@@ -640,6 +641,7 @@ var translations = {
         "description.outofstock": "This item is out of stock :(",
         "description.outofstock_simple": "Out of stock",
         "description.instock": "In stock",
+        "description.lastinstock": "Last product",
         "description.addedtocart": "Added to cart",
         "description.notaddedtocart":
             "The product couldn't be added to the cart!",

@@ -13,7 +13,8 @@ export default {
         'vspot-text-error': '#dd1111',
         'vspot-green': '#00ff01',
         'vspot-link': '#5555DD',
-        'vspot-link-hover': '#0000EE'
+        'vspot-link-hover': '#0000EE',
+        'vspot-warn': '#fcba03'
       },
       'animation': {
         'gradient': 'gradient 5s ease infinite',

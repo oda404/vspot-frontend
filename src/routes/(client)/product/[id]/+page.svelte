@@ -109,7 +109,7 @@
                     </div>
                 {/if}
                 <div class="h-[1px] w-full bg-vspot-secondary-bg !my-4" />
-                {#if data.product.stock}
+                {#if data.product.stock > 1}
                     <div class="flex items-center space-x-2">
                         <div
                             class="w-[6px] h-[6px] rounded-full bg-vspot-green"
@@ -120,6 +120,19 @@
                                 : ""}
                         >
                             {$l("description.instock")}
+                        </span>
+                    </div>
+                {:else if data.product.stock === 1}
+                    <div class="flex items-center space-x-2">
+                        <div
+                            class="w-[6px] h-[6px] rounded-full bg-vspot-warn"
+                        />
+                        <span
+                            class={data.product.stock > 0
+                                ? "text-vspot-warn"
+                                : ""}
+                        >
+                            {$l("description.lastinstock")}
                         </span>
                     </div>
                 {/if}

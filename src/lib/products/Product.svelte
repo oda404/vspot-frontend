@@ -28,11 +28,18 @@
             </div>
         </a>
         <div class="!mt-auto !mb-2">
-            {#if product.stock > 0}
+            {#if product.stock > 1}
                 <div class="flex items-center space-x-1">
                     <div class="w-[4px] h-[4px] rounded-full bg-vspot-green" />
                     <span class="text-sm text-vspot-green block">
                         {$l("description.instock")}
+                    </span>
+                </div>
+            {:else if product.stock === 1}
+                <div class="flex items-center space-x-1">
+                    <div class="w-[4px] h-[4px] rounded-full bg-vspot-warn" />
+                    <span class="text-sm text-vspot-warn block">
+                        {$l("description.lastinstock")}
                     </span>
                 </div>
             {/if}
