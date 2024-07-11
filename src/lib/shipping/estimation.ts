@@ -26,17 +26,18 @@ export function shipping_estimation_get_date_from_now() {
 
     const now = new Date();
     let days_to_deliver = 1;
+
+    if (now.getHours() > 12 && now.getDay() < 6)
+        now.setDate(now.getDate() + 1);
+
     if (now.getDay() === 5) {
-        days_to_deliver += now.getHours() > 13 ? 3 : 2;
+        days_to_deliver += 2;
     }
     else if (now.getDay() === 6) {
         days_to_deliver += 2;
     }
     else if (now.getDay() === 7) {
         days_to_deliver += 1;
-    }
-    else if (now.getHours() > 12) {
-        ++days_to_deliver;
     }
 
     now.setDate(now.getDate() + days_to_deliver);
