@@ -7,11 +7,11 @@
     onDestroy(current_language.subscribe(($lang) => (lang = $lang)));
 </script>
 
-<div class="hover:cursor-pointer">
+<div class="">
     <svelte:component
         this={lang === "ro" ? Ro : Us}
         on:click={() => {
-            current_language_set(lang === "ro" ? "en" : "ro");
+            // current_language_set(lang === "ro" ? "en" : "ro");
         }}
     />
 </div>
