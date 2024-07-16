@@ -71,7 +71,16 @@
             >
         </FooterSection>
     </div>
-    <div class="mx-auto lg:max-w-[1100px]">
+    <div
+        class="mx-auto lg:max-w-[1100px] border-t border-vspot-secondary-bg pt-4"
+    >
         <span>{$l("footer.seo")}</span>
+    </div>
+    <div class="mx-auto lg:max-w-[1100px]">
+        <span>Terrible Fortune SRL |</span>
+        <span>CUI: 49657195 |</span>
+        <span>J33/380/26.02.2024 |</span>
+        <span>Romania, Suceava, Falticeni, Strada Sucevei, Nr. 85 |</span>
+        <span>Capital social: 200 RON</span>
     </div>
 </footer>
