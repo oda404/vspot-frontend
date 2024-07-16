@@ -4,7 +4,7 @@ export const current_language = writable<"ro" | "en">(
     (typeof window !== "undefined" &&
         localStorage.lang &&
         JSON.parse(localStorage.lang)) ||
-    "ro",
+        "ro",
 );
 
 export function current_language_set(lang: "ro" | "en") {
@@ -60,19 +60,19 @@ var translations = {
 
         "page.main.shipping": "Transport in tota tara",
         "page.main.shipping.description":
-            "Transport prin firma ta preferata de curierat oriunde in Romania.",
+            "Transport oriunde in Romania, in 1-2 zile lucratoare de la confirmarea comenzii",
 
         "page.main.payment": "Plata card sau cash",
         "page.main.payment.description":
-            "Platesti folosind cardul online cu 3DSecure sau cash cand preiei comanda.",
+            "Platesti folosind cardul online cu 3DSecure sau cash cand preiei comanda",
 
-        "page.main.return": "Retur gratuit",
-        "page.main.return.check_policy": "*Vezi politica de retur",
-        "page.main.return.description":
-            "Daca nu esti multumit de un produs iti trimitem altul sau banii inapoi*",
+        "page.main.support": "Vorbeste cu un expert",
+        "page.main.support.description":
+            "Daca vrei o recomandare sau ai o intrebare, suntem aici 10:00-18:00 de Luni pana Vineri",
 
         "page.main.satisfaction": "Satisfactie totala",
-        "page.main.satisfaction.description": "Atat am avut de spus",
+        "page.main.satisfaction.description":
+            "Iti oferim cele mai noi si cele bune produse pentru o experienta de vapat unica",
 
         "orderinfo.personaldata": "Date de contact",
         "orderinfo.shippingaddress": "Adresa de livrare",
@@ -384,7 +384,7 @@ var translations = {
         "contact.description":
             "Pentru orice intrebari sau sesizari va stam la dispozitie prin urmatoarele canale de comunicare:",
         "contact.schedule":
-            "Program de lucru cu publicul prin mediul online: Luni - Vineri 10:00-18:00 UTC+2",
+            "Program de lucru cu publicul prin mediul online: Luni - Vineri 10:00-18:00",
         "contact.phone": "Telefonic la:",
         "contact.fees": "*Tarifele standard se aplica",
         "contact.hq": "Sediu social: {{address}}",
@@ -578,7 +578,8 @@ var translations = {
 
         "product.recommended_for_you": "Recommended for you",
 
-        "price.only_online": "This price is only valid when purchasing online",
+        "price.only_online":
+            "This price is only available for online purchases",
 
         "nav.home": "Home",
         "nav.products": "Products",
@@ -667,8 +668,7 @@ var translations = {
                 return n === 1 ? "product" : "products";
             },
         },
-        "description.productreminder":
-            "Are you stocked up on everything?",
+        "description.productreminder": "Are you stocked up on everything?",
         "description.productreminder_noitems": "Maybe you're looking for...",
         "description.yourproducts": "Your products",
         "description.pcs": "PCS.",
@@ -768,7 +768,8 @@ var translations = {
             "The lastname can have a maximum of 64 characters",
 
         "error.invalid.coupon": "This voucher is invalid",
-        "error.duplicate.coupon": "You have already used this voucher for another order",
+        "error.duplicate.coupon":
+            "You have already used this voucher for another order",
 
         "contact.description":
             "For any questions or feedback you can reach out to us through any of the following methods:",
@@ -862,8 +863,7 @@ var translations = {
 
 export const l = derived(
     current_language,
-    ($lang) => (title: string, props?: any
-    ) => {
+    ($lang) => (title: string, props?: any) => {
         const translation = (translations as any)[$lang];
         if (!translation)
             throw new Error(

@@ -7,7 +7,7 @@
         faTruck,
         faCreditCard,
         faMoneyBill,
-        faArrowLeft,
+        faLightbulb,
     } from "@fortawesome/free-solid-svg-icons";
     import Disposable from "$lib/icons/disposable.svelte";
     import Cig from "$lib/icons/cig.svelte";
@@ -30,7 +30,7 @@
         {
             "@context": "https://schema.org",
             "@type": "WebSite",
-            "name": "VSpot",
+            "name": "V-Spot",
             "url": "https://vspot.ro"
         }
     </script>
@@ -170,7 +170,7 @@
                     class="max-h-[60px] object-contain"
                 />
                 <img
-                    src="/images/elfv2/elfbar.webp"
+                    src="/images/vaporesso/logo.webp"
                     alt="Elf Bar"
                     class="h-[60px] object-contain"
                 />
@@ -180,7 +180,7 @@
                     class="h-[60px] object-contain"
                 />
                 <img
-                    src="/images/nasty/nasty.webp"
+                    src="/images/voopoo/logo.webp"
                     alt="Vozol"
                     class="h-[60px] object-contain"
                 />
@@ -200,14 +200,10 @@
                 description={$l("page.main.payment.description")}
             />
             <SiteFeatureBox
-                icon={faArrowLeft}
-                title={$l("page.main.return")}
-                description={$l("page.main.return.description")}
-            >
-                <a class="text-sm mx-auto text-vspot-link" href="/return-policy"
-                    >{$l("page.main.return.check_policy")}
-                </a>
-            </SiteFeatureBox>
+                icon={faLightbulb}
+                title={$l("page.main.support")}
+                description={$l("page.main.support.description")}
+            />
             <SiteFeatureBox
                 img_url={"/images/ahh.webp"}
                 title={$l("page.main.satisfaction")}
