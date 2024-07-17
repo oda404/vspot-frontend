@@ -44,7 +44,6 @@ export type V1ServerProductFullinfo = {
     discount: number;
     currency: string;
     stock: number;
-    description_short?: string;
     description_long?: string;
 };
 

@@ -227,7 +227,7 @@
             {#if selected_tab === "description"}
                 <SvelteMarkdown source={data.product.description_long} />
             {:else if selected_tab === "specs"}
-                <SvelteMarkdown source={data.product.description_short} />
+                <div></div>
             {/if}
         </div>
     {/if}
