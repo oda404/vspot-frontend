@@ -110,6 +110,7 @@ var translations = {
         "order.confirmed": "Iti pregatim comanda",
         "order.shipped": "In transport",
         "order.completed": "A ajuns la tine",
+        "order.canceled": "Anulata",
 
         "order.admin.registered": "In asteptare confirmare",
         "order.admin.confirmed": "Confirmata",
