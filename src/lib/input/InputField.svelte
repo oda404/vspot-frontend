@@ -7,6 +7,7 @@
     export let label: string;
     export let data: InputFieldContext;
     export let type: string | undefined = undefined;
+    export let disabled = false;
 
     let focused = false;
     $: move_label = focused || data.value.length > 0;
@@ -34,6 +35,7 @@
         on:blur={() => (focused = false)}
         bind:value={data.value}
         spellcheck={false}
+        {disabled}
         {...{ type }}
         class="bg-vspot-primary-bg p-2 px-4 w-full rounded-md border {typeof data.error !==
         'undefined'
