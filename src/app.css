@@ -1,12 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Cantarell:ital,wght@0,400;0,700;1,400;1,700&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Cantarell:ital,wght@0,400;0,700;1,400;1,700&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap");
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@font-face{
-    font-family: 'Blowhole';
-    src: url('/fonts/BlowholeBb-O2Kd.ttf');
+@font-face {
+    font-family: "Blowhole";
+    src: url("/fonts/BlowholeBb-O2Kd.ttf");
 }
 
 * {
@@ -16,7 +16,7 @@
     @apply text-vspot-text-pimary;
 }
 
-button:hover {
+button:hover:enabled {
     filter: brightness(95%);
 }
 
@@ -44,12 +44,12 @@ li {
 ::-webkit-scrollbar {
     width: 10px;
 }
- 
+
 /* Track */
 ::-webkit-scrollbar-track {
     background: #181a1b;
 }
- 
+
 /* Handle */
 ::-webkit-scrollbar-thumb {
     background: #444444;
@@ -60,4 +60,3 @@ button {
     @apply rounded-tl-lg;
     @apply rounded-br-lg;
 }
- 
