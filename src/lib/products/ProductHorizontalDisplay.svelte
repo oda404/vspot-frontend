@@ -61,7 +61,9 @@
             href="/product/{product.pretty_internal_id}"
             class="block {large ? 'text-lg' : ''}"
         >
-            {show_qty ? `${qty}x` : ""}
+            <b>
+                {show_qty ? `${qty}x` : ""}
+            </b>
             {product.name}
         </a>
         <div class="flex justify-between w-full mt-auto">

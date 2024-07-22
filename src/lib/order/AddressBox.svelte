@@ -21,19 +21,28 @@
             >
         {/if}
     </div>
-    <div>
+    <div class="space-y-1">
         <span class="block">
-            {info.lastname}
-            {info.firstname} |
-            {info.phone}
+            Nume:
+            <b>
+                {info.lastname}
+                {info.firstname}
+            </b>
         </span>
         <span class="block">
-            {address.county},
-            {address.city}
+            Telefon: <b>{info.phone}</b>
         </span>
         <span class="block">
-            {address.address},
-            {address.postalcode}
+            Judet: <b>{address.county}</b>
+        </span>
+        <span class="block">
+            Localitate: <b>{address.city}</b>
+        </span>
+        <span class="block">
+            Adresa: <b>{address.address}</b>
+        </span>
+        <span class="block">
+            Cod postal: <b>{address.postalcode}</b>
         </span>
     </div>
 </div>

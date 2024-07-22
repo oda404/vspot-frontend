@@ -110,6 +110,16 @@ var translations = {
         "order.confirmed": "Iti pregatim comanda",
         "order.shipped": "In transport",
         "order.completed": "A ajuns la tine",
+
+        "order.admin.registered": "In asteptare confirmare",
+        "order.admin.confirmed": "Confirmata",
+        "order.admin.shipped": "In transport",
+        "order.admin.completed": "Livrata",
+        "order.admin.canceled": "Anulata",
+        "order.admin.no_orders": "Nicio comanda",
+        "order.admin.missing_shipping_number": "Ai uitat AWB-ul",
+        "order.admin.shipping_number": "AWB",
+
         "order.coupon": "Cod",
         "order.orderon": "Comanda pe {{date}}",
         "order.no_orders": "Nu ai plasat nicio comanda inca...",
@@ -118,8 +128,10 @@ var translations = {
         "order.consent_error":
             "Termenii serviciului si politica de confidentialitate sunt obligatorii.",
         "order.do_you_have_a_voucher": "Ai un voucher?",
-        "order.create_account_for_voucher": "Creeaza un cont pentru a aplica un voucher",
-        "order.discount_showcase": "Ai {{perc}}% reducere pentru aceasta comanda!",
+        "order.create_account_for_voucher":
+            "Creeaza un cont pentru a aplica un voucher",
+        "order.discount_showcase":
+            "Ai {{perc}}% reducere pentru aceasta comanda!",
 
         "payment.card": "Card",
         "payment.cash": "Ramburs la livrare",
@@ -510,8 +522,10 @@ var translations = {
         "order.consent_error":
             "The terms of service and privacy policy are mandatory",
         "order.do_you_have_a_voucher": "Have a voucher?",
-        "order.create_account_for_voucher": "Sign up in order to apply vouchers",
-        "order.discount_showcase": "You have a {{perc}}% discount on this order!",
+        "order.create_account_for_voucher":
+            "Sign up in order to apply vouchers",
+        "order.discount_showcase":
+            "You have a {{perc}}% discount on this order!",
 
         "payment.card": "Card",
         "payment.cash": "Cash on delivery",

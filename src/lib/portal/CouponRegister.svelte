@@ -50,7 +50,7 @@
 </script>
 
 <div class="space-y-2 pt-2">
-    <span class="text-lg">Inregistreaza cupon</span>
+    <h1 class="text-lg">Inregistreaza cupon</h1>
     <form class="space-y-4 lg:w-[40%]">
         <InputField id="code" label="Cod" data={code_data} />
         <InputField

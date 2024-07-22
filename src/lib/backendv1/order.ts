@@ -70,6 +70,7 @@ export type V1ServerOrder = {
     firstname: string;
     lastname: string;
     phone: string;
+    email: string;
 
     payment_method: "cash" | "card";
 
@@ -154,4 +155,103 @@ export async function backendv1_order_user_all(
         },
         fetch_func,
     );
+}
+
+export async function backendv1_order_confirm(
+    id: string,
+): Promise<ServerResponse> {
+    return await backendv1_base_fetch(
+        `${backendv1_endpoint()}/order/confirm`,
+        {
+            method: "POST",
+            credentials: "include",
+            headers: {
+                ...BACKENDV1_BASE_POST_HEADERS,
+            },
+            body: JSON.stringify({
+                data: {
+                    id
+                }
+            }),
+        },
+    );
+}
+
+export async function backendv1_order_ship(
+    id: string,
+    shipping_number: string,
+): Promise<ServerResponse> {
+    return await backendv1_base_fetch(
+        `${backendv1_endpoint()}/order/ship`,
+        {
+            method: "POST",
+            credentials: "include",
+            headers: {
+                ...BACKENDV1_BASE_POST_HEADERS,
+            },
+            body: JSON.stringify({
+                data: {
+                    id,
+                    shipping_number,
+                }
+            }),
+        },
+    );
+}
+
+export async function backendv1_order_complete(
+    id: string,
+): Promise<ServerResponse> {
+    return await backendv1_base_fetch(
+        `${backendv1_endpoint()}/order/complete`,
+        {
+            method: "POST",
+            credentials: "include",
+            headers: {
+                ...BACKENDV1_BASE_POST_HEADERS,
+            },
+            body: JSON.stringify({
+                data: {
+                    id
+                }
+            }),
+        },
+    );
+}
+
+export async function backendv1_order_cancel(
+    id: string,
+): Promise<ServerResponse> {
+    return await backendv1_base_fetch(
+        `${backendv1_endpoint()}/order/cancel`,
+        {
+            method: "POST",
+            credentials: "include",
+            headers: {
+                ...BACKENDV1_BASE_POST_HEADERS,
+            },
+            body: JSON.stringify({
+                data: {
+                    id
+                }
+            }),
+        },
+    );
+}
+
+export async function backendv1_order_delete(
+    order_id: string,
+): Promise<ServerResponse> {
+    return await backendv1_base_fetch(`${backendv1_endpoint()}/order`, {
+        method: "DELETE",
+        credentials: "include",
+        headers: {
+            ...BACKENDV1_BASE_POST_HEADERS,
+        },
+        body: JSON.stringify({
+            data: {
+                id: order_id,
+            }
+        }),
+    });
 }
