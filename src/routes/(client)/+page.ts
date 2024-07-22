@@ -1,6 +1,5 @@
-
-import { backendv1_get_products_landingpage } from '$lib/backendv1/product';
-import { error } from '@sveltejs/kit';
+import { backendv1_get_products_landingpage } from "$lib/backendv1/product";
+import { error } from "@sveltejs/kit";
 
 export async function load({ fetch, url }) {
 

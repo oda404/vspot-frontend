@@ -4,7 +4,7 @@ export const current_language = writable<"ro" | "en">(
     (typeof window !== "undefined" &&
         localStorage.lang &&
         JSON.parse(localStorage.lang)) ||
-        "ro",
+    "ro",
 );
 
 export function current_language_set(lang: "ro" | "en") {
