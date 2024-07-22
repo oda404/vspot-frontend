@@ -1,7 +1,6 @@
 <script lang="ts">
     import type { V1ServerOrder } from "$lib/backendv1/order";
     import { l } from "$lib/langs";
-    import AddressBox from "$lib/order/AddressBox.svelte";
     import OrderPlacedInfo from "$lib/order/OrderPlacedInfo.svelte";
 
     export let orders: V1ServerOrder[];

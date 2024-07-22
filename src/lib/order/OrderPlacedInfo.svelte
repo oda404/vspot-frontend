@@ -14,7 +14,10 @@
     import { price_discount } from "$lib/price";
     import type { V1ServerCouponInfo } from "$lib/backendv1/coupon";
     import Decimal from "decimal.js";
-    import { shipping_methods_get_img_url } from "$lib/orderinfo/shipping_methods";
+    import {
+        shipping_get_tracking_url,
+        shipping_methods_get_img_url,
+    } from "$lib/orderinfo/shipping_methods";
     import OrderPlacedInfoAdmin from "./OrderPlacedInfoAdmin.svelte";
 
     export let order: V1ServerOrder;
@@ -100,6 +103,19 @@
                     <span class="whitespace-nowrap">
                         {$l(`shipping.${order.shipping_method}`)}
                     </span>
+                    {#if order.shipping_tracking_number}
+                        <div class="flex flex-col items-center">
+                            <span class="block">Urmareste coletul</span>
+                            <a
+                                target="_blank"
+                                class="text-vspot-link"
+                                href={shipping_get_tracking_url(
+                                    order.shipping_method,
+                                    order.shipping_tracking_number,
+                                )}>{order.shipping_tracking_number}</a
+                            >
+                        </div>
+                    {/if}
                 </div>
                 <div>
                     <span class="text-nowrap">
