@@ -11,7 +11,7 @@
     } from "@fortawesome/free-solid-svg-icons";
     import Fa from "svelte-fa";
     import AddressBox from "./AddressBox.svelte";
-    import { price_discount } from "$lib/price";
+    import { price_discount, price_format } from "$lib/price";
     import type { V1ServerCouponInfo } from "$lib/backendv1/coupon";
     import Decimal from "decimal.js";
     import {
@@ -29,11 +29,11 @@
     ) => {
         let total = 0;
         products.forEach((p) => {
-            total = new Decimal(total)
-                .plus(p.price)
+            const product_total = new Decimal(p.price)
                 .minus(p.discount)
-                .mul(p.qty)
-                .toNumber();
+                .mul(p.qty);
+
+            total = new Decimal(total).add(product_total).toNumber();
         });
 
         if (coupon)
@@ -187,7 +187,7 @@
                         >{$l("description.producttotal")}</span
                     >
                     <span class="whitespace-nowrap">
-                        {order_total(order.products)}
+                        {price_format(order_total(order.products))}
                         RON
                     </span>
                 </div>
@@ -199,9 +199,11 @@
                             >{$l("description.discount")}</span
                         >
                         <span class="whitespace-nowrap">
-                            -{price_discount(
-                                order_total(order.products),
-                                order.coupon.discount_perc,
+                            -{price_format(
+                                price_discount(
+                                    order_total(order.products),
+                                    order.coupon.discount_perc,
+                                ),
                             )}
                             RON
                         </span>
@@ -212,7 +214,7 @@
                         >{$l("description.shipping")}</span
                     >
                     <span class="whitespace-nowrap">
-                        {order.shipping_price}
+                        {price_format(order.shipping_price)}
                         RON
                     </span>
                 </div>
@@ -221,8 +223,13 @@
                         >{$l("description.simpletotal")}</span
                     >
                     <span class="whitespace-nowrap">
-                        {order_total(order.products, order.coupon) +
-                            order.shipping_price} RON
+                        {price_format(
+                            new Decimal(
+                                order_total(order.products, order.coupon),
+                            )
+                                .plus(order.shipping_price)
+                                .toNumber(),
+                        )} RON
                     </span>
                 </div>
             </div>
