@@ -14,6 +14,7 @@
     import { PUBLIC_VSPOT_TURNSTILE_SITE_KEY } from "$env/static/public";
     import CheckBox from "$lib/input/CheckBox.svelte";
     import { USER_EMAIL_REGEX } from "$lib/user/validation";
+    import LinkButton from "$lib/LinkButton.svelte";
 
     let email = new InputFieldContext();
     email.validate = (value: string) => {
@@ -137,10 +138,7 @@
                 >
             {/if}
             <div class="flex justify-between items-center">
-                <a
-                    href="/forgor-password"
-                    class="block text-sm text-vspot-link"
-                >
+                <a href="/password-forgor" class="block">
                     {$l("user.forgorpassword")}
                 </a>
                 <button
@@ -154,8 +152,10 @@
                     </span>
                 </button>
             </div>
-            <div class="flex justify-between items-center">
-                <a class="mt-auto" href="/signup">{$l("user.createaccount")}</a>
+            <div class="flex justify-between items-center !mt-8">
+                <LinkButton simple href="/signup">
+                    <span>{$l("user.createaccount")}</span>
+                </LinkButton>
                 <button
                     class="bg-vspot-green flex justify-center items-center min-w-32 min-h-10 p-2 px-4 rounded-tl-lg rounded-br-lg text-vspot-primary-bg"
                     disabled={login_in_progress}

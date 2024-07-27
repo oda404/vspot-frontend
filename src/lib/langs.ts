@@ -32,6 +32,19 @@ var translations = {
         "page.tos": "Termenii si conditiile",
         "page.privacy_policy": "Politica de confidentialitate",
         "page.return_policy": "Politica retur",
+        "page.forgot_password": "Recuperare parola",
+        "page.forgot_password.description": "Introduceti adresa de email asociata contului dumneavoastra si va vom trimite un email cu instructiuni pentru resetarea parolei",
+        "page.forgot_password.success": "Cerere recuperare parola trimisa",
+        "page.reset_password": "Resetare parola",
+        "page.reset_password.description": "Alege o noua parola",
+        "page.reset_password.expired": "Link expirat",
+        "page.reset_password.expired.description": "Aceasta cerere de resetare a parolei a expirat",
+
+        "page.reset_password.success": "Parola resetata",
+        "page.reset_password.success.description": "Puteti intra in contul dumneavoastra folosind noua parola",
+
+        "page.forgot_password.success.header": "Email trimis",
+        "page.forgot_password.success.description": "Email-ul pentru resetarea parolei contului dumneavoastra a fost trimis. Va rugam sa urmati instructiunile din email pentru a va reseta parola.",
 
         "page.send_confirm_email.title": "Confirmare email",
         "page.send_confirm_email.description":
@@ -262,6 +275,11 @@ var translations = {
         "action.update": "Actualizeaza",
         "action.logout": "Iesi din cont",
         "action.see_policy": "Vezi politica",
+        "action.send_reset_password": "Trimite email",
+        "action.reset_password": "Reseteaza parola",
+        "action.resend_password_reset": "Retrimite cererea de resetare",
+
+        "description.need_assistance": "Ai nevoie de ajutor? Contacteaza-ne",
 
         "description.description": "Descriere",
         "description.specs": "Specificatii",
@@ -374,6 +392,8 @@ var translations = {
         "error.duplicate.email":
             "Aceasta adresa de email a fost inregistrata deja",
 
+        "error.nonexistent.email": "Aceasta adresa de email nu a fost inregistrata",
+
         "error.empty.password": "Ai uitat parola",
         "error.2short.password": "Parola este prea scurta",
         "error.2long.password":
@@ -414,6 +434,9 @@ var translations = {
 
         "invoice.date_type.issue": "Data emitere",
         "invoice.date_type.spv": "Data in SPV",
+
+        "password_requirements.password_must_have": "Parola trebuie sa contina",
+        "password_requirements.min_characters": "Cel putin {{n}} caractere",
 
         "footer.products": "Produse",
         "footer.locations": "Locatii",

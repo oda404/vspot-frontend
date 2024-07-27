@@ -135,3 +135,43 @@ export async function backendv1_post_user_delete(password: string): Promise<Serv
         body: JSON.stringify({ user_delete_info: { password } })
     });
 }
+
+export async function backendv1_user_password_reset_request(email: string, turnstile_token: string): Promise<ServerResponse> {
+    return await backendv1_base_fetch(`${backendv1_endpoint()}/user/password-forgot`, {
+        method: "POST",
+        headers: {
+            ...BACKENDV1_BASE_POST_HEADERS
+        },
+        body: JSON.stringify({
+            data: {
+                email
+            },
+            turnstile_token
+        })
+    });
+}
+
+export async function backendv1_user_password_reset(token: string, password: string, turnstile_token: string): Promise<ServerResponse> {
+    return await backendv1_base_fetch(`${backendv1_endpoint()}/user/password-reset`, {
+        method: "POST",
+        headers: {
+            ...BACKENDV1_BASE_POST_HEADERS
+        },
+        body: JSON.stringify({
+            data: {
+                token,
+                password
+            },
+            turnstile_token
+        })
+    });
+}
+
+export async function backendv1_user_password_reset_token_is_valid(token: string): Promise<ServerResponse<boolean>> {
+    return await backendv1_base_fetch(`${backendv1_endpoint()}/user/password-reset-token-valid/${token}`, {
+        method: "GET",
+        headers: {
+            ...BACKENDV1_BASE_GET_HEADERS
+        },
+    });
+}

@@ -208,7 +208,7 @@
                 </div>
                 <a
                     class="mt-2 text-sm text-vspot-text-hovered block whitespace-nowrap"
-                    href="/forgor-password">{$l("user.forgorpassword")}</a
+                    href="/password-forgor">{$l("user.forgorpassword")}</a
                 >
             </div>
             <div class="space-y-4">
