@@ -412,6 +412,9 @@ var translations = {
         "searchbar.nothing_found": "Nu s-a gasit niciun rezultat",
         "searchbar.search_results": "Rezultatele cautarii",
 
+        "invoice.date_type.issue": "Data emitere",
+        "invoice.date_type.spv": "Data in SPV",
+
         "footer.products": "Produse",
         "footer.locations": "Locatii",
         "footer.legal": "Informatii utile",
