@@ -20,6 +20,10 @@ button:hover:enabled {
     filter: brightness(95%);
 }
 
+a:hover {
+    filter: brightness(90%);
+}
+
 h1 {
     @apply text-xl;
     @apply font-bold;
