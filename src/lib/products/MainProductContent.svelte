@@ -39,9 +39,7 @@
     {/if}
     <div class="flex flex-col items-center space-y-4">
         <div class="w-full">
-            <h1
-                class="text-7xl lg:text-9xl font-[Blowhole] font-semibold opacity-80"
-            >
+            <h1 class="text-7xl lg:text-9xl font-[Blowhole] font-semibold">
                 {$l(`product.${product_title}`)}
             </h1>
             <span

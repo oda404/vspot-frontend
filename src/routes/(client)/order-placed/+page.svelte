@@ -7,7 +7,7 @@
 </script>
 
 <div class="mb-4 flex lg:flex-row space-x-8 items-center">
-    <div class="text-6xl font-semibold opacity-80">
+    <div class="text-6xl font-semibold">
         {$l("description.orderthankyou")}
     </div>
     <div class="hidden lg:block">

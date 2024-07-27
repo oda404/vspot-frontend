@@ -7,7 +7,7 @@
 </script>
 
 {#if data.status >= 400}
-    <h1 class="text-6xl lg:text-9xl font-[Blowhole] font-semibold opacity-80">
+    <h1 class="text-6xl lg:text-9xl font-[Blowhole] font-semibold">
         {$l("page.confirm_email.title.failed")}
     </h1>
     <div class="text-lg">
@@ -18,9 +18,7 @@
     </div>
 {:else}
     <div class="flex items-center space-x-20">
-        <span
-            class="text-6xl lg:text-9xl font-[Blowhole] font-semibold opacity-80"
-        >
+        <span class="text-6xl lg:text-9xl font-[Blowhole] font-semibold">
             {$l("page.confirm_email.title.success")}
         </span>
         <Fa primaryColor="#00ff01" scale="6x" icon={faEnvelopeCircleCheck} />

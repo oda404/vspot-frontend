@@ -11,7 +11,7 @@
     <div>
         {#if status == 404}
             <div class="1">
-                <span class="text-9xl font-[Blowhole] font-semibold opacity-80">
+                <span class="text-9xl font-[Blowhole] font-semibold">
                     404 {$l("error.page404")}
                 </span>
             </div>
@@ -20,7 +20,7 @@
             </div>
         {:else}
             <div class="">
-                <span class="text-9xl font-[Blowhole] font-semibold opacity-80">
+                <span class="text-9xl font-[Blowhole] font-semibold">
                     {$page.status}
                     {$l("error.encountered_error")}
                 </span>

@@ -37,7 +37,7 @@
 </svelte:head>
 
 <section>
-    <h1 class="text-7xl lg:text-9xl font-[Blowhole] font-semibold opacity-80">
+    <h1 class="text-7xl lg:text-9xl font-[Blowhole] font-semibold">
         {$l("description.welcomeback", { name: user.firstname })}
     </h1>
 

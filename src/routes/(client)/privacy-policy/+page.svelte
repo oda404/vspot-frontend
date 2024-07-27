@@ -10,7 +10,7 @@
 
 <section>
     <h1
-        class="!text-6xl lg:!text-9xl font-[Blowhole] font-semibold opacity-80 flex items-center"
+        class="!text-6xl lg:!text-9xl font-[Blowhole] font-semibold flex items-center"
     >
         {$l("page.privacy_policy")}
     </h1>
