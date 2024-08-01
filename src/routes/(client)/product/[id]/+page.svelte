@@ -11,6 +11,8 @@
         faChevronLeft,
         faChevronRight,
         faDollar,
+        faMinus,
+        faPlus,
         faTruck,
     } from "@fortawesome/free-solid-svg-icons";
     import { onDestroy } from "svelte";
@@ -66,7 +68,7 @@
         <span class="text-3xl opacity-90 font-bold">
             {data.product.name}
         </span>
-        <div class="flex flex-col lg:flex-row lg:space-x-16">
+        <div class="flex flex-col lg:flex-row lg:space-x-12">
             <img
                 class="rounded-lg lg:min-w-[500px] lg:max-w-[500px]"
                 src={data.product.image_url}
@@ -148,7 +150,7 @@
                             >
                                 <Fa
                                     color={qty <= 1 ? "#cccccc" : ""}
-                                    icon={faChevronLeft}
+                                    icon={faMinus}
                                 />
                             </button>
                             <input
@@ -169,7 +171,7 @@
                                     color={qty >= data.product.stock
                                         ? "#cccccc"
                                         : ""}
-                                    icon={faChevronRight}
+                                    icon={faPlus}
                                 />
                             </button>
                         </div>
@@ -232,8 +234,8 @@
         </div>
     {/if}
     {#if recommended}
-        <div class="space-y-4 border-t border-vspot-secondary-bg py-8">
-            <span class="text-2xl">{$l("product.recommended_for_you")}</span>
+        <div class="space-y-4 border-t border-vspot-secondary-bg py-4">
+            <span class="text-2xl">Produse similare</span>
             <div
                 class="flex space-x-4
                 [&>*:nth-child(6)]:hidden

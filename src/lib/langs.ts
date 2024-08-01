@@ -211,7 +211,7 @@ var translations = {
 
         "product.recommended_for_you": "Recomandate pentru tine",
 
-        "price.only_online": "Acest pret este valabil exclusiv online",
+        "price.only_online": "Aceasta reducere este valabila exclusiv online",
 
         "nav.home": "Acasa",
         "nav.products": "Produse",
@@ -284,7 +284,7 @@ var translations = {
         "description.description": "Descriere",
         "description.specs": "Specificatii",
         "description.outofstock": "Acest produs nu este in stoc :(",
-        "description.outofstock_simple": "Nu este in stoc",
+        "description.outofstock_simple": "Stoc epuizat",
         "description.instock": "In stoc",
         "description.lastinstock": "Ultimul produs",
         "description.addedtocart": "Adaugat in cos",
@@ -891,6 +891,14 @@ var translations = {
         "filteropt.epotion": "E-Potion",
         "filteropt.mystique": "Mystique",
         "filteropt.70/30": "70/30",
+        "filteropt.lostvape": "Lost Vape",
+        "filteropt.ursa_nano": "Ursa Nano",
+        "filteropt.gtx_go80": "GTX GO 80",
+        "filteropt.argus_g2_mini": "Argus G2 Mini",
+        "filteropt.argus_p2": "Argus P2",
+        "filteropt.31mg": "31mg",
+        "filteropt.38.4mg": "38.4mg",
+        "filteropt.43mg": "43mg",
 
         "shipping.fancourier": "Fan Courier",
         "shipping.sameday": "Sameday",

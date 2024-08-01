@@ -37,7 +37,7 @@
     <CookieNotice />
     <div class="p-4 space-y-16 w-full lg:w-[1100px] z-10">
         <TopNavBar {user} />
-        <main class="lg:pt-0 pt-8">
+        <main class="lg:pt-[160px] pt-8">
             <slot />
         </main>
     </div>

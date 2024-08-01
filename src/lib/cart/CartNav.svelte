@@ -54,10 +54,13 @@
                 cart_opened = !cart_opened;
             }}
             aria-label="Cart"
+            class="flex space-x-2"
         >
             <Fa icon={faCartShopping} size="lg" />
             {#if item_count > 0}
-                <span class="text-sm">{item_count}</span>
+                <span class="font-bold">{item_count}</span>
+            {:else}
+                <span class="font-bold text-nowrap">Cos de cumparaturi</span>
             {/if}
         </button>
     </div>

@@ -2,8 +2,11 @@
     import { l } from "$lib/langs";
 </script>
 
-<div class="absolute h-fit inset-0 z-[5]">
-    <a href="/disposable?subtype=switchpro" class="relative block">
+<div class="h-fit inset-0 z-[5]">
+    <a
+        href="/disposable?subtype=switchpro"
+        class="relative block hover:filter-none"
+    >
         <img
             class="min-w-[100vw] h-[100vh] object-none object-top"
             src="/images/vozol/switchpro_promo.webp"

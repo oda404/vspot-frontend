@@ -45,10 +45,8 @@
 </svelte:head>
 
 <div class="space-y-4">
-    <Slideshow />
-    <div
-        class="!mt-[calc(100vh-50px)] lg:!mt-[calc(100vh-100px)] space-y-4 lg:w-[100%] p-4 relative"
-    >
+    <!-- <Slideshow /> -->
+    <div class="space-y-4 lg:w-[100%] p-4 relative">
         <div
             class="
                     absolute inset-0 my-auto

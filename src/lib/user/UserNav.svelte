@@ -17,7 +17,7 @@
                 user_tab_open = !user_tab_open;
             }}
             aria-label="User"
-            class="flex flex-col justify-center items-center"
+            class="flex justify-center items-center"
         >
             <Fa icon={faUser} size="lg" />
             <span class="hidden lg:block text-sm whitespace-nowrap"
@@ -34,5 +34,5 @@
         {/if}
     </div>
 {:else}
-    <NavItem icon={faUser} icon_size="lg" url="/login" />
+    <NavItem text="Contul meu" icon={faUser} icon_size="lg" url="/login" />
 {/if}

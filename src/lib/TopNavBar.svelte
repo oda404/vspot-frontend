@@ -33,32 +33,25 @@
 {/if}
 
 <div
-    class="max-w-[1100px] min-w-[1100px] w-[1100px] !mt-0 z-20 flex items-start lg:space-x-4 lg:h-[160px]"
+    class="absolute inset-0 w-full bg-vspot-primary-bg/90 !mt-0 z-20 flex items-center lg:space-x-4 h-fit"
 >
-    <a
-        href="/"
-        class="hidden lg:block left-[-2%] top-[-20px] lg:left-0 lg:top-0 lg:relative min-w-[140px] max-w-[140px] z-[8]"
-    >
-        <img src="/images/vspot.webp" class="mt-14" alt="V Spot Logo" />
-    </a>
-    <nav class="flex w-full lg:w-[1100px] z-10 space-x-4 fixed items-center">
-        <div
-            class="w-[calc(100%-100px)] bg-vspot-primary-bg border-2 border-vspot-secondary-bg z-20 opacity-100 rounded-full space-x-8 px-8 h-[45px] flex items-center"
-        >
-            <button
-                on:click={() => {
-                    products_submenu_open = !products_submenu_open;
-                }}
-            >
-                <Fa icon={faBars} />
-            </button>
-            {#if products_submenu_open}
-                <ProductsSubmenu
-                    on_close_cb={() => (products_submenu_open = false)}
-                />
-            {/if}
+    <nav class="mx-auto w-full z-10 items-center py-8 px-16 space-y-4">
+        <div class="flex items-center space-x-8">
             <SearchBar bind:open={search_bar_open} />
-            <div class="!ml-auto" />
+            <a
+                href="/"
+                class="min-w-[130px] max-w-[130px] z-[8] hover:filter-none !mx-auto"
+            >
+                <img src="/images/vspot_flat.webp" class="" alt="V Spot Logo" />
+            </a>
+            <div class="h-[45px] flex items-center">
+                <UserNav {user} />
+            </div>
+            <div class="h-[45px] flex items-center">
+                <CartNav />
+            </div>
+        </div>
+        <div class="z-20 flex items-center justify-center space-x-24 py-4">
             <NavItem
                 only_show_on_lg
                 url="/disposable"
@@ -80,13 +73,7 @@
                 text={$l("product.pouches")}
             />
             <NavItem only_show_on_lg url="/kit" text={$l("product.kits")} />
-            <LanguageSwitch />
-        </div>
-        <div class="h-[45px] flex items-center">
-            <UserNav {user} />
-        </div>
-        <div class="h-[45px] flex items-center">
-            <CartNav />
+            <!-- <LanguageSwitch /> -->
         </div>
     </nav>
 </div>

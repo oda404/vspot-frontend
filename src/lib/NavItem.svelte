@@ -30,12 +30,12 @@
         />
     {/if}
     {#if text}
-        <div
-            class="whitespace-nowrap {hovered
+        <span
+            class="whitespace-nowrap font-bold {hovered
                 ? 'text-vspot-text-hovered'
                 : ''} {only_show_on_lg ? 'hidden lg:inline' : ''}"
         >
             {text}
-        </div>
+        </span>
     {/if}
 </a>

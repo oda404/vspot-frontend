@@ -44,22 +44,24 @@
     $: if (search_data) open = true;
 </script>
 
-<div class="lg:relative w-full">
-    <div class="flex w-full items-center hover:cursor-pointer">
+<div class="lg:relative w-[300px] border-b border-vspot-green pb-2">
+    <div class="flex w-full items-center hover:cursor-text">
         <Fa icon={faSearch} />
         <form class="relative w-full">
             <label
                 for="search_bar_input"
-                class="absolute {open || search_data ? 'hidden' : ''} left-4"
+                class="absolute {open || search_data
+                    ? 'hidden'
+                    : ''} left-4 hover:cursor-text"
             >
-                {$l("nav.search")}
+                Cauta in magazin
             </label>
             <input
                 id="search_bar_input"
                 on:focus={() => (open = true)}
                 bind:value={search_data}
                 spellcheck={false}
-                class="bg-vspot-primary-bg px-4 !w-full outline-none focus:outline-none {!open &&
+                class="bg-transparent px-4 !w-full outline-none focus:outline-none {!open &&
                 search_data
                     ? 'text-vspot-text-hovered'
                     : ''}"
