@@ -81,7 +81,7 @@ var translations = {
 
         "page.main.support": "Vorbeste cu un expert",
         "page.main.support.description":
-            "Daca vrei o recomandare sau ai o intrebare, suntem aici 10:00-18:00 de Luni pana Vineri",
+            "Daca cauti o recomandare sau ai o intrebare, suntem aici 10:00-18:00 de Luni pana Vineri",
 
         "page.main.satisfaction": "Satisfactie totala",
         "page.main.satisfaction.description":

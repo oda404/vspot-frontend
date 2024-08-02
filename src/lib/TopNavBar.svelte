@@ -24,7 +24,7 @@
 
 {#if products_submenu_open || search_bar_open}
     <button
-        class="fixed rounded-none left-0 top-0 w-full h-full bg-[rgba(0,0,0,0.5)] z-[10] cursor-default"
+        class="fixed rounded-none left-0 top-0 w-full h-full z-[10] cursor-default"
         on:click={() => {
             products_submenu_open = false;
             search_bar_open = false;
@@ -32,48 +32,46 @@
     />
 {/if}
 
-<div
-    class="absolute inset-0 w-full bg-vspot-primary-bg/90 !mt-0 z-20 flex items-center lg:space-x-4 h-fit"
+<nav
+    class="absolute inset-0 w-full lg:py-8 z-[20] px-4 lg:px-16 space-y-8 lg:space-x-4 h-fit"
 >
-    <nav class="mx-auto w-full z-10 items-center py-8 px-16 space-y-4">
+    <div class="hidden lg:flex items-center space-x-8">
+        <SearchBar bind:open={search_bar_open} />
+        <div class="!mx-auto" />
+        <a href="/" class="min-w-[130px] max-w-[130px] z-[8] hover:filter-none">
+            <img src="/images/vspot_flat.webp" class="" alt="V Spot Logo" />
+        </a>
+        <div class="!mx-auto" />
+
+        <div class="h-[45px] flex items-center !ml-auto">
+            <UserNav {user} />
+        </div>
+        <div class="h-[45px] flex items-center">
+            <CartNav />
+        </div>
+    </div>
+    <div class="lg:hidden space-y-8">
         <div class="flex items-center space-x-8">
-            <SearchBar bind:open={search_bar_open} />
             <a
                 href="/"
-                class="min-w-[130px] max-w-[130px] z-[8] hover:filter-none !mx-auto"
+                class="min-w-[90px] max-w-[90px] z-[8] hover:filter-none"
             >
                 <img src="/images/vspot_flat.webp" class="" alt="V Spot Logo" />
             </a>
-            <div class="h-[45px] flex items-center">
+            <div class="h-[45px] flex items-center !ml-auto">
                 <UserNav {user} />
             </div>
             <div class="h-[45px] flex items-center">
                 <CartNav />
             </div>
         </div>
-        <div class="z-20 flex items-center justify-center space-x-24 py-4">
-            <NavItem
-                only_show_on_lg
-                url="/disposable"
-                text={$l("product.disposables")}
-            />
-            <NavItem
-                only_show_on_lg
-                url="/liquid"
-                text={$l("product.liquids")}
-            />
-            <NavItem
-                only_show_on_lg
-                url="/smoking"
-                text={$l("product.smoking")}
-            />
-            <NavItem
-                only_show_on_lg
-                url="/pouch"
-                text={$l("product.pouches")}
-            />
-            <NavItem only_show_on_lg url="/kit" text={$l("product.kits")} />
-            <!-- <LanguageSwitch /> -->
-        </div>
-    </nav>
-</div>
+        <SearchBar bind:open={search_bar_open} />
+    </div>
+    <div class="z-20 hidden lg:flex items-center space-x-24 justify-center">
+        <NavItem url="/disposable" text={$l("product.disposables")} />
+        <NavItem url="/liquid" text={$l("product.liquids")} />
+        <NavItem url="/smoking" text={$l("product.smoking")} />
+        <NavItem url="/pouch" text={$l("product.pouches")} />
+        <NavItem url="/kit" text={$l("product.kits")} />
+    </div>
+</nav>

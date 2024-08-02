@@ -8,6 +8,7 @@
         faCreditCard,
         faMoneyBill,
         faLightbulb,
+        faCheck,
     } from "@fortawesome/free-solid-svg-icons";
     import Disposable from "$lib/icons/disposable.svelte";
     import Cig from "$lib/icons/cig.svelte";
@@ -16,6 +17,7 @@
     import Kit from "$lib/icons/kit.svelte";
     import ProductShowcase from "$lib/mainpage/ProductShowcase.svelte";
     import Slideshow from "$lib/mainpage/Slideshow.svelte";
+    import Fa from "svelte-fa";
 
     export let data;
 
@@ -44,30 +46,118 @@
     />
 </svelte:head>
 
-<div class="space-y-4">
-    <!-- <Slideshow /> -->
-    <div class="space-y-4 lg:w-[100%] p-4 relative">
-        <div
-            class="
-                    absolute inset-0 my-auto
-                    h-[120%] lg:h-[140%] w-[1000%] translate-y-[-13%] lg:translate-y-[-28%] translate-x-[-25%] -skew-y-2
-                    bg-vspot-secondary-bg/40 drop-shadow-lg
-                "
-        />
+<div class="space-y-16">
+    <div class="lg:flex space-y-4 lg:space-y-0 lg:space-x-8">
+        <a
+            class="space-y-4 block hover:filter-none"
+            href="/disposable?subtype=crystal4in1"
+        >
+            <video autoplay loop muted class="rounded-lg lg:min-w-[60%]">
+                <track kind="captions" />
+                <source
+                    src="/videos/ske/crystal_4_in_1_promo.mp4"
+                    type="video/mp4"
+                />
+                Your browser does not support the video tag.
+            </video>
+        </a>
+        <section class="space-y-4">
+            <h1 class="hidden">Crystal 4 in 1</h1>
+            <a
+                class="block !mt-0 hover:filter-none"
+                href="/disposable?subtype=crystal4in1"
+            >
+                <img
+                    alt="Crystal 4 in 1"
+                    src="/images/ske/crystal_4_in_1.webp"
+                />
+            </a>
+            <div class="flex items-center space-x-4">
+                <Fa size="lg" icon={faCheck} />
+                <span class="text-xl">Gustul unic Crystal</span>
+            </div>
+            <div class="flex items-center space-x-4">
+                <Fa size="lg" icon={faCheck} />
+                <span class="text-xl">2400 Pufuri</span>
+            </div>
+            <div class="flex items-center space-x-4">
+                <Fa size="lg" icon={faCheck} />
+                <span class="text-xl">4 Arome diferite interschimbabile</span>
+            </div>
+            <div class="flex items-center space-x-4">
+                <Fa size="lg" icon={faCheck} />
+                <span class="text-xl">Reincarcabil cu poduri</span>
+            </div>
+            <div class="flex items-center space-x-4">
+                <Fa size="lg" icon={faCheck} />
+                <span class="text-xl">2% Nicotina</span>
+            </div>
+            <div class="flex items-center space-x-4">
+                <Fa size="lg" icon={faCheck} />
+                <span class="text-xl">Baterie 950mAh</span>
+            </div>
+            <div class="flex items-center space-x-4">
+                <Fa size="lg" icon={faCheck} />
+                <span class="text-xl">Port Tip-C</span>
+            </div>
+            <a
+                href="/disposable?subtype=crystal4in1"
+                class="block p-2 px-4 bg-vspot-green text-vspot-primary-bg text-center rounded-tl-lg rounded-br-lg"
+            >
+                Cumpara acum
+            </a>
+            <small>
+                Acest produs contine nicotina si este interzis persoanelor sub
+                18 ani.
+            </small>
+        </section>
+    </div>
+    <section class="space-y-4">
+        <h1 class="text-4xl lg:text-6xl">Noul Argus P2!</h1>
+        <a
+            class="space-y-4 block hover:filter-none"
+            href="/kit?subtype=argus_p2"
+        >
+            <video autoplay loop muted class="rounded-lg">
+                <track kind="captions" />
+                <source
+                    src="/videos/voopoo/argus_p2_showcase.mp4"
+                    type="video/mp4"
+                />
+                Your browser does not support the video tag.
+            </video>
+        </a>
+    </section>
+
+    <div class="space-y-2 lg:w-[100%] p-4 relative pt-8">
         <div class="flex flex-col items-center justify-center lg:flex-row pb-4">
             <span
-                class="z-[8] text-8xl lg:text-9xl font-[Blowhole] text-center lg:text-left opacity-100 bg-clip-text inline-block drop-shadow-2xl"
+                class="z-[8] text-7xl lg:text-8xl font-[Blowhole] text-center lg:text-left opacity-100 bg-clip-text inline-block drop-shadow-2xl"
             >
                 {$l("home.title")}
             </span>
-            <img
-                class="lg:block max-h-[210px] max-w-[210px] z-[8]"
-                src="/images/vspot.webp"
-                alt="The VSpot"
+        </div>
+        <div
+            class="grid lg:flex lg:justify-between lg:grid-cols-none grid-cols-1 lg:space-y-0 space-y-12"
+        >
+            <SiteFeatureBox
+                icon={faTruck}
+                title={$l("page.main.shipping")}
+                description={$l("page.main.shipping.description")}
+            />
+            <SiteFeatureBox
+                icons={[faCreditCard, faMoneyBill]}
+                title={$l("page.main.payment")}
+                description={$l("page.main.payment.description")}
+            />
+            <SiteFeatureBox
+                icon={faLightbulb}
+                title={$l("page.main.support")}
+                description={$l("page.main.support.description")}
             />
         </div>
         <div
-            class="w-full h-fit grid grid-cols-2 gap-16 lg:gap-0 lg:flex lg:justify-between py-8 pb-14"
+            class="w-full h-fit grid grid-cols-2 gap-16 lg:gap-0 lg:flex lg:justify-between py-4"
         >
             <div class="flex flex-col lg:flex-row space-x-4 items-center z-[8]">
                 <div class="rotate-[24deg] mb-auto lg:mb-0">
@@ -124,8 +214,22 @@
             </div>
         </div>
     </div>
-    <div class="space-y-24 pt-12 pb-24">
-        <ProductShowcase name={$l("product.new")} products={newest} />
+    <div class="space-y-4">
+        <div class="flex items-center space-x-4">
+            <h1 class="text-4xl lg:text-6xl text-nowrap">Vozol Switch PRO</h1>
+            <div class="w-full bg-vspot-green h-[1px]" />
+        </div>
+        <a href="/disposable?subtype=switchpro" class="block hover:filter-none">
+            <img
+                class="rounded-lg"
+                alt="Vozol Switch Pro Promo"
+                src="/images/vozol/vozol_switch_pro_promo.jpg"
+            />
+        </a>
+        <ProductShowcase products={newest} />
+    </div>
+
+    <div class="space-y-24 pb-24">
         <div class="relative">
             <div
                 class="
@@ -149,7 +253,7 @@
                 <Kit h={32} />
             </div>
         </ProductShowcase>
-        <div class="p-4 !mt-[150px] relative">
+        <!-- <div class="p-4 !mt-[150px] relative">
             <div
                 class="
                     absolute inset-0 my-auto
@@ -183,30 +287,6 @@
                     class="h-[60px] object-contain"
                 />
             </div>
-        </div>
-        <div
-            class="grid lg:flex lg:justify-between lg:grid-cols-none grid-cols-1 lg:space-y-0 space-y-12 !mt-48"
-        >
-            <SiteFeatureBox
-                icon={faTruck}
-                title={$l("page.main.shipping")}
-                description={$l("page.main.shipping.description")}
-            />
-            <SiteFeatureBox
-                icons={[faCreditCard, faMoneyBill]}
-                title={$l("page.main.payment")}
-                description={$l("page.main.payment.description")}
-            />
-            <SiteFeatureBox
-                icon={faLightbulb}
-                title={$l("page.main.support")}
-                description={$l("page.main.support.description")}
-            />
-            <SiteFeatureBox
-                img_url={"/images/ahh.webp"}
-                title={$l("page.main.satisfaction")}
-                description={$l("page.main.satisfaction.description")}
-            />
-        </div>
+        </div> -->
     </div>
 </div>

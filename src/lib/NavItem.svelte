@@ -31,7 +31,7 @@
     {/if}
     {#if text}
         <span
-            class="whitespace-nowrap font-bold {hovered
+            class="whitespace-nowrap text-lg {hovered
                 ? 'text-vspot-text-hovered'
                 : ''} {only_show_on_lg ? 'hidden lg:inline' : ''}"
         >

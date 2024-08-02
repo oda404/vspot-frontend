@@ -44,8 +44,10 @@
     $: if (search_data) open = true;
 </script>
 
-<div class="lg:relative w-[300px] border-b border-vspot-green pb-2">
-    <div class="flex w-full items-center hover:cursor-text">
+<div class="relative w-full lg:w-[350px] pb-2">
+    <div
+        class="flex w-full items-center hover:cursor-text border-b border-vspot-secondary-bg pb-2"
+    >
         <Fa icon={faSearch} />
         <form class="relative w-full">
             <label
@@ -70,7 +72,7 @@
     </div>
     {#if open && search_data}
         <div
-            class="absolute flex justify-center left-0 lg:top-12 top-14 bg-vspot-primary-bg lg:w-full w-[calc(100vw-30px)] border-2 border-vspot-secondary-bg rounded-lg p-4 drop-shadow-lg"
+            class="absolute flex justify-center left-0 top-12 bg-vspot-primary-bg lg:w-full w-[calc(100vw-30px)] border-2 border-vspot-secondary-bg rounded-lg p-4 drop-shadow-lg"
         >
             {#if search_promise}
                 {#await search_promise}
@@ -118,6 +120,8 @@
                                 <div class="overflow-x-hidden">
                                     <ProductHorizontalDisplay
                                         show_discount
+                                        stock={product.stock}
+                                        show_stock_status
                                         {product}
                                     />
                                 </div>

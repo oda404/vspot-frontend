@@ -17,10 +17,10 @@
                 user_tab_open = !user_tab_open;
             }}
             aria-label="User"
-            class="flex justify-center items-center"
+            class="flex justify-center items-center space-x-2"
         >
             <Fa icon={faUser} size="lg" />
-            <span class="hidden lg:block text-sm whitespace-nowrap"
+            <span class="hidden lg:block text-sm font-bold whitespace-nowrap"
                 >{user.firstname}</span
             >
         </button>

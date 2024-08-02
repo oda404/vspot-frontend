@@ -23,6 +23,7 @@
     export let show_qty: boolean = false;
     export let show_qty_control: boolean = false;
     export let stock: number | undefined = undefined;
+    export let show_stock_status: boolean = false;
 
     if ((show_qty || show_qty_control) && !qty)
         console.error(
@@ -77,17 +78,40 @@
                         )}
                     </span>
                 {/if}
-                <span
-                    class="block font-semibold {large ? 'text-xl' : 'text-lg'}"
-                >
-                    {price_format(
-                        new Decimal(product.price)
-                            .minus(product.discount)
-                            .mul(price_on_qty ? qty || 1 : 1)
-                            .toNumber(),
-                    )}
-                    {product.currency}
-                </span>
+                <div class="flex items-center space-x-4">
+                    <span
+                        class="block font-semibold {large
+                            ? 'text-xl'
+                            : 'text-lg'}"
+                    >
+                        {price_format(
+                            new Decimal(product.price)
+                                .minus(product.discount)
+                                .mul(price_on_qty ? qty || 1 : 1)
+                                .toNumber(),
+                        )}
+                        {product.currency}
+                    </span>
+                    {#if show_stock_status}
+                        {#if !stock}
+                            <div class="flex items-center space-x-1">
+                                <div
+                                    class="size-1.5 rounded-full bg-vspot-secondary-bg"
+                                />
+                                <span class="text-vspot-text-hovered"
+                                    >Stoc epuizat</span
+                                >
+                            </div>
+                        {:else}
+                            <div class="flex items-center space-x-1">
+                                <div
+                                    class="size-1.5 rounded-full bg-vspot-green"
+                                />
+                                <span class="text-vspot-green">In stoc</span>
+                            </div>
+                        {/if}
+                    {/if}
+                </div>
                 {#if show_add_to_cart_button}
                     <button
                         class="p-1 px-2 bg-vspot-green text-vspot-secondary-bg"

@@ -4,24 +4,26 @@
     import Product from "$lib/products/Product.svelte";
 
     export let products: V1ServerProductDisplayData[];
-    export let name: string;
+    export let name: string | undefined = undefined;
     export let href: string | undefined = undefined;
 </script>
 
-<div class="p-4 rounded-b-lg">
-    <div class="flex items-center justify-between">
-        <a {href} class="flex space-x-4 items-center">
-            <slot />
-            <span class="text-5xl font-semibold font-[Blowhole] block">
-                {name}
-            </span>
-        </a>
-        {#if href}
-            <a {href} class=""> {$l("action.see_all")} </a>
-        {/if}
-    </div>
+<div class=" rounded-b-lg">
+    {#if name}
+        <div class="flex items-center justify-between">
+            <a {href} class="flex space-x-4 items-center">
+                <slot />
+                <span class="text-5xl font-semibold font-[Blowhole] block">
+                    {name}
+                </span>
+            </a>
+            {#if href}
+                <a {href} class=""> {$l("action.see_all")} </a>
+            {/if}
+        </div>
+    {/if}
     <div
-        class="grid grid-cols-2 gap-2 lg:flex lg:[&>*:nth-child(6)]:hidden lg:gap-0 lg:space-x-2 pt-4"
+        class="grid grid-cols-2 gap-2 lg:flex lg:[&>*:nth-child(6)]:hidden lg:gap-0 lg:space-x-2"
     >
         {#each products as product}
             <Product {product} />
