@@ -34,7 +34,9 @@
     const to_product_core_infos = (
         prods: V1ServerProductDisplayData[] | undefined,
     ) => {
-        return prods as V1ServerProductDisplayData[];
+        return (prods as V1ServerProductDisplayData[]).sort((p1, p2) => {
+            return p2.stock - p1.stock;
+        });
     };
 
     onDestroy(() => {
