@@ -899,6 +899,8 @@ var translations = {
         "filteropt.31mg": "31mg",
         "filteropt.38.4mg": "38.4mg",
         "filteropt.43mg": "43mg",
+        "filteropt.2400": "2400",
+        "filteropt.crystal4in1": "Crystal 4 in 1",
 
         "shipping.fancourier": "Fan Courier",
         "shipping.sameday": "Sameday",
