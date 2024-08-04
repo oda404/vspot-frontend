@@ -5,7 +5,7 @@
         ageconfirmation_store,
         ageconfirmation_store_set,
     } from "./ageconfirmation";
-    import { current_language, l } from "$lib/langs";
+    import { l } from "$lib/langs";
     import { scroll_add_lock, scroll_remove_lock } from "$lib/scroll";
     import { browser } from "$app/environment";
 
@@ -46,9 +46,7 @@
                 >
                 <a
                     class="w-full bg-vspot-text-error p-2 px-4 rounded-tl-lg rounded-br-lg text-vspot-text-pimary mt-4 text-center"
-                    href={$current_language === "ro"
-                        ? "https://ro.wikipedia.org/wiki/Penitenciarul_Slobozia"
-                        : "https://en.wikipedia.org/wiki/United_States_Penitentiary,_Lompoc"}
+                    href="https://ro.wikipedia.org/wiki/Penitenciarul_Slobozia"
                     >{$l("age.confirm_not_ok", {
                         age: ageconfirmation_minimum_age,
                     })}</a

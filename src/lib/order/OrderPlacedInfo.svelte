@@ -3,7 +3,6 @@
         V1ServerOrder,
         V1ServerPurchasedProduct,
     } from "$lib/backendv1/order";
-    import { current_language, l } from "$lib/langs";
     import ProductHorizontalDisplay from "$lib/products/ProductHorizontalDisplay.svelte";
     import {
         faCreditCard,
@@ -19,6 +18,7 @@
         shipping_methods_get_img_url,
     } from "$lib/orderinfo/shipping_methods";
     import OrderPlacedInfoAdmin from "./OrderPlacedInfoAdmin.svelte";
+    import { l } from "$lib/langs";
 
     export let order: V1ServerOrder;
     export let show_admin_controls = false;
@@ -46,11 +46,9 @@
 </script>
 
 <div class="w-full">
-    <span class="text-lg"
-        >{$l("order.orderon", {
-            date: new Date(order.date).toLocaleDateString(
-                $current_language === "ro" ? "en-GB" : "en-US",
-            ),
+    <span class="text-lg">
+        {$l("order.orderon", {
+            date: new Date(order.date).toLocaleDateString("en-GB"),
         })}
     </span>
     <span

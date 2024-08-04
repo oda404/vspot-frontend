@@ -1,15 +1,11 @@
 <script lang="ts">
-    import LanguageSwitch from "./LanguageSwitch.svelte";
     import NavItem from "./NavItem.svelte";
     import SearchBar from "./SearchBar.svelte";
     import { l } from "./langs";
     import CartNav from "./cart/CartNav.svelte";
     import type { UserDisplayInfo } from "./user/user";
-    import ProductsSubmenu from "./nav/ProductsSubmenu.svelte";
     import { beforeNavigate } from "$app/navigation";
     import UserNav from "./user/UserNav.svelte";
-    import { faBars } from "@fortawesome/free-solid-svg-icons";
-    import Fa from "svelte-fa";
 
     export let user: UserDisplayInfo | undefined;
 

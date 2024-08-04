@@ -4,7 +4,6 @@
     export let icon: any = undefined;
     export let icons: any = undefined;
     export let img_url: string | undefined = undefined;
-    export let title: string;
     export let description: string;
 </script>
 
@@ -24,7 +23,6 @@
             class="w-[28px] -mb-2 mx-auto"
         />
     {/if}
-    <!-- <span class="text-lg font-bold mx-auto">{title}</span> -->
     <span class="max-w-[210px] mx-auto text-center">{description}</span>
     <slot />
 </div>

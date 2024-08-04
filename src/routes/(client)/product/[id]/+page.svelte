@@ -325,7 +325,7 @@
     {/if}
 </div>
 
-<style>
+<style lang="postcss">
     td:first-child {
         @apply border-b;
         @apply border-r;

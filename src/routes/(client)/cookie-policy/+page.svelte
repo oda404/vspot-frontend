@@ -315,7 +315,7 @@
     </div>
 </section>
 
-<style>
+<style lang="postcss">
     h1 {
         @apply text-2xl;
     }

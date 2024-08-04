@@ -1,16 +1,13 @@
 import { derived, writable } from "svelte/store";
 
-export const current_language = writable<"ro" | "en">(
-    (typeof window !== "undefined" &&
-        localStorage.lang &&
-        JSON.parse(localStorage.lang)) ||
-    "ro",
-);
+// export const current_language = writable<"ro" | "en">(
+//     (typeof window !== "undefined" &&
+//         localStorage.lang &&
+//         JSON.parse(localStorage.lang)) ||
+//     "ro",
+// );
 
-export function current_language_set(lang: "ro" | "en") {
-    typeof window !== "undefined" && (localStorage.lang = JSON.stringify(lang));
-    current_language.set(lang);
-}
+const current_language = writable("ro");
 
 var translations = {
     ro: {
@@ -648,7 +645,7 @@ var translations = {
         "shipping.sameday": "Sameday",
 
         "product.switchpro": "Vozol Switch Pro",
-        "product.crystal4in1": "Crystal 4-in-1",
+        "product.crystal4in1": "SKE Crystal 4-in-1",
         "product.elfbarv2": "Elf Bar V2",
         "product.neon800": "Vozol Neon 800",
         "product.star2000": "Vozol Star 2000",

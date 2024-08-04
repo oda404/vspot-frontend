@@ -9,7 +9,7 @@
     </ul>
 </div>
 
-<style>
+<style lang="postcss">
     span,
     li {
         @apply text-sm;

@@ -144,17 +144,14 @@
         >
             <SiteFeatureBox
                 icon={faTruck}
-                title={$l("page.main.shipping")}
                 description={$l("page.main.shipping.description")}
             />
             <SiteFeatureBox
                 icons={[faCreditCard, faMoneyBill]}
-                title={$l("page.main.payment")}
                 description={$l("page.main.payment.description")}
             />
             <SiteFeatureBox
                 icon={faLightbulb}
-                title={$l("page.main.support")}
                 description={$l("page.main.support.description")}
             />
         </div>
