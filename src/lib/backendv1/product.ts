@@ -38,6 +38,7 @@ export type V1ServerProductFullinfo = {
     name: string;
     image_url: string;
     tags: { name: string; options: string[] }[];
+    specs: { name: string; value: string[] }[];
 
     /* These are handed by us */
     price: number;

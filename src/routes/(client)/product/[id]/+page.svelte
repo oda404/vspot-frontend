@@ -8,16 +8,17 @@
     import { shipping_estimation_get_date_from_now } from "$lib/shipping/estimation";
     import { pagetitle_make } from "$lib/title";
     import {
-        faChevronLeft,
-        faChevronRight,
+        faBanSmoking,
         faDollar,
+        faExclamationTriangle,
         faMinus,
         faPlus,
+        faStop,
         faTruck,
     } from "@fortawesome/free-solid-svg-icons";
+    import Decimal from "decimal.js";
     import { onDestroy } from "svelte";
     import Fa from "svelte-fa";
-    import SvelteMarkdown from "svelte-markdown";
     import { get } from "svelte/store";
 
     export let data;
@@ -28,7 +29,27 @@
         data.product.tags.find((t) => t.name === "type")?.options || [];
 
     const price_full = data.product.price;
-    const price_actual = price_full - data.product.discount;
+    const price_actual = new Decimal(price_full)
+        .sub(data.product.discount)
+        .toNumber();
+
+    let package_contents: { name: string; value: string[] } | undefined =
+        undefined;
+
+    {
+        const package_contents_spec_idx = data.product.specs.findIndex(
+            (spec) => spec.name === "package_contents",
+        );
+
+        if (package_contents_spec_idx !== -1) {
+            package_contents = data.product.specs.slice(
+                package_contents_spec_idx,
+                package_contents_spec_idx + 1,
+            )[0];
+        } else {
+            package_contents = undefined;
+        }
+    }
 
     let qty = 1;
     $: {
@@ -54,8 +75,24 @@
         }),
     );
 
-    type Tab = "description" | "specs";
-    let selected_tab: Tab = "description";
+    type Tab = "specs" | "reviews";
+    let selected_tab: Tab = "specs";
+
+    const get_package_contents_from_spec = (
+        spec_values: string[],
+    ): { qty: number; name: string }[] => {
+        let contents: { qty: number; name: string }[] = [];
+        spec_values.forEach((specval) => {
+            const qty_str = specval.substring(0, specval.indexOf("x"));
+            const name = $l(
+                `package_content.${specval.substring(qty_str.length + 2)}`,
+            );
+
+            contents.push({ qty: Number(qty_str), name });
+        });
+
+        return contents;
+    };
 </script>
 
 <svelte:head>
@@ -64,8 +101,8 @@
 
 <div class="space-y-4">
     <ProductTrailBar {tags} product_name={data.product.name} />
-    <div class="space-y-8">
-        <span class="text-3xl opacity-90 font-bold">
+    <div class="space-y-4">
+        <span class="text-3xl font-bold">
             {data.product.name}
         </span>
         <div class="flex flex-col lg:flex-row lg:space-x-12">
@@ -75,35 +112,31 @@
                 alt="{data.product.name} image"
             />
             <div class="space-y-1 w-full mt-4 lg:mt-0">
-                <div class="space-y-2">
-                    {#if data.product.discount > 0}
-                        <div class="flex items-center space-x-2">
-                            <span
-                                class="line-through text-xl text-vspot-text-hovered"
-                            >
-                                {price_format(data.product.price)} RON
-                            </span>
-                            <span
-                                class="px-2 p-[0.1rem] rounded-tl-lg rounded-br-lg bg-vspot-secondary-bg text-lg"
-                            >
-                                -{product_price_get_percdiff(
-                                    price_full,
-                                    price_actual,
-                                )}%
-                            </span>
-                        </div>
-                    {/if}
-                    <span
-                        class="text-3xl block font-semibold text-vspot-text-hovered"
-                    >
-                        {price_format(
-                            price_discounted_val(
-                                data.product.price,
-                                data.product.discount,
-                            ),
-                        )} RON
-                    </span>
-                </div>
+                {#if data.product.discount > 0}
+                    <div class="flex items-center space-x-2">
+                        <span
+                            class="line-through text-xl text-vspot-text-hovered"
+                        >
+                            {price_format(data.product.price)} RON
+                        </span>
+                        <span
+                            class="px-2 p-[0.1rem] rounded-tl-lg rounded-br-lg bg-vspot-secondary-bg text-lg"
+                        >
+                            -{product_price_get_percdiff(
+                                price_full,
+                                price_actual,
+                            )}%
+                        </span>
+                    </div>
+                {/if}
+                <span class="text-3xl block font-semibold">
+                    {price_format(
+                        price_discounted_val(
+                            data.product.price,
+                            data.product.discount,
+                        ),
+                    )} RON
+                </span>
                 {#if price_actual !== price_full}
                     <div class="flex items-center space-x-2">
                         <Fa icon={faDollar} />
@@ -202,40 +235,81 @@
                         <span>{shipping_estimation_get_date_from_now()}</span>
                     </div>
                 {/if}
+                <div class="flex space-x-2 items-center !mt-4">
+                    <span class="font-bold">18+</span>
+                    <span
+                        >Acest produs este interzis persoanelor sub 18 ani</span
+                    >
+                </div>
             </div>
         </div>
     </div>
-    {#if data.product.description_long}
-        <div class="block space-y-4">
-            <button
-                class="{selected_tab === 'description'
-                    ? 'bg-vspot-secondary-bg'
-                    : ''} w-fit px-4 p-2 !rounded-b-none !rounded-t-lg"
-                disabled={selected_tab === "description"}
-                on:click={() => (selected_tab = "description")}
-            >
-                {$l("description.description")}
+    <div class="!mt-8">
+        <div class="flex items-center justify-center space-x-4">
+            <button class="text-xl"> Detalii </button>
+            <button class="text-xl !ml-8 text-vspot-text-hovered">
+                Recenzii
             </button>
-            <button
-                class="{selected_tab === 'specs'
-                    ? 'bg-vspot-secondary-bg'
-                    : ''} w-fit px-4 p-2 !rounded-b-none !rounded-t-lg"
-                disabled={selected_tab === "specs"}
-                on:click={() => (selected_tab = "specs")}
-            >
-                {$l("description.specs")}
-            </button>
-            <div class="h-[1px] !-mt-0 w-full bg-vspot-secondary-bg" />
-            {#if selected_tab === "description"}
-                <SvelteMarkdown source={data.product.description_long} />
-            {:else if selected_tab === "specs"}
-                <div></div>
+            <div class="w-full h-[1px] bg-vspot-secondary-bg" />
+        </div>
+        <div class="lg:flex space-y-4 lg:space-y-0 pt-4 justify-between">
+            <table class="lg:w-fit lg:max-w-[60%] w-full">
+                <tr class="border-b border-vspot-secondary-bg">
+                    <th class="p-1 px-0 text-start font-bold">Detalii produs</th
+                    >
+                    <th></th>
+                </tr>
+                {#each data.product.specs as spec}
+                    {#if spec.name !== "package_contents"}
+                        <tr>
+                            <td class="p-2 px-0 pr-8">
+                                {$l(`spec.${spec.name}`)}
+                            </td>
+                            <td class="p-2 px-4">
+                                {#if spec.value.length === 1}
+                                    {$l(`specval.${spec.value}`)}
+                                {:else}
+                                    <ul>
+                                        {#each spec.value as value}
+                                            <li class="!ml-4">
+                                                {$l(`specval.${value}`)}
+                                            </li>
+                                        {/each}
+                                    </ul>
+                                {/if}
+                            </td>
+                        </tr>
+                    {/if}
+                {/each}
+            </table>
+            {#if package_contents}
+                <table class="h-fit lg:w-fit w-full">
+                    <tr class="border-b border-vspot-secondary-bg">
+                        <th class="p-1 px-0 text-start font-bold text-nowrap"
+                            >Continut pachet</th
+                        >
+                        <th></th>
+                    </tr>
+                    {#each get_package_contents_from_spec(package_contents.value) as content}
+                        <tr>
+                            <td class="p-2 px-0 lg:pr-16 pr-8">
+                                {content.qty}x
+                            </td>
+                            <td class="p-2 px-4">
+                                {content.name}
+                            </td>
+                        </tr>
+                    {/each}
+                </table>
             {/if}
         </div>
-    {/if}
+    </div>
     {#if recommended}
-        <div class="space-y-4 border-t border-vspot-secondary-bg py-4">
-            <span class="text-2xl">Produse similare</span>
+        <div class="space-y-4">
+            <div class="flex items-center space-x-2">
+                <span class="text-xl">Recomandate</span>
+                <div class="w-full h-[1px] bg-vspot-secondary-bg" />
+            </div>
             <div
                 class="flex space-x-4
                 [&>*:nth-child(6)]:hidden
@@ -250,3 +324,21 @@
         </div>
     {/if}
 </div>
+
+<style>
+    td:first-child {
+        @apply border-b;
+        @apply border-r;
+        @apply border-vspot-secondary-bg;
+    }
+    td:last-child {
+        @apply border-b;
+        @apply border-vspot-secondary-bg;
+    }
+    tr:last-child > td:first-child {
+        @apply border-b-0;
+    }
+    tr:last-child > td:last-child {
+        @apply border-b-0;
+    }
+</style>

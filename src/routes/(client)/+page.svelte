@@ -62,13 +62,12 @@
             </video>
         </a>
         <section class="space-y-4">
-            <h1 class="hidden">Crystal 4 in 1</h1>
             <a
                 class="block !mt-0 hover:filter-none"
                 href="/disposable?subtype=crystal4in1"
             >
                 <img
-                    alt="Crystal 4 in 1"
+                    alt="SKE Crystal 4-in-1"
                     src="/images/ske/crystal_4_in_1.webp"
                 />
             </a>
@@ -113,7 +112,10 @@
         </section>
     </div>
     <section class="space-y-4">
-        <h1 class="text-4xl lg:text-6xl">Noul Argus P2!</h1>
+        <div class="flex items-center space-x-4">
+            <h1 class="text-4xl lg:text-6xl text-nowrap">Noul Argus P2!</h1>
+            <div class="w-full bg-vspot-green h-[1px]" />
+        </div>
         <a
             class="space-y-4 block hover:filter-none"
             href="/kit?subtype=argus_p2"

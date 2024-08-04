@@ -182,7 +182,7 @@ var translations = {
         "product.disposable_cartridge": "Poduri",
 
         "product.disposables.description":
-            "Kituri preumplute de unica folosinta sau reincarcabile",
+            "Kituri preumplute de unica folosinta sau cu poduri",
         "product.pouches.description":
             "Pliculete cu nicotina aplicate in partea de sus a buzei",
         "product.smoking.description": "Produse destinate fumatorilor de tutun",
@@ -197,7 +197,7 @@ var translations = {
         "product.filter.description": "Filtre pentru tigari rulate",
         "product.capsules.description": "Capsule aromate pentru tigari",
         "product.resistor.description": "Rezistente pentru kit-uri",
-        "product.entrykit.description": "Recomandat daca este primul tau vape",
+        "product.entrykit.description": "Recomandat ca si primul tau vape",
         "product.nic.description": "Shot-uri de nicotina pentru E-lichide",
         "product.pouches_weak.description": "O alegere buna pentru incepatori",
         "product.pouches_mid.description":
@@ -438,6 +438,132 @@ var translations = {
         "password_requirements.password_must_have": "Parola trebuie sa contina",
         "password_requirements.min_characters": "Cel putin {{n}} caractere",
 
+        "spec.puffs_per_pod": "Numar fumuri per pod",
+        "spec.liquid_per_pod": "Cantitate e-lichid per pod",
+        "spec.nicotine_per_pod": "Concentratie nicotina per pod",
+        "spec.pods_per_package": "Numar de poduri in pachet",
+        "spec.compatible_with": "Compatibil cu",
+        "spec.one_time_use": "De unica folosinta",
+        "spec.flavor": "Profil aroma",
+        "spec.battery_capacity": "Capacitate baterie",
+        "spec.material": "Material",
+        "spec.rechargable": "Cu poduri",
+        "spec.contains_pod": "Pod inclus",
+        "spec.color": "Culoare",
+        "spec.puffs": "Numar fumuri",
+        "spec.liquid": "Cantitate e-lichid",
+        "spec.nicotine": "Concentratie nicotina",
+        "spec.nicotinefree": "Fara nicotina",
+        "spec.contains_n_pods": "Numar poduri incluse",
+        "spec.pods_flavor": "Aroma podurilor",
+
+        "specval.lemon_passion_fruit": "Fructul pasiunii si lamaie",
+        "specval.blue_mojito": "Mojito Albastru",
+        "specval.cranberry_ice": "Merisoare cu efect racoritor (gheata)",
+        "specval.lychee_ice": "Litchi cu efect racoritor (gheata)",
+        "specval.passionfruit_blueberry_bull": "Fructul pasiunii, afine si energizant",
+        "specval.strawberry_kiwi": "Capsuni si kiwi",
+        "specval.blueberry_sour_raspberry": "Afine si zmeura acrisoara",
+        "specval.cola_ice": "Cola cu efect racoritor (gheata)",
+        "specval.menthol_mojito": "Mojito mentolat",
+        "specval.mr_blue": "Afine, zmeura, mure si menta",
+        "specval.strawberry_smoothie": "Smoothie de capsuni",
+        "specval.blue_razz_ice": "Fructe de padure cu efect racoritor (gheata)",
+        "specval.bull_ice": "Energizant cu efect racoritor (gheata)",
+        "specval.cherry_ice": "Cirese cu efect racoritor (gheata)",
+        "specval.cool_mint": "Menta",
+        "specval.grape_ice": "Struguri cu efect racoritor (gheata)",
+        "specval.lemon_mojito": "Mojito de lamaie",
+        "specval.lush_ice": "Pepene verde cu efect racoritor (gheata)",
+        "specval.strawberry_raspberry_cherry": "Capsuni, zmeura si cirese",
+        "specval.apple_peach": "Mere si piersici",
+        "specval.blackberry_ice": "Mure cu efect racoritor (gheata)",
+        "specval.blueberry_ice": "Afine cu efect racoritor (gheata)",
+        "specval.cherry_peach_lemonade": "Limonada de cirese si piersici",
+        "specval.kiwi_passion_fruit_guava": "Kiwi, fructul pasiunii si guava",
+        "specval.lychee_passion_fruit_orange": "Litchi, fructul pasiunii si portocale",
+        "specval.mixed_berries": "Amestec de mure",
+        "specval.red_berry": "Amestec de mure rosii",
+        "specval.strawberry_ice": "Capsuni cu efect racoritor (gheata)",
+        "specval.tobacco": "Tutun",
+        "specval.triple_melon": "Pepene verde, pepene galben si castravete",
+        "specval.watermelon_bubblegum": "Pepene verde si guma",
+        "specval.watermelon_lychee_guava": "Pepene verde, litchi si guava",
+        "specval.banana_ice": "Banana cu efect racoritor (gheata)",
+        "specval.dragon_fruit_banana_cherry": "Fructul dragonului, banana si cirese",
+        "specval.mango_ice": "Mango cu efect racoritor (gheata)",
+        "specval.strawberry_watermelon": "Capsuni si pepene verde",
+        "specval.cherry_cola": "Cirese si cola",
+        "specval.peach_mango_watermelon": "Piersici, mango si pepene verde",
+        "specval.blue_razz_lemon": "Fructe de padure si lamaie",
+        "specval.menthol": "Menta",
+        "specval.rainbow_candy": "Bomboane curcubeu / Amestec de bomboane",
+        "specval.sour_apple": "Mere acrisoare",
+        "specval.strawberry_apple": "Capsuni si mere",
+        "specval.strawberry_cranberry_bubblegum": "Capsuni, merisoare si guma",
+        "specval.vzbull": "Energizant",
+        "specval.watermelon_ice": "Pepene verde cu efect racoritor (gheata)",
+        "specval.aluminium": "Aluminiu",
+        "specval.blue": "Albastru",
+        "specval.red": "Rosu",
+        "specval.yellow": "Galben",
+        "specval.green": "Verde",
+        "specval.grey": "Gri",
+        "specval.black": "Negru",
+        "specval.purple": "Mov",
+        "specval.orange": "Portocaliu",
+        "specval.true": "Da",
+        "specval.false": "Nu",
+        "specval.approx_2000": "Aprox. 2000",
+        "specval.950mAh": "950mAh",
+        "specval.plastic": "Plastic",
+        "specval.metal": "Metal",
+        "specval.4": "4",
+        "specval.approx_800": "Aprox. 800",
+        "specval.approx_600": "Aprox. 600",
+        "specval.tropical_mixed": "Mix tropical",
+        "specval.lemon_and_lime": "Lamaie & lime",
+        "specval.blueberry_lime": "Afine & lime",
+        "specval.pink_lemonade": "Limonada roz",
+        "specval.watermelon_strawberry": "Pepene verde & capsuni",
+        "specval.melon_berry": "Mure & pepene",
+        "specval.fizzy_cherry": "Cirese revigorante",
+        "specval.white_peach_razz": "Piersici si zmeura",
+        "specval.strawberry_burst": "Explozie de capsuni",
+        "specval.blueberry_raspberries": "Afine si mure",
+        "specval.blueberry_peach": "Afine si piersici",
+        "specval.crystal_4in1": "Dispozitiv SKE Crystal 4-in-1",
+
+        "package_content.pods_switch_pro": "Poduri Vozol Switch PRO",
+        "package_content.instruction_manual": "Manual de utilizare",
+        "package_content.switchpro_device": "Dispozitiv Vozol Switch PRO",
+        "package_content.pod_switch_pro": "Pod Vozol Switch PRO",
+        "package_content.type_c_cable": "Cablu Tip-C",
+        "package_content.neon800": "Vape Vozol Neon 800",
+        "package_content.star2000": "Vape Vozol Star 2000",
+        "package_content.crystal_4in1_device": "Dispozitiv Crystal 4-in-1",
+        "package_content.pods_crystal_4in1": "Poduri Crystal 4-in-1",
+
+        "product.crystalbar.description": "Vape Crystal de unica folosinta cu 600 de fumuri",
+        "product.star2000.description": "Aroma Vozol intr-un vape de unica folosinta fara nicontina cu 2000 de fumuri",
+        "product.neon800.description": "Savoarea Vozol intr-un vape de unica folosinta cu 800 de fumuri",
+        "product.elfbarv2.description": "Versiunea 2 al renumitului Elf Bar de unica folosinta cu 600 de fumuri",
+        "product.crystal4in1.description": "Gustul unic Crystal intr-un vape cu 4 poduri interschimbabile",
+        "product.switchpro.description": "Gustul Vozol, acum intr-un vape cu poduri",
+
+        "product.mystique.description": "Lichidul Mystique de la Guerrilla Flavors cu un gust de neuitat",
+        "product.puffbar.description": "Noul Lichid Puff Bar de la Guerrilla Flavors",
+        "product.nicshot.description": "Nicotinizare pentru E-Lichide",
+
+        "product.gtx_go80.description": "Kit Vaporesso GTX GO80 pentru o experienta de vapat unica",
+        "product.ursa_nano.description": "Lost Vape Ursa nano",
+        "product.cyberg.description": "Kit-urile Aspire Cyber G",
+        "product.argusz.description": "Kit-urile VooPoo Argus Z",
+        "product.gotek.description": "Kit-urile Aspire Gotek",
+        "product.argus_p2.description": "Noile kit-uri VooPoo Argus P2 cu display OLED",
+        "product.argus_g2_mini.description": "Kit-urile VooPoo Argus G2 Mini",
+        "product.xros4.description": "Kit-urile Vaporesso XROS 4",
+
         "footer.products": "Produse",
         "footer.locations": "Locatii",
         "footer.legal": "Informatii utile",
@@ -445,398 +571,6 @@ var translations = {
         "footer.seedetails": "Vezi detalii",
         "footer.seo":
             "The V Spot este magazinul online pentru toate nevoiile tale ce au de a face cu nicotina. Tigari, vapeuri, kituri pentru vapat, lichide, baze, pouchuri, accesorii si nu numai! Toate acestea exclusiv de la cele mai bune branduri!",
-    },
-    en: {
-        "home.title": "Your new Vapes & Tobacco store!",
-        "home.explore": "Check out our catalogue",
-        "home.explore.btn": "Let's go",
-
-        "page.main": "Main page",
-        "page.login": "Login",
-        "page.signup": "Sign up",
-        "page.contact": "Contact",
-        "page.cookie_policy": "Cookie policy",
-        "page.account": "My account",
-        "page.my_orders": "My orders",
-        "page.cart": "Checkout",
-        "page.order_info": "Order information",
-        "page.order_shipping": "Order shipping",
-        "page.order_submit": "Send order",
-        "page.tos": "Terms of service",
-        "page.privacy_policy": "Privacy policy",
-        "page.return_policy": "Return policy",
-
-        "page.confirm_email.title.success": "Account confirmed!",
-        "page.confirm_email.description.success":
-            "Thank you for confirming your email address!",
-        "page.confirm_email.title.failed": "Expired link",
-        "page.confirm_email.description.failed":
-            "The confirmation link has either expired or is invalid.",
-        "page.confirm_email.resend": "Send another confirmation email",
-
-        "page.send_confirm_email.title": "Email confirmation",
-        "page.send_confirm_email.description": "We have sent you an email at",
-        "page.send_confirm_email.follow_instructions":
-            "Please follow the instructions in that email to confirm your account.",
-        "page.send_confirm_email.spam_notice":
-            "If you haven't received anything, make sure to also check the spam folder.",
-        "page.send_confirm_email.wrong_email":
-            "Don't have access to that email address? Change your email",
-
-        "page.main.description":
-            "is commited to bringing you the highest quality nicotine-related products! Vapes, kits, pouches, cigarettes and much more exclusively from top brands!",
-
-        "page.main.best_brands": "Top brands",
-        "page.main.best_brands.description":
-            "We've partnered up with the best brands in the pursuit of bringing you the cream of the crop!",
-
-        "page.main.shipping": "Shipping all across Romania",
-        "page.main.shipping.description":
-            "Shipping everywhere in Romania through your favorite shipping agency.",
-
-        "page.main.payment": "Card or cash payment",
-        "page.main.payment.description":
-            "Pay online using your card, or cash when picking up your goodies.",
-
-        "page.main.return": "Product return",
-        "page.main.return.check_policy": "*See return policy",
-        "page.main.return.description":
-            "If you're not satisfied with a product, you're getting a new one, or your money back*",
-
-        "page.main.satisfaction": "Complete satisfaction",
-        "page.main.satisfaction.description": "That's all there is to it",
-
-        "orderinfo.personaldata": "Contact",
-        "orderinfo.shippingaddress": "Shipping address",
-        "orderinfo.billingaddress": "Billing address",
-        "orderinfo.firstname": "Firstname",
-        "orderinfo.lastname": "Lastname",
-        "orderinfo.phone": "Phone",
-        "orderinfo.county": "County",
-        "orderinfo.city": "City",
-        "orderinfo.address": "Address",
-        "orderinfo.postalcode": "Postal code",
-        "orderinfo.newaccount": "Create an account",
-        "orderinfo.noaccount": "Continue without an account",
-        "orderinfo.continue": "Continue",
-        "orderinfo.dataconsent":
-            "I consent to the processing of my personal data according to the policy.",
-        "orderinfo.paymentoption": "Payment option",
-
-        "ordership.shipping_is_billing":
-            "The shipping address is the same as the billing address.",
-        "ordership.shipping_method": "Shipping method",
-        "ordership.shipping_option_none": "Please select a shipping method.",
-        "ordership.next": "Submit order",
-
-        "order.info": "Billing",
-        "order.shipping": "Shipping",
-        "order.noaccount_notice":
-            "Before continuing with the order please create an account",
-        "order.send": "Send",
-        "order.sendorder": "Submit order",
-        "order.payandsend": "Pay n' send",
-        "order.status": "Status: {{status}}",
-        "order.registered": "Registered",
-        "order.confirmed": "Confirmed",
-        "order.shipped": "Shipped",
-        "order.completed": "Completed",
-        "order.coupon": "Code",
-        "order.orderon": "Order on {{date}}",
-        "order.no_orders": "You haven't placed any orders yet...",
-        "order.consent":
-            "I have read and accept the terms of service and the privacy policy",
-        "order.consent_error":
-            "The terms of service and privacy policy are mandatory",
-        "order.do_you_have_a_voucher": "Have a voucher?",
-        "order.create_account_for_voucher":
-            "Sign up in order to apply vouchers",
-        "order.discount_showcase":
-            "You have a {{perc}}% discount on this order!",
-
-        "payment.card": "Card",
-        "payment.cash": "Cash on delivery",
-        "payment.missingerror": "Please select a payment method",
-        "payment.payment": "Payment",
-
-        "shipping.missingerror": "Please select a shipping method.",
-        "shipping.methoddescription":
-            "{{cost}} | Delivery in {{delivery_time}} days",
-        "shipping.shipping_through": "Shipping through:",
-
-        "cart.title": "Checkout",
-
-        "product.disposables": "Disposables",
-        "product.kits": "Kits",
-        "product.pouches": "Pouches",
-        "product.cigs": "Cigarettes",
-        "product.smoking": "Smoking",
-        "product.liquids": "E-Liquids",
-        "product.rollingpaper": "Rolling paper",
-        "product.lighter": "Lighters",
-        "product.grinder": "Grinders",
-        "product.filter": "Filters",
-        "product.capsules": "Capsules",
-        "product.resistor": "Coils",
-        "product.entrykit": "Entry kits",
-        "product.nic": "Nicotine",
-        "product.pouches_weak": "Mild pouches",
-        "product.pouches_mid": "Moderate pouches",
-        "product.pouches_strong": "Strong pouches",
-        "product.new": "Just in!",
-        "product.cone": "Cones",
-        "product.disposable_reusable": "Pod kits",
-        "product.disposable_cartridge": "Pods",
-
-        "product.disposables.description":
-            "Prefilled disposable / JUUL-like kits",
-        "product.pouches.description": "Nicotine pouches",
-        "product.smoking.description":
-            "Products geared towards tobacco smokers",
-        "product.liquids.description": "Liquids, bases and nicotine for vaping",
-        "product.kits.description": "Entry and advanced kits for vaping",
-        "product.rollingpaper.description": "Paper used for rolling cigarettes",
-        "product.lighter.description":
-            "Lighters running on butane, petroleum and shisha torches",
-        "product.grinder.description": "Grinders used for grinding tobacco!",
-        "product.filter.description": "Filters for use in rolled cigarettes",
-        "product.capsules.description":
-            "Capsules for flavoring traditional cigarettes",
-        "product.resistor.description": "Replacement coils for kits",
-        "product.entrykit.description":
-            "Recommended if you're trying out vaping for the first time",
-        "product.nic.description": "Nicotine shots for use with E-liquids",
-        "product.pouches_weak.description":
-            "Good for people who have never tried pouches before",
-        "product.pouches_mid.description":
-            "Good if you're bored of mild pouches but you're not looking to fall asleep",
-        "product.pouches_strong.description":
-            "Good if you have the nicotine tolerance of a nordic viking",
-        "product.cone.description": "Cones, pre-rolled and ready to smoke",
-        "product.disposable_reusable.description":
-            "Juul-like kits with prefilled pods",
-        "product.disposable_cartridge.description": "Prefilled pods",
-
-        "product.recommended_for_you": "Recommended for you",
-
-        "price.only_online":
-            "This price is only available for online purchases",
-
-        "nav.home": "Home",
-        "nav.products": "Products",
-        "nav.contact": "Get in touch",
-        "nav.search": "Search",
-        "nav.login": "Log in",
-
-        "filters.title": "Filters",
-        "filter.brand": "Brand",
-        "filter.puffs": "Puffs",
-        "filter.subtype": "Type",
-        "filter.concentration": "Concentration",
-        "filter.qty": "Quantity",
-        "filter.diameter": "Diameter",
-        "filter.material": "Material",
-        "filter.trait": "Traits",
-        "filter.color": "Color",
-        "filter.reusable": "Reusable",
-        "filter.cartridge": "Cartridge",
-        "filter.nicotinefree": "Nicotine-free",
-        "filter.active_coal": "Activated charcoal",
-        "filter.with_filters": "With filters",
-        "filter.compartments": "Pieces",
-        "filter.kief_catcher": "Kief Catcher",
-
-        "filteropt.zippolike": "Zippo-like",
-        "filteropt.antiwind": "Wind resistant",
-        "filteropt.white": "White",
-        "filteropt.silver": "Silver",
-        "filteropt.black": "Black",
-        "filteropt.50": "50 pcs.",
-        "filteropt.100": "100 pcs.",
-        "filteropt.150": "150 pcs.",
-        "filteropt.true": "Yes",
-        "filteropt.nicshot": "Nicshot",
-
-        "sort.title": "Sort by",
-        "sort.new": "New",
-        "sort.priceup": "Ascending price",
-        "sort.pricedown": "Descending price",
-        "sort.name": "Name A-Z",
-
-        "action.addtocart": "Add to cart",
-        "action.apply": "Apply",
-        "action.seecart": "See cart",
-        "action.continueshopping": "Continue shopping",
-        "action.backtomainpage": "Go to the main page",
-        "action.delete": "Remove",
-        "action.shipping": "Looks good!",
-        "action.continue_without_account": "Order without an account",
-        "action.change": "Modify",
-        "action.yes": "Yes",
-        "action.no": "No",
-        "action.login": "Login",
-        "action.signup": "Sign up",
-        "action.see_all": "See all",
-        "action.remember_me": "Remember me",
-        "action.update": "Update",
-        "action.logout": "Logout",
-        "action.see_policy": "See policy",
-
-        "description.description": "Description",
-        "description.specs": "Specifications",
-        "description.outofstock": "This item is out of stock :(",
-        "description.outofstock_simple": "Out of stock",
-        "description.instock": "In stock",
-        "description.lastinstock": "Last product",
-        "description.addedtocart": "Added to cart",
-        "description.notaddedtocart":
-            "The product couldn't be added to the cart!",
-        "description.cartlimithit":
-            "You already have our entire stock for this product in your cart.",
-        "description.stock": "{{n}} in stock",
-        "description.itemsincart": "{{n}} in cart",
-        "description.yourcart": "Your cart",
-        "description.total": "Total: {{n}}",
-        "description.cartcheckout": "Go to checkout",
-        "description.cartempty": "Your shopping cart is empty...",
-        "description.ordersummary": "Summary",
-        "description.shipping": "Shipping",
-        "description.producttotal": "Products",
-        "description.simpletotal": "Total",
-        "description.productcount": {
-            text: "{{n}} $",
-            formatter: (n: number) => {
-                return n === 1 ? "product" : "products";
-            },
-        },
-        "description.productreminder": "Are you stocked up on everything?",
-        "description.productreminder_noitems": "Maybe you're looking for...",
-        "description.yourproducts": "Your products",
-        "description.pcs": "PCS.",
-        "description.shippingtbd": "See on the next page",
-        "description.orderthankyou": "Thank you for your order!",
-        "description.welcomeback": "Hi {{name}}!",
-        "description.user_info": "My account",
-        "description.user_orders": "My orders",
-        "description.user_delete": "Close account",
-        "description.noproducts": "No products were found...",
-        "description.discount": "Discount",
-
-        "description.details": "Details",
-
-        "description.ordernumber": "The order #",
-        "description.orderplacedextrainfo":
-            "For more details about this order go to the Orders tab in your profile. For any other questions feel free to contact us",
-        "description.order_registered":
-            "Your order has been registered! You will soon get an email confirming the order",
-        "description.orderconfirmed":
-            "has been confirmed, and we're getting it ready for shipping",
-        "description.ordershipped": "is currently on it's way to you!",
-        "description.ordercompleted":
-            "has reached it's destination, that being you :3!",
-        "description.badorder": "could not be found...",
-        "description.here": "here",
-
-        "easter.badorder":
-            "If you got here either our db shit the bed or you had a poke at the url paramter... sleep with one eye open",
-
-        "age.notice":
-            "This website sells products that contain nicotine and other potentially harmful and addictive substances. Before using this website you have to confirm you are of legal age.",
-        "age.confirmok": "I'm at least {{age}}",
-        "age.confirm_not_ok": "I'm under {{age}}",
-
-        "user.firstname": "Firstname",
-        "user.account_details": "Account details",
-        "user.lastname": "Lastname",
-        "user.email": "Email",
-        "user.password": "Password",
-        "user.password_old": "Current password",
-        "user.password_new": "New password",
-        "user.password_new_confirm": "Confirm new password",
-        "user.password_confirm": "Confirm password",
-        "user.createaccount": "Create a new account",
-        "user.forgorpassword": "I forgot my password",
-        "user.password_requirements":
-            "The password must be at least 8 characters in length",
-        "user.passwords_dont_match": "The password don't match",
-        "user.delete_title": "Close your V-Spot account",
-        "user.delete_warning":
-            "Deleting an account is an irreversible operation!",
-        "user.delete_data_notice":
-            "Your contact, shipping and billing information will be delete from ours servers according to our privacy policy.",
-        "error.password_incorrect": "The password is incorrect",
-        "user.delete": "Close my account",
-
-        "signup.consent":
-            "I have read and accept the terms of service and the privacy policy",
-        "signup.consent_missing":
-            "The terms of service and privacy policy are mandatory",
-        "signup.goto_login": "I already have an account",
-
-        "error.encountered_error": "We encountered a problem :(",
-        "error.encountered_error_description":
-            "If this error persists you can contact us",
-        "error.page404": "This page does not exist :(",
-        "error.page404_description":
-            "This page was either delete or it never existed...",
-        "error.turnstile_failed":
-            "The human verification failed, try to reload the page",
-        "error.turnstile_invalid":
-            "We encountered a problem, please reload the page and try again",
-        "error.passwords_dont_match": "Passwords don't match",
-        "error.failedordersubmit": "Something went wrong, please try again",
-
-        "error.empty": "This field is required",
-        "error.invalid": "Invalid field",
-
-        "error.empty.email": "The email is required",
-        "error.invalid.email": "The email is invalid",
-        "error.duplicate.email": "This email has already been registered",
-
-        "error.empty.password": "The password is required",
-        "error.2short.password": "The password is too short",
-        "error.2long.password":
-            "The password can have a maximum of 256 characters",
-
-        "error.empty.firstname": "The firstname is required",
-        "error.2short.firstname": "The firstname is too short",
-        "error.2long.firstname":
-            "The firstname can have a maximum of 64 characters",
-
-        "error.empty.lastname": "The lastname is required",
-        "error.2short.lastname": "The lastname is too short",
-        "error.2long.lastname":
-            "The lastname can have a maximum of 64 characters",
-
-        "error.invalid.coupon": "This voucher is invalid",
-        "error.duplicate.coupon":
-            "You have already used this voucher for another order",
-
-        "contact.description":
-            "For any questions or feedback you can reach out to us through any of the following methods:",
-        "contact.schedule":
-            "Online working hours: Monday - Friday 10:30-18:30 UTC+2",
-        "contact.phone": "Telephone:",
-        "contact.fees": "*Standard fees apply",
-        "contact.hq": "Headquarters: {{address}}",
-        "contact.capital": "Equity capital: {{n}}",
-
-        "cookies.mandatory_notice":
-            "This site uses mandatory cookies in order to function properly. By continuing to use this site, you agree to the use of the these cookies.",
-
-        "slideshow.switchpro": "Take me to Switch Pro",
-
-        "searchbar.error_occured": "An error occured",
-        "searchbar.nothing_found": "We couldn't find anything",
-        "searchbar.search_results": "Search results",
-
-        "footer.products": "Products",
-        "footer.locations": "Locations",
-        "footer.legal": "Legal stuff",
-        "footer.contact": "Contact",
-        "footer.seedetails": "See details",
-        "footer.seo":
-            "The V Spot is the online shop for all of your nicotine needs. Cigarettes, vapes, vaping kits, liquids, vaping bases, nicotine pouches, accessories and much more. Each and every one of them exclusively from top brands.",
     },
     common: {
         "filter.vgpg": "VG/PG",
@@ -900,12 +634,36 @@ var translations = {
         "filteropt.38.4mg": "38.4mg",
         "filteropt.43mg": "43mg",
         "filteropt.2400": "2400",
-        "filteropt.crystal4in1": "Crystal 4 in 1",
+        "filteropt.crystal4in1": "Crystal 4-in-1",
+
+        "specval.800mAh": "800mAh",
+        "specval.800": "800",
+        "specval.2ml": "2ml",
+        "specval.2%": "2%",
+        "specval.2": "2",
+        "specval.switchpro": "Vozol Switch PRO",
+        "specval.5.5ml": "5.5ml",
 
         "shipping.fancourier": "Fan Courier",
         "shipping.sameday": "Sameday",
 
-        "product.switchpro": "Switch Pro",
+        "product.switchpro": "Vozol Switch Pro",
+        "product.crystal4in1": "Crystal 4-in-1",
+        "product.elfbarv2": "Elf Bar V2",
+        "product.neon800": "Vozol Neon 800",
+        "product.star2000": "Vozol Star 2000",
+        "product.crystalbar": "Crystal Bar",
+        "product.puffbar": "Lichid Puff Bar",
+        "product.mystique": "Lichid Mystique",
+        "product.nicshot": "Shot Nicotina",
+        "product.gtx_go80": "Vaporesso GTX GO 80",
+        "product.ursa_nano": "Lost-Vape Ursa Nano",
+        "product.cyberg": "Aspire Cyber G",
+        "product.argusz": "VooPoo Argus Z",
+        "product.gotek": "Aspire Gotek",
+        "product.argus_p2": "Argus P2",
+        "product.argus_g2_mini": "Argus G2 Mini",
+        "product.xros4": "Vaporesso XROS 4",
     },
     fallback: {
         missing_translation: "Missing localization",

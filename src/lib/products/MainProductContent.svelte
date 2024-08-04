@@ -19,10 +19,16 @@
     export let current_page: number;
 
     let mobile_filter_tab_open = false;
+
+    $: selected_subtype = filters
+        .find((filter) => filter.name === "subtype")
+        ?.options.find((option) => option.selected)?.name;
+
+    $: title = selected_subtype ? selected_subtype : product_title;
 </script>
 
 <svelte:head>
-    <title>{pagetitle_make($l(`product.${product_title}`))}</title>
+    <title>{pagetitle_make($l(`product.${title}`))}</title>
 </svelte:head>
 
 <div class="flex flex-col lg:flex-row lg:space-x-4">
@@ -38,14 +44,14 @@
         />
     {/if}
     <div class="flex flex-col items-center space-y-4">
-        <div class="w-full">
-            <h1 class="text-7xl lg:text-9xl font-[Blowhole] font-semibold">
-                {$l(`product.${product_title}`)}
+        <div class="w-full space-y-2">
+            <h1 class="text-6xl font-bold block">
+                {$l(`product.${title}`)}
             </h1>
             <span
-                class="text-2xl font-semibold opacity-90 text-vspot-text-hovered"
+                class="text-xl font-semibold opacity-90 text-vspot-text-hovered block"
             >
-                {$l(`product.${product_title}.description`)}
+                {$l(`product.${title}.description`)}
             </span>
         </div>
         <div class="flex items-center space-x-4 lg:space-x-0 mr-auto">
