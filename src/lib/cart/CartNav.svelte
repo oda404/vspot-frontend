@@ -60,7 +60,9 @@
             {#if item_count > 0}
                 <span class="font-bold">{item_count}</span>
             {:else}
-                <span class="font-bold text-nowrap">Cos de cumparaturi</span>
+                <span class="lg:block hidden font-bold text-nowrap"
+                    >Cos de cumparaturi</span
+                >
             {/if}
         </button>
     </div>

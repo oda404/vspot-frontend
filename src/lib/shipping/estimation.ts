@@ -41,6 +41,6 @@ export function shipping_estimation_get_date_from_now() {
     }
 
     now.setDate(now.getDate() + days_to_deliver);
-    return `Poate ajunge la tine: ${weekday_names[now.getDay() - 1]}, ${now.getDate()} ${month_names[now.getMonth()]}`;
+    return `Poate ajunge la tine ${weekday_names[now.getDay() - 1]}, ${now.getDate()} ${month_names[now.getMonth()]}`;
 }
 

@@ -34,5 +34,11 @@
         {/if}
     </div>
 {:else}
-    <NavItem text="Contul meu" icon={faUser} icon_size="lg" url="/login" />
+    <NavItem
+        only_show_on_lg
+        text="Contul meu"
+        icon={faUser}
+        icon_size="lg"
+        url="/login"
+    />
 {/if}

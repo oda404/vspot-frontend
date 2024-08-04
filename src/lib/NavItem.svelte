@@ -17,9 +17,7 @@
     href={url}
     on:mouseenter={() => (hovered = true)}
     on:mouseleave={() => (hovered = false)}
-    class="flex items-center space-x-2 {only_show_on_lg
-        ? 'hidden lg:block'
-        : 'block'}"
+    class="flex items-center space-x-2"
 >
     {#if icon}
         <Fa

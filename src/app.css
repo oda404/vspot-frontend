@@ -16,11 +16,7 @@
     @apply text-vspot-text-pimary;
 }
 
-button:hover:enabled {
-    filter: brightness(95%);
-}
-
-a:hover {
+button:hover:enabled, a:hover {
     filter: brightness(95%);
 }
 
