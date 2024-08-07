@@ -1,4 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Cantarell:ital,wght@0,400;0,700;1,400;1,700&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -7,6 +6,15 @@
 @font-face {
     font-family: "Blowhole";
     src: url("/fonts/BlowholeBb-O2Kd.ttf");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Work Sans";
+    font-style: medium;
+    font-weight: 500;
+    src: url("/fonts/WorkSans.woff2") format("woff2");
+    font-display: swap;
 }
 
 * {
