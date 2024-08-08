@@ -24,8 +24,17 @@
     @apply text-vspot-text-pimary;
 }
 
+body {
+    @apply bg-vspot-primary-bg;
+}
+
 button:hover:enabled, a:hover {
     filter: brightness(95%);
+}
+
+button {
+    @apply rounded-tl-lg;
+    @apply rounded-br-lg;
 }
 
 h1 {
@@ -62,9 +71,4 @@ li {
 ::-webkit-scrollbar-thumb {
     background: #444444;
     border-radius: 8px;
-}
-
-button {
-    @apply rounded-tl-lg;
-    @apply rounded-br-lg;
 }
