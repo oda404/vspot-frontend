@@ -7,15 +7,11 @@
 </script>
 
 <footer
-    class="bg-vspot-primary-bg border-t border-vspot-green w-full p-10 lg:p-28 flex-col space-y-8 justify-center z-[200]"
+    class=" border-t border-vspot-green w-full p-10 lg:p-28 flex-col space-y-8 justify-center"
 >
     <div
         class="flex flex-col lg:flex-row lg:space-x-32 lg:items-start lg:w-[1100px] mx-auto lg:space-y-0 space-y-10"
     >
-        <!-- <div class="flex flex-col items-center w-fit">
-            <img src="/images/vspot.webp" alt="V Spot Logo" class="w-[120px]" />
-            <span class="font-bold">&copy; 2024 Terrible Fortune SRL</span>
-        </div> -->
         <FooterSection title={$l("footer.products")}>
             <a class="block" href="/disposable">{$l("product.disposables")}</a>
             <a class="block" href="/pouch">{$l("product.pouches")}</a>

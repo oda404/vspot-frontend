@@ -8,12 +8,9 @@
     import { shipping_estimation_get_date_from_now } from "$lib/shipping/estimation";
     import { pagetitle_make } from "$lib/title";
     import {
-        faBanSmoking,
         faDollar,
-        faExclamationTriangle,
         faMinus,
         faPlus,
-        faStop,
         faTruck,
     } from "@fortawesome/free-solid-svg-icons";
     import Decimal from "decimal.js";

@@ -8,7 +8,7 @@
     export let href: string | undefined = undefined;
 </script>
 
-<div class=" rounded-b-lg">
+<div>
     {#if name}
         <div class="flex items-center justify-between">
             <a {href} class="flex space-x-4 items-center">

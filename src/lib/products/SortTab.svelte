@@ -46,13 +46,13 @@
         </button>
         {#if opened}
             <button
-                class="fixed top-0 left-0 h-full w-full z-10 cursor-default"
+                class="fixed top-0 left-0 h-full w-full cursor-default"
                 on:click={() => {
                     opened = false;
                 }}
             />
             <div
-                class="absolute w-[100%] z-20 rounded-b-lg bg-vspot-primary-bg border-b border-l border-r border-vspot-secondary-bg"
+                class="absolute w-[100%] rounded-b-lg bg-vspot-primary-bg border-b border-l border-r border-vspot-secondary-bg"
             >
                 {#each options as option}
                     <button

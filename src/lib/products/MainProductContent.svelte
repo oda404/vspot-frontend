@@ -45,7 +45,7 @@
     {/if}
     <div class="flex flex-col items-center space-y-4">
         <div class="w-full space-y-2">
-            <h1 class="text-6xl font-bold block">
+            <h1 class="text-6xl font-extrabold block">
                 {$l(`product.${title}`)}
             </h1>
             <span

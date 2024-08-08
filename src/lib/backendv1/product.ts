@@ -30,6 +30,8 @@ export type V1ServerProductListLandingPage = {
     newest: V1ServerProductDisplayData[];
     pouches: V1ServerProductDisplayData[];
     kits: V1ServerProductDisplayData[];
+    crystal_4in1: V1ServerProductDisplayData[];
+    argus_p2: V1ServerProductDisplayData[];
 };
 
 export type V1ServerProductFullinfo = {

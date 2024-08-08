@@ -20,7 +20,7 @@
             class="flex justify-center items-center space-x-2"
         >
             <Fa icon={faUser} size="lg" />
-            <span class="hidden lg:block text-sm font-bold whitespace-nowrap"
+            <span class="hidden lg:block font-bold text-nowrap"
                 >{user.firstname}</span
             >
         </button>
@@ -34,11 +34,8 @@
         {/if}
     </div>
 {:else}
-    <NavItem
-        only_show_on_lg
-        text="Contul meu"
-        icon={faUser}
-        icon_size="lg"
-        url="/login"
-    />
+    <a href="/login" aria-label="Cart" class="flex space-x-2">
+        <Fa icon={faUser} size="lg" />
+        <span class="lg:block hidden font-bold text-nowrap">Contul meu</span>
+    </a>
 {/if}

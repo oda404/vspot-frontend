@@ -4,7 +4,6 @@
     import { scroll_lock_store } from "$lib/scroll";
     import { onDestroy } from "svelte";
     import Footer from "./Footer.svelte";
-    import BackendShatpantsOverlay from "$lib/backend_shatpants/BackendShatpantsOverlay.svelte";
     import type { UserDisplayInfo } from "$lib/user/user";
     import CookieNotice from "$lib/cookies/CookieNotice.svelte";
     import { navigating } from "$app/stores";
@@ -26,20 +25,13 @@
     }}
 />
 
-<div
-    class="min-h-screen h-max w-[100%] flex justify-center bg-vspot-primary-bg relative overflow-x-hidden"
->
-    {#if $navigating}
-        <NavigatingOverlay />
-    {/if}
-    <AgeConfirmationOverlay />
-    <BackendShatpantsOverlay />
-    <CookieNotice />
-    <div class="p-4 w-full lg:w-[1100px] z-10">
-        <TopNavBar {user} />
-        <main class="pt-[150px] lg:pt-[200px]">
-            <slot />
-        </main>
-    </div>
-</div>
+{#if $navigating}
+    <NavigatingOverlay />
+{/if}
+<AgeConfirmationOverlay />
+<CookieNotice />
+<TopNavBar {user} />
+<main class="w-full lg:w-[1100px] lg:p-0 p-4 mx-auto mt-8 mb-8 min-h-[100vh]">
+    <slot />
+</main>
 <Footer />

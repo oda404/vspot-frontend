@@ -23,6 +23,6 @@
             class="w-[28px] -mb-2 mx-auto"
         />
     {/if}
-    <span class="max-w-[210px] mx-auto text-center">{description}</span>
+    <span class="max-w-[220px] mx-auto text-center">{description}</span>
     <slot />
 </div>

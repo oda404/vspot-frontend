@@ -78,7 +78,7 @@ var translations = {
 
         "page.main.support": "Vorbeste cu un expert",
         "page.main.support.description":
-            "Daca cauti o recomandare sau ai o intrebare, suntem aici 10:00-18:00 de Luni pana Vineri",
+            "Daca esti in cautarea unei recomandari, suntem aici 10:00-18:00 de Luni pana Vineri",
 
         "page.main.satisfaction": "Satisfactie totala",
         "page.main.satisfaction.description":
@@ -181,7 +181,7 @@ var translations = {
         "product.disposables.description":
             "Kituri preumplute de unica folosinta sau cu poduri",
         "product.pouches.description":
-            "Pliculete cu nicotina aplicate in partea de sus a buzei",
+            "Plicuri cu nicotina",
         "product.smoking.description": "Produse destinate fumatorilor de tutun",
         "product.liquids.description": "Lichide, baze si nicotina pentru vapat",
         "product.kits.description":
@@ -670,19 +670,17 @@ var translations = {
 export const l = derived(
     current_language,
     ($lang) => (title: string, props?: any) => {
-        const translation = (translations as any)[$lang];
-        if (!translation)
-            throw new Error(
-                `Translations for language '${$lang}' have not been declared!`,
-            );
+        const translation = translations.ro;
+        // if (!translation)
+        //     throw new Error(
+        //         `Translations for language '${$lang}' have not been declared!`,
+        //     );
 
         let val = (translation as any)[title];
         if (!val) {
-            val = (translations["common"] as any)[title];
-            if (!val) {
+            val = (translations.common as any)[title];
+            if (!val)
                 val = `${(translations.fallback as any)["missing_translation"]} for ${title}`;
-                // throw new Error(`Key '${title}' has not been declared for language '${$lang}' nor for common!`);
-            }
         }
 
         if (props) {
