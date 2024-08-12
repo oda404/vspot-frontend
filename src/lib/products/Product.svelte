@@ -15,7 +15,7 @@
 </script>
 
 <div class="w-full rounded-lg drop-shadow flex flex-col">
-    <a href="/product/{product.pretty_internal_id}">
+    <a class="hover:filter-none" href="/product/{product.pretty_internal_id}">
         <img
             src={product.image_url}
             alt="{product.name} image"
