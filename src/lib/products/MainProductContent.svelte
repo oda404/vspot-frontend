@@ -48,11 +48,11 @@
             <h1 class="text-6xl font-extrabold block">
                 {$l(`product.${title}`)}
             </h1>
-            <span
+            <h2
                 class="text-xl font-semibold opacity-90 text-vspot-text-hovered block"
             >
                 {$l(`product.${title}.description`)}
-            </span>
+            </h2>
         </div>
         <div class="flex items-center space-x-4 lg:space-x-0 mr-auto">
             <button
