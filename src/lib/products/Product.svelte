@@ -1,6 +1,9 @@
 <script lang="ts">
     import Fa from "svelte-fa";
-    import { faSpinner } from "@fortawesome/free-solid-svg-icons";
+    import {
+        faCartShopping,
+        faSpinner,
+    } from "@fortawesome/free-solid-svg-icons";
     import { l } from "$lib/langs";
     import { cart_add_item } from "$lib/cart/cart";
     import type { V1ServerProductDisplayData } from "$lib/backendv1/product";
@@ -19,15 +22,14 @@
             class="rounded-t-xl"
         />
     </a>
-    <div
-        class="p-2 h-full space-y-1 flex flex-col justify-between text-lg rounded-b-lg"
-    >
-        <a class="mb-4" href="/product/{product.pretty_internal_id}">
-            <div class="leading-tight text-md">
-                {product.name}
-            </div>
+    <div class="p-2 h-full flex flex-col justify-between">
+        <a
+            class="mb-2 leading-tight text-md"
+            href="/product/{product.pretty_internal_id}"
+        >
+            {product.name}
         </a>
-        <div class="!mt-auto !mb-2">
+        <div class="!mt-auto space-y-1 !mb-2">
             {#if product.stock > 1}
                 <div class="flex items-center space-x-1">
                     <div class="w-[4px] h-[4px] rounded-full bg-vspot-green" />
@@ -43,22 +45,22 @@
                     </span>
                 </div>
             {/if}
-            <span class="text-2xl font-semibold text-vspot-text-hovered">
+            {#if product.discount > 0}
+                <span
+                    class="line-through block text-vspot-text-hovered leading-tight"
+                    >{price_format(product.price)} RON</span
+                >
+            {/if}
+            <span class="text-xl leading-tight font-semibold">
                 {price_format(
                     price_discounted_val(product.price, product.discount),
-                )}
+                )} RON
             </span>
-            <span class="text-lg font-semibold">
-                {product.currency}
-            </span>
-            {#if product.discount > 0}
-                <span class="line-through">{price_format(product.price)}</span>
-            {/if}
         </div>
         <button
             class="{product.stock > 0
                 ? 'bg-vspot-green'
-                : 'bg-vspot-secondary-bg'}  px-2 p-1 min-h-[32px] rounded-br-lg rounded-tl-lg w-full"
+                : 'bg-vspot-secondary-bg'} px-2 p-1 min-h-[32px] rounded-br-lg rounded-tl-lg w-full"
             disabled={adding_load || product.stock === 0}
             on:click={() => {
                 adding_load = true;
@@ -71,25 +73,22 @@
                 );
             }}
         >
-            <span
-                class="{product.stock > 0
-                    ? 'text-vspot-primary-bg'
-                    : 'text-vspot-text-pimary'} mx-auto"
-            >
-                {#if product.stock > 0}
-                    {#if !adding_load}
-                        {$l("action.addtocart")}
-                    {:else}
-                        <Fa
-                            color="#181a1b"
-                            class="animate-spin"
-                            icon={faSpinner}
-                        />
-                    {/if}
+            {#if product.stock > 0}
+                {#if !adding_load}
+                    <div class="flex items-center">
+                        <Fa color="#181a1b" icon={faCartShopping} />
+                        <span class="text-vspot-primary-bg !mx-auto block"
+                            >{$l("action.addtocart")}</span
+                        >
+                    </div>
                 {:else}
-                    {$l("description.outofstock_simple")}
+                    <Fa color="#181a1b" class="animate-spin" icon={faSpinner} />
                 {/if}
-            </span>
+            {:else}
+                <span class="text-vspot-text-pimary"
+                    >{$l("description.outofstock_simple")}</span
+                >
+            {/if}
         </button>
     </div>
 </div>

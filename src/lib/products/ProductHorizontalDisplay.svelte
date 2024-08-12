@@ -75,7 +75,7 @@
                             new Decimal(product.price)
                                 .mul(price_on_qty ? qty || 1 : 1)
                                 .toNumber(),
-                        )}
+                        )} RON
                     </span>
                 {/if}
                 <div class="flex items-center space-x-4">
