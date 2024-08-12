@@ -64,6 +64,7 @@ export type V1ServerOrderStatus =
 
 export type V1ServerOrder = {
     id: string;
+    id_hr: string;
 
     date: Date;
 

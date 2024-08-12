@@ -43,13 +43,15 @@
 
         return total;
     };
+
+    console.log(order.id_hr);
 </script>
 
 <div class="w-full">
     <span class="text-lg">
-        {$l("order.orderon", {
-            date: new Date(order.date).toLocaleDateString("en-GB"),
-        })}
+        Comanda numarul #{order.id_hr} din {new Date(
+            order.date,
+        ).toLocaleDateString("en-GB")}
     </span>
     <span
         class="{order.status === 'canceled'

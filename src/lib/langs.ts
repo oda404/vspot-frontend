@@ -132,7 +132,6 @@ var translations = {
         "order.admin.shipping_number": "AWB",
 
         "order.coupon": "Cod",
-        "order.orderon": "Comanda pe {{date}}",
         "order.no_orders": "Nu ai plasat nicio comanda inca...",
         "order.consent":
             "Sunt de acord cu Termenii serviciului si Politica de confidentialitate",
