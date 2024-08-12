@@ -51,7 +51,7 @@
                     >{price_format(product.price)} RON</span
                 >
             {/if}
-            <span class="text-xl leading-tight font-semibold">
+            <span class="text-2xl leading-tight">
                 {price_format(
                     price_discounted_val(product.price, product.discount),
                 )} RON
