@@ -74,7 +74,7 @@
     </div>
     {#if open && search_data}
         <div
-            class="absolute z-[100] flex justify-center left-0 top-12 bg-vspot-primary-bg lg:w-full w-[calc(100vw-30px)] border-2 border-vspot-secondary-bg rounded-lg p-4 drop-shadow-lg"
+            class="absolute z-[100] flex justify-center left-0 top-12 bg-vspot-primary-bg w-full border-2 border-vspot-secondary-bg rounded-lg p-4 drop-shadow-lg"
         >
             {#if search_promise}
                 {#await search_promise}
