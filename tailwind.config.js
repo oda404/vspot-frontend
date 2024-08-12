@@ -17,21 +17,17 @@ export default {
         'vspot-warn': '#fcba03'
       },
       'animation': {
-        'gradient': 'gradient 5s ease infinite',
-        'simple': 'simple 1s linear',
-
+        'devcolors': 'devcolors 5s linear infinite'
       },
       'keyframes': {
-        'gradient': {
+        'devcolors': {
           '0%, 100%': {
-            'background-size': '200% 200%',
-            'background-position': 'left center'
+            'color': '#00ff01'
           },
           '50%': {
-            'background-size': '200% 200%',
-            'background-position': 'right center'
+            'color': '#e802f7'
           }
-        },
+        }
       }
     },
   },
