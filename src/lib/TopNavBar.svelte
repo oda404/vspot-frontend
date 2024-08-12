@@ -278,9 +278,9 @@
 {/if}
 
 <nav class="relative w-full lg:py-8 px-4 lg:px-16 space-y-8 lg:space-x-4">
-    <div class="hidden lg:flex items-center space-x-8">
+    <div class="hidden lg:flex items-center justify-center space-x-8">
         <SearchBar bind:open={search_bar_open} />
-        <div class="!mx-auto" />
+        <div class="!ml-auto" />
         <a href="/" class="hover:filter-none">
             <img
                 src="/images/vspot_flat.webp"
@@ -288,9 +288,8 @@
                 alt="V Spot Logo"
             />
         </a>
-        <div class="!mx-auto" />
-
-        <div class="h-[45px] flex items-center !ml-auto">
+        <div class="!mr-auto" />
+        <div class="h-[45px] flex items-center">
             <UserNav {user} />
         </div>
         <div class="h-[45px] flex items-center">
