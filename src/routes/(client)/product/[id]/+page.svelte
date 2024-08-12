@@ -33,7 +33,7 @@
     let package_contents: { name: string; value: string[] } | undefined =
         undefined;
 
-    {
+    $: {
         const package_contents_spec_idx = data.product.specs.findIndex(
             (spec) => spec.name === "package_contents",
         );
@@ -98,10 +98,10 @@
 
 <div class="space-y-4">
     <ProductTrailBar {tags} product_name={data.product.name} />
-    <div class="space-y-4">
-        <span class="text-3xl font-bold">
+    <section class="space-y-4">
+        <h1 class="text-3xl font-bold">
             {data.product.name}
-        </span>
+        </h1>
         <div class="flex flex-col lg:flex-row lg:space-x-12">
             <img
                 class="rounded-lg lg:min-w-[500px] lg:max-w-[500px]"
@@ -240,13 +240,13 @@
                 </div>
             </div>
         </div>
-    </div>
+    </section>
     <div class="!mt-8">
         <div class="flex items-center justify-center space-x-4">
             <button class="text-xl"> Detalii </button>
-            <button class="text-xl !ml-8 text-vspot-text-hovered">
+            <!-- <button class="text-xl !ml-8 text-vspot-text-hovered">
                 Recenzii
-            </button>
+            </button> -->
             <div class="w-full h-[1px] bg-vspot-secondary-bg" />
         </div>
         <div class="lg:flex space-y-4 lg:space-y-0 pt-4 justify-between">
@@ -332,9 +332,7 @@
         @apply border-b;
         @apply border-vspot-secondary-bg;
     }
-    tr:last-child > td:first-child {
-        @apply border-b-0;
-    }
+    tr:last-child > td:first-child,
     tr:last-child > td:last-child {
         @apply border-b-0;
     }
