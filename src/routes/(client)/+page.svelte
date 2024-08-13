@@ -240,6 +240,7 @@
                 muted
                 preload="none"
                 class="w-[1100px]"
+                poster="images/voopoo/argus_p2_showcase_thumb.webp"
             >
                 <track kind="captions" />
                 <source
