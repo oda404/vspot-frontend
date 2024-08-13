@@ -17,6 +17,7 @@
     import Kit from "$lib/icons/kit.svelte";
     import ProductShowcase from "$lib/mainpage/ProductShowcase.svelte";
     import Fa from "svelte-fa";
+    import { onDestroy } from "svelte";
 
     export let data;
 
@@ -28,11 +29,14 @@
         const observer = new IntersectionObserver((entries) => {
             if (entries[0].isIntersecting) {
                 (entries[0].target as HTMLVideoElement).play();
-                observer.disconnect();
             }
         });
 
         observer.observe(e);
+
+        onDestroy(() => {
+            observer.disconnect();
+        });
     }
 </script>
 
