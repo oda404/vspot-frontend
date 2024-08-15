@@ -25,8 +25,6 @@
                     <span class="font-bold animate-devcolors"
                         >&lt;ADMIN ACCOUNT&gt;</span
                     >
-                    <a href="/portal" class="text-vspot-link">Portal</a>
-                    <a href="/invoices" class="text-vspot-link pr-2">Facturi</a>
                 </div>
             {/if}
             <Fa icon={faUser} size="lg" />
