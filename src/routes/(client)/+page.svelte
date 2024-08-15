@@ -17,7 +17,6 @@
     import Kit from "$lib/icons/kit.svelte";
     import ProductShowcase from "$lib/mainpage/ProductShowcase.svelte";
     import Fa from "svelte-fa";
-    import { onDestroy } from "svelte";
 
     export let data;
 
@@ -25,18 +24,26 @@
     const pouches = data.products.pouches;
     const kits = data.products.kits;
 
-    function actionWhenInViewport(e: any) {
-        const observer = new IntersectionObserver((entries) => {
-            if (entries[0].isIntersecting) {
-                (entries[0].target as HTMLVideoElement).play();
-            }
+    function play_on_visible(e: HTMLVideoElement) {
+        const observer = new IntersectionObserver((entries, {}) => {
+            entries.forEach((entry) => {
+                if (!entry.isIntersecting) return;
+
+                const el = entry.target as Partial<HTMLVideoElement>;
+                if (typeof el.play !== "undefined") {
+                    el.play();
+                    observer.disconnect();
+                }
+            });
         });
 
         observer.observe(e);
 
-        onDestroy(() => {
-            observer.disconnect();
-        });
+        return {
+            destroy() {
+                observer.disconnect();
+            },
+        };
     }
 </script>
 
@@ -68,7 +75,7 @@
         </div>
         <div class="lg:flex lg:space-x-8 space-y-4 lg:space-y-0">
             <video
-                use:actionWhenInViewport
+                use:play_on_visible
                 disablepictureinpicture
                 preload="none"
                 loop
@@ -234,7 +241,7 @@
             href="/kit?subtype=argus_p2"
         >
             <video
-                use:actionWhenInViewport
+                use:play_on_visible
                 disablepictureinpicture
                 loop
                 muted
