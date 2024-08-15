@@ -12,7 +12,5 @@ RUN useradd -s /bin/bash -m vspot
 
 USER vspot
 
-ENV ORIGIN="https://vspot.ro"
-
-CMD [ "node", "-r", "dotenv/config", "build" ]
+CMD [ "node", "build" ]
 
