@@ -58,9 +58,9 @@
         >
             <Fa icon={faCartShopping} size="lg" />
             {#if item_count > 0}
-                <span class="font-bold">{item_count}</span>
+                <span>{item_count}</span>
             {:else}
-                <span class="lg:block hidden font-bold text-nowrap"
+                <span class="lg:block hidden text-nowrap"
                     >Cos de cumparaturi</span
                 >
             {/if}

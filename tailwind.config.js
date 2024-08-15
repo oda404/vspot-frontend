@@ -22,10 +22,12 @@ export default {
       'keyframes': {
         'devcolors': {
           '0%, 100%': {
-            'color': '#00ff01'
+            'color': '#00ff01',
+            'border-color': '#00ff01'
           },
           '50%': {
-            'color': '#e802f7'
+            'color': '#e802f7',
+            'border-color': '#e802f7'
           }
         }
       }

@@ -22,6 +22,7 @@ export type V1ServerUserDisplayInfo = {
     lastname: string;
     email: string;
     email_verified: boolean;
+    role: string;
 };
 
 export type V1ClientUserUpdateInfo = {

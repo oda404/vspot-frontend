@@ -2,7 +2,6 @@
     import Fa from "svelte-fa";
     import type { UserDisplayInfo } from "./user";
     import { faUser } from "@fortawesome/free-solid-svg-icons";
-    import NavItem from "$lib/NavItem.svelte";
     import UserDropdown from "./UserDropdown.svelte";
 
     export let user: UserDisplayInfo | undefined;
@@ -19,10 +18,19 @@
             aria-label="User"
             class="flex justify-center items-center space-x-2"
         >
+            {#if user.role === "admin"}
+                <div
+                    class="flex items-center space-x-4 border p-2 px-4 animate-devcolors !mr-4 rounded-tl-lg rounded-br-lg"
+                >
+                    <span class="font-bold animate-devcolors"
+                        >&lt;ADMIN ACCOUNT&gt;</span
+                    >
+                    <a href="/portal" class="text-vspot-link">Portal</a>
+                    <a href="/invoices" class="text-vspot-link pr-2">Facturi</a>
+                </div>
+            {/if}
             <Fa icon={faUser} size="lg" />
-            <span class="hidden lg:block font-bold text-nowrap"
-                >{user.firstname}</span
-            >
+            <span class="hidden lg:block text-nowrap">{user.firstname}</span>
         </button>
         {#if user_tab_open}
             <UserDropdown
@@ -36,6 +44,6 @@
 {:else}
     <a href="/login" aria-label="Cart" class="flex space-x-2">
         <Fa icon={faUser} size="lg" />
-        <span class="lg:block hidden font-bold text-nowrap">Contul meu</span>
+        <span class="lg:block hidden text-nowrap">Contul meu</span>
     </a>
 {/if}

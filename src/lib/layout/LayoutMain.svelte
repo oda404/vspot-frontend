@@ -38,7 +38,9 @@
     >
 {/if}
 <TopNavBar {user} />
-<main class="w-full lg:w-[1100px] lg:p-0 p-4 mx-auto mt-8 mb-8 min-h-[100vh]">
+<main
+    class="w-full lg:w-[1100px] lg:p-0 p-4 mx-auto lg:mt-8 mb-8 min-h-[100vh]"
+>
     <slot />
 </main>
 <Footer />
