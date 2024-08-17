@@ -70,7 +70,7 @@
 <div class="space-y-24">
     <section class="space-y-4">
         <div class="flex space-x-4 items-center">
-            <h1 class="text-4xl text-nowrap">SKE Crystal 4-in-1</h1>
+            <h1 class="text-3xl text-nowrap">SKE Crystal 4-in-1</h1>
             <div class="w-full h-[1px] bg-vspot-secondary-bg" />
         </div>
         <div class="lg:flex lg:space-x-8 space-y-4 lg:space-y-0">
@@ -233,7 +233,7 @@
     </div>
     <section class="space-y-4">
         <div class="flex items-center space-x-4">
-            <h1 class="text-4xl text-nowrap">VooPoo Argus P2</h1>
+            <h1 class="text-3xl text-nowrap">VooPoo Argus P2</h1>
             <div class="w-full bg-vspot-secondary-bg h-[1px]" />
         </div>
         <a
@@ -266,7 +266,7 @@
     </section>
     <div class="space-y-4">
         <div class="flex items-center space-x-4">
-            <h1 class="text-4xl text-nowrap">Vozol Switch PRO</h1>
+            <h1 class="text-3xl text-nowrap">Vozol Switch PRO</h1>
             <div class="w-full bg-vspot-secondary-bg h-[1px]" />
         </div>
         <a href="/disposable?subtype=switchpro" class="block hover:filter-none">

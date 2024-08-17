@@ -45,12 +45,10 @@
     {/if}
     <div class="flex flex-col items-center space-y-4">
         <div class="w-full space-y-2">
-            <h1 class="text-6xl font-extrabold block">
+            <h1 class="text-5xl block">
                 {$l(`product.${title}`)}
             </h1>
-            <h2
-                class="text-xl font-semibold opacity-90 text-vspot-text-hovered block"
-            >
+            <h2 class="text-xl text-vspot-text-hovered block">
                 {$l(`product.${title}.description`)}
             </h2>
         </div>
