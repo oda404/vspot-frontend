@@ -11,6 +11,7 @@
         faDollar,
         faMinus,
         faPlus,
+        faShoppingCart,
         faTruck,
     } from "@fortawesome/free-solid-svg-icons";
     import Decimal from "decimal.js";
@@ -90,6 +91,8 @@
 
         return contents;
     };
+
+    let image_bubbles = Array.from({ length: 1 }, (_, index) => index + 1);
 </script>
 
 <svelte:head>
@@ -98,16 +101,44 @@
 
 <div class="space-y-4">
     <ProductTrailBar {tags} product_name={data.product.name} />
+    <div
+        class="fixed lg:hidden z-10 w-full h-fit bg-vspot-secondary-bg bottom-0 left-0 p-2 border-t border-vspot-green"
+    >
+        <button
+            class="bg-vspot-green p-2 px-4 w-full flex items-center justify-center space-x-2"
+            on:click={() => {
+                cart_add_item(
+                    data.product.internal_id,
+                    data.product.pretty_internal_id,
+                    undefined,
+                    true,
+                    Number(qty),
+                );
+            }}
+        >
+            <Fa color="#181a1b" icon={faShoppingCart} />
+            <span class="text-vspot-primary-bg"> Adauga in cos </span>
+        </button>
+    </div>
     <section class="space-y-4">
         <h1 class="text-3xl font-bold">
             {data.product.name}
         </h1>
         <div class="flex flex-col lg:flex-row lg:space-x-12">
-            <img
-                class="rounded-lg lg:min-w-[500px] lg:max-w-[500px]"
-                src={data.product.image_url}
-                alt="{data.product.name} image"
-            />
+            <div class="space-y-4">
+                <img
+                    class="rounded-lg lg:min-w-[500px] lg:max-w-[500px]"
+                    src={data.product.image_url}
+                    alt="{data.product.name} image"
+                />
+                <div class="flex space-x-2 items-center justify-center">
+                    {#each image_bubbles as bubble}
+                        <div
+                            class="size-2 rounded-full bg-vspot-secondary-bg"
+                        />
+                    {/each}
+                </div>
+            </div>
             <div class="space-y-1 w-full mt-4 lg:mt-0">
                 {#if data.product.discount > 0}
                     <div class="flex items-center space-x-2">
@@ -134,13 +165,6 @@
                         ),
                     )} RON
                 </span>
-                {#if price_actual !== price_full}
-                    <div class="flex items-center space-x-2">
-                        <Fa icon={faDollar} />
-                        <span>{$l("price.only_online")}</span>
-                    </div>
-                {/if}
-                <div class="h-[1px] w-full bg-vspot-secondary-bg !my-4" />
                 {#if data.product.stock > 1}
                     <div class="flex items-center space-x-2">
                         <div
@@ -238,69 +262,63 @@
                         >Acest produs este interzis persoanelor sub 18 ani</span
                     >
                 </div>
+                {#if data.product.specs.length}
+                    <table
+                        class="w-full !mt-4 bg-vspot-secondary-bg rounded-lg"
+                    >
+                        <tr class="">
+                            <th class="py-4 pl-4 pb-0 text-start font-bold"
+                                >Specificatii</th
+                            >
+                        </tr>
+                        {#each data.product.specs as spec}
+                            {#if spec.name !== "package_contents"}
+                                <tr>
+                                    <td class="pl-4 py-4">
+                                        {$l(`spec.${spec.name}`)}
+                                    </td>
+                                    <td class="py-4 pr-4 text-right">
+                                        {#if spec.value.length === 1}
+                                            {$l(`specval.${spec.value}`)}
+                                        {:else}
+                                            <ul>
+                                                {#each spec.value as value}
+                                                    <li class="list-none">
+                                                        {$l(`specval.${value}`)}
+                                                    </li>
+                                                {/each}
+                                            </ul>
+                                        {/if}
+                                    </td>
+                                </tr>
+                            {/if}
+                        {/each}
+                    </table>
+                {/if}
+                {#if package_contents}
+                    <table
+                        class="w-full rounded-lg bg-vspot-secondary-bg !mt-4"
+                    >
+                        <tr class="">
+                            <th class="py-4 pl-4 pb-0 text-start font-bold"
+                                >Continut pachet</th
+                            >
+                        </tr>
+                        {#each get_package_contents_from_spec(package_contents.value) as content}
+                            <tr>
+                                <td class="py-4 pl-4">
+                                    {content.qty}x
+                                </td>
+                                <td class="py-4 pr-4 text-right">
+                                    {content.name}
+                                </td>
+                            </tr>
+                        {/each}
+                    </table>
+                {/if}
             </div>
         </div>
     </section>
-    <div class="!mt-8">
-        <div class="flex items-center justify-center space-x-4">
-            <button class="text-xl"> Detalii </button>
-            <!-- <button class="text-xl !ml-8 text-vspot-text-hovered">
-                Recenzii
-            </button> -->
-            <div class="w-full h-[1px] bg-vspot-secondary-bg" />
-        </div>
-        <div class="lg:flex space-y-4 lg:space-y-0 pt-4 justify-between">
-            <table class="lg:w-fit lg:max-w-[60%] w-full">
-                <tr class="border-b border-vspot-secondary-bg">
-                    <th class="p-1 px-0 text-start font-bold">Detalii produs</th
-                    >
-                    <th></th>
-                </tr>
-                {#each data.product.specs as spec}
-                    {#if spec.name !== "package_contents"}
-                        <tr>
-                            <td class="p-2 px-0 pr-8">
-                                {$l(`spec.${spec.name}`)}
-                            </td>
-                            <td class="p-2 px-4">
-                                {#if spec.value.length === 1}
-                                    {$l(`specval.${spec.value}`)}
-                                {:else}
-                                    <ul>
-                                        {#each spec.value as value}
-                                            <li class="!ml-4">
-                                                {$l(`specval.${value}`)}
-                                            </li>
-                                        {/each}
-                                    </ul>
-                                {/if}
-                            </td>
-                        </tr>
-                    {/if}
-                {/each}
-            </table>
-            {#if package_contents}
-                <table class="h-fit lg:w-fit w-full">
-                    <tr class="border-b border-vspot-secondary-bg">
-                        <th class="p-1 px-0 text-start font-bold text-nowrap"
-                            >Continut pachet</th
-                        >
-                        <th></th>
-                    </tr>
-                    {#each get_package_contents_from_spec(package_contents.value) as content}
-                        <tr>
-                            <td class="p-2 px-0 lg:pr-16 pr-8">
-                                {content.qty}x
-                            </td>
-                            <td class="p-2 px-4">
-                                {content.name}
-                            </td>
-                        </tr>
-                    {/each}
-                </table>
-            {/if}
-        </div>
-    </div>
     {#if recommended}
         <div class="space-y-4">
             <div class="flex items-center space-x-2">
@@ -325,12 +343,11 @@
 <style lang="postcss">
     td:first-child {
         @apply border-b;
-        @apply border-r;
-        @apply border-vspot-secondary-bg;
+        @apply border-vspot-primary-bg;
     }
     td:last-child {
         @apply border-b;
-        @apply border-vspot-secondary-bg;
+        @apply border-vspot-primary-bg;
     }
     tr:last-child > td:first-child,
     tr:last-child > td:last-child {
