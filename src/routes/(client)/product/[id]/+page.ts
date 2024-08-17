@@ -7,7 +7,13 @@ export const load: PageLoad = async ({ fetch, params }) => {
     params.id,
     fetch,
   );
-  if (res.status >= 400) error(res.status, { message: res.body.msg });
+
+  if (res.status >= 400) {
+    if (res.body.field === "product_id" && res.body.msg === "error.invalid")
+      error(404);
+
+    error(res.status, { message: res.body.msg });
+  }
 
   return {
     product: res.body.data!.product,
