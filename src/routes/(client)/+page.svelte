@@ -67,7 +67,7 @@
     />
 </svelte:head>
 
-<div class="space-y-24">
+<div class="space-y-12">
     <section class="space-y-4">
         <div class="flex space-x-4 items-center">
             <h1 class="text-3xl text-nowrap">SKE Crystal 4-in-1</h1>
@@ -264,6 +264,7 @@
             >
         </div>
     </section>
+
     <div class="space-y-4">
         <div class="flex items-center space-x-4">
             <h1 class="text-3xl text-nowrap">Vozol Switch PRO</h1>
@@ -284,20 +285,18 @@
         </div>
     </div>
 
-    <div class="space-y-24 pb-24">
-        <ProductShowcase
-            href="/pouch"
-            name={$l("product.pouches")}
-            products={pouches}
-        >
-            <div>
-                <Pouch h={32} />
-            </div>
-        </ProductShowcase>
-        <ProductShowcase href="/kit" name={$l("product.kits")} products={kits}>
-            <div>
-                <Kit h={32} />
-            </div>
-        </ProductShowcase>
-    </div>
+    <ProductShowcase
+        href="/pouch"
+        name={$l("product.pouches")}
+        products={pouches}
+    >
+        <div>
+            <Pouch h={32} />
+        </div>
+    </ProductShowcase>
+    <ProductShowcase href="/kit" name={$l("product.kits")} products={kits}>
+        <div>
+            <Kit h={32} />
+        </div>
+    </ProductShowcase>
 </div>
