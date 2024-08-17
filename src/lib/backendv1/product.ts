@@ -39,15 +39,14 @@ export type V1ServerProductFullinfo = {
     pretty_internal_id: string;
     name: string;
     image_url: string;
-    tags: { name: string; options: string[] }[];
-    specs: { name: string; value: string[] }[];
+    tags: { name: string; options: string[]; }[];
+    specs: { name: string; value: string[]; }[];
 
     /* These are handed by us */
     price: number;
     discount: number;
     currency: string;
     stock: number;
-    description_long?: string;
 };
 
 export type V1ServerProductFullInfoWithRecommendations = {
