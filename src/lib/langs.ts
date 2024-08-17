@@ -367,7 +367,7 @@ var translations = {
         "error.encountered_error": "Am intampinat o problema :(",
         "error.encountered_error_description":
             "Incercati sa reincarcati pagina, daca problema persista contactati-ne",
-        "error.page404": "Pagina nu exista :(",
+        "error.page404": "Pagina nu exista (｡•́︿•̀｡)",
         "error.page404_description":
             "Aceasta pagina nu a existat niciodata sau a fost stearsa...",
 
