@@ -281,7 +281,7 @@
     <div class="hidden lg:flex items-center">
         <div class="flex flex-[1] justify-center mr-auto">
             <div class="mr-auto">
-                <SearchBar bind:open={search_bar_open} />
+                <SearchBar id="searchbar_desktop" bind:open={search_bar_open} />
             </div>
         </div>
         <a href="/" class="hover:filter-none flex flex-[1] justify-center">
@@ -314,7 +314,7 @@
                 <CartNav />
             </div>
         </div>
-        <SearchBar bind:open={search_bar_open} />
+        <SearchBar id="searchbar_mobile" bind:open={search_bar_open} />
     </div>
     <div
         class="z-20 hidden lg:flex items-center space-x-24 justify-center !mx-auto"

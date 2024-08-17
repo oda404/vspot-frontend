@@ -12,6 +12,7 @@
     import ProductHorizontalDisplay from "./products/ProductHorizontalDisplay.svelte";
 
     export let open: boolean;
+    export let id: string;
 
     let search_data: string;
     let search_data_last: string | undefined;
@@ -53,7 +54,7 @@
         <Fa icon={faSearch} />
         <form class="relative w-full">
             <label
-                for="search_bar_input"
+                for={id}
                 class="absolute {open || search_data
                     ? 'hidden'
                     : ''} left-4 hover:cursor-text"
@@ -61,7 +62,7 @@
                 Cauta in magazin
             </label>
             <input
-                id="search_bar_input"
+                {id}
                 on:focus={() => (open = true)}
                 bind:value={search_data}
                 spellcheck={false}
