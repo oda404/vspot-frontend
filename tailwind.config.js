@@ -11,7 +11,7 @@ export default {
         'vspot-text-pimary': '#eeeeee',
         'vspot-text-hovered': '#cccccc',
         'vspot-text-error': '#dd1111',
-        'vspot-green': '#00ff01',
+        'vspot-green': '#6dda0c',
         'vspot-link': '#5555DD',
         'vspot-link-hover': '#0000EE',
         'vspot-warn': '#fcba03'
