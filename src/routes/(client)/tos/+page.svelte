@@ -11,9 +11,7 @@
 </svelte:head>
 
 <section>
-    <h1
-        class="!text-6xl font-semibold flex items-center"
-    >
+    <h1 class="!text-6xl font-semibold flex items-center">
         {$l("page.tos")}
     </h1>
     <div class="space-y-8">
@@ -186,9 +184,11 @@
                 <li>
                     Livrarea comenzii se face in 1-2 zile de la confirmarea ei
                     de catre noi, pentru comenzile plasate de luni pana vineri
-                    in intervalul orar 9:00 - 12:00. Daca comanda a fost plasata in afara acestui interval, livrarea se va face intr-un termen de 1-2 zile incepand cu urmatoarea zi lucratoare. Acest estimat de livrare
-                    poate varia in cazul in care agentia de curierat intampina
-                    neprevazute.
+                    in intervalul orar 9:00 - 12:00. Daca comanda a fost plasata
+                    in afara acestui interval, livrarea se va face intr-un
+                    termen de 1-2 zile incepand cu urmatoarea zi lucratoare.
+                    Acest estimat de livrare poate varia in cazul in care
+                    agentia de curierat intampina neprevazute.
                 </li>
                 <li>
                     Pentru orice comanda costul transportul este de 25 RON,
@@ -210,7 +210,13 @@
                     confirmarea comenzii.
                 </li>
                 <li>
-                    Clientul are dreptul de a refuza primirea comenzii in oricare etapa a procesului de livrare fara nici un cost aditional. Daca clientul a refuzat livrarea, valoare comenzii va fi restituita in contul din care s-a facut plata (in cazul in care plata s-a facut cu cardul online), intr-un termen de maxim 7 zile de la reintoarcerea comenzii inapoi la noi.
+                    Clientul are dreptul de a refuza primirea comenzii in
+                    oricare etapa a procesului de livrare fara nici un cost
+                    aditional. Daca clientul a refuzat livrarea, valoare
+                    comenzii va fi restituita in contul din care s-a facut plata
+                    (in cazul in care plata s-a facut cu cardul online), intr-un
+                    termen de maxim 7 zile de la reintoarcerea comenzii inapoi
+                    la noi.
                 </li>
             </ul>
         </section>
