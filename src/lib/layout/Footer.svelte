@@ -26,6 +26,7 @@
         </FooterSection>
         <FooterSection title={$l("footer.legal")}>
             <a class="block" href="/tos">{$l("page.tos")}</a>
+            <a class="block" href="/tos#shipping">Politica de livrare</a>
             <a class="block" href="/privacy-policy"
                 >{$l("page.privacy_policy")}</a
             >

@@ -17,7 +17,7 @@
         {$l("page.tos")}
     </h1>
     <div class="space-y-8">
-        <span> Ultima actualizare: 10/07/2024 </span>
+        <span> Ultima actualizare: 19/08/2024 </span>
         <section class="space-y-2">
             <h1 class="font-bold text-lg">1. Definitii</h1>
             <ul>
@@ -131,7 +131,22 @@
         </section>
 
         <section class="space-y-2">
-            <h1 class="font-bold text-lg">5. Comanda, Preturi</h1>
+            <h1 class="font-bold text-lg">5. Plata</h1>
+            <ul>
+                <li>
+                    Numerar la livrare: Puteti plati o comanda in numerar cand
+                    preluati comanda de la agentia de curierat fara nici o taxa
+                    adaugata.
+                </li>
+                <li>
+                    Card prin intermediul online: Puteti plati o comanda
+                    folosind cardul prin intermediul online cu 3DSecure.
+                </li>
+            </ul>
+        </section>
+
+        <section class="space-y-2">
+            <h1 class="font-bold text-lg">6. Comanda, Preturi</h1>
             <ul>
                 <li>
                     Ne rezervam dreptul de a refuza comenzi in valoare mai mica
@@ -140,7 +155,12 @@
                 </li>
                 <li>
                     O comanda plasat pe site nu reprezinta o obligatie legala
-                    din partea noastra, pana nu este confirmata.
+                    din partea noastra, pana nu este confirmata de catre noi. In
+                    cazul in care o comanda a fost platita prin intermediul
+                    online (card) si este respinsa de catre noi, valoarea
+                    comenzii va fi restituita intr-un maxim de 14 zile
+                    lucratoare in contul din care s-a facut plata, dupa anularea
+                    acesteia.
                 </li>
                 <li>
                     Preturile afisate pe site pot sa difere fata de preturile
@@ -161,77 +181,137 @@
         </section>
 
         <section class="space-y-2">
-            <h1 class="font-bold text-lg">6. Livrare, Retur</h1>
+            <h1 id="shipping" class="font-bold text-lg">7. Livrare</h1>
             <ul>
                 <li>
                     Livrarea comenzii se face in 1-2 zile de la confirmarea ei
-                    pentru comenzile plasate de luni pana vineri in intervalul
-                    orar 9:00 - 12:00. Acest estimat de livrare poate varia in
-                    cazul in care firma de curierat intampina neprevazute.
+                    de catre noi, pentru comenzile plasate de luni pana vineri
+                    in intervalul orar 9:00 - 12:00. Daca comanda a fost plasata in afara acestui interval, livrarea se va face intr-un termen de 1-2 zile incepand cu urmatoarea zi lucratoare. Acest estimat de livrare
+                    poate varia in cazul in care agentia de curierat intampina
+                    neprevazute.
+                </li>
+                <li>
+                    Pentru orice comanda costul transportul este de 25 RON,
+                    oriunde pe teritoriul Romaniei prin agentia de curierat Fan
+                    Courier.
                 </li>
                 <li>
                     Ne luam angajamentul de a livra comanda intr-un maxim de 30
-                    de zile de la confirmarea comenzii. In caz contrar veti
-                    primi banii inapoi (doar daca plata a fost efectuata prin
-                    mediul online folosind cardul sau OP in functie de caz).
+                    de zile lucratoare de la confirmarea comenzii de catre noi,
+                    indiferent de orice neprevazute ce pot interveni din partea
+                    agentiei de curierat.
                 </li>
                 <li>
-                    Politica de retur poate fi gasita pe pagina "Politica Retur" <a
-                        class="text-lg text-vspot-link"
-                        href="/return-policy">aici</a
-                    >
+                    In cazul in care nu putem onora angajamentul de la
+                    subpunctul anterior, valoare comenzii va fi restituita (in
+                    cazul in care plata comenzii a fost efectuata cu cardul),
+                    intr-un maxim de 14 zile lucratoare in contul din care s-a
+                    facut plata, dupa termenul de 30 de zile lucratoare de la
+                    confirmarea comenzii.
+                </li>
+                <li>
+                    Clientul are dreptul de a refuza primirea comenzii in oricare etapa a procesului de livrare fara nici un cost aditional. Daca clientul a refuzat livrarea, valoare comenzii va fi restituita in contul din care s-a facut plata (in cazul in care plata s-a facut cu cardul online), intr-un termen de maxim 7 zile de la reintoarcerea comenzii inapoi la noi.
                 </li>
             </ul>
         </section>
 
         <section class="space-y-2">
-            <h1 class="font-bold text-lg">7. Prelucrarea datelor</h1>
+            <h1 class="font-bold text-lg">8. Anularea unei comenzi, Retur</h1>
+            <ul>
+                <li>
+                    Clientul poate anula o comanda plasata prin intermediul
+                    site-ului, contactându-ne prin oricare dintre modalitatile
+                    gasite
+                    <a class="text-lg text-vspot-link" href="/contact">
+                        aici
+                    </a>. Daca coletul a fost predat deja curierului de catre
+                    noi, clientul poate refuza coletul in ziua in care trebuie
+                    sa ajunga la el, fara nici o penalitate. In cazul in care o
+                    comanda a fost platita prin intermediul online (card),
+                    valoarea comenzii va fi restituita intr-un maxim de 14 zile
+                    lucratoare in contul din care s-a facut plata, dupa ce
+                    coletul ajunge inapoi la noi.
+                </li>
+                <li>
+                    Clientii beneficiaza de retur pentru produsele comandate, in
+                    cadrul <a
+                        class="text-lg text-vspot-link"
+                        href="/return-policy"
+                    >
+                        Politicii de retur</a
+                    >.
+                </li>
+            </ul>
+        </section>
+
+        <section class="space-y-2">
+            <h1 class="font-bold text-lg">
+                9. Prelucrarea si stocarea datelor
+            </h1>
+            <ul>
+                <li>
+                    Mentionam ca in cazul in care achitati o comanda online
+                    folosind card-ul bancar, datele cardului dumneavoastra nu
+                    vor fi procesate si retinute de noi sub nicio forma. Ele vor
+                    fi procesate de procesatorul nostru de plati.
+                </li>
+            </ul>
             <span class="block">
                 Politica GDPR pentru prelucrarea datelor cu caracter personal
-                poate fi gasita pe pagina "Politica de Confidentialitate" <a
+                poate fi gasita pe pagina <a
                     class="text-lg text-vspot-link"
-                    href="/privacy-policy">aici</a
-                >
+                    href="/privacy-policy">Politica de Confidentialitate</a
+                >.
             </span>
         </section>
 
         <section class="space-y-2">
             <h1 class="font-bold text-lg">
-                8. Incalcarea acestor termeni, Inchiderea contului de catre noi
+                10. Incalcarea acestor termeni, Inchiderea contului de catre noi
             </h1>
             <span class="block">
-                Ne rezervam dreptul de a ne alege clientii. Ca si rezultat, va
-                putem inchide contul si/sau refuza prestarea de servicii in
-                cazul in care termenii servicului au fost incalcati de catre
-                utilizator sau utilizatorul exploateaza in orice masura
-                serviciile si/sau produsele oferite prin intermediul site-ului.
+                Incalcarea acestor termeni si/sau exploatarea in oricare masura
+                a serviciilor si/sau produser oferite prin indermediul
+                site-ului, reprezinta incalcarea acestui contract. In acest caz
+                va putem inchide contul si refuza prestarea serviciilor pe
+                termen nedeterminat.
             </span>
         </section>
 
         <section class="space-y-2">
-            <h1 class="font-bold text-lg">9. Litigii</h1>
+            <h1 class="font-bold text-lg">11. Litigii</h1>
             <span class="block">
-                In caz de litigiu, daca inregistrarea unei reclamatii pe site-ul
-                nostru folosind una dintre metodele de contact gasite
-                <a class="text-vspot-link" href="/contact">aici</a> nu are
-                efect, aveti optiunea de a apela la Solutionarea Alternativa A
-                Litigiilor sau Solutionarea Online A Litigiilor. Ambele pot fi
-                gasite la finalul paginii sub rubrica "{$l("footer.legal")}".
+                In caz de litigiu, se poate inregistra o reclamatie folosind una
+                dintre metodele de contact gasite
+                <a class="text-vspot-link" href="/contact">aici</a>, fie prin
+                e-mail sau telefonic. Daca acest procedeu nu duce la
+                solutionarea conflictului, consumatorul are optiunea de a apela
+                la
+                <a href="https://anpc.ro/ce-este-sal" class="text-vspot-link">
+                    Solutionarea Alternativa A Litigiilor
+                </a>
+                sau
+                <a
+                    href="https://ec.europa.eu/consumers/odr/main/index.cfm?event=main.home2.show&lng=RO"
+                    class="text-vspot-link"
+                >
+                    Solutionarea Online A Litigiilor
+                </a>. Link-uri catre ambele optiuni sunt disponibile oricand la
+                finalul paginii in rubrica "{$l("footer.legal")}".
             </span>
         </section>
 
         <section class="space-y-2">
-            <h1 class="font-bold text-lg">10. Raspundere limitata</h1>
+            <h1 class="font-bold text-lg">12. Raspundere limitata</h1>
             <span class="block">
-                Nu purtam raspundere in cazul in care serviciile puse la
-                dispozitie de noi catre clienti nu sunt accesibile din motive
-                tehnice (mentenanta, eroare umana (dobitocul de la IT a detonat
-                reteaua si/sau serverul), neprevazute, etc.).
+                Nu purtam raspundere in cazul in care site-ul nu este accesibil
+                din motive tehnice (mentenanta, eroare umana, neprevazute,
+                etc.).
             </span>
         </section>
 
         <section class="space-y-2">
-            <h1 class="font-bold text-lg">11. Contact</h1>
+            <h1 class="font-bold text-lg">13. Contact</h1>
             Pentru orice intrebari va rugam sa ni le adresati prin:
             {#if CONTACT_EMAIL.length > 0}
                 <ul class="list-disc">
