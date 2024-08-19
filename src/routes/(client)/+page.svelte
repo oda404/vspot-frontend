@@ -152,7 +152,7 @@
     <div class="space-y-8">
         <div class="flex flex-col items-center justify-center lg:flex-row">
             <span
-                class="text-7xl lg:text-6xl font-extrabold text-center lg:text-left bg-clip-text inline-block"
+                class="text-6xl font-extrabold text-center lg:text-left bg-clip-text inline-block"
             >
                 {$l("home.title")}
             </span>

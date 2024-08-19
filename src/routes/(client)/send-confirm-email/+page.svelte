@@ -10,7 +10,7 @@
 
 <div>
     <div class="flex items-center space-x-8">
-        <span class="text-6xl lg:text-9xl font-[Blowhole] font-semibold">
+        <span class="text-6xl font-semibold">
             {$l("page.send_confirm_email.title")}
         </span>
         <Fa primaryColor="#cccccc" size="6x" icon={faEnvelope} />

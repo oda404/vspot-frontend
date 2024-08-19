@@ -4,12 +4,6 @@
 @tailwind utilities;
 
 @font-face {
-    font-family: "Blowhole";
-    src: url("/fonts/BlowholeBb-O2Kd.ttf");
-    font-display: swap;
-}
-
-@font-face {
     font-family: "Work Sans";
     font-style: medium;
     font-weight: 500;

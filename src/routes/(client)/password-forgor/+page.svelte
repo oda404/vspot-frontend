@@ -60,7 +60,7 @@
 </svelte:head>
 
 <div class="space-y-0">
-    <span class="text-7xl lg:text-9xl font-[Blowhole] font-semibold">
+    <span class="text-6xl font-semibold">
         {$l("page.forgot_password")}
     </span>
     <span class="text-lg font-semibold block text-vspot-text-hovered">

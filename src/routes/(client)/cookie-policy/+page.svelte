@@ -11,7 +11,7 @@
 
 <section>
     <h1
-        class="!text-6xl lg:!text-9xl font-[Blowhole] font-semibold flex items-center"
+        class="!text-6xl font-semibold flex items-center"
     >
         {$l("page.cookie_policy")}
         <Fa class="ml-4" size="sm" icon={faCookieBite} />

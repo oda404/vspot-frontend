@@ -10,7 +10,7 @@
 </script>
 
 <div class="space-y-8 divide-y divide-vspot-secondary-bg w-full">
-    <h1 class="text-6xl lg:text-9xl font-[Blowhole] font-semibold opacity-100">
+    <h1 class="text-6xl font-semibold opacity-100">
         PORTAn :3
     </h1>
     <CouponRegister />
