@@ -35,20 +35,24 @@
             </span>
             <span> </span>
         {:else}
-            <span class="text-9xl font-semibold">
-                {$page.status}
-                {$l("error.encountered_error")}
-            </span>
-            <span>
+            <div class="flex items-end space-x-4">
+                <span class="text-7xl font-semibold rotate-12 block">
+                    {$page.status}
+                </span>
+                <span class="text-6xl font-semibold">
+                    {$l("error.encountered_error")}
+                </span>
+            </div>
+            <span class="block">
                 {$page.error?.message}
             </span>
-            <div class="text-2xl">
+            <span>
                 {$l("error.encountered_error_description")}
                 <a
-                    class="text-2xl text-vspot-link hover:text-vspot-link-hover"
+                    class="text-vspot-link hover:text-vspot-link-hover"
                     href="/contact">{$l("description.here")}</a
                 >
-            </div>
+            </span>
         {/if}
         <a
             href="/"
