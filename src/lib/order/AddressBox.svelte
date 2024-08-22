@@ -20,28 +20,39 @@
         {/if}
     </div>
     <div class="space-y-1">
-        <span class="block">
+        <span class="block text-vspot-text-hovered">
             Nume
             <b>
                 {info.lastname}
                 {info.firstname}
             </b>
         </span>
-        <span class="block">
+        <span class="block text-vspot-text-hovered">
             Telefon <b>{info.phone}</b>
         </span>
-        <span class="block">
-            Judetul <b>{address.county}</b> - Localitatea <b>{address.city}</b>
+        <span class="block text-vspot-text-hovered">
+            Judetul <b>{address.county}</b>
         </span>
-        <span class="block">
-            Strada <b>{address.street} -</b>
-            {#if address.house}
+        <span class="block text-vspot-text-hovered">
+            Localitatea <b>{address.city}</b>
+        </span>
+        <span
+            class="block text-vspot-text-hovered border-b border-vspot-secondary-bg pb-2"
+        >
+            Strada <b>{address.street}</b>
+        </span>
+        {#if address.house}
+            <span class="block pt-1 text-vspot-text-hovered">
                 Numarul <b>{address.house.number}</b>
-            {:else if address.building}
-                Bloc <b>{address.building.number}</b> - Scara
-                <b>{address.building.entrance}</b> - Apartamentul
-                <b>{address.building.apartment}</b>
-            {/if}
-        </span>
+            </span>
+        {:else if address.building}
+            <span class="block text-vspot-text-hovered pt-1">
+                Bloc <b>{address.building.number}</b>
+                Scara <b>{address.building.entrance}</b>
+            </span>
+            <span class="block text-vspot-text-hovered">
+                Apartamentul <b>{address.building.apartment}</b>
+            </span>
+        {/if}
     </div>
 </div>
