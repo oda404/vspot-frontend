@@ -7,7 +7,7 @@ export default {
         'vspot-purple': '#e802f7',
         'vspot-blue': '#871be1',
         'vspot-primary-bg': '#181a1b',
-        'vspot-secondary-bg': '#313131',
+        'vspot-secondary-bg': '#404040',
         'vspot-text-pimary': '#eeeeee',
         'vspot-text-hovered': '#cccccc',
         'vspot-text-error': '#dd1111',
