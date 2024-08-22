@@ -13,13 +13,13 @@
         <div class="flex items-center justify-between space-x-4">
             <a {href} class="flex space-x-4 items-center w-full">
                 <slot />
-                <span class="text-3xl text-nowrap">
+                <span class="text-3xl text-nowrap whitespace-nowrap">
                     {name}
                 </span>
                 <div class="h-[1px] w-full bg-vspot-secondary-bg" />
             </a>
             {#if href}
-                <a {href} class="text-nowrap">
+                <a {href} class="text-nowrap whitespace-nowrap">
                     {$l("action.see_all")}
                 </a>
             {/if}

@@ -232,7 +232,7 @@
                     {/if}
                     <button
                         disabled={data.product.stock === 0}
-                        class="text-lg px-16 w-full p-2 bg-vspot-green text-vspot-primary-bg disabled:bg-vspot-secondary-bg disabled:text-vspot-text-hovered"
+                        class="text-lg whitespace-nowrap px-16 w-full p-2 bg-vspot-green text-vspot-primary-bg disabled:bg-vspot-secondary-bg disabled:text-vspot-text-hovered"
                         on:click={() => {
                             cart_add_item(
                                 data.product.internal_id,
