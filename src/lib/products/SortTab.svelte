@@ -26,9 +26,9 @@
 </script>
 
 {#if options.length > 0}
-    <div class="relative w-fit">
+    <div class="relative w-full lg:w-fit">
         <button
-            class="flex items-center space-x-8 px-2 border-b border-vspot-secondary-bg pb-2 !rounded-none"
+            class="flex items-center w-full justify-center space-x-8 px-2 border-b border-vspot-secondary-bg pb-2 !rounded-none"
             on:click={() => {
                 opened = !opened;
             }}

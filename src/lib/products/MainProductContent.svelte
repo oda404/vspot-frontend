@@ -52,9 +52,11 @@
                 {$l(`product.${title}.description`)}
             </h2>
         </div>
-        <div class="flex items-center z-[5] space-x-4 lg:space-x-0 mr-auto">
+        <div
+            class="flex items-center z-[5] space-x-4 lg:space-x-0 mr-auto w-full"
+        >
             <button
-                class="lg:hidden flex items-center space-x-2 pb-2 border-b border-vspot-secondary-bg"
+                class="lg:hidden flex items-center space-x-2 pb-2 rounded-none border-b border-vspot-secondary-bg w-full justify-center"
                 on:click={() =>
                     (mobile_filter_tab_open = !mobile_filter_tab_open)}
             >
