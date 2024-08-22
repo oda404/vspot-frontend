@@ -19,6 +19,11 @@
     } from "$lib/orderinfo/shipping_methods";
     import OrderPlacedInfoAdmin from "./OrderPlacedInfoAdmin.svelte";
     import { l } from "$lib/langs";
+    import type {
+        Address,
+        AddressBuilding,
+        AddressHouse,
+    } from "$lib/orderinfo/orderinfo";
 
     export let order: V1ServerOrder;
     export let show_admin_controls = false;
@@ -44,7 +49,53 @@
         return total;
     };
 
-    console.log(order.id_hr);
+    const order_make_billing_address = (order: V1ServerOrder): Address => {
+        let house: AddressHouse | undefined = undefined;
+        let building: AddressBuilding | undefined = undefined;
+
+        if (typeof order.billing_house_number !== "undefined") {
+            house = { number: order.billing_house_number };
+        } else {
+            building = {
+                number: order.billing_building_number!,
+                entrance: order.billing_building_entrance!,
+                apartment: order.billing_building_apartment!,
+            };
+        }
+
+        return {
+            county: order.billing_county,
+            city: order.billing_city,
+            street: order.billing_street,
+            postalcode: order.billing_postalcode,
+            house: house,
+            building: building,
+        };
+    };
+
+    const order_make_shipping_address = (order: V1ServerOrder): Address => {
+        let house: AddressHouse | undefined;
+        let building: AddressBuilding | undefined;
+
+        if (typeof order.shipping_house_number !== "undefined") {
+            house = { number: order.shipping_house_number };
+        } else {
+            building = {
+                number: order.shipping_building_number!,
+                entrance: order.shipping_building_entrance!,
+                apartment: order.shipping_building_apartment!,
+            };
+        }
+
+        return {
+            county: order.shipping_county,
+            city: order.shipping_city,
+            street: order.shipping_street,
+            postalcode: order.shipping_postalcode,
+            house,
+            building,
+        };
+    };
 </script>
 
 <div class="w-full">
@@ -148,12 +199,7 @@
         </div>
         <div class="space-y-4 lg:w-[30%] w-full">
             <AddressBox
-                address={{
-                    county: order.billing_county,
-                    city: order.billing_city,
-                    address: order.billing_address,
-                    postalcode: order.billing_postalcode,
-                }}
+                address={order_make_billing_address(order)}
                 info={{
                     lastname: order.lastname,
                     firstname: order.firstname,
@@ -163,12 +209,7 @@
                 title={$l("orderinfo.billingaddress")}
             />
             <AddressBox
-                address={{
-                    county: order.shipping_county,
-                    city: order.shipping_city,
-                    address: order.shipping_address,
-                    postalcode: order.shipping_postalcode,
-                }}
+                address={order_make_shipping_address(order)}
                 info={{
                     lastname: order.lastname,
                     firstname: order.firstname,

@@ -16,7 +16,9 @@
     import { goto } from "$app/navigation";
     import InputRadio from "$lib/input/InputRadio.svelte";
     import {
+        faBuilding,
         faCreditCard,
+        faHouse,
         faMoneyBill,
     } from "@fortawesome/free-solid-svg-icons";
     import OrderStage from "$lib/order/OrderStage.svelte";
@@ -26,6 +28,7 @@
     import { cart_store } from "$lib/cart/cart.js";
     import { get } from "svelte/store";
     import { USER_EMAIL_REGEX } from "$lib/user/validation.js";
+    import Fa from "svelte-fa";
 
     export let data;
 
@@ -100,8 +103,8 @@
         if (value.length < 3) return "Localitatea este prea scurta!";
     };
 
-    let address_data = new InputFieldContext(orderinfo?.billing?.address);
-    address_data.validate = (value: string) => {
+    let street_data = new InputFieldContext(orderinfo?.billing?.street);
+    street_data.validate = (value: string) => {
         if (value.length === 0) return "Ai uitat adresa!";
         if (value.length < 5) return "Adresa este prea scurta";
         if (value.length > 256) return "Adresa este prea lunga!";
@@ -112,6 +115,50 @@
         if (value.length === 0) return "Ai uitat codul postal!";
         if (value.length < 6) return "Codul postal este prea scurt!";
         if (value.length > 6) return "Cod postal invalid!";
+    };
+
+    let address_type: "house" | "building";
+    if (
+        typeof orderinfo?.billing?.house === "undefined" &&
+        typeof orderinfo?.billing?.building === "undefined"
+    ) {
+        address_type = "house";
+    } else if (typeof orderinfo?.billing?.house === "undefined") {
+        address_type = "building";
+    } else {
+        address_type = "house";
+    }
+
+    let house_number_data = new InputFieldContext(
+        orderinfo?.billing?.house?.number,
+    );
+    house_number_data.validate = (value: string) => {
+        if (value.length === 0) return "Ai uitat numarul!";
+        if (value.length > 8) return "Numarul este prea lung!";
+    };
+
+    let building_number_data = new InputFieldContext(
+        orderinfo?.billing?.building?.number,
+    );
+    building_number_data.validate = (value: string) => {
+        if (value.length === 0) return "Ai uitat blocul!";
+        if (value.length > 8) return "Blocul este prea lung!";
+    };
+
+    let building_entrance_data = new InputFieldContext(
+        orderinfo?.billing?.building?.entrance,
+    );
+    building_entrance_data.validate = (value: string) => {
+        if (value.length === 0) return "Ai uitat scara!";
+        if (value.length > 8) return "Scara este prea lunga!";
+    };
+
+    let building_apartment_data = new InputFieldContext(
+        orderinfo?.billing?.building?.apartment,
+    );
+    building_apartment_data.validate = (value: string) => {
+        if (value.length === 0) return "Ai uitat apartamentul!";
+        if (value.length > 8) return "Apartamentul este prea lung!";
     };
 
     const validate_data_and_redirect = () => {
@@ -135,11 +182,30 @@
         has_error = city_data.do_validate() !== undefined || has_error;
         city_data = city_data;
 
-        has_error = address_data.do_validate() !== undefined || has_error;
-        address_data = address_data;
+        has_error = street_data.do_validate() !== undefined || has_error;
+        street_data = street_data;
 
         has_error = postalcode_data.do_validate() !== undefined || has_error;
         postalcode_data = postalcode_data;
+
+        if (address_type === "house") {
+            has_error =
+                house_number_data.do_validate() !== undefined || has_error;
+            house_number_data = house_number_data;
+        } else if (address_type === "building") {
+            has_error =
+                building_number_data.do_validate() !== undefined || has_error;
+            building_number_data = building_number_data;
+
+            has_error =
+                building_entrance_data.do_validate() !== undefined || has_error;
+            building_entrance_data = building_entrance_data;
+
+            has_error =
+                building_apartment_data.do_validate() !== undefined ||
+                has_error;
+            building_apartment_data = building_apartment_data;
+        }
 
         let payment_method = payment_options.find((o) => o.selected)!;
         if (!payment_method) {
@@ -159,9 +225,23 @@
         const billing_address: Address = {
             county: county_data.value,
             city: city_data.value,
-            address: address_data.value,
+            street: street_data.value,
             postalcode: postalcode_data.value,
         };
+
+        if (address_type === "house") {
+            billing_address.building = undefined;
+            billing_address.house = {
+                number: house_number_data.value,
+            };
+        } else if (address_type === "building") {
+            billing_address.house = undefined;
+            billing_address.building = {
+                number: building_number_data.value,
+                entrance: building_entrance_data.value,
+                apartment: building_apartment_data.value,
+            };
+        }
 
         orderinfo_set_billing_address(billing_address);
         orderinfo_set_shipping_address(billing_address);
@@ -176,9 +256,9 @@
 
 <div class="space-y-8">
     <OrderStage stage={1} />
-    <div class="lg:w-[50%] rounded-lg bg-vspot-primary-bg p-4 space-y-4">
+    <div class="lg:w-[50%] space-y-4">
         <div class="space-y-4">
-            <div class="text-xl">{$l("orderinfo.personaldata")}</div>
+            <span class="text-xl">{$l("orderinfo.personaldata")}</span>
             <div class="flex space-x-4">
                 <InputField
                     id="lastname"
@@ -205,7 +285,7 @@
             {/if}
         </div>
         <div class="space-y-4">
-            <div class="text-xl">{$l("orderinfo.billingaddress")}</div>
+            <span class="text-xl">Adresa</span>
             <div class="flex items-center space-x-4">
                 <InputDropdown
                     id="county"
@@ -219,38 +299,109 @@
                     bind:data={city_data}
                 />
             </div>
-            <div class="flex space-x-4">
-                <div class="w-[70%]">
+            <div class="flex items-center space-x-4">
+                <div class="w-[65%]">
                     <InputField
-                        id="address"
-                        label={$l("orderinfo.address")}
-                        bind:data={address_data}
+                        id="street"
+                        label="Strada"
+                        bind:data={street_data}
                     />
                 </div>
-                <div class="w-[30%]">
+                <div class="w-[35%]">
                     <InputField
                         id="postalcode"
-                        label={$l("orderinfo.postalcode")}
+                        label="Cod postal"
                         bind:data={postalcode_data}
                     />
                 </div>
             </div>
+            <div>
+                <div class="flex space-x-4 justify-between">
+                    <button
+                        class="py-4 w-full space-y-4 h-fit text-start flex flex-col items-center"
+                        class:border-vspot-green={address_type === "house"}
+                        class:border-vspot-secondary-bg={address_type !==
+                            "house"}
+                        disabled={address_type === "house"}
+                        on:click={() => {
+                            address_type = "house";
+                        }}
+                    >
+                        <div class="flex items-center space-x-2">
+                            <Fa
+                                color={address_type === "house"
+                                    ? "#6dda0c"
+                                    : "#eeeeee"}
+                                icon={faHouse}
+                            />
+                            <span> Casa </span>
+                        </div>
+                    </button>
+                    <button
+                        class="py-4 w-full space-y-4 h-fit text-start flex flex-col items-center"
+                        class:border-vspot-green={address_type === "building"}
+                        class:border-vspot-secondary-bg={address_type !==
+                            "building"}
+                        disabled={address_type === "building"}
+                        on:click={() => {
+                            address_type = "building";
+                        }}
+                    >
+                        <div class="flex items-center space-x-2">
+                            <Fa
+                                color={address_type === "building"
+                                    ? "#6dda0c"
+                                    : "#eeeeee"}
+                                icon={faBuilding}
+                            />
+                            <span> Apartament </span>
+                        </div>
+                    </button>
+                </div>
+                {#if address_type === "house"}
+                    <InputField
+                        id="house_number"
+                        label="Numar"
+                        bind:data={house_number_data}
+                    />
+                {:else if address_type === "building"}
+                    <div class="flex space-x-4">
+                        <InputField
+                            id="building"
+                            label="Bloc"
+                            bind:data={building_number_data}
+                        />
+                        <InputField
+                            id="entrance"
+                            label="Scara"
+                            bind:data={building_entrance_data}
+                        />
+                        <InputField
+                            id="apartment"
+                            label="Apartament"
+                            bind:data={building_apartment_data}
+                        />
+                    </div>
+                {/if}
+            </div>
         </div>
         <div class="space-y-4">
-            <div class="text-xl">{$l("orderinfo.paymentoption")}</div>
-            <InputRadio
-                do_locale
-                name="payment"
-                bind:options={payment_options}
-            />
-            {#if payment_option_error}
-                <div class="text-vspot-text-error">
-                    {$l("payment.missingerror")}
-                </div>
-            {/if}
+            <span class="text-xl">{$l("orderinfo.paymentoption")}</span>
+            <div class="!mt-2">
+                <InputRadio
+                    do_locale
+                    name="payment"
+                    bind:options={payment_options}
+                />
+                {#if payment_option_error}
+                    <div class="text-vspot-text-error !mt-0 text-sm">
+                        {$l("payment.missingerror")}
+                    </div>
+                {/if}
+            </div>
         </div>
         <button
-            class="bg-vspot-green text-vspot-primary-bg px-4 py-2"
+            class="bg-vspot-green text-vspot-primary-bg px-4 py-2 w-full"
             on:click={() => validate_data_and_redirect()}
         >
             {$l("orderinfo.continue")}

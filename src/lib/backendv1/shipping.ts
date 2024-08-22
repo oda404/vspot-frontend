@@ -6,17 +6,14 @@ import type { FetchFunction } from "./safe_fetch";
 
 export type V1ShippingMethod = {
     name: string;
-    display: string;
     price: number;
-    delivery_time_days: number[];
 };
 
 export async function backendv1_get_shipping_methods(
-    weight_grams: number,
     fetch_func: FetchFunction,
 ): Promise<ServerResponse<V1ShippingMethod[]>> {
     return await backendv1_base_fetch(
-        `${backendv1_endpoint()}/shipping/methods?weight_grams=${weight_grams}`,
+        `${backendv1_endpoint()}/shipping/methods`,
         {
             method: "GET",
             headers: {

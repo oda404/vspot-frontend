@@ -17,7 +17,7 @@
         type CartProduct,
     } from "$lib/cart/cart";
     import {
-        backendv1_post_order_submit,
+        backendv1_order_submit,
         type V1ClientOrderInfo,
     } from "$lib/backendv1/order";
     import { backend_shatpants_store } from "$lib/backend_shatpants/backend_shatpants";
@@ -101,20 +101,29 @@
 
             billing_county: orderinfo!.billing!.county,
             billing_city: orderinfo!.billing!.city,
-            billing_address: orderinfo!.billing!.address,
+            billing_street: orderinfo!.billing!.street,
             billing_postalcode: orderinfo!.billing!.postalcode,
+            billing_house_number: orderinfo!.billing?.house?.number,
+            billing_building_number: orderinfo!.billing?.building?.number,
+            billing_building_entrance: orderinfo!.billing?.building?.entrance,
+            billing_building_apartment: orderinfo!.billing?.building?.apartment,
 
             shipping_county: orderinfo!.shipping!.county,
             shipping_city: orderinfo!.shipping!.city,
-            shipping_address: orderinfo!.shipping!.address,
+            shipping_street: orderinfo!.shipping!.street,
             shipping_postalcode: orderinfo!.shipping!.postalcode,
+            shipping_house_number: orderinfo!.shipping?.house?.number,
+            shipping_building_number: orderinfo!.shipping?.building?.number,
+            shipping_building_entrance: orderinfo!.shipping?.building?.entrance,
+            shipping_building_apartment:
+                orderinfo!.shipping?.building?.apartment,
 
             shipping_method: orderinfo!.shipping_method!.name,
 
             coupon: orderinfo!.coupon?.code,
         };
 
-        backendv1_post_order_submit(info, turnstile_response!)
+        backendv1_order_submit(info, turnstile_response!)
             .then((res) => {
                 order_submitting = false;
                 if (res.status !== 200) {
@@ -163,9 +172,7 @@
                 info={billing_info}
             />
         </div>
-        <div
-            class="border border-vspot-secondary-bg bg-vspot-primary-bg p-4 rounded-lg"
-        >
+        <div class="p-4 rounded-lg">
             <div class="flex justify-between">
                 <div class="text-lg text-vspot-text-hovered">
                     {$l("ordership.shipping_method")}
@@ -195,6 +202,10 @@
         </div>
         <div class="flex flex-col lg:flex-row">
             <div class="min-w-[65%] p-4 rounded-lg space-y-2">
+                <div class="flex items-center space-x-2">
+                    <span class="text-lg">Produse</span>
+                    <div class="w-full h-[1px] bg-vspot-secondary-bg" />
+                </div>
                 {#each cart_items as item}
                     <div class="pt-4 w-full">
                         <ProductHorizontalDisplay
@@ -209,7 +220,7 @@
             </div>
             <div class="w-full">
                 <div
-                    class="w-full bg-vspot-primary-bg h-fit rounded-lg space-y-4 p-4 border border-vspot-secondary-bg"
+                    class="w-full h-fit rounded-sm space-y-4 p-4 border border-vspot-secondary-bg"
                 >
                     <div class="text-lg text-vspot-text-hovered">
                         {$l("order.sendorder")}

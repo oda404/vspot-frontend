@@ -23,26 +23,27 @@
     </div>
     <div class="space-y-1">
         <span class="block">
-            Nume:
+            Nume
             <b>
                 {info.lastname}
                 {info.firstname}
             </b>
         </span>
         <span class="block">
-            Telefon: <b>{info.phone}</b>
+            Telefon <b>{info.phone}</b>
         </span>
         <span class="block">
-            Judet: <b>{address.county}</b>
+            Judetul <b>{address.county}</b> - Localitatea <b>{address.city}</b>
         </span>
         <span class="block">
-            Localitate: <b>{address.city}</b>
-        </span>
-        <span class="block">
-            Adresa: <b>{address.address}</b>
-        </span>
-        <span class="block">
-            Cod postal: <b>{address.postalcode}</b>
+            Strada <b>{address.street} -</b>
+            {#if address.house}
+                Numarul <b>{address.house.number}</b>
+            {:else if address.building}
+                Bloc <b>{address.building.number}</b> - Scara
+                <b>{address.building.entrance}</b> - Apartamentul
+                <b>{address.building.apartment}</b>
+            {/if}
         </span>
     </div>
 </div>

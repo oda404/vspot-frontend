@@ -29,14 +29,22 @@ export type V1ClientOrderInfo = {
     /* Billing */
     billing_county: string;
     billing_city: string;
-    billing_address: string;
+    billing_street: string;
     billing_postalcode: string;
+    billing_house_number: string | undefined;
+    billing_building_number: string | undefined;
+    billing_building_entrance: string | undefined;
+    billing_building_apartment: string | undefined;
 
     /* Shipping */
     shipping_county: string;
     shipping_city: string;
-    shipping_address: string;
+    shipping_street: string;
     shipping_postalcode: string;
+    shipping_house_number: string | undefined;
+    shipping_building_number: string | undefined;
+    shipping_building_entrance: string | undefined;
+    shipping_building_apartment: string | undefined;
 
     /* Shipping method */
     shipping_method: string;
@@ -55,12 +63,7 @@ export type V1ServerPurchasedProduct = {
     discount: number;
 };
 
-export type V1ServerOrderStatus =
-    | "canceled"
-    | "registered"
-    | "confirmed"
-    | "shipped"
-    | "completed";
+export type V1ServerOrderStatus = "canceled" | "returned" | "registered" | "confirmed" | "shipped" | "completed";
 
 export type V1ServerOrder = {
     id: string;
@@ -77,13 +80,21 @@ export type V1ServerOrder = {
 
     billing_county: string;
     billing_city: string;
-    billing_address: string;
+    billing_street: string;
     billing_postalcode: string;
+    billing_house_number: string | undefined;
+    billing_building_number: string | undefined;
+    billing_building_entrance: string | undefined;
+    billing_building_apartment: string | undefined;
 
     shipping_county: string;
     shipping_city: string;
-    shipping_address: string;
+    shipping_street: string;
     shipping_postalcode: string;
+    shipping_house_number: string | undefined;
+    shipping_building_number: string | undefined;
+    shipping_building_entrance: string | undefined;
+    shipping_building_apartment: string | undefined;
 
     shipping_method: string;
     shipping_tracking_number: string | undefined;
@@ -96,41 +107,34 @@ export type V1ServerOrder = {
     coupon?: V1ServerCouponInfo;
 };
 
-/* server -> client. This stuff is publicly accessible by anyone, so let's not include any personal info */
-export type V1ServerOrderDisplayInfo = {
-    id: string;
-    products: V1ServerPurchasedProduct[];
-    status: V1ServerOrderStatus;
-};
-
 export type V1ServerOrders = {
     orders: V1ServerOrder[];
     pages: number;
 };
 
-export async function backendv1_post_order_submit(
+export async function backendv1_order_submit(
     order_register_info: V1ClientOrderInfo,
     turnstile_token: string,
 ): Promise<ServerResponse<string>> {
     return await backendv1_base_fetch(
-        `${backendv1_endpoint()}/order/register`,
+        `${backendv1_endpoint()}/order`,
         {
             method: "POST",
             credentials: "include",
             headers: {
                 ...BACKENDV1_BASE_POST_HEADERS,
             },
-            body: JSON.stringify({ turnstile_token, order_register_info }),
+            body: JSON.stringify({ turnstile_token, data: order_register_info }),
         },
     );
 }
 
-export async function backendv1_get_order_get(
-    order_id: string,
+export async function backendv1_order_user_all(
+    page: number,
     fetch_func: FetchFunction,
-): Promise<ServerResponse<V1ServerOrderDisplayInfo>> {
+): Promise<ServerResponse<V1ServerOrders>> {
     return await backendv1_base_fetch(
-        `${backendv1_endpoint()}/order/get?order_id=${order_id}`,
+        `${backendv1_endpoint()}/order/all?page=${page}`,
         {
             method: "GET",
             credentials: "include",
@@ -142,11 +146,12 @@ export async function backendv1_get_order_get(
     );
 }
 
-export async function backendv1_order_user_all(
+export async function backendv1_order_all_admin(
+    page: number,
     fetch_func: FetchFunction,
 ): Promise<ServerResponse<V1ServerOrders>> {
     return await backendv1_base_fetch(
-        `${backendv1_endpoint()}/order/all`,
+        `${backendv1_endpoint()}/order/all-portal?page=${page}`,
         {
             method: "GET",
             credentials: "include",
