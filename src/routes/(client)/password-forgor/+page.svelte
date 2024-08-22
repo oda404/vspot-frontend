@@ -59,13 +59,13 @@
     <title>{pagetitle_make($l("page.forgot_password"))}</title>
 </svelte:head>
 
-<div class="space-y-0">
-    <span class="text-6xl font-semibold">
+<div class="space-y-2">
+    <h1 class="text-6xl font-semibold">
         {$l("page.forgot_password")}
-    </span>
-    <span class="text-lg font-semibold block text-vspot-text-hovered">
+    </h1>
+    <h2 class="text-base font-semibold block text-vspot-text-hovered">
         {$l(`page.forgot_password.description`)}
-    </span>
+    </h2>
     <form class="!mt-4 space-y-2 lg:w-[400px]">
         <InputField id="email" label="Email" data={email_ctx} />
         <button
