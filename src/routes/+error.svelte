@@ -28,12 +28,12 @@
             </div>
             <span class="block">
                 Link-ul pe care l-ati urmat a fost sters sau nu a existat
-                niciodata. Daca credeti ca este o eroare din partea noastra, ne
-                puteti contacta <a href="/contact" class="text-vspot-link"
-                    >aici</a
+                niciodata. Daca credeti ca este o eroare din partea noastra va
+                rugam sa ne contactati <a
+                    href="/contact"
+                    class="text-vspot-link">aici</a
                 >.
             </span>
-            <span> </span>
         {:else}
             <div class="flex items-end space-x-4">
                 <span class="text-7xl font-semibold rotate-12 block">
@@ -43,20 +43,26 @@
                     {$l("error.encountered_error")}
                 </span>
             </div>
-            <span class="block">
+            <span
+                class="block font-bold border-b border-vspot-secondary-bg pb-4"
+            >
                 {$page.error?.message}
             </span>
-            <span>
+            <span class="hidden"
+                >Dobitocul de la it luwcreaza ewwxtra tare ca sa repare
+                pwroblema UwU</span
+            >
+            <span class="block">
                 {$l("error.encountered_error_description")}
                 <a
                     class="text-vspot-link hover:text-vspot-link-hover"
                     href="/contact">{$l("description.here")}</a
-                >
+                >.
             </span>
         {/if}
         <a
             href="/"
-            class="block !mt-4 text-vspot-primary-bg px-4 p-2 rounded-tl-lg rounded-br-lg bg-vspot-green w-fit hover:text-vspot-secondary-bg"
+            class="block text-vspot-primary-bg px-4 p-2 rounded-tl-lg rounded-br-lg bg-vspot-green w-fit hover:text-vspot-secondary-bg"
         >
             {$l("action.backtomainpage")}
         </a>

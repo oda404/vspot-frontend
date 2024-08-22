@@ -134,7 +134,7 @@ var translations = {
         "order.coupon": "Cod",
         "order.no_orders": "Nu ai plasat nicio comanda inca...",
         "order.consent":
-            "Sunt de acord cu Termenii serviciului si Politica de confidentialitate",
+            "Am citit si sunt de acord cu Termenii serviciului",
         "order.consent_error":
             "Termenii serviciului si politica de confidentialitate sunt obligatorii.",
         "order.do_you_have_a_voucher": "Ai un voucher?",
@@ -366,7 +366,7 @@ var translations = {
         "error.email_taken": "Acesta adresa de email a fost inregistrata deja",
         "error.encountered_error": "Am intampinat o problema :(",
         "error.encountered_error_description":
-            "Incercati sa reincarcati pagina, daca problema persista contactati-ne",
+            "Va rugam sa reincarcati pagina. Daca problema persista contactati-ne",
         "error.page404": "Pagina nu exista (｡•́︿•̀｡)",
         "error.page404_description":
             "Aceasta pagina nu a existat niciodata sau a fost stearsa...",
@@ -708,7 +708,6 @@ var translations = {
         "specval.5.5ml": "5.5ml",
 
         "shipping.fancourier": "Fan Courier",
-        "shipping.sameday": "Sameday",
 
         "product.switchpro": "Vozol Switch Pro",
         "product.crystal4in1": "SKE Crystal 4-in-1",
