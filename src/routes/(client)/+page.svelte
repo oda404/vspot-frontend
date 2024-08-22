@@ -83,7 +83,7 @@
                 loop
                 muted
                 poster="/images/ske/crystal_4_in_1_promo_thumb.webp"
-                class="lg:w-[600px] lg:h-[600px] w-full h-full"
+                class="lg:w-[600px] lg:h-[600px] w-full h-full rounded-sm"
             >
                 <source
                     src="/videos/ske/crystal_4_in_1_promo3.mp4"
@@ -250,7 +250,7 @@
                 loop
                 muted
                 preload="none"
-                class="w-[1100px]"
+                class="w-[1100px] rounded-sm"
                 poster="images/voopoo/argus_p2_showcase_thumb.webp"
             >
                 <track kind="captions" />
@@ -278,7 +278,7 @@
         </div>
         <a href="/disposable?subtype=switchpro" class="block hover:filter-none">
             <img
-                class="w-[1100px]"
+                class="w-[1100px] rounded-sm"
                 alt="Vozol Switch Pro Promo"
                 src="/images/vozol/vozol_switch_pro_promo.webp"
             />
