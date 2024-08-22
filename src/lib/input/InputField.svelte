@@ -17,7 +17,7 @@
 
 <div class="flex flex-col space-y-1 relative w-full">
     <label
-        class="absolute transition-all {move_label
+        class="absolute px-2 transition-all {move_label
             ? 'top-[-4px]'
             : 'top-[12px]'} {move_label
             ? 'left-[10px]'
@@ -37,7 +37,7 @@
         spellcheck={false}
         {disabled}
         {...{ type }}
-        class="bg-vspot-primary-bg p-2 px-4 w-full rounded-md border {typeof data.error !==
+        class="bg-vspot-primary-bg p-2 px-4 w-full rounded-sm border {typeof data.error !==
         'undefined'
             ? 'border-vspot-text-error'
             : 'border-vspot-secondary-bg'}  focus:outline-none"

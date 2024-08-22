@@ -8,9 +8,7 @@
     export let change_url: string | undefined = undefined;
 </script>
 
-<div
-    class="p-4 rounded-lg w-full bg-vspot-primary-bg border border-vspot-secondary-bg"
->
+<div class="p-4 rounded-sm w-full border border-vspot-secondary-bg">
     <div class="flex justify-between">
         <span class="text-lg text-vspot-text-hovered">
             {title}

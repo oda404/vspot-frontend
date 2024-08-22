@@ -28,7 +28,7 @@
     <select
         class="bg-vspot-primary-bg border {data.error
             ? 'border-vspot-text-error'
-            : 'border-vspot-secondary-bg'} rounded-lg h-[37px] px-4"
+            : 'border-vspot-secondary-bg'} rounded-sm h-[37px] px-4"
         name="county"
         id="county"
         bind:value={data.value}

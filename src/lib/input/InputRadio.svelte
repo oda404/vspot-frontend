@@ -21,7 +21,7 @@
 <div class="space-y-2">
     {#each options as option}
         <label
-            class="flex items-center space-x-2 p-2 border border-vspot-secondary-bg rounded-lg"
+            class="flex items-center space-x-2 p-2 border border-vspot-secondary-bg rounded-sm"
         >
             <input
                 checked={option.selected}
