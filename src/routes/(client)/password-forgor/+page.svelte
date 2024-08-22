@@ -88,7 +88,7 @@
         </button>
     </form>
     <div class="!mt-4">
-        <LinkButton simple href="/signup">
+        <LinkButton simple href="/login">
             <span>{$l("action.login")}</span>
         </LinkButton>
     </div>
