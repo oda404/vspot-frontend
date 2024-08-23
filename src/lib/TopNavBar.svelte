@@ -37,20 +37,12 @@
                             href: "/disposable?subtype=crystal4in1",
                         },
                         {
-                            name: "SKE Crystal Bar",
-                            href: "/disposable?subtype=crystalbar",
-                        },
-                        {
                             name: "Vozol Switch Pro",
                             href: "/disposable?subtype=switchpro",
                         },
                         {
                             name: "Vozol Neon 800",
                             href: "/disposable?subtype=neon800",
-                        },
-                        {
-                            name: "Elf Bar V2",
-                            href: "/disposable?subtype=elfbarv2",
                         },
                     ],
                 },
@@ -89,32 +81,6 @@
                         {
                             name: "Elf Bar",
                             href: "/disposable?brand=elfbar",
-                        },
-                    ],
-                },
-                {
-                    name: "SKE Crystal 4-in-1",
-                    options: [
-                        {
-                            name: "Dispozitive",
-                            href: "/disposable?subtype=crystal4in1&reusable=true",
-                        },
-                        {
-                            name: "Poduri",
-                            href: "/disposable?subtype=crystal4in1&cartridge=true",
-                        },
-                    ],
-                },
-                {
-                    name: "Vozol Switch PRO",
-                    options: [
-                        {
-                            name: "Dispozitive",
-                            href: "/disposable?subtype=switchpro&reusable=true",
-                        },
-                        {
-                            name: "Poduri",
-                            href: "/disposable?subtype=switchpro&cartridge=true",
                         },
                     ],
                 },
@@ -172,11 +138,9 @@
                 {
                     name: "Tip",
                     options: [
-                        { name: "Capsule tigari", href: "/smoking/capsules" },
                         { name: "Filtre", href: "/smoking/filter" },
                         { name: "Foite", href: "/smoking/rollingpaper" },
                         { name: "Grindere", href: "/smoking/grinder" },
-                        { name: "Conuri", href: "/smoking/cone" },
                     ],
                 },
                 {
@@ -237,20 +201,12 @@
                     options: [
                         { name: "Argus P2", href: "/kit?subtype=argus_p2" },
                         {
-                            name: "Argus G2 Mini",
-                            href: "/kit?subtype=argus_g2_mini",
-                        },
-                        {
                             name: "Aspire Gotek",
                             href: "/kit?subtype=gotek",
                         },
                         {
-                            name: "Vaporesso XROS 4",
-                            href: "/kit?subtype=xros4",
-                        },
-                        {
-                            name: "Vaporesso GTX GO 80",
-                            href: "/kit?subtype=gtx_go80",
+                            name: "Vaporesso XROS 4 Mini",
+                            href: "/kit?subtype=xros4_mini",
                         },
                     ],
                 },
