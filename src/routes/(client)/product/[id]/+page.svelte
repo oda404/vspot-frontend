@@ -264,7 +264,7 @@
                 </div>
                 {#if data.product.specs.length}
                     <table
-                        class="w-full !mt-4 bg-vspot-secondary-bg rounded-lg"
+                        class="w-full !mt-4 border border-vspot-secondary-bg"
                     >
                         <tr class="">
                             <th class="py-4 pl-4 pb-0 text-start font-bold"
@@ -297,10 +297,11 @@
                 {/if}
                 {#if package_contents}
                     <table
-                        class="w-full rounded-lg bg-vspot-secondary-bg !mt-4"
+                        class="w-full border border-vspot-secondary-bg !mt-4"
                     >
                         <tr class="">
-                            <th class="py-4 pl-4 pb-0 text-start font-bold"
+                            <th
+                                class="py-4 pl-4 pb-0 text-start font-bold whitespace-nowrap"
                                 >Continut pachet</th
                             >
                         </tr>
@@ -343,11 +344,11 @@
 <style lang="postcss">
     td:first-child {
         @apply border-b;
-        @apply border-vspot-primary-bg;
+        @apply border-vspot-secondary-bg;
     }
     td:last-child {
         @apply border-b;
-        @apply border-vspot-primary-bg;
+        @apply border-vspot-secondary-bg;
     }
     tr:last-child > td:first-child,
     tr:last-child > td:last-child {
