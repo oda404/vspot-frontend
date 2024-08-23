@@ -36,10 +36,13 @@
         <span class="block text-vspot-text-hovered">
             Localitatea <b>{address.city}</b>
         </span>
+        <span class="block text-vspot-text-hovered">
+            Strada <b>{address.street}</b>
+        </span>
         <span
             class="block text-vspot-text-hovered border-b border-vspot-secondary-bg pb-2"
         >
-            Strada <b>{address.street}</b>
+            Cod postal <b>{address.postalcode}</b>
         </span>
         {#if address.house}
             <span class="block pt-1 text-vspot-text-hovered">

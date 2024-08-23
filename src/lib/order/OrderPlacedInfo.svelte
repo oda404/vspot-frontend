@@ -55,7 +55,11 @@
 
         if (typeof order.billing_house_number !== "undefined") {
             house = { number: order.billing_house_number };
-        } else {
+        } else if (
+            typeof order.billing_building_number !== "undefined" &&
+            typeof order.billing_building_entrance !== "undefined" &&
+            typeof order.billing_building_apartment !== "undefined"
+        ) {
             building = {
                 number: order.billing_building_number!,
                 entrance: order.billing_building_entrance!,
@@ -79,7 +83,11 @@
 
         if (typeof order.shipping_house_number !== "undefined") {
             house = { number: order.shipping_house_number };
-        } else {
+        } else if (
+            typeof order.billing_building_number !== "undefined" &&
+            typeof order.billing_building_entrance !== "undefined" &&
+            typeof order.billing_building_apartment !== "undefined"
+        ) {
             building = {
                 number: order.shipping_building_number!,
                 entrance: order.shipping_building_entrance!,
