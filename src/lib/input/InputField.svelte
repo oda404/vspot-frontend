@@ -21,7 +21,7 @@
             ? 'top-[-4px]'
             : 'top-[12px]'} {move_label
             ? 'left-[10px]'
-            : 'left-[14px]'} {move_label
+            : 'left-[10px]'} {move_label
             ? 'text-sm'
             : ''} text-vspot-text-hovered bg-vspot-primary-bg px-1"
         for={id}>{label}</label
