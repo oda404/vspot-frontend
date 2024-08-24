@@ -1,14 +1,15 @@
 <script lang="ts">
+    import type { V1ServerProductSpec } from "$lib/backendv1/product.js";
     import { cart_add_item, cart_store } from "$lib/cart/cart";
     import { l } from "$lib/langs";
     import { price_discounted_val, price_format } from "$lib/price.js";
     import Product from "$lib/products/Product.svelte";
+    import ProductSpecsTable from "$lib/products/ProductSpecsTable.svelte";
     import ProductTrailBar from "$lib/products/ProductTrailBar.svelte";
     import { product_price_get_percdiff } from "$lib/products/price.js";
     import { shipping_estimation_get_date_from_now } from "$lib/shipping/estimation";
     import { pagetitle_make } from "$lib/title";
     import {
-        faDollar,
         faMinus,
         faPlus,
         faShoppingCart,
@@ -31,21 +32,32 @@
         .sub(data.product.discount)
         .toNumber();
 
-    let package_contents: { name: string; value: string[] } | undefined =
-        undefined;
+    $: specs = structuredClone(data.product.specs);
 
+    let package_contents: V1ServerProductSpec | undefined;
     $: {
-        const package_contents_spec_idx = data.product.specs.findIndex(
+        const package_contents_spec_idx = specs.findIndex(
             (spec) => spec.name === "package_contents",
         );
 
         if (package_contents_spec_idx !== -1) {
-            package_contents = data.product.specs.slice(
+            package_contents = specs.splice(
                 package_contents_spec_idx,
                 package_contents_spec_idx + 1,
             )[0];
         } else {
             package_contents = undefined;
+        }
+    }
+
+    let usage: V1ServerProductSpec | undefined;
+    $: {
+        const usage_spec_idx = specs.findIndex((spec) => spec.name === "usage");
+
+        if (usage_spec_idx !== -1) {
+            usage = specs.splice(usage_spec_idx, usage_spec_idx + 1)[0];
+        } else {
+            usage = undefined;
         }
     }
 
@@ -73,22 +85,13 @@
         }),
     );
 
-    type Tab = "specs" | "reviews";
-    let selected_tab: Tab = "specs";
-
-    const get_package_contents_from_spec = (
-        spec_values: string[],
-    ): { qty: number; name: string }[] => {
-        let contents: { qty: number; name: string }[] = [];
+    const get_package_contents_from_spec = (spec_values: string[]) => {
+        let contents: { name: string; value: string[] }[] = [];
         spec_values.forEach((specval) => {
-            const qty_str = specval.substring(0, specval.indexOf("x"));
-            const name = $l(
-                `package_content.${specval.substring(qty_str.length + 2)}`,
-            );
-
-            contents.push({ qty: Number(qty_str), name });
+            const qty_str = specval.substring(0, specval.indexOf("x") + 1);
+            const name = specval.substring(qty_str.length + 1);
+            contents.push({ name: qty_str, value: [name] });
         });
-
         return contents;
     };
 
@@ -262,60 +265,35 @@
                         >Acest produs este interzis persoanelor sub 18 ani</span
                     >
                 </div>
-                {#if data.product.specs.length}
-                    <table
-                        class="w-full !mt-4 border border-vspot-secondary-bg"
+                {#if usage}
+                    <section
+                        class="border-t border-vspot-secondary-bg pt-4 !mt-4 pb-4"
                     >
-                        <tr class="">
-                            <th class="py-4 pl-4 pb-0 text-start font-bold"
-                                >Specificatii</th
-                            >
-                        </tr>
-                        {#each data.product.specs as spec}
-                            {#if spec.name !== "package_contents"}
-                                <tr>
-                                    <td class="pl-4 py-4">
-                                        {$l(`spec.${spec.name}`)}
-                                    </td>
-                                    <td class="py-4 pr-4 text-right">
-                                        {#if spec.value.length === 1}
-                                            {$l(`specval.${spec.value}`)}
-                                        {:else}
-                                            <ul>
-                                                {#each spec.value as value}
-                                                    <li class="list-none">
-                                                        {$l(`specval.${value}`)}
-                                                    </li>
-                                                {/each}
-                                            </ul>
-                                        {/if}
-                                    </td>
-                                </tr>
-                            {/if}
+                        <h1 class="text-base font-bold">
+                            Instructiuni utilizare
+                        </h1>
+                        {#each usage.value as usage_line}
+                            <span class="block text-vspot-text-hovered">
+                                {usage_line}
+                            </span>
                         {/each}
-                    </table>
+                    </section>
+                {/if}
+                {#if specs.length}
+                    <ProductSpecsTable
+                        localization_prefix="specval"
+                        title="Specificatii"
+                        {specs}
+                    />
                 {/if}
                 {#if package_contents}
-                    <table
-                        class="w-full border border-vspot-secondary-bg !mt-4"
-                    >
-                        <tr class="">
-                            <th
-                                class="py-4 pl-4 pb-0 text-start font-bold whitespace-nowrap"
-                                >Continut pachet</th
-                            >
-                        </tr>
-                        {#each get_package_contents_from_spec(package_contents.value) as content}
-                            <tr>
-                                <td class="py-4 pl-4">
-                                    {content.qty}x
-                                </td>
-                                <td class="py-4 pr-4 text-right">
-                                    {content.name}
-                                </td>
-                            </tr>
-                        {/each}
-                    </table>
+                    <ProductSpecsTable
+                        localization_prefix="package_content"
+                        title="Continut pachet"
+                        specs={get_package_contents_from_spec(
+                            package_contents.value,
+                        )}
+                    />
                 {/if}
             </div>
         </div>
@@ -340,18 +318,3 @@
         </div>
     {/if}
 </div>
-
-<style lang="postcss">
-    td:first-child {
-        @apply border-b;
-        @apply border-vspot-secondary-bg;
-    }
-    td:last-child {
-        @apply border-b;
-        @apply border-vspot-secondary-bg;
-    }
-    tr:last-child > td:first-child,
-    tr:last-child > td:last-child {
-        @apply border-b-0;
-    }
-</style>

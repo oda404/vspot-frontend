@@ -34,13 +34,18 @@ export type V1ServerProductListLandingPage = {
     argus_p2: V1ServerProductDisplayData[];
 };
 
+export type V1ServerProductSpec = {
+    name: string;
+    value: string[];
+};
+
 export type V1ServerProductFullinfo = {
     internal_id: string;
     pretty_internal_id: string;
     name: string;
     image_url: string;
     tags: { name: string; options: string[]; }[];
-    specs: { name: string; value: string[]; }[];
+    specs: V1ServerProductSpec[];
 
     /* These are handed by us */
     price: number;
