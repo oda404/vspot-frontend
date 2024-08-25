@@ -97,6 +97,9 @@
 
 <svelte:head>
     <title>{pagetitle_make(data.product.name)}</title>
+    {#if data.product.description}
+        <meta name="description" content={data.product.description} />
+    {/if}
 </svelte:head>
 
 <div class="space-y-4">
