@@ -41,10 +41,7 @@
         );
 
         if (package_contents_spec_idx !== -1) {
-            package_contents = specs.splice(
-                package_contents_spec_idx,
-                package_contents_spec_idx + 1,
-            )[0];
+            package_contents = specs.splice(package_contents_spec_idx, 1)[0];
         } else {
             package_contents = undefined;
         }
@@ -55,7 +52,7 @@
         const usage_spec_idx = specs.findIndex((spec) => spec.name === "usage");
 
         if (usage_spec_idx !== -1) {
-            usage = specs.splice(usage_spec_idx, usage_spec_idx + 1)[0];
+            usage = specs.splice(usage_spec_idx, 1)[0];
         } else {
             usage = undefined;
         }
