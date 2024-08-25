@@ -684,6 +684,7 @@ var translations = {
         "specval.asian_cotton_mallow": "Copac Asiatic Cotton Mallow",
         "specval.27mm": "27 mm",
         "specval.10": "10",
+        "specval.20mg": "20mg",
 
         "package_content.pods_switch_pro": "Poduri Vozol Switch PRO",
         "package_content.instruction_manual": "Manual de utilizare",
