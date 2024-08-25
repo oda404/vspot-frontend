@@ -47,9 +47,9 @@
     $: if (search_data) open = true;
 </script>
 
-<div class="relative w-full lg:w-[350px] pb-2">
+<div class="relative w-full lg:w-[340px] pb-2">
     <div
-        class="flex w-full items-center hover:cursor-text border-b border-vspot-secondary-bg pb-2"
+        class="flex w-full items-center hover:cursor-text border-vspot-secondary-bg pb-2"
     >
         <Fa icon={faSearch} />
         <form class="relative w-full">
@@ -75,7 +75,7 @@
     </div>
     {#if open && search_data}
         <div
-            class="absolute z-[100] flex justify-center left-0 top-12 bg-vspot-primary-bg w-full border-2 border-vspot-secondary-bg rounded-lg p-4 drop-shadow-lg"
+            class="absolute z-[100] flex justify-center left-0 top-12 bg-vspot-primary-bg w-full border border-vspot-secondary-bg rounded-sm p-4 drop-shadow-lg"
         >
             {#if search_promise}
                 {#await search_promise}
