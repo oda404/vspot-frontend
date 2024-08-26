@@ -12,6 +12,14 @@ export const product_trail_translations = [
                 name: "reusable",
                 translation: "Dispozitiv poduri"
             },
+            {
+                name: "onetimeuse",
+                translation: "De unica folosinta"
+            },
+            {
+                name: "nicotinefree",
+                translation: "Fara nicotina"
+            },
         ]
     },
     {
@@ -28,12 +36,12 @@ export const product_trail_translations = [
             },
             {
                 name: "strong",
-                translation: "Tari",
+                translation: "Intense",
             }
         ]
     },
     {
-        parent: "liquid",
+        parent: "eliquid",
         translation: "E-lichide",
         children: [
             {
@@ -51,7 +59,7 @@ export const product_trail_translations = [
                 translation: "Incepatori"
             },
             {
-                name: "resistor",
+                name: "coil",
                 translation: "Rezistente"
             }
         ]
@@ -80,9 +88,17 @@ export const product_trail_translations = [
                 name: "lighter",
                 translation: "Brichete"
             },
+            {
+                name: "cone",
+                translation: "Conuri"
+            },
+            {
+                name: "rollingmachine",
+                translation: "Aparat pentru rulat"
+            },
         ]
     }
-]
+];
 
 export function product_trail_translate(parent: string, children: string[]) {
     const parent_obj = product_trail_translations.find(t => t.parent === parent);

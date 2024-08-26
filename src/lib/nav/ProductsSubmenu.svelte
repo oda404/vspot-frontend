@@ -8,7 +8,7 @@
     let options = [
         {
             href: "/disposable",
-            name: $l("product.disposables"),
+            name: $l("product.disposable"),
             suboptions: [
                 { name: "Reincarcabile", href: "/disposable/reusable" },
                 { name: "Poduri", href: "/disposable/cartridge" },
@@ -38,7 +38,7 @@
         },
         {
             href: "/pouch",
-            name: $l("product.pouches"),
+            name: $l("product.pouch"),
             suboptions: [
                 { name: "Slabe", href: "/pouch/weak" },
                 { name: "Moderate", href: "/pouch/mid" },
@@ -46,24 +46,24 @@
             ],
         },
         {
-            href: "/liquid",
-            name: $l("product.liquids"),
+            href: "/eliquid",
+            name: $l("product.eliquid"),
             suboptions: [
-                { name: "E-Lichide", href: "/liquid" },
-                { name: "Nicotinizare", href: "/liquid/nicotine" },
+                { name: "E-Lichide", href: "/eliquid" },
+                { name: "Nicotinizare", href: "/eiquid/nicotine" },
                 {},
                 {
                     name: "Guerrilla Flavors",
-                    href: "/liquid?brand=guerrilla_flavors",
+                    href: "/eliquid?brand=guerrilla_flavors",
                 },
             ],
         },
         {
             href: "/kit",
-            name: $l("product.kits"),
+            name: $l("product.kit"),
             suboptions: [
                 { name: "Kituri incepatori", href: "/kit/entry" },
-                { name: "Rezistente", href: "/kit/resistor" },
+                { name: "Rezistente", href: "/kit/coil" },
                 {},
                 { name: "Aspire", href: "/kit?brand=aspire" },
                 { name: "Voopoo", href: "/kit?brand=voopoo" },

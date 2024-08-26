@@ -3,12 +3,12 @@ import { backendv1_get_products_all } from '$lib/backendv1/product';
 import { product_filters_from_searchquery } from '$lib/products/filters.js';
 import { error } from '@sveltejs/kit';
 
-export async function load({ fetch, url }) {
+export async function load({ fetch, url, params }) {
 
     const url_params = new URLSearchParams(url.searchParams.toString());
-    url_params.set("subtypes", "entry");
+    url_params.set("subtypes", params.product_type2);
 
-    let res = await backendv1_get_products_all("kit", url_params.toString(), fetch);
+    let res = await backendv1_get_products_all(params.product_type, url_params.toString(), fetch);
     if (res.status >= 500)
         error(res.status, { message: res.body.msg });
 
@@ -19,6 +19,7 @@ export async function load({ fetch, url }) {
         current_page = 1;
 
     return {
+        product_types: [params.product_type, params.product_type2],
         products: res.body.data!.products,
         filters: res.body.data!.filters,
         pages: pages,

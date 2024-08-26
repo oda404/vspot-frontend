@@ -5,7 +5,6 @@
     import FilterTab from "$lib/products/FilterTab.svelte";
     import ProductsTab from "$lib/products/ProductsTab.svelte";
     import SortTab from "$lib/products/SortTab.svelte";
-    import { pagetitle_make } from "$lib/title";
     import Fa from "svelte-fa";
     import FilterTabMobile from "./FilterTabMobile.svelte";
     import { type ProductFilter, type ProductSortOption } from "./types";
@@ -24,12 +23,16 @@
         .find((filter) => filter.name === "subtype")
         ?.options.find((option) => option.selected)?.name;
 
-    $: title = selected_subtype ? selected_subtype : product_title;
-</script>
+    $: selected_brand = filters
+        .find((filter) => filter.name === "brand")
+        ?.options.find((option) => option.selected)?.name;
 
-<svelte:head>
-    <title>{pagetitle_make($l(`product.${title}`))}</title>
-</svelte:head>
+    $: title = selected_subtype
+        ? selected_subtype
+        : selected_brand
+          ? selected_brand
+          : product_title;
+</script>
 
 <div class="flex flex-col lg:flex-row lg:space-x-4">
     <div
@@ -43,15 +46,13 @@
             on_close_cb={() => (mobile_filter_tab_open = false)}
         />
     {/if}
-    <div class="flex flex-col items-center space-y-4">
-        <div class="w-full space-y-2">
-            <h1 class="text-5xl block">
-                {$l(`product.${title}`)}
-            </h1>
-            <h2 class="text-xl text-vspot-text-hovered block">
-                {$l(`product.${title}.description`)}
-            </h2>
-        </div>
+    <section class="flex flex-col items-center space-y-4">
+        <h1 class="text-5xl block w-full">
+            {$l(`product.${title}`)}
+        </h1>
+        <h2 class="text-xl text-vspot-text-hovered block w-full !mt-2">
+            {$l(`product.${title}.description`)}
+        </h2>
         <div
             class="flex items-center z-[5] space-x-4 lg:space-x-0 mr-auto w-full"
         >
@@ -71,5 +72,5 @@
                 <PageList {pages} {current_page} />
             </div>
         {/if}
-    </div>
+    </section>
 </div>

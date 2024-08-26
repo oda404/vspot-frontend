@@ -27,7 +27,7 @@
     let options = [
         {
             href: "/disposable",
-            name: $l("product.disposables"),
+            name: $l("product.disposable"),
             categories: [
                 {
                     name: "Produse",
@@ -61,10 +61,10 @@
                             name: "De unica folosinta",
                             href: "/disposable/onetimeuse",
                         },
-                        {
-                            name: "Fara nicotina",
-                            href: "/disposable?nicotinefree=true",
-                        },
+                        // {
+                        //     name: "Fara nicotina",
+                        //     href: "/disposable/nicotinefree",
+                        // },
                     ],
                 },
                 {
@@ -87,19 +87,19 @@
             ],
         },
         {
-            href: "/liquid",
-            name: $l("product.liquids"),
+            href: "/eliquid",
+            name: $l("product.eliquid"),
             categories: [
                 {
                     name: "Tip",
                     options: [
                         {
                             name: "E-lichid",
-                            href: "/liquid",
+                            href: "/eliquid",
                         },
                         {
                             name: "Nicotinizare",
-                            href: "/liquid/nicotine",
+                            href: "/eliquid/nicotine",
                         },
                     ],
                 },
@@ -108,7 +108,7 @@
                     options: [
                         {
                             name: "Guerrilla Flavors",
-                            href: "/liquid?brand=guerrilla_flavors",
+                            href: "/eliquid?brand=guerrilla_flavors",
                         },
                     ],
                 },
@@ -117,15 +117,15 @@
                     options: [
                         {
                             name: "EPotion",
-                            href: "/liquid/nicotine?brand=epotion",
+                            href: "/eliquid/nicotine?brand=epotion",
                         },
                         {
                             name: "Nico Boom",
-                            href: "/liquid/nicotine?brand=nicoboom",
+                            href: "/eliquid/nicotine?brand=nicoboom",
                         },
                         {
                             name: "ELiquid France",
-                            href: "/liquid/nicotine?brand=eliquid_france",
+                            href: "/eliquid/nicotine?brand=eliquid_france",
                         },
                     ],
                 },
@@ -161,7 +161,7 @@
         },
         {
             href: "/pouch",
-            name: $l("product.pouches"),
+            name: $l("product.pouch"),
             categories: [
                 {
                     name: "Tip",
@@ -180,20 +180,20 @@
                     options: [
                         { name: "Slabe", href: "/pouch/weak" },
                         { name: "Moderate", href: "/pouch/mid" },
-                        { name: "Tari", href: "/pouch/strong" },
+                        { name: "Intense", href: "/pouch/strong" },
                     ],
                 },
             ],
         },
         {
             href: "/kit",
-            name: $l("product.kits"),
+            name: $l("product.kit"),
             categories: [
                 {
                     name: "Tip",
                     options: [
                         { name: "Kituri incepatori", href: "/kit/entry" },
-                        { name: "Rezistente/Cartuse", href: "/kit/resistor" },
+                        { name: "Rezistente/Cartuse", href: "/kit/coil" },
                     ],
                 },
                 {
@@ -282,12 +282,12 @@
         <NavItem
             bind:active_name={activate_submenu}
             url="/disposable"
-            text={$l("product.disposables")}
+            text={$l("product.disposable")}
         />
         <NavItem
             bind:active_name={activate_submenu}
-            url="/liquid"
-            text={$l("product.liquids")}
+            url="/eliquid"
+            text={$l("product.eliquid")}
         />
         <NavItem
             bind:active_name={activate_submenu}
@@ -297,12 +297,12 @@
         <NavItem
             bind:active_name={activate_submenu}
             url="/pouch"
-            text={$l("product.pouches")}
+            text={$l("product.pouch")}
         />
         <NavItem
             bind:active_name={activate_submenu}
             url="/kit"
-            text={$l("product.kits")}
+            text={$l("product.kit")}
         />
     </div>
     {#if activate_submenu}

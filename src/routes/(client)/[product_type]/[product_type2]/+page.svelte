@@ -29,14 +29,20 @@
 
     $: pages = data.pages;
     $: current_page = data.current_page;
+
+    $: product_types = data.product_types.join(".");
 </script>
 
 <svelte:head>
-    <title>{pagetitle_make($l("product.liquids"))}</title>
+    <title>{pagetitle_make($l(`product.${product_types}`))}</title>
+    <meta
+        name="description"
+        content={$l(`product.${product_types}.description`)}
+    />
 </svelte:head>
 
 <MainProductContent
-    product_title="liquids"
+    product_title={product_types}
     {products}
     {filters}
     {sort_options}

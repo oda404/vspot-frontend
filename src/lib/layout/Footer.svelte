@@ -13,11 +13,11 @@
         class="flex flex-col lg:flex-row lg:space-x-32 lg:items-start lg:w-[1100px] mx-auto lg:space-y-0 space-y-10"
     >
         <FooterSection title={$l("footer.products")}>
-            <a class="block" href="/disposable">{$l("product.disposables")}</a>
-            <a class="block" href="/pouch">{$l("product.pouches")}</a>
+            <a class="block" href="/disposable">{$l("product.disposable")}</a>
+            <a class="block" href="/pouch">{$l("product.pouch")}</a>
             <a class="block" href="/smoking">{$l("product.smoking")}</a>
-            <a class="block" href="/liquid">{$l("product.liquids")}</a>
-            <a class="block" href="/kit">{$l("product.kits")}</a>
+            <a class="block" href="/eliquid">{$l("product.eliquid")}</a>
+            <a class="block" href="/kit">{$l("product.kit")}</a>
         </FooterSection>
         <FooterSection title={$l("footer.locations")}>
             <address class="whitespace">

@@ -185,7 +185,7 @@
                 <div class="mt-2 lg:mt-0">
                     <LinkButton simple href="/disposable">
                         <div class="text-2xl">
-                            {$l("product.disposables")}
+                            {$l("product.disposable")}
                         </div>
                     </LinkButton>
                 </div>
@@ -195,8 +195,8 @@
                     <Liquid h={52} />
                 </div>
                 <div class="mt-2 lg:mt-0">
-                    <LinkButton simple href="/liquid">
-                        <div class="text-2xl">{$l("product.liquids")}</div>
+                    <LinkButton simple href="/eliquid">
+                        <div class="text-2xl">{$l("product.eliquid")}</div>
                     </LinkButton>
                 </div>
             </div>
@@ -216,7 +216,7 @@
                 </div>
                 <div class="mt-2 lg:mt-0">
                     <LinkButton simple href="/pouch">
-                        <div class="text-2xl">{$l("product.pouches")}</div>
+                        <div class="text-2xl">{$l("product.pouch")}</div>
                     </LinkButton>
                 </div>
             </div>
@@ -227,7 +227,7 @@
                 </div>
                 <div class="mt-2 lg:mt-0">
                     <LinkButton simple href="/kit">
-                        <div class="text-2xl">{$l("product.kits")}</div>
+                        <div class="text-2xl">{$l("product.kit")}</div>
                     </LinkButton>
                 </div>
             </div>
@@ -293,14 +293,14 @@
 
     <ProductShowcase
         href="/pouch"
-        name={$l("product.pouches")}
+        name={$l("product.pouch")}
         products={pouches}
     >
         <div>
             <Pouch h={32} />
         </div>
     </ProductShowcase>
-    <ProductShowcase href="/kit" name={$l("product.kits")} products={kits}>
+    <ProductShowcase href="/kit" name={$l("product.kit")} products={kits}>
         <div>
             <Kit h={32} />
         </div>
