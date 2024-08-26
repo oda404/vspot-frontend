@@ -15,8 +15,6 @@ export async function load({ fetch, url, params }) {
     if (Number.isNaN(current_page) || current_page <= 0 || current_page > pages)
         current_page = 1;
 
-    console.log(res.body.data!.filters);
-
     return {
         product_types: [params.product_type],
         products: res.body.data!.products,
