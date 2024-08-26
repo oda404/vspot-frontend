@@ -16,7 +16,7 @@
     let adding_load = false;
 </script>
 
-<div class="w-full relative rounded-lg flex flex-col">
+<div class="w-full relative rounded-lg flex flex-col bg-[#202020]">
     <a class="hover:filter-none" href="/product/{product.pretty_internal_id}">
         <img
             src={product.image_url}
