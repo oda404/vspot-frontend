@@ -11,7 +11,7 @@ const current_language = writable("ro");
 
 var translations = {
     ro: {
-        "home.title": "Noul tau Vape & Tobacco shop",
+        "home.title": "Noul tau magazin Vapes & Tobacco",
         "home.explore": "Exploreaza catalogul nostru",
         "home.explore.btn": "Vezi",
 
@@ -801,7 +801,7 @@ var translations = {
         "product.star2000.description": "Aroma Vozol intr-un vape de unica folosinta fara nicontina cu 2000 de fumuri",
         "product.neon800.description": "Savoarea Vozol intr-un vape de unica folosinta cu 800 de fumuri",
         "product.elfbarv2.description": "Versiunea 2 al renumitului Elf Bar de unica folosinta cu 600 de fumuri",
-        "product.crystal4in1.description": "Gustul unic Crystal intr-un vape cu 4 pod-uri interschimbabile",
+        "product.crystal4in1.description": "Gustul unic Crystal intr-un vape cu 4 pod-uri reincarcabile",
         "product.switchpro.description": "Gustul Vozol, acum intr-un vape cu pod-uri",
 
         "product.mystique.description": "Lichidul Mystique de la Guerrilla Flavors cu un gust de neuitat",

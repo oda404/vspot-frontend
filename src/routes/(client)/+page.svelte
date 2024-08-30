@@ -133,7 +133,7 @@
                 </div>
                 <div class="flex items-center space-x-4">
                     <Fa size="lg" icon={faCheck} />
-                    <span class="text-xl">Port Tip-C</span>
+                    <span class="text-xl">Incarcare rapida Type-C</span>
                 </div>
                 <a
                     href="/disposable?subtype=crystal4in1"
@@ -160,7 +160,9 @@
         </div>
     </section>
     <div class="space-y-8">
-        <div class="flex lg:flex-row flex-col items-center space-x-4">
+        <div
+            class="flex lg:flex-row flex-col items-center space-x-4 justify-center"
+        >
             <img
                 src="/images/vspot_flat.webp"
                 alt="V-Spot logo"
@@ -171,9 +173,6 @@
             >
                 {$l("home.title")}
             </h1>
-            <div
-                class="w-full h-[1px] mt-10 bg-vspot-secondary-bg lg:block hidden"
-            />
         </div>
         <div
             class="grid lg:flex lg:justify-between lg:grid-cols-none grid-cols-1 lg:space-y-0 space-y-8"
