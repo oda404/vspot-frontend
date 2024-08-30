@@ -60,7 +60,7 @@
 </svelte:head>
 
 <div class="space-y-2">
-    <h1 class="text-6xl font-semibold">
+    <h1 class="text-5xl font-semibold">
         {$l("page.forgot_password")}
     </h1>
     <h2 class="text-base font-semibold block text-vspot-text-hovered">

@@ -16,7 +16,7 @@
 </svelte:head>
 
 <section>
-    <h1 class="text-6xl font-semibold">Contact</h1>
+    <h1 class="text-5xl font-semibold">Contact</h1>
     <span class="text-lg font-semibold opacity-90 text-vspot-text-hovered">
         {$l("contact.description")}
     </span>

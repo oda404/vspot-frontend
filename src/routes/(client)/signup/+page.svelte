@@ -157,7 +157,7 @@
 </svelte:head>
 
 <div class="space-y-4">
-    <span class="text-6xl font-semibold">
+    <span class="text-5xl font-semibold">
         {$l("action.signup")}
     </span>
     <form class="space-y-4 w-full lg:w-[45%]">

@@ -22,7 +22,7 @@
         {#if status == 404}
             <div class="flex items-end space-x-4">
                 <span class="text-7xl font-bold rotate-12 block">404</span>
-                <span class="text-6xl font-semibold">
+                <span class="text-5xl font-semibold">
                     {$l("error.page404")}
                 </span>
             </div>
@@ -39,7 +39,7 @@
                 <span class="text-7xl font-semibold rotate-12 block">
                     {$page.status}
                 </span>
-                <span class="text-6xl font-semibold">
+                <span class="text-5xl font-semibold">
                     {$l("error.encountered_error")}
                 </span>
             </div>

@@ -12,7 +12,7 @@
 
 <div class="space-y-0">
     <div class="flex items-center space-x-16">
-        <span class="text-6xl font-semibold">
+        <span class="text-5xl font-semibold">
             {$l("page.reset_password.success")}
         </span>
         <Fa primaryColor="#00ff01" scale="6x" icon={faCheck} />
