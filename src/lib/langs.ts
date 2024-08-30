@@ -157,7 +157,7 @@ var translations = {
 
         "product.disposable": "Disposables",
         "product.kit": "Kit-uri",
-        "product.pouch": "Pouch-uri / Snus",
+        "product.pouch": "Pouch-uri",
         "product.cigs": "Tigari",
         "product.smoking": "Tutungerie",
         "product.eliquid": "E-Lichide",
