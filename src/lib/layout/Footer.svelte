@@ -7,10 +7,10 @@
 </script>
 
 <footer
-    class=" border-t border-vspot-green w-full p-10 lg:p-28 flex-col space-y-8 justify-center"
+    class=" border-t border-vspot-green w-full p-10 lg:py-28 flex-col space-y-8 justify-center"
 >
     <div
-        class="flex flex-col lg:flex-row lg:space-x-32 lg:items-start lg:w-[1100px] mx-auto lg:space-y-0 space-y-10"
+        class="flex flex-col lg:flex-row lg:justify-between lg:items-start w-full lg:max-w-[1100px] mx-auto lg:space-y-0 space-y-10"
     >
         <FooterSection title={$l("footer.products")}>
             <a class="block" href="/disposable">{$l("product.disposable")}</a>

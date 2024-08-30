@@ -11,7 +11,7 @@ const current_language = writable("ro");
 
 var translations = {
     ro: {
-        "home.title": "Noul tau magazin Vapes & Tobacco!",
+        "home.title": "Noul tau Vape & Tobacco shop",
         "home.explore": "Exploreaza catalogul nostru",
         "home.explore.btn": "Vezi",
 

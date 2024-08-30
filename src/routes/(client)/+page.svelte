@@ -9,6 +9,9 @@
         faMoneyBill,
         faLightbulb,
         faCheck,
+        faBattery,
+        faSmoking,
+        faRecycle,
     } from "@fortawesome/free-solid-svg-icons";
     import Disposable from "$lib/icons/disposable.svelte";
     import Cig from "$lib/icons/cig.svelte";
@@ -67,7 +70,7 @@
     />
 </svelte:head>
 
-<div class="space-y-12">
+<div class="space-y-24">
     <section class="space-y-4">
         <div class="flex space-x-4 items-center">
             <h1 class="text-3xl text-nowrap whitespace-nowrap">
@@ -146,18 +149,31 @@
         </div>
         <div class="!mt-8 space-y-2">
             <ProductShowcase products={data.products.crystal_4in1} />
-            <a href="/disposable?subtype=crystal4in1" class="block text-center"
-                >Vezi toate</a
-            >
+            <div class="flex items-center space-x-4">
+                <div class="w-full h-[1px] bg-vspot-secondary-bg" />
+                <a
+                    href="/disposable?subtype=crystal4in1"
+                    class="block text-center whitespace-nowrap">Vezi toate</a
+                >
+                <div class="w-full h-[1px] bg-vspot-secondary-bg" />
+            </div>
         </div>
     </section>
     <div class="space-y-8">
-        <div class="flex flex-col items-center justify-center lg:flex-row">
-            <span
-                class="text-6xl font-extrabold text-center lg:text-left bg-clip-text inline-block"
+        <div class="flex lg:flex-row flex-col items-center space-x-4">
+            <img
+                src="/images/vspot_flat.webp"
+                alt="V-Spot logo"
+                class="w-[140px]"
+            />
+            <h1
+                class="text-5xl lg:mt-10 mt-4 text-center font-extrabold lg:whitespace-nowrap"
             >
                 {$l("home.title")}
-            </span>
+            </h1>
+            <div
+                class="w-full h-[1px] mt-10 bg-vspot-secondary-bg lg:block hidden"
+            />
         </div>
         <div
             class="grid lg:flex lg:justify-between lg:grid-cols-none grid-cols-1 lg:space-y-0 space-y-8"
@@ -261,15 +277,17 @@
                 Your browser does not support the video tag.
             </video>
         </a>
-        <div class="!mt-8 space-y-2">
-            <!-- <ProductShowcase products={data.products.argus_p2} /> -->
-            <a href="/kit?subtype=argus_p2" class="block text-center"
-                >Vezi toate</a
+        <div class="!mt-8 flex items-center space-x-4">
+            <div class="w-full h-[1px] bg-vspot-secondary-bg" />
+            <a
+                href="/kit?subtype=argus_p2"
+                class="block text-center whitespace-nowrap">Vezi toate</a
             >
+            <div class="w-full h-[1px] bg-vspot-secondary-bg" />
         </div>
     </section>
 
-    <div class="space-y-4">
+    <section class="space-y-4">
         <div class="flex items-center space-x-4">
             <h1 class="text-3xl text-nowrap whitespace-nowrap">
                 Vozol Switch PRO
@@ -283,13 +301,54 @@
                 src="/images/vozol/vozol_switch_pro_promo.webp"
             />
         </a>
+        <div
+            class="!mt-8 grid grid-cols-2 lg:grid-cols-4 lg:gap-0 gap-4 justify-between"
+        >
+            <div
+                class="flex mx-auto flex-col lg:flex-row items-center space-x-2"
+            >
+                <Fa size="lg" icon={faRecycle} />
+                <span class="font-bold text-xl text-center lg:text-left"
+                    >Reincarcabil cu poduri</span
+                >
+            </div>
+            <div
+                class="flex mx-auto flex-col lg:flex-row items-center space-x-2"
+            >
+                <Fa size="lg" icon={faSmoking} />
+                <span class="font-bold text-xl text-center lg:text-left"
+                    >800 de fumuri per pod</span
+                >
+            </div>
+            <div
+                class="flex mx-auto flex-col lg:flex-row items-center space-x-2"
+            >
+                <Fa size="lg" icon={faBattery} />
+                <span class="font-bold text-xl text-center lg:text-left"
+                    >Baterie de 800 mAh</span
+                >
+            </div>
+            <div
+                class="flex mx-auto flex-col lg:flex-row items-center space-x-2"
+            >
+                <Fa size="lg" icon={faCheck} />
+                <span class="font-bold text-xl text-center lg:text-left"
+                    >Gustul unic Vozol</span
+                >
+            </div>
+        </div>
         <div class="!mt-8 space-y-2">
             <ProductShowcase products={newest} />
-            <a href="/disposable?subtype=switchpro" class="block text-center"
-                >Vezi toate</a
-            >
+            <div class="flex items-center space-x-4">
+                <div class="w-full h-[1px] bg-vspot-secondary-bg" />
+                <a
+                    href="/disposable?subtype=switchpro"
+                    class="block text-center whitespace-nowrap">Vezi toate</a
+                >
+                <div class="w-full h-[1px] bg-vspot-secondary-bg" />
+            </div>
         </div>
-    </div>
+    </section>
 
     <ProductShowcase
         href="/pouch"
