@@ -59,9 +59,4 @@
             </span>
         </ProductSubmenuItem>
     {/each}
-    <!-- <div class="!mt-auto">
-        <a href="/">
-            <img class="w-[60px]" alt="VSpot" src="/images/vspot.webp" />
-        </a>
-    </div> -->
 </div>
