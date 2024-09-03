@@ -21,7 +21,7 @@
         <img
             src={product.image_url}
             alt="{product.name} image"
-            class="rounded-t-xl"
+            class="aspect-square"
         />
     </a>
     {#if product.discount > 0}
@@ -71,7 +71,7 @@
         <button
             class="{product.stock > 0
                 ? 'bg-vspot-green'
-                : 'bg-vspot-secondary-bg'} px-2 p-1 min-h-[32px] rounded-br-lg rounded-tl-lg w-full"
+                : 'bg-vspot-secondary-bg'} px-2 p-1 min-h-[32px] w-full"
             disabled={adding_load || product.stock === 0}
             on:click={() => {
                 adding_load = true;

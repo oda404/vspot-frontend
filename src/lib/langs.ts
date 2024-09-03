@@ -270,6 +270,7 @@ var translations = {
         "product.lostvape.description": "Lost Vape",
         "product.xros4.description": "Seria Vaporesso XROS 4",
         "product.argus.description": "Seria VooPoo Argus",
+        "product.cyclones.description": "Produsele Cyclones",
 
         "product.recommended_for_you": "Recomandate pentru tine",
 
@@ -919,6 +920,7 @@ var translations = {
         "product.argus_p2": "Argus P2",
         "product.argus_g2_mini": "Argus G2 Mini",
         "product.xros4_mini": "Vaporesso XROS 4 Mini",
+        "product.cyclones": "Cyclones",
     },
     fallback: {
         missing_translation: "Missing localization",

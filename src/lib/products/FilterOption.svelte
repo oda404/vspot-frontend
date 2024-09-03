@@ -10,10 +10,10 @@
     export let cb: (name: string) => void;
 </script>
 
-<div>
-    <span class="text-lg font-semibold">
+<section>
+    <h1 class="!text-base !font-semibold">
         {$l(`filter.${filter.name}`)}
-    </span>
+    </h1>
     <div class="space-y-[1px]">
         {#each filter.options as selectable}
             <button
@@ -23,10 +23,10 @@
                 }}
             >
                 <CheckBox selected={selectable.selected} />
-                <span class="">
+                <span>
                     {$l(`filteropt.${selectable.name}`)}
                 </span>
             </button>
         {/each}
     </div>
-</div>
+</section>

@@ -72,28 +72,30 @@
 
 <div class="space-y-24">
     <section class="space-y-4">
-        <div class="flex space-x-4 items-center">
-            <h1 class="text-3xl text-nowrap whitespace-nowrap">
-                SKE Crystal 4-in-1
-            </h1>
-            <div class="w-full h-[1px] bg-vspot-secondary-bg" />
-        </div>
+        <h1 class="text-2xl text-nowrap whitespace-nowrap">
+            SKE Crystal 4-in-1
+        </h1>
         <div class="lg:flex lg:space-x-8 space-y-4 lg:space-y-0">
-            <video
-                use:play_on_visible
-                disablepictureinpicture
-                preload="none"
-                loop
-                muted
-                poster="/images/ske/crystal_4_in_1_promo_thumb.webp"
-                class="lg:w-[600px] lg:h-[600px] w-full h-full rounded-sm"
-            >
-                <source
-                    src="/videos/ske/crystal_4_in_1_promo3.mp4"
-                    type="video/mp4"
+            <div class="h-fit relative">
+                <div
+                    class="w-full h-full border-2 border-vspot-green absolute mt-2 ml-2 -z-10"
                 />
-                Your browser does not support the video tag.
-            </video>
+                <video
+                    use:play_on_visible
+                    disablepictureinpicture
+                    preload="none"
+                    loop
+                    muted
+                    poster="/images/ske/crystal_4_in_1_promo_thumb.webp"
+                    class="lg:w-[600px] lg:h-[600px] w-full h-full rounded-sm !ml-0 z-10"
+                >
+                    <source
+                        src="/videos/ske/crystal_4_in_1_promo3.mp4"
+                        type="video/mp4"
+                    />
+                    Your browser does not support the video tag.
+                </video>
+            </div>
             <div class="space-y-4 !mx-auto">
                 <a
                     class="block hover:filter-none"
@@ -137,7 +139,7 @@
                 </div>
                 <a
                     href="/disposable?subtype=crystal4in1"
-                    class="block p-2 px-4 bg-vspot-green text-vspot-primary-bg text-center rounded-tl-lg rounded-br-lg"
+                    class="block p-2 px-4 bg-vspot-green text-vspot-primary-bg text-center rounded-sm"
                 >
                     Cumpara acum
                 </a>
@@ -249,56 +251,64 @@
         </div>
     </div>
     <section class="space-y-4">
-        <div class="flex items-center space-x-4">
-            <h1 class="text-3xl text-nowrap whitespace-nowrap">
+        <div class="flex items-center justify-between">
+            <h1 class="text-2xl text-nowrap whitespace-nowrap">
                 VooPoo Argus P2
             </h1>
-            <div class="w-full bg-vspot-secondary-bg h-[1px]" />
-        </div>
-        <a
-            class="space-y-4 block hover:filter-none"
-            href="/kit?subtype=argus_p2"
-        >
-            <video
-                use:play_on_visible
-                disablepictureinpicture
-                loop
-                muted
-                preload="none"
-                class="w-[1100px] rounded-sm"
-                poster="images/voopoo/argus_p2_showcase_thumb.webp"
-            >
-                <track kind="captions" />
-                <source
-                    src="/videos/voopoo/argus_p2_showcase_720p.mp4"
-                    type="video/mp4"
-                />
-                Your browser does not support the video tag.
-            </video>
-        </a>
-        <div class="!mt-8 flex items-center space-x-4">
-            <div class="w-full h-[1px] bg-vspot-secondary-bg" />
             <a
                 href="/kit?subtype=argus_p2"
                 class="block text-center whitespace-nowrap">Vezi toate</a
             >
-            <div class="w-full h-[1px] bg-vspot-secondary-bg" />
         </div>
+        <a
+            class="space-y-4 block hover:filter-none relative"
+            href="/kit?subtype=argus_p2"
+        >
+            <div class="h-fit relative">
+                <div
+                    class="w-full h-full border-2 border-[#097381] absolute mt-2 ml-2 -z-10"
+                />
+                <video
+                    use:play_on_visible
+                    disablepictureinpicture
+                    loop
+                    muted
+                    preload="none"
+                    class="w-[1100px] aspect-video rounded-sm z-10"
+                    poster="images/voopoo/argus_p2_showcase_thumb.webp"
+                >
+                    <track kind="captions" />
+                    <source
+                        src="/videos/voopoo/argus_p2_showcase_720p.mp4"
+                        type="video/mp4"
+                    />
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </a>
     </section>
 
     <section class="space-y-4">
-        <div class="flex items-center space-x-4">
-            <h1 class="text-3xl text-nowrap whitespace-nowrap">
+        <div class="flex items-center justify-between">
+            <h1 class="text-2xl text-nowrap whitespace-nowrap">
                 Vozol Switch PRO
             </h1>
-            <div class="w-full bg-vspot-secondary-bg h-[1px]" />
+            <a
+                href="/disposable?subtype=switchpro"
+                class="block text-center whitespace-nowrap">Vezi toate</a
+            >
         </div>
         <a href="/disposable?subtype=switchpro" class="block hover:filter-none">
-            <img
-                class="w-[1100px] rounded-sm"
-                alt="Vozol Switch Pro Promo"
-                src="/images/vozol/vozol_switch_pro_promo.webp"
-            />
+            <div class="h-fit relative">
+                <div
+                    class="w-full h-full border-2 border-[#1d61a3] absolute mt-2 ml-2 -z-10"
+                />
+                <img
+                    class="w-[1100px] aspect-video rounded-sm z-10"
+                    alt="Vozol Switch Pro Promo"
+                    src="/images/vozol/vozol_switch_pro_promo.webp"
+                />
+            </div>
         </a>
         <div
             class="!mt-8 grid grid-cols-2 lg:grid-cols-4 lg:gap-0 gap-4 justify-between"
@@ -336,16 +346,8 @@
                 >
             </div>
         </div>
-        <div class="!mt-8 space-y-2">
+        <div class="!mt-8">
             <ProductShowcase products={newest} />
-            <div class="flex items-center space-x-4">
-                <div class="w-full h-[1px] bg-vspot-secondary-bg" />
-                <a
-                    href="/disposable?subtype=switchpro"
-                    class="block text-center whitespace-nowrap">Vezi toate</a
-                >
-                <div class="w-full h-[1px] bg-vspot-secondary-bg" />
-            </div>
         </div>
     </section>
 

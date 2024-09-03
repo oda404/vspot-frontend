@@ -27,8 +27,7 @@ button:hover:enabled, a:hover {
 }
 
 button {
-    @apply rounded-tl-lg;
-    @apply rounded-br-lg;
+    @apply rounded-sm;
 }
 
 h1 {

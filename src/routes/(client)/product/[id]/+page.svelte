@@ -299,9 +299,9 @@
         </div>
     </section>
     {#if recommended}
-        <div class="space-y-4">
+        <section class="space-y-4">
             <div class="flex items-center space-x-2">
-                <span class="text-xl">Recomandate</span>
+                <h1 class="!font-normal !text-lg">Recomandate</h1>
                 <div class="w-full h-[1px] bg-vspot-secondary-bg" />
             </div>
             <div
@@ -315,6 +315,6 @@
                     <Product product={rec} />
                 {/each}
             </div>
-        </div>
+        </section>
     {/if}
 </div>

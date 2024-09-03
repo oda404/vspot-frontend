@@ -244,7 +244,7 @@
             <img
                 src="/images/vspot_flat.webp"
                 class="w-[110px] h-[64.19px]"
-                alt="V Spot Logo"
+                alt="The V-Spot Logo"
             />
         </a>
         <div class="flex flex-[1] justify-center">
@@ -260,7 +260,7 @@
                 <img
                     src="/images/vspot_flat.webp"
                     class="w-[80] h-[46.68px]"
-                    alt="V Spot Logo"
+                    alt="The V-Spot Logo"
                 />
             </a>
             <div class="h-[45px] flex items-center !ml-auto">
