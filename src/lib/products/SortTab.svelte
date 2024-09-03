@@ -33,7 +33,7 @@
                 opened = !opened;
             }}
         >
-            <span class="whitespace-nowrap text-lg">
+            <span class="whitespace-nowrap">
                 {selected}
             </span>
             <Fa

@@ -42,7 +42,7 @@
             <button
                 on:click={() => navigate_to_page(p)}
                 disabled={current_page === p}
-                class="p-3 py-1 rounded-tl-lg rounded-br-lg
+                class="p-3 py-1 rounded-sm
                 {current_page === p ? 'bg-vspot-purple' : ''}"
             >
                 {p}

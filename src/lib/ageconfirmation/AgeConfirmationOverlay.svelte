@@ -22,22 +22,24 @@
 
 {#if browser && age < ageconfirmation_minimum_age}
     <div
-        class="fixed flex z-[100] top-0 left-0 w-full h-full bg-[rgba(0,0,0,0.5)] hideScroll justify-center items-center"
+        class="fixed flex z-[200] top-0 left-0 w-full h-full bg-[rgba(0,0,0,0.5)] hideScroll justify-center items-center rounded-sm backdrop-blur-sm"
     >
         <div class="hidden">te-a dus capul sa ajungi aici</div>
-        <div class="bg-vspot-primary-bg p-12 max-w-[450px] relative">
+        <div
+            class="bg-vspot-primary-bg p-8 max-w-full lg:max-w-[450px] relative"
+        >
             <img
                 class="max-w-[200px] mb-8 mx-auto"
-                src="/images/18plus.webp"
+                src="/res-images/18plus.webp"
                 alt="18+"
             />
 
-            <span class="text-lg block">
+            <span class="block text-center">
                 {$l("age.notice")}
             </span>
-            <div class="flex justify-center space-x-4">
+            <div class="">
                 <button
-                    class="w-full bg-vspot-green p-2 px-4 text-vspot-primary-bg mt-4"
+                    class="w-full bg-vspot-green p-2 px-4 text-vspot-primary-bg mt-4 block"
                     on:click={() =>
                         ageconfirmation_store_set(ageconfirmation_minimum_age)}
                     >{$l("age.confirmok", {
@@ -45,7 +47,7 @@
                     })}</button
                 >
                 <a
-                    class="w-full bg-vspot-text-error p-2 px-4 rounded-tl-lg rounded-br-lg text-vspot-text-pimary mt-4 text-center"
+                    class="w-full text-vspot-text-hovered mt-4 text-center block"
                     href="https://ro.wikipedia.org/wiki/Penitenciarul_Slobozia"
                     >{$l("age.confirm_not_ok", {
                         age: ageconfirmation_minimum_age,

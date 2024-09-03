@@ -20,7 +20,7 @@
         >
             {#if user.role === "admin"}
                 <div
-                    class="flex items-center space-x-4 border p-2 px-4 animate-devcolors !mr-4 rounded-tl-lg rounded-br-lg"
+                    class="flex items-center space-x-4 border p-2 px-4 animate-devcolors !mr-4 rounded-sm"
                 >
                     <span class="font-bold animate-devcolors"
                         >&lt;ADMIN ACCOUNT&gt;</span

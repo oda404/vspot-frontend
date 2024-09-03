@@ -84,7 +84,7 @@
         <h1 class="text-4xl mb-4 pb-4">Facturando</h1>
         {#if data.invoices.length > 0}
             <a
-                class="px-4 p-2 h-fit bg-vspot-green text-vspot-primary-bg rounded-tl-lg rounded-br-lg"
+                class="px-4 p-2 h-fit bg-vspot-green text-vspot-primary-bg rounded-sm"
                 href="{PUBLIC_VSPOT_BACKEND_GLOBAL_URL}/v1/invoices/zipball?year={data.year}&month={data.month}"
             >
                 Descarcando {format_month(data.month)}/{data.year}

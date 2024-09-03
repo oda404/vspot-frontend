@@ -104,7 +104,7 @@
             {/if}
             <PasswordRequirements />
             <button
-                class="bg-vspot-green w-full flex !mt-4 justify-center items-center min-w-32 min-h-10 p-2 px-4 rounded-tl-lg rounded-br-lg text-vspot-primary-bg"
+                class="bg-vspot-green w-full flex !mt-4 justify-center items-center min-w-32 min-h-10 p-2 px-4 rounded-sm text-vspot-primary-bg"
                 disabled={submit_in_progress}
                 type="submit"
                 on:submit={() => {

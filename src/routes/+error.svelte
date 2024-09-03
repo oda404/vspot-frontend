@@ -62,7 +62,7 @@
         {/if}
         <a
             href="/"
-            class="block text-vspot-primary-bg px-4 p-2 rounded-tl-lg rounded-br-lg bg-vspot-green w-fit hover:text-vspot-secondary-bg"
+            class="block text-vspot-primary-bg px-4 p-2 rounded-sm bg-vspot-green w-fit hover:text-vspot-secondary-bg"
         >
             {$l("action.backtomainpage")}
         </a>

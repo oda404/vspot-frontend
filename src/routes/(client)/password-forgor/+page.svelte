@@ -69,7 +69,7 @@
     <form class="!mt-4 space-y-2 lg:w-[400px]">
         <InputField id="email" label="Email" data={email_ctx} />
         <button
-            class="bg-vspot-green w-full flex justify-center items-center min-w-32 min-h-10 p-2 px-4 rounded-tl-lg rounded-br-lg text-vspot-primary-bg"
+            class="bg-vspot-green w-full flex justify-center items-center min-w-32 min-h-10 p-2 px-4 rounded-sm text-vspot-primary-bg"
             disabled={submit_in_progress}
             type="submit"
             on:submit={() => {

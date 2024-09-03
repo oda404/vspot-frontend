@@ -49,7 +49,7 @@
                         {$l("action.continueshopping")}
                     </button>
                     <a
-                        class="px-4 bg-vspot-green rounded-tl-lg rounded-br-lg text-vspot-primary-bg p-1"
+                        class="px-4 bg-vspot-green rounded-sm text-vspot-primary-bg p-1"
                         href="/cart"
                     >
                         {$l("action.seecart")}

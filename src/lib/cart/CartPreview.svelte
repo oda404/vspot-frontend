@@ -70,7 +70,7 @@
                     })}
                 </span>
                 <a
-                    class="rounded-tl-lg rounded-br-lg bg-vspot-green text-vspot-secondary-bg px-4 p-1 text-left hover:text-vspot-primary-bg"
+                    class="rounded-sm bg-vspot-green text-vspot-secondary-bg px-4 p-1 text-left hover:text-vspot-primary-bg"
                     href="/cart"
                 >
                     {$l("description.cartcheckout")}

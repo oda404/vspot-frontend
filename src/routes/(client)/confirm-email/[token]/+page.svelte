@@ -28,7 +28,7 @@
     </span>
     <a
         href="/"
-        class="px-4 p-2 block w-fit !mt-4 rounded-tl-lg rounded-br-lg bg-vspot-green text-vspot-primary-bg"
+        class="px-4 p-2 block w-fit !mt-4 rounded-sm bg-vspot-green text-vspot-primary-bg"
     >
         {$l("action.backtomainpage")}
     </a>

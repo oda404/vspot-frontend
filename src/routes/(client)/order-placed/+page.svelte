@@ -34,6 +34,6 @@
 </span>
 <a
     href="/"
-    class="px-4 p-2 bg-vspot-green text-vspot-primary-bg rounded-tl-lg rounded-br-lg mt-2 block w-fit"
+    class="px-4 p-2 bg-vspot-green text-vspot-primary-bg rounded-sm mt-2 block w-fit"
     >Inapoi la pagina principala</a
 >

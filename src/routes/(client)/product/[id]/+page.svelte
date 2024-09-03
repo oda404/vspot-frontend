@@ -151,7 +151,7 @@
                             {price_format(data.product.price)} RON
                         </span>
                         <span
-                            class="px-2 p-[0.1rem] rounded-tl-lg rounded-br-lg bg-vspot-secondary-bg text-lg"
+                            class="px-4 p-[0.1rem] rounded-tl-lg rounded-br-lg bg-vspot-secondary-bg text-lg"
                         >
                             -{product_price_get_percdiff(
                                 price_full,

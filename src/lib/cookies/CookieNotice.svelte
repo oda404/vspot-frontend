@@ -25,7 +25,7 @@
         >
         <div class="flex justify-between mt-2 space-x-4">
             <button
-                class="bg-vspot-green text-vspot-primary-bg p-2 rounded-tl-lg rounded-br-lg w-full"
+                class="bg-vspot-green text-vspot-primary-bg p-2 rounded-sm w-full"
                 on:click={() => {
                     document.cookie = `cookie_consent=true; SameSite=strict; Domain=${PUBLIC_VSPOT_COOKIE_DOMAIN}; Max-Age=31536000`;
                     show = false;
