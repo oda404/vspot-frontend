@@ -12,6 +12,9 @@ export async function load({ fetch, url, params }) {
     if (res.status >= 500)
         error(res.status, { message: res.body.msg });
 
+    if (res.body.data?.products.length === 0)
+        error(404);
+
     const pages = res.body.data!.pages;
 
     let current_page = Number(url.searchParams.get("page"));
