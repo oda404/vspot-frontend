@@ -9,7 +9,7 @@
 </svelte:head>
 
 <section>
-    <h1 class="!text-5xl font-semibold flex items-center">
+    <h1 class="!text-4xl font-semibold flex items-center">
         {$l("page.privacy_policy")}
     </h1>
     <div class="space-y-8">

@@ -115,7 +115,7 @@
 </svelte:head>
 
 <div class="space-y-4">
-    <span class="text-5xl font-semibold">
+    <span class="text-4xl font-semibold">
         {$l("action.login")}
     </span>
     <div class="space-y-8 w-full lg:w-[45%]">

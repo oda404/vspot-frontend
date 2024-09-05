@@ -75,7 +75,7 @@
         <h1 class="text-2xl text-nowrap whitespace-nowrap">
             SKE Crystal 4-in-1
         </h1>
-        <div class="lg:flex lg:space-x-8 space-y-4 lg:space-y-0">
+        <div class="lg:flex space-x-0 lg:space-x-8 space-y-8 lg:space-y-0">
             <div class="h-fit relative">
                 <div
                     class="w-full h-full border-2 border-vspot-green absolute mt-2 ml-2 -z-10"
@@ -311,7 +311,7 @@
             </div>
         </a>
         <div
-            class="!mt-8 grid grid-cols-2 lg:grid-cols-4 lg:gap-0 gap-4 justify-between"
+            class="!mt-16 grid grid-cols-2 lg:grid-cols-4 lg:gap-0 gap-4 justify-between"
         >
             <div
                 class="flex mx-auto flex-col lg:flex-row items-center space-x-2"
@@ -346,7 +346,7 @@
                 >
             </div>
         </div>
-        <div class="!mt-8">
+        <div class="!mt-16">
             <ProductShowcase products={newest} />
         </div>
     </section>

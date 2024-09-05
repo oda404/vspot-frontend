@@ -53,7 +53,7 @@
 </svelte:head>
 
 <section>
-    <h1 class="text-5xl font-semibold">
+    <h1 class="text-4xl font-semibold">
         {$l("cart.title")}
     </h1>
     <div class="h-[4px] rounded-lg my-2 w-full" />

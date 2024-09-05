@@ -11,7 +11,7 @@
 
 <div>
     <div class="flex items-center space-x-8">
-        <span class="text-5xl font-semibold">
+        <span class="text-4xl font-semibold">
             {$l("page.forgot_password.success.header")}
         </span>
         <Fa primaryColor="#cccccc" size="6x" icon={faEnvelope} />

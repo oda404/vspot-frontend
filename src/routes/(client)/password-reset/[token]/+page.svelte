@@ -79,7 +79,7 @@
 
 {#if data.valid}
     <div class="space-y-0">
-        <span class="text-5xl font-semibold">
+        <span class="text-4xl font-semibold">
             {$l("page.reset_password")}
         </span>
         <span class="text-lg font-semibold block text-vspot-text-hovered">
@@ -145,7 +145,7 @@
     </div>
 {:else}
     <div class="space-y-0">
-        <span class="text-5xl font-semibold">
+        <span class="text-4xl font-semibold">
             {$l("page.reset_password.expired")} :(
         </span>
         <span class="text-lg font-semibold block text-vspot-text-hovered">

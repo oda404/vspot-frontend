@@ -10,7 +10,7 @@
 </svelte:head>
 
 <section>
-    <h1 class="!text-5xl font-semibold flex items-center">
+    <h1 class="!text-4xl font-semibold flex items-center">
         {$l("page.cookie_policy")}
         <Fa class="ml-4" size="sm" icon={faCookieBite} />
     </h1>

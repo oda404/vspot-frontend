@@ -37,7 +37,7 @@
 </svelte:head>
 
 <section>
-    <h1 class="text-5xl font-semibold">
+    <h1 class="text-4xl font-semibold">
         {$l("description.welcomeback", { name: user.firstname })}
     </h1>
     <div class="lg:flex lg:space-x-16 space-y-4 lg:space-y-0 mt-4">
