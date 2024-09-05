@@ -242,8 +242,8 @@
         </div>
         <a href="/" class="hover:filter-none flex flex-[1] justify-center">
             <img
-                src="/images/vspot_flat.webp"
-                class="w-[110px] h-[64.19px]"
+                src="/res-images/vspot_flat.webp"
+                class="w-[100px] h-[58.35px]"
                 alt="The V-Spot Logo"
             />
         </a>
