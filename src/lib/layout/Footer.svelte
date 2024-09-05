@@ -34,18 +34,23 @@
             >
             <a class="block" href="/return-policy">{$l("page.return_policy")}</a
             >
-            <a class="block w-[200px]" href="https://anpc.ro/ce-este-sal/">
+            <a
+                target="_blank"
+                class="block w-[200px]"
+                href="https://anpc.ro/ce-este-sal/"
+            >
                 <img
-                    src="/images/legalstuff/sal.webp"
+                    src="/res-images/sal.webp"
                     alt="Soluționarea Alternativă a Litigiilor"
                 />
             </a>
             <a
                 class="block w-[200px]"
+                target="_blank"
                 href="https://ec.europa.eu/consumers/odr/main/index.cfm?event=main.home2.show&lng=RO"
             >
                 <img
-                    src="/images/legalstuff/sol.webp"
+                    src="/res-images/sol.webp"
                     alt="Soluționarea Alternativă a Litigiilor"
                 />
             </a>

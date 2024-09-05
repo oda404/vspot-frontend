@@ -86,7 +86,7 @@
                     preload="none"
                     loop
                     muted
-                    poster="/images/ske/crystal_4_in_1_promo_thumb.webp"
+                    poster="/res-images/crystal_4_in_1_promo_thumb.webp"
                     class="lg:w-[600px] lg:h-[600px] w-full h-full rounded-sm !ml-0 z-10"
                 >
                     <source
@@ -98,12 +98,12 @@
             </div>
             <div class="space-y-4 !mx-auto">
                 <a
-                    class="block hover:filter-none"
+                    class="block hover:filter-none lg:-mt-14"
                     href="/disposable?subtype=crystal4in1"
                 >
                     <img
                         alt="SKE Crystal 4-in-1"
-                        src="/images/ske/crystal_4_in_1.webp"
+                        src="/res-images/crystal_4_in_1.webp"
                         class="lg:w-[360px] lg:h-[155.41px] w-full h-full"
                     />
                 </a>
@@ -166,7 +166,7 @@
             class="flex lg:flex-row flex-col items-center space-x-4 justify-center"
         >
             <img
-                src="/images/vspot_flat.webp"
+                src="/res-images/vspot_flat.webp"
                 alt="V-Spot logo"
                 class="w-[140px]"
             />
@@ -275,7 +275,7 @@
                     muted
                     preload="none"
                     class="w-[1100px] aspect-video rounded-sm z-10"
-                    poster="images/voopoo/argus_p2_showcase_thumb.webp"
+                    poster="/res-images/argus_p2_showcase_thumb.webp"
                 >
                     <track kind="captions" />
                     <source
@@ -306,7 +306,7 @@
                 <img
                     class="w-[1100px] aspect-video rounded-sm z-10"
                     alt="Vozol Switch Pro Promo"
-                    src="/images/vozol/vozol_switch_pro_promo.webp"
+                    src="/res-images/vozol_switch_pro_promo.webp"
                 />
             </div>
         </a>

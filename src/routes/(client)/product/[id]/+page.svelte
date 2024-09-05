@@ -131,7 +131,7 @@
             <div class="space-y-4">
                 <img
                     class="rounded-lg lg:min-w-[500px] lg:max-w-[500px]"
-                    src={data.product.image_url}
+                    src="/live-images/{data.product.image_url}.webp"
                     alt="{data.product.name} image"
                 />
                 <div class="flex space-x-2 items-center justify-center">

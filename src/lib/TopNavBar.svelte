@@ -258,7 +258,7 @@
         <div class="flex items-center space-x-8">
             <a href="/" class="hover:filter-none">
                 <img
-                    src="/images/vspot_flat.webp"
+                    src="/res-images/vspot_flat.webp"
                     class="w-[80] h-[46.68px]"
                     alt="The V-Spot Logo"
                 />
