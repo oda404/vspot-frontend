@@ -30,57 +30,44 @@
             name: $l("product.disposable"),
             categories: [
                 {
-                    name: "Produse",
+                    name: "Vozol Switch Pro",
+                    href: "/disposable?subtype=switchpro",
                     options: [
                         {
-                            name: "SKE Crystal 4-in-1",
-                            href: "/disposable?subtype=crystal4in1",
+                            name: "Dispozitive",
+                            href: "/disposable?subtype=switchpro&reusable=true",
                         },
                         {
-                            name: "Vozol Switch Pro",
-                            href: "/disposable?subtype=switchpro",
+                            name: "Pod-uri",
+                            href: "/disposable?subtype=switchpro&cartridge=true",
                         },
+                    ],
+                },
+                {
+                    name: "SKE Crystal 4-in-1",
+                    href: "/disposable?subtype=crystal4in1",
+                    options: [
+                        {
+                            name: "Dispozitive",
+                            href: "/disposable?subtype=crystal4in1&reusable=true",
+                        },
+                        {
+                            name: "Pod-uri",
+                            href: "/disposable?subtype=crystal4in1&cartridge=true",
+                        },
+                    ],
+                },
+                {
+                    name: "De unica folosinta",
+                    href: "/disposable/onetimeuse",
+                    options: [
                         {
                             name: "Vozol Neon 800",
                             href: "/disposable?subtype=neon800",
                         },
-                    ],
-                },
-                {
-                    name: "Tip",
-                    options: [
                         {
-                            name: "Vape cu poduri",
-                            href: "/disposable/reusable",
-                        },
-                        {
-                            name: "Poduri pentru vape",
-                            href: "/disposable/cartridge",
-                        },
-                        {
-                            name: "De unica folosinta",
-                            href: "/disposable/onetimeuse",
-                        },
-                        // {
-                        //     name: "Fara nicotina",
-                        //     href: "/disposable/nicotinefree",
-                        // },
-                    ],
-                },
-                {
-                    name: "Brand",
-                    options: [
-                        {
-                            name: "SKE",
-                            href: "/disposable?brand=ske",
-                        },
-                        {
-                            name: "Vozol",
-                            href: "/disposable?brand=vozol",
-                        },
-                        {
-                            name: "Elf Bar",
-                            href: "/disposable?brand=elfbar",
+                            name: "SKE Crystal Bar",
+                            href: "/disposable?subtype=crystalbar",
                         },
                     ],
                 },
@@ -168,19 +155,19 @@
                     options: [{ name: "Plicuri cu nicotina", href: "/pouch" }],
                 },
                 {
-                    name: "Brand",
-                    options: [
-                        { name: "CUBA", href: "/pouch?brand=cuba" },
-                        { name: "Iceberg", href: "/pouch?brand=iceberg" },
-                        { name: "FEDRS", href: "/pouch?brand=fedrs" },
-                    ],
-                },
-                {
                     name: "Intensitate",
                     options: [
                         { name: "Slabe", href: "/pouch/weak" },
                         { name: "Moderate", href: "/pouch/mid" },
                         { name: "Intense", href: "/pouch/strong" },
+                    ],
+                },
+                {
+                    name: "Brand",
+                    options: [
+                        { name: "CUBA", href: "/pouch?brand=cuba" },
+                        { name: "Iceberg", href: "/pouch?brand=iceberg" },
+                        { name: "FEDRS", href: "/pouch?brand=fedrs" },
                     ],
                 },
             ],
@@ -193,7 +180,7 @@
                     name: "Tip",
                     options: [
                         { name: "Kituri incepatori", href: "/kit/entry" },
-                        { name: "Rezistente/Cartuse", href: "/kit/coil" },
+                        { name: "Rezistente si Cartuse", href: "/kit/coil" },
                     ],
                 },
                 {
@@ -312,11 +299,18 @@
             }}
             role="contentinfo"
             class="absolute !m-0 bg-vspot-primary-bg left-0 w-full z-10 h-fit border-b
-            border-vspot-green flex space-x-24 justify-center py-12"
+            border-vspot-green flex space-x-44 justify-center py-12"
         >
             {#each active_options.categories as category}
-                <div>
-                    <span class="font-extrabold block">{category.name}</span>
+                <div class="space-y-2">
+                    {#if category.href}
+                        <a href={category.href} class="font-extrabold block"
+                            >{category.name}</a
+                        >
+                    {:else}
+                        <span class="font-extrabold block">{category.name}</span
+                        >
+                    {/if}
                     <div class="space-y-1">
                         {#each category.options as option}
                             <a class="block" href={option.href}>{option.name}</a
