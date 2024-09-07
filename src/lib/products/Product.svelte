@@ -18,11 +18,21 @@
 
 <div class="w-full relative rounded-lg flex flex-col bg-[#202020]">
     <a class="hover:filter-none" href="/product/{product.pretty_internal_id}">
-        <img
-            src="/live-images-mini/{product.image_url}.webp"
-            alt={product.name}
-            class="aspect-square"
-        />
+        <picture>
+            <source
+                media="(min-width: 1024px)"
+                srcset="/live-images-mini/{product.image_url}.webp"
+            />
+            <source
+                media="(max-width: 1024px)"
+                srcset="/live-images/{product.image_url}.webp"
+            />
+            <img
+                src="/live-images/{product.image_url}.webp"
+                alt={product.name}
+                class="aspect-square"
+            />
+        </picture>
     </a>
     {#if product.discount > 0}
         <div

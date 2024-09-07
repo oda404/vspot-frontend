@@ -51,11 +51,21 @@
                 : " w-[100px]"
             : "w-[80px]"}
     >
-        <img
-            src="/live-images-mini/{product.image_url}.webp"
-            alt={`${product.name} preview`}
-            class="object-contain drop-shadow rounded"
-        />
+        <picture>
+            <source
+                media="(min-width: 1024px)"
+                srcset="/live-images-mini/{product.image_url}.webp"
+            />
+            <source
+                media="(max-width: 1024px)"
+                srcset="/live-images/{product.image_url}.webp"
+            />
+            <img
+                src="/live-images/{product.image_url}.webp"
+                alt={product.name}
+                class="object-contain"
+            />
+        </picture>
     </a>
     <div class="flex flex-col text-start w-full">
         <a
