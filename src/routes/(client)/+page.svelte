@@ -309,7 +309,7 @@
             <div class="h-fit relative">
                 <div
                     use:shift_border_on_visible
-                    class="w-full h-full border border-[#097381] absolute -z-10 transition-[margin-left,margin-top] duration-300"
+                    class="w-full h-full border border-[#097381] absolute -z-10 transition-[margin-left,margin-top] duration-300 delay-500"
                 />
                 <video
                     use:play_on_visible
@@ -348,7 +348,7 @@
             <div class="h-fit relative">
                 <div
                     use:shift_border_on_visible
-                    class="w-full h-full border border-[#1d61a3] absolute -z-10 transition-[margin-left,margin-top] duration-300"
+                    class="w-full h-full border border-[#1d61a3] absolute -z-10 transition-[margin-left,margin-top] duration-300 delay-500"
                 />
                 <img
                     class="w-[1100px] aspect-video rounded-sm z-10"
