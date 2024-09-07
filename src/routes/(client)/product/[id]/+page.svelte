@@ -130,7 +130,7 @@
         <div class="flex flex-col lg:flex-row lg:space-x-12">
             <div class="space-y-4">
                 <img
-                    class="rounded-lg lg:min-w-[500px] lg:max-w-[500px]"
+                    class="rounded-lg lg:min-w-[550px] lg:max-w-[550px]"
                     src="/live-images/{data.product.image_url}.webp"
                     alt="{data.product.name} image"
                 />
@@ -279,22 +279,24 @@
                         {/each}
                     </section>
                 {/if}
-                {#if specs.length}
-                    <ProductSpecsTable
-                        localization_prefix="specval"
-                        title="Specificatii"
-                        {specs}
-                    />
-                {/if}
-                {#if package_contents}
-                    <ProductSpecsTable
-                        localization_prefix="package_content"
-                        title="Continut pachet"
-                        specs={get_package_contents_from_spec(
-                            package_contents.value,
-                        )}
-                    />
-                {/if}
+                <div class="space-y-8">
+                    {#if specs.length}
+                        <ProductSpecsTable
+                            localization_prefix="specval"
+                            title="Specificatii"
+                            {specs}
+                        />
+                    {/if}
+                    {#if package_contents}
+                        <ProductSpecsTable
+                            localization_prefix="package_content"
+                            title="Continut pachet"
+                            specs={get_package_contents_from_spec(
+                                package_contents.value,
+                            )}
+                        />
+                    {/if}
+                </div>
             </div>
         </div>
     </section>
