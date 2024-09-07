@@ -209,15 +209,17 @@ var translations = {
         "product.lostvape": "Lost Vape",
         "product.xros4": "Vaporesso XROS 4",
         "product.argus": "VooPoo Argus",
+        "product.juicy": "Juicy",
+        "product.pop": "POP",
 
         "product.disposable.description":
             "Tigari electronice reincarcabile cu pod-uri sau de unica folosinta",
         "product.pouch.description":
-            "Plicuri cu nicotina ce nu contin tutun",
+            "Plicuri cu nicotina",
         "product.smoking.description": "Foite, filtre, aparate pentru rulat & toate accesoriile necesare fumatorilor de tutun",
         "product.eliquid.description": "E-Lichide, baze, arome si nicotinizare pentru tigari electronice",
         "product.kit.description":
-            "Kit-uri de tigari electronice destinate incepatorilor dar si celor avansati",
+            "Kit-uri de tigari electronice destinate incepatorilor si celor avansati",
         "product.rollingpaper.description": "Foite pentru rulat tigari",
         "product.lighter.description":
             "Brichete pe gaz, benzina si torte narghilea",
@@ -271,6 +273,8 @@ var translations = {
         "product.xros4.description": "Seria Vaporesso XROS 4",
         "product.argus.description": "Seria VooPoo Argus",
         "product.cyclones.description": "Produsele Cyclones",
+        "product.juicy.description": "Juicy",
+        "product.pop.description": "POP",
 
         "product.recommended_for_you": "Recomandate pentru tine",
 
