@@ -52,7 +52,7 @@
             : "w-[80px]"}
     >
         <img
-            src="/live-images/{product.image_url}.webp"
+            src="/live-images-mini/{product.image_url}.webp"
             alt={`${product.name} preview`}
             class="object-contain drop-shadow rounded"
         />

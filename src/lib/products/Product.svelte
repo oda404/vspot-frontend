@@ -19,7 +19,7 @@
 <div class="w-full relative rounded-lg flex flex-col bg-[#202020]">
     <a class="hover:filter-none" href="/product/{product.pretty_internal_id}">
         <img
-            src="/live-images/{product.image_url}.webp"
+            src="/live-images-mini/{product.image_url}.webp"
             alt={product.name}
             class="aspect-square"
         />
