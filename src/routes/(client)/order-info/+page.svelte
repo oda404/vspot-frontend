@@ -316,7 +316,7 @@
                 </div>
             </div>
             <div>
-                <div class="flex space-x-4 justify-between">
+                <div class="flex space-x-4 justify-between items-center">
                     <button
                         class="py-4 w-full space-y-4 h-fit text-start flex flex-col items-center"
                         class:border-vspot-green={address_type === "house"}
@@ -337,6 +337,7 @@
                             <span> Casa </span>
                         </div>
                     </button>
+                    /
                     <button
                         class="py-4 w-full space-y-4 h-fit text-start flex flex-col items-center"
                         class:border-vspot-green={address_type === "building"}

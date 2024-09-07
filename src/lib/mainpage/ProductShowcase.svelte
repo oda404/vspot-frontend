@@ -16,7 +16,6 @@
                 <span class="text-2xl text-nowrap whitespace-nowrap">
                     {name}
                 </span>
-                <div class="h-[1px] w-full bg-vspot-secondary-bg" />
             </a>
             {#if href}
                 <a {href} class="text-nowrap whitespace-nowrap">

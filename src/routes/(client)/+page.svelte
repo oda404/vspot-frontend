@@ -34,9 +34,47 @@
 
                 const el = entry.target as Partial<HTMLVideoElement>;
                 if (typeof el.play !== "undefined") {
+                    (el as any).load();
                     el.play();
                     observer.disconnect();
                 }
+            });
+        });
+
+        observer.observe(e);
+
+        return {
+            destroy() {
+                observer.disconnect();
+            },
+        };
+    }
+
+    function fade_in_on_visible(e: HTMLElement) {
+        const observer = new IntersectionObserver((entries, {}) => {
+            entries.forEach((entry) => {
+                if (!entry.isIntersecting) return;
+
+                e.style.opacity = "1";
+            });
+        });
+
+        observer.observe(e);
+
+        return {
+            destroy() {
+                observer.disconnect();
+            },
+        };
+    }
+
+    function shift_border_on_visible(e: HTMLElement) {
+        const observer = new IntersectionObserver((entries, {}) => {
+            entries.forEach((entry) => {
+                if (!entry.isIntersecting) return;
+
+                e.style.marginLeft = "0.5rem";
+                e.style.marginTop = "0.5rem";
             });
         });
 
@@ -78,7 +116,8 @@
         <div class="lg:flex space-x-0 lg:space-x-8 space-y-8 lg:space-y-0">
             <div class="h-fit relative">
                 <div
-                    class="w-full h-full border-2 border-vspot-green absolute mt-2 ml-2 -z-10"
+                    use:shift_border_on_visible
+                    class="w-full h-full border border-vspot-green absolute -z-10 transition-[margin-left,margin-top] duration-300"
                 />
                 <video
                     use:play_on_visible
@@ -250,7 +289,10 @@
             </div>
         </div>
     </div>
-    <section class="space-y-4">
+    <section
+        class="space-y-4 opacity-0 transition-[opacity] duration-500"
+        use:fade_in_on_visible
+    >
         <div class="flex items-center justify-between">
             <h1 class="text-2xl text-nowrap whitespace-nowrap">
                 VooPoo Argus P2
@@ -266,7 +308,8 @@
         >
             <div class="h-fit relative">
                 <div
-                    class="w-full h-full border-2 border-[#097381] absolute mt-2 ml-2 -z-10"
+                    use:shift_border_on_visible
+                    class="w-full h-full border border-[#097381] absolute -z-10 transition-[margin-left,margin-top] duration-300"
                 />
                 <video
                     use:play_on_visible
@@ -288,7 +331,10 @@
         </a>
     </section>
 
-    <section class="space-y-4">
+    <section
+        class="space-y-4 opacity-0 transition-[opacity] duration-500"
+        use:fade_in_on_visible
+    >
         <div class="flex items-center justify-between">
             <h1 class="text-2xl text-nowrap whitespace-nowrap">
                 Vozol Switch PRO
@@ -301,7 +347,8 @@
         <a href="/disposable?subtype=switchpro" class="block hover:filter-none">
             <div class="h-fit relative">
                 <div
-                    class="w-full h-full border-2 border-[#1d61a3] absolute mt-2 ml-2 -z-10"
+                    use:shift_border_on_visible
+                    class="w-full h-full border border-[#1d61a3] absolute -z-10 transition-[margin-left,margin-top] duration-300"
                 />
                 <img
                     class="w-[1100px] aspect-video rounded-sm z-10"
