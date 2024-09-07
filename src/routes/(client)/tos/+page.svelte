@@ -1,9 +1,12 @@
 <script>
+    import { page } from "$app/stores";
     import { CONTACT_EMAIL, CONTACT_PHONE } from "$lib/contact/info";
     import { l } from "$lib/langs";
     import { pagetitle_make } from "$lib/title";
     import { faEnvelope, faPhone } from "@fortawesome/free-solid-svg-icons";
     import Fa from "svelte-fa";
+
+    $: is_shipping = $page.url.hash === "#shipping";
 </script>
 
 <svelte:head>
@@ -179,7 +182,13 @@
         </section>
 
         <section class="space-y-2">
-            <h1 id="shipping" class="font-bold text-lg">7. Livrare</h1>
+            <h1
+                id="shipping"
+                class="font-bold text-lg decoration-vspot-green"
+                class:underline={is_shipping}
+            >
+                7. Politica de livrare
+            </h1>
             <ul>
                 <li>
                     Livrarea comenzii se face in 1-2 zile de la confirmarea ei
