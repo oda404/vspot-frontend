@@ -33,6 +33,6 @@ for IMG in $IMGS; do
 
     if [[ $IMG_SIZE != 700x700 ]]; then
         echo Resizing $IMG
-        magick $IMG -resize 750x750 $IMG
+        magick $IMG -resize 700x700 $IMG
     fi
 done
