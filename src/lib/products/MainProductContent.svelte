@@ -50,7 +50,7 @@
         <h1 class="text-4xl block w-full">
             {$l(`product.${title}`)}
         </h1>
-        <h2 class="text-lg text-vspot-text-hovered block w-full !mt-2">
+        <h2 class="text-lg text-vspot-text-hovered block w-full !mt-0">
             {$l(`product.${title}.description`)}
         </h2>
         <div
