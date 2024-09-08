@@ -25,5 +25,5 @@ for BIG_IMG in $BIG_IMGS; do
 
     mkdir -p $DIRNAME
 
-    magick $BIG_IMG -resize 220x220 $MINI_IMG
+    magick $BIG_IMG -filter Catrom -resize 220x220 -strip -unsharp 0x0.5+0.5+0.05 $MINI_IMG
 done
