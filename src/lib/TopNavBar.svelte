@@ -230,7 +230,7 @@
         <a href="/" class="hover:filter-none flex flex-[1] justify-center">
             <img
                 src="/res-images/vspot_flat.webp"
-                class="w-[100px] h-[58.35px]"
+                class="w-[136px] h-[68px]"
                 alt="The V-Spot Logo"
             />
         </a>
@@ -246,7 +246,7 @@
             <a href="/" class="hover:filter-none">
                 <img
                     src="/res-images/vspot_flat.webp"
-                    class="w-[80] h-[46.68px]"
+                    class="w-[100px] h-[50px]"
                     alt="The V-Spot Logo"
                 />
             </a>

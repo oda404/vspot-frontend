@@ -201,13 +201,11 @@
         </div>
     </section>
     <div class="space-y-8">
-        <div
-            class="flex lg:flex-row flex-col items-center space-x-4 justify-center"
-        >
+        <div class="flex lg:flex-row flex-col items-center justify-center">
             <img
                 src="/res-images/vspot_flat.webp"
                 alt="V-Spot logo"
-                class="w-[140px]"
+                class="w-[192px] h-[96px]"
             />
             <h1
                 class="text-5xl lg:mt-10 mt-4 text-center font-extrabold lg:whitespace-nowrap"
