@@ -126,7 +126,7 @@
                     loop
                     muted
                     poster="/res-images/crystal_4_in_1_promo_thumb.webp"
-                    class="lg:w-[600px] lg:h-[600px] w-full h-full rounded-sm !ml-0 z-10"
+                    class="lg:w-[600px] lg:h-[600px] w-full aspect-square rounded-sm !ml-0 z-10"
                 >
                     <source
                         src="/videos/ske/crystal_4_in_1_promo3.mp4"
@@ -143,7 +143,7 @@
                     <img
                         alt="SKE Crystal 4-in-1"
                         src="/res-images/crystal_4_in_1.webp"
-                        class="lg:w-[360px] lg:h-[155.41px] w-full h-full"
+                        class="lg:w-[360px] lg:h-[144px] w-full aspect-[600/240]"
                     />
                 </a>
                 <div class="flex items-center space-x-4">

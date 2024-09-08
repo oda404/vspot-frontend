@@ -25,7 +25,7 @@
         </div>
     {/if}
     <div
-        class="grid grid-cols-2 gap-2 lg:flex lg:gap-0 lg:space-x-2
+        class="w-full grid grid-cols-2 gap-2 lg:flex lg:gap-0 lg:space-x-2
         lg:[&>*:nth-child(5)]:flex
         lg:[&>*:nth-child(4)]:flex
         lg:[&>*:nth-child(3)]:flex

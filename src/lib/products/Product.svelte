@@ -30,7 +30,7 @@
             <img
                 src="/live-images/{product.image_url}.webp"
                 alt={product.name}
-                class="aspect-square"
+                class="w-full aspect-square"
             />
         </picture>
     </a>

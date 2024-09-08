@@ -130,7 +130,7 @@
         <div class="flex flex-col lg:flex-row lg:space-x-12">
             <div class="space-y-4">
                 <img
-                    class="rounded-lg lg:min-w-[550px] lg:max-w-[550px]"
+                    class="rounded-lg lg:max-w-[550px] lg:max-h-[550px] w-full h-full"
                     src="/live-images/{data.product.image_url}.webp"
                     alt="{data.product.name} image"
                 />
