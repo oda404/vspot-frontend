@@ -5,7 +5,7 @@
     export let product_name: string;
     export let tags: string[];
 
-    let trails = product_trail_translate(tags[0], tags.slice(1));
+    $: trails = product_trail_translate(tags[0], tags.slice(1));
 </script>
 
 <div class="">

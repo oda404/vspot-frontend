@@ -24,8 +24,7 @@
 
     let recommended = data.recommended;
 
-    const tags =
-        data.product.tags.find((t) => t.name === "type")?.options || [];
+    $: tags = data.product.tags.find((t) => t.name === "type")?.options || [];
 
     const price_full = data.product.price;
     const price_actual = new Decimal(price_full)
