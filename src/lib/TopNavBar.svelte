@@ -261,7 +261,7 @@
     </div>
     <div
         class="z-20 hidden lg:flex items-center space-x-24 justify-center !mx-auto"
-        role="list"
+        role="navigation"
         on:mouseenter={() => {
             nav_hovered = true;
         }}

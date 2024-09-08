@@ -200,6 +200,7 @@
                         <div class="flex items-center">
                             <button
                                 class="h-[calc(50%)] p-1 px-4 rounded-none"
+                                aria-label="Minus un produs"
                                 disabled={qty <= 1}
                                 on:click={() => {
                                     --qty;
@@ -211,6 +212,7 @@
                                 />
                             </button>
                             <input
+                                aria-label="Cantitate produs"
                                 class="border text-center border-vspot-secondary-bg text-lg size-12 bg-vspot-primary-bg focus:outline-none"
                                 on:blur={() => {
                                     if (qty <= 0) qty = 1;
@@ -219,6 +221,7 @@
                             />
                             <button
                                 class="h-[calc(50%)] p-1 px-4 rounded-none"
+                                aria-label="Plus un produs"
                                 disabled={qty >= data.product.stock}
                                 on:click={() => {
                                     ++qty;

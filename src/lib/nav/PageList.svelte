@@ -28,6 +28,7 @@
 <div class="flex">
     <button
         disabled={left_disabled}
+        aria-label="Pagina anterioara"
         class="!mx-4"
         on:click={() => navigate_to_page(current_page - 1)}
     >
@@ -51,6 +52,7 @@
     </div>
     <button
         disabled={right_disabled}
+        aria-label="Pagina urmatoare"
         class="!mx-4"
         on:click={() => navigate_to_page(current_page + 1)}
     >

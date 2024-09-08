@@ -114,7 +114,11 @@
             SKE Crystal 4-in-1
         </h1>
         <div class="lg:flex space-x-0 lg:space-x-8 space-y-8 lg:space-y-0">
-            <div class="h-fit relative">
+            <a
+                href="/disposable?subtype=crystal4in1"
+                aria-label="Vezi vape-ul reincarcabil SKE Crystal 4-in-1 acum!"
+                class="h-fit relative hover:filter-none"
+            >
                 <div
                     use:shift_border_on_visible
                     class="w-full h-full border border-vspot-green absolute -z-10 transition-[margin-left,margin-top] duration-300"
@@ -134,7 +138,7 @@
                     />
                     Your browser does not support the video tag.
                 </video>
-            </div>
+            </a>
             <div class="space-y-4 !mx-auto">
                 <a
                     class="block hover:filter-none lg:-mt-14"
@@ -302,6 +306,7 @@
         </div>
         <a
             class="space-y-4 block hover:filter-none relative"
+            aria-label="Vezi toate kit-urile VooPoo Argus P2 acum!"
             href="/kit?subtype=argus_p2"
         >
             <div class="h-fit relative">
@@ -342,7 +347,11 @@
                 class="block text-center whitespace-nowrap">Vezi toate</a
             >
         </div>
-        <a href="/disposable?subtype=switchpro" class="block hover:filter-none">
+        <a
+            href="/disposable?subtype=switchpro"
+            class="block hover:filter-none"
+            aria-label="Vezi vape-ul reincarcabil Vozol Switch Pro acum!"
+        >
             <div class="h-fit relative">
                 <div
                     use:shift_border_on_visible
