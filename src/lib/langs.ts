@@ -802,6 +802,9 @@ var translations = {
         "package_content.cone": "Con",
         "package_content.cone_applicator": "Betisor aplicare",
 
+        "warranty.24hours": "24 de ore",
+        "warranty.24months": "24 de luni",
+
         "product.crystalbar.description": "Vape Crystal de unica folosinta cu 600 de fumuri",
         "product.star2000.description": "Aroma Vozol intr-un vape de unica folosinta fara nicontina cu 2000 de fumuri",
         "product.neon800.description": "Savoarea Vozol intr-un vape de unica folosinta cu 800 de fumuri",

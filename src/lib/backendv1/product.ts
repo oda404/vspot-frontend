@@ -51,6 +51,7 @@ export type V1ServerProductFullinfo = {
     /* These are handed by us */
     price: number;
     discount: number;
+    warranty: string;
     currency: string;
     stock: number;
 };

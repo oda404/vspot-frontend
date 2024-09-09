@@ -10,6 +10,7 @@
     import { shipping_estimation_get_date_from_now } from "$lib/shipping/estimation";
     import { pagetitle_make } from "$lib/title";
     import {
+        faCertificate,
         faMinus,
         faPlus,
         faShoppingCart,
@@ -262,10 +263,19 @@
                     </div>
                 {/if}
                 <div class="flex space-x-2 items-center !mt-4">
+                    <Fa icon={faCertificate} />
+                    {#if data.product.warranty === "none"}
+                        <span>Acest produs nu beneficiaza de garantie</span>
+                    {:else}
+                        <span
+                            >Acest produs beneficiaza de garantie
+                            {$l(`warranty.${data.product.warranty}`)}
+                        </span>
+                    {/if}
+                </div>
+                <div class="flex space-x-2 items-center !mt-4">
                     <span class="font-bold">18+</span>
-                    <span
-                        >Acest produs este interzis persoanelor sub 18 ani</span
-                    >
+                    <span>Interzis persoanelor sub 18 ani</span>
                 </div>
                 {#if usage}
                     <section
